@@ -138,7 +138,7 @@ export function Navbar() {
       <header className="pointer-events-none fixed left-0 right-0 top-3 z-50 flex justify-center px-4 sm:top-4 sm:px-6">
         <div
           className={cn(
-            "pointer-events-auto flex w-full max-w-[min(75rem,calc(100vw-2rem))] items-center gap-2 rounded-full border border-white/38 bg-[rgba(255,252,249,0.66)] px-3 py-1.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.82),0_1px_2px_rgba(255,255,255,0.18),0_2px_22px_-6px_rgba(0,0,0,0.065),0_1px_4px_rgba(0,0,0,0.035)] backdrop-blur-2xl backdrop-saturate-[118%] backdrop-brightness-[1.03] transition-[box-shadow,border-color,background-color,backdrop-filter] duration-300 sm:gap-2.5 sm:px-3.5 sm:py-1.5",
+            "pointer-events-auto flex w-full max-w-[min(75rem,calc(100vw-2rem))] items-center gap-2 rounded-full border border-white/34 bg-[rgba(255,252,249,0.62)] px-3 py-1.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.76),0_1px_2px_rgba(255,255,255,0.15),0_2px_20px_-6px_rgba(0,0,0,0.06),0_1px_3px_rgba(0,0,0,0.03)] backdrop-blur-2xl backdrop-saturate-[115%] backdrop-brightness-[1.02] transition-[box-shadow,border-color,background-color,backdrop-filter] duration-300 sm:gap-2.5 sm:px-3.5 sm:py-1.5",
             scrolled &&
               "border-white/44 bg-[rgba(255,252,249,0.76)] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.88),0_1px_2px_rgba(255,255,255,0.2),0_4px_30px_-8px_rgba(0,0,0,0.075),0_1px_5px_rgba(0,0,0,0.038)]",
           )}
