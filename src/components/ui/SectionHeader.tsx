@@ -4,6 +4,8 @@ type SectionHeaderProps = {
   eyebrow?: string;
   title: string;
   intro?: string;
+  /** Frase puente / insight breve (p. ej. secciones tipo diagnóstico) */
+  bridge?: string;
   align?: "left" | "center";
   className?: string;
 };
@@ -12,6 +14,7 @@ export function SectionHeader({
   eyebrow,
   title,
   intro,
+  bridge,
   align = "left",
   className,
 }: SectionHeaderProps) {
@@ -31,6 +34,16 @@ export function SectionHeader({
       </h2>
       {intro ? (
         <p className="mt-4 text-pretty text-base leading-relaxed text-text-muted sm:text-lg">{intro}</p>
+      ) : null}
+      {bridge ? (
+        <p
+          className={cn(
+            "mt-5 text-pretty text-sm font-medium leading-relaxed text-text-primary sm:text-base",
+            align === "center" ? "mx-auto max-w-2xl" : "max-w-2xl border-l-2 border-accent/45 pl-4",
+          )}
+        >
+          {bridge}
+        </p>
       ) : null}
     </div>
   );

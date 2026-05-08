@@ -1,53 +1,89 @@
 export const content = {
   hero: {
     chip: "Arquitectura · Integración · IA aplicada",
-    title: "Transforma tu operación con datos integrados, automatización e IA",
+    title: "Conecta información, procesos y decisiones para escalar con visibilidad y control",
     subtitle:
-      "Diseñamos sistemas que integran datos, automatización e inteligencia artificial para dar visibilidad operativa, facilitar decisiones y crear bases sólidas para escalar.",
+      "Diseñamos sistemas que integran información, automatización e inteligencia artificial aplicada para dar visibilidad, mejorar la coordinación y fortalecer la toma de decisiones.",
     ctaPrimary: "Agendar una conversación",
   },
   problems: {
-    title:
-      "Cuando la operación crece, Excel, WhatsApp y el seguimiento manual dejan de ser suficientes",
+    title: "Sin un sistema conectado, la gestión pierde visibilidad, coordinación y control",
     intro:
-      "Muchas empresas operan hoy con información dispersa, procesos manuales y poca visibilidad sobre lo que realmente está ocurriendo. Al principio eso parece manejable, pero cuando la operación crece, empiezan a aparecer retrasos, errores, dependencia excesiva de personas clave y dificultad para tomar decisiones a tiempo.",
-    cards: [
-      { title: "Datos dispersos", body: "Fuentes desconectadas y poca consolidación." },
-      { title: "Procesos manuales", body: "Tareas repetitivas que no escalan con el equipo." },
-      { title: "Reportes tardíos", body: "Indicadores que llegan cuando ya no sirven." },
-      { title: "Baja trazabilidad", body: "Difícil auditar qué pasó y por qué." },
-      { title: "Dependencia de personas", body: "Conocimiento en cabezas, no en sistema." },
-      { title: "Dificultad para escalar", body: "Más volumen, misma fricción operativa." },
+      "El problema no suele aparecer en un solo punto. Comienza con información dispersa, se refleja en la ejecución diaria y termina limitando la capacidad de coordinar, decidir y escalar con control.",
+    groups: [
+      {
+        title: "01. Visibilidad",
+        narrative: "Lectura tardía de lo que pasa, datos dispersos y poca trazabilidad para dirección y equipos.",
+        signals: [
+          { title: "Datos dispersos", body: "Fuentes desconectadas y poca consolidación para decidir con una lectura común." },
+          { title: "Reportes tardíos", body: "Indicadores que llegan cuando ya no alimentan la gestión ni la respuesta." },
+          { title: "Baja trazabilidad", body: "Difícil auditar qué ocurrió, cuándo y por qué—en operación y en la cadena de decisiones." },
+        ],
+      },
+      {
+        title: "02. Ejecución y coordinación",
+        narrative: "Seguimiento frágil, dependencia de personas y coordinación que no escala con la complejidad.",
+        signals: [
+          { title: "Procesos manuales", body: "Tareas repetitivas que concentran riesgo y no liberan tiempo para priorizar." },
+          { title: "Dependencia de personas", body: "Conocimiento y criterio en cabezas y chats, no gobernados en un sistema compartido." },
+          { title: "Retrabajos y coordinación frágil", body: "Desalineación entre áreas, idas y vueltas y coste oculto de alinear equipos." },
+        ],
+      },
+      {
+        title: "03. Escalabilidad y control",
+        narrative: "Al crecer volumen o complejidad, aparecen cuellos de botella y se debilita el control en la gestión.",
+        signals: [
+          { title: "Dificultad para escalar", body: "Más demanda o más equipos sin una estructura que absorba el crecimiento con claridad." },
+          { title: "Cuellos de botella", body: "Puntos únicos de fallo que frenan entregas, respuesta y capacidad de priorizar." },
+          { title: "Menor control en la gestión", body: "Menos visibilidad de riesgos, plazos y desempeño cuando la organización se amplía." },
+        ],
+      },
     ],
   },
   solutions: {
-    title: "Soluciones que integran sistema, automatización e inteligencia aplicada",
-    intro:
-      "No se trata solo de desarrollar software. Se trata de diseñar la arquitectura adecuada para que la operación funcione con más visibilidad, menos fricción manual y mayor capacidad de escalar.",
-    cards: [
+    title: "Soluciones para conectar información, ejecución y decisiones",
+    capabilities: [
       {
+        line: "integrate",
+        image: "/solutions/slide-integrate.svg",
+        imageAlt: "Visual abstracto: arquitectura conectada y nodos de datos.",
         title: "Arquitectura de sistemas",
-        body: "Estructura funcional y tecnológica para convertir la operación en sistema.",
+        body: "Estructura funcional y tecnológica para ordenar información, procesos y dependencias.",
       },
       {
+        line: "integrate",
+        image: "/solutions/slide-integrate.svg",
+        imageAlt: "Visual abstracto: flujos de integración entre herramientas.",
         title: "Automatización e integración",
-        body: "Conexión entre herramientas y consolidación de información.",
+        body: "Conexiones y flujos entre herramientas para consolidar información y reducir fricción manual.",
       },
       {
+        line: "coordinate",
+        image: "/solutions/slide-coordinate.svg",
+        imageAlt: "Visual abstracto: capas de proceso y coordinación.",
         title: "Plataformas SaaS y sistemas a medida",
-        body: "Soluciones web para monitorear, gestionar y escalar procesos específicos.",
+        body: "Soluciones web para monitorear, coordinar y sostener procesos críticos con trazabilidad.",
       },
       {
+        line: "coordinate",
+        image: "/solutions/slide-coordinate.svg",
+        imageAlt: "Visual abstracto: analítica y priorización operativa.",
         title: "Analítica avanzada y machine learning",
-        body: "Modelos predictivos para priorización y soporte a decisiones.",
+        body: "Modelos y analítica para priorizar, anticipar y apoyar la gestión con señales accionables.",
       },
       {
+        line: "amplify",
+        image: "/solutions/slide-intelligence.svg",
+        imageAlt: "Visual abstracto: visión por computador e inferencia.",
         title: "Detección y análisis de imágenes",
-        body: "Conteo, clasificación y validación visual a partir de imágenes.",
+        body: "Conteo, clasificación y validación visual para convertir imágenes en datos útiles y auditables.",
       },
       {
+        line: "amplify",
+        image: "/solutions/slide-intelligence.svg",
+        imageAlt: "Visual abstracto: agentes y redes de decisión asistida.",
         title: "Sistemas multiagente con IA",
-        body: "Agentes que colaboran para monitoreo, soporte y coordinación.",
+        body: "Agentes que colaboran en monitoreo, soporte y coordinación repetitiva, sin reemplazar el criterio humano.",
       },
     ],
   },
