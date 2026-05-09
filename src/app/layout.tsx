@@ -1,14 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import { site } from "@/config/site";
 import { LocaleProvider } from "@/context/LocaleProvider";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: `${site.brand} — ${site.descriptor}`,
@@ -22,8 +15,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={inter.variable}>
-      <body className="min-h-screen bg-bg-warm antialiased text-text-primary">
+    <html lang="es">
+      <body className="min-h-screen bg-bg-warm text-text-primary">
         <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>

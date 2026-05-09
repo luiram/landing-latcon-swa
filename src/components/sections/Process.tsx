@@ -13,7 +13,7 @@ export function Process() {
   return (
     <section
       id="process"
-      className="scroll-mt-36 border-t border-border-subtle bg-bg-page py-24 sm:py-28"
+      className="scroll-mt-36 border-t border-border-subtle bg-bg-warm py-24 sm:py-28"
     >
       <Container>
         <Reveal>

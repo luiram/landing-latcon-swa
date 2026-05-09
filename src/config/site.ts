@@ -7,7 +7,7 @@ export const site = {
   privacyUrl: "#privacidad",
   nav: [
     { label: "Soluciones", href: "#solutions" },
-    { label: "Sectores", href: "#verticals" },
+    { label: "Contextos", href: "#verticals" },
     { label: "Método", href: "#process" },
     { label: "Casos", href: "#use-cases" },
     { label: "Sobre mí", href: "#about" },

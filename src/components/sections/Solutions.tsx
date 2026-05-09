@@ -108,7 +108,7 @@ export function Solutions() {
   return (
     <section
       id="solutions"
-      className="scroll-mt-36 border-t border-border-subtle bg-bg-page pb-20 pt-20 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28"
+      className="scroll-mt-36 border-t border-border-subtle bg-bg-warm pb-20 pt-20 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28"
     >
       <Container>
         {/* Bloque 1: título */}
@@ -117,11 +117,15 @@ export function Solutions() {
             <h2 className="text-balance text-[1.75rem] font-semibold leading-[1.2] tracking-[-0.02em] text-text-primary sm:text-[2rem] sm:leading-[1.18]">
               {title}
             </h2>
+            <p className="mt-3 max-w-[34rem] text-pretty text-sm font-normal leading-[1.68] text-text-muted sm:mt-4 sm:text-[0.9375rem] sm:leading-[1.72]">
+              Combinamos arquitectura, automatización e inteligencia aplicada para construir capacidades que mejoran la
+              gestión desde la operación hasta la dirección.
+            </p>
           </header>
         </Reveal>
 
         {/* Bloque 2: pasarela (debajo) */}
-        <div className="mt-6 pt-4 sm:mt-8 sm:pt-6 lg:mt-10 lg:pt-8">
+        <div className="mt-4 pt-2 sm:mt-6 sm:pt-3 lg:mt-7 lg:pt-4">
           <Reveal delay={0.05} y={12}>
             <div className="relative">
                 <p className="sr-only">
@@ -130,11 +134,11 @@ export function Solutions() {
                 </p>
 
                 <div
-                  className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-bg-page to-transparent sm:w-10"
+                  className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-bg-warm to-transparent sm:w-10"
                   aria-hidden
                 />
                 <div
-                  className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-bg-page to-transparent sm:w-10"
+                  className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-bg-warm to-transparent sm:w-10"
                   aria-hidden
                 />
 
@@ -172,28 +176,36 @@ export function Solutions() {
                         data-cap-index={i}
                         className={cn(
                           "w-[min(78vw,280px)] shrink-0 overflow-hidden rounded-2xl border sm:w-[300px]",
-                          "transition-[transform,box-shadow,opacity] duration-300 motion-reduce:transition-none",
+                          /* Escala solo en el bloque visual: evita transform + opacidad sobre el texto (se ve borroso). */
+                          "transition-[transform,box-shadow] duration-500 ease-out motion-reduce:transition-none",
                           lineCard[line],
                           selected
-                            ? "z-[1] opacity-100 shadow-[0_22px_44px_-18px_rgba(0,0,0,0.14)] ring-1 ring-black/[0.06]"
-                            : "opacity-[0.94] hover:opacity-100",
+                            ? "z-[1] shadow-[0_22px_44px_-18px_rgba(0,0,0,0.14)] ring-1 ring-black/[0.06]"
+                            : "shadow-[0_1px_3px_rgba(89,90,93,0.06)] hover:shadow-[0_14px_44px_-22px_rgba(245,130,32,0.12)]",
                         )}
                       >
-                        <div className="relative aspect-[16/10] w-full sm:aspect-[5/3]">
-                          <Image
-                            src={cap.image}
-                            alt={cap.imageAlt}
-                            fill
-                            className="object-cover object-center"
-                            sizes="(max-width: 768px) 78vw, 300px"
-                            priority={i < 2}
-                          />
+                        <div className="relative aspect-[16/10] w-full overflow-hidden sm:aspect-[5/3]">
                           <div
-                            className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg-page/35 via-transparent to-transparent"
-                            aria-hidden
-                          />
+                            className={cn(
+                              "absolute inset-0 transition-transform duration-500 ease-out motion-reduce:transition-none",
+                              selected ? "scale-[1.04]" : "scale-100",
+                            )}
+                          >
+                            <Image
+                              src={cap.image}
+                              alt={cap.imageAlt}
+                              fill
+                              className="object-cover object-center"
+                              sizes="(max-width: 768px) 78vw, 300px"
+                              priority={i < 2}
+                            />
+                            <div
+                              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg-panel/30 via-transparent to-transparent"
+                              aria-hidden
+                            />
+                          </div>
                         </div>
-                        <div className="border-t border-border-subtle/35 px-5 py-5 sm:px-6 sm:py-6">
+                        <div className="relative z-10 border-t border-border-subtle/35 bg-bg-panel px-5 py-5 sm:px-6 sm:py-6">
                           <h3 className="text-balance text-[1.0625rem] font-semibold leading-snug tracking-[-0.015em] text-text-primary sm:text-lg">
                             {cap.title}
                           </h3>

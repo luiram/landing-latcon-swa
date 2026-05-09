@@ -45,63 +45,80 @@ export const content = {
     capabilities: [
       {
         line: "integrate",
-        image: "/solutions/slide-integrate.svg",
-        imageAlt: "Visual abstracto: arquitectura conectada y nodos de datos.",
+        image: "/solutions/arquitectura_sistemas.webp",
+        imageAlt: "Arquitectura de sistemas: estructura conectada de información y procesos.",
         title: "Arquitectura de sistemas",
         body: "Estructura funcional y tecnológica para ordenar información, procesos y dependencias.",
       },
       {
         line: "integrate",
-        image: "/solutions/slide-integrate.svg",
-        imageAlt: "Visual abstracto: flujos de integración entre herramientas.",
+        image: "/solutions/automatizacion_integracion.webp",
+        imageAlt: "Automatización e integración: flujos conectados entre herramientas y sistemas.",
         title: "Automatización e integración",
         body: "Conexiones y flujos entre herramientas para consolidar información y reducir fricción manual.",
       },
       {
         line: "coordinate",
-        image: "/solutions/slide-coordinate.svg",
-        imageAlt: "Visual abstracto: capas de proceso y coordinación.",
+        image: "/solutions/plataforma_saas_sistema.webp",
+        imageAlt: "Plataformas SaaS y sistemas a medida: monitoreo y coordinación de procesos.",
         title: "Plataformas SaaS y sistemas a medida",
         body: "Soluciones web para monitorear, coordinar y sostener procesos críticos con trazabilidad.",
       },
       {
         line: "coordinate",
-        image: "/solutions/slide-coordinate.svg",
-        imageAlt: "Visual abstracto: analítica y priorización operativa.",
+        image: "/solutions/analitica_avanzada_machine_learning.webp",
+        imageAlt: "Analítica avanzada y machine learning: modelos y señales para la gestión.",
         title: "Analítica avanzada y machine learning",
         body: "Modelos y analítica para priorizar, anticipar y apoyar la gestión con señales accionables.",
       },
       {
         line: "amplify",
-        image: "/solutions/slide-intelligence.svg",
-        imageAlt: "Visual abstracto: visión por computador e inferencia.",
+        image: "/solutions/deteccion_analisis_imagenes.webp",
+        imageAlt: "Detección y análisis de imágenes: visión por computador y datos auditables.",
         title: "Detección y análisis de imágenes",
         body: "Conteo, clasificación y validación visual para convertir imágenes en datos útiles y auditables.",
       },
       {
         line: "amplify",
-        image: "/solutions/slide-intelligence.svg",
-        imageAlt: "Visual abstracto: agentes y redes de decisión asistida.",
+        image: "/solutions/sistemas_multiagente.webp",
+        imageAlt: "Sistemas multiagente con IA: agentes colaborando en monitoreo y coordinación.",
         title: "Sistemas multiagente con IA",
         body: "Agentes que colaboran en monitoreo, soporte y coordinación repetitiva, sin reemplazar el criterio humano.",
       },
     ],
   },
   verticals: {
-    title: "Sectores donde este enfoque genera mayor valor",
-    cards: [
-      { title: "Agro y productividad rural", body: "Monitoreo y datos aplicados al territorio." },
+    title: "Actividades y contextos donde este enfoque genera más impacto",
+    intro:
+      "Aplica especialmente bien en contextos donde la coordinación, la trazabilidad y la capacidad de respuesta dependen de integrar mejor información, procesos y decisiones.",
+    blocks: [
       {
-        title: "Operación de campo y servicios distribuidos",
-        body: "Visibilidad y control cuando el equipo está en movimiento.",
+        title: "Agroindustria y gestión en campo",
+        body: "Integramos captura en campo, georreferenciación y análisis visual para transformar imágenes y datos territoriales en trazabilidad, visibilidad y decisiones más precisas sobre el territorio.",
+        image: "/verticals/agroindustria_gestion_campo.webp",
+        imageAlt:
+          "Agroindustria y gestión en campo: captura en campo, georreferenciación y análisis visual sobre el territorio.",
       },
       {
-        title: "Operaciones con alta carga manual de información",
-        body: "Menos captura manual, más consistencia y velocidad.",
+        title: "Operaciones de campo y servicios distribuidos",
+        body: "Diseñamos soluciones para coordinar ventas, mantenimientos, instalaciones y entregas en operaciones distribuidas, optimizando rutas, asignaciones y seguimiento mediante modelos matemáticos y agentes de IA que apoyan la ejecución donde más se necesitan.",
+        image: "/verticals/operaciones_campo_servicios_distribuidos.webp",
+        imageAlt:
+          "Operaciones distribuidas: coordinación de ventas, mantenimiento, instalaciones y entregas con optimización y apoyo de IA.",
       },
       {
-        title: "Empresas que necesitan evolucionar a plataforma",
-        body: "De herramientas sueltas a un producto que ordena la operación.",
+        title: "Entornos con alta carga manual de información",
+        body: "Reducimos la dependencia de registros manuales, formatos dispersos y tareas repetitivas mediante formularios digitales, flujos de captura estructurada, validaciones automáticas y tableros que organizan la información y hacen más ágil la ejecución.",
+        image: "/verticals/entornos_alta_carga_manual_informacion.webp",
+        imageAlt:
+          "Entornos con carga manual de información: formularios digitales, captura estructurada, validaciones y tableros operativos.",
+      },
+      {
+        title: "Transición de herramientas sueltas a plataforma",
+        body: "Acompañamos la transición desde herramientas dispersas, archivos sueltos y procesos desconectados hacia una plataforma más estructurada, conectada y escalable, capaz de centralizar la gestión y dar mayor visibilidad sobre la operación y las decisiones.",
+        image: "/verticals/transicion_herramientas_a_plataforma.webp",
+        imageAlt:
+          "Ilustración abstracta: paso de herramientas dispersas a una plataforma integrada y escalable.",
       },
     ],
   },

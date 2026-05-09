@@ -19,7 +19,7 @@ export function UseCases() {
   const { title, cards } = content.useCases;
 
   return (
-    <section id="use-cases" className="scroll-mt-36 bg-bg-warm py-24 sm:py-28">
+    <section id="use-cases" className="scroll-mt-36 bg-bg-page py-24 sm:py-28">
       <Container>
         <Reveal>
           <SectionHeader title={title} />

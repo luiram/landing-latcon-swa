@@ -13,14 +13,17 @@
 
   --color-accent: #f58220;
 
-  --color-text-primary: #595a5d;
-  --color-text-muted: #adadaf;
+  /* Un poco más oscuros para mejor legibilidad sobre fondos claros (AA en cuerpo pequeño). */
+  --color-text-primary: #4a4b50;
+  --color-text-muted: #65666c;
 
   --color-text-on-dark: #ffffff;
   --color-text-on-dark-muted: rgba(255, 255, 255, 0.88);
 
-  --color-border-subtle: rgba(89, 90, 93, 0.14);
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --color-border-subtle: rgba(74, 75, 80, 0.16);
+  /* Misma familia que apple.com: San Francisco vía sistema en Apple; Segoe UI en Windows. */
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    "Noto Sans", sans-serif;
 }
 
 html {
@@ -33,6 +36,8 @@ body {
   background-color: var(--color-bg-warm);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
+  /* Sin antialiased forzado (gris): el navegador elige el suavizado más adecuado por pantalla. */
+  -webkit-font-smoothing: auto;
 }
 
 ::selection {
