@@ -207,16 +207,6 @@ export const content = {
     closing:
       "Y cuando la solución ya funciona, la preparamos para crecer con más integración, analítica y automatización.",
   },
-  differentiators: {
-    title: "Lo que hace diferente este enfoque",
-    items: [
-      "Empezamos por el proceso, no por el software",
-      "Integramos datos, automatización e IA en una misma arquitectura",
-      "Combinamos operación, analítica y construcción tecnológica",
-      "Diseñamos soluciones adoptables y orientadas a valor real",
-      "Buscamos trazabilidad, control y escalabilidad",
-    ],
-  },
   about: {
     panel: {
       eyebrow: "NOSOTROS",
@@ -240,11 +230,5 @@ export const content = {
       "Multiagentes",
     ],
     ctaAgenda: "Agendar conversación",
-  },
-  finalCta: {
-    title:
-      "Si tu operación ya superó el punto donde Excel y el seguimiento manual alcanzan, es momento de rediseñar el sistema",
-    body: "Conversemos sobre cómo transformar tus procesos, integrar tus datos y construir una solución más automatizada, visible y escalable.",
-    cta: "Agendar una conversación",
   },
 } as const;

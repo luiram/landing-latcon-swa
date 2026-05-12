@@ -26,7 +26,7 @@ npm start
 ## Contenido y marca
 
 - Textos y listas: [`src/config/content.ts`](src/config/content.ts)
-- Marca, email, LinkedIn, agenda, privacidad: [`src/config/site.ts`](src/config/site.ts)
+- Marca, descriptor, agenda y privacidad: [`src/config/site.ts`](src/config/site.ts)
 
 ## Fases
 

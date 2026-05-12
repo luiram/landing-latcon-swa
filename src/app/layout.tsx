@@ -6,7 +6,7 @@ import { LocaleProvider } from "@/context/LocaleProvider";
 export const metadata: Metadata = {
   title: `${site.brand} — ${site.descriptor}`,
   description:
-    "Arquitectura tecnológica, automatización e IA aplicada para transformar operaciones complejas en sistemas más visibles, medibles y escalables.",
+    "Soluciones que integran operación, datos y tecnología. Automatización, analítica e IA aplicada con enfoque consultivo.",
 };
 
 export default function RootLayout({

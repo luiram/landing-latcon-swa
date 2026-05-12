@@ -1,8 +1,6 @@
 export const site = {
   brand: "Latcon",
-  descriptor: "Arquitectura tecnológica, automatización e IA aplicada",
-  email: "hola@latcon.example",
-  linkedinUrl: "https://www.linkedin.com/",
+  descriptor: "Soluciones que integran operación, datos y tecnología.",
   agendaUrl: "https://calendly.com/",
   privacyUrl: "#privacidad",
   nav: [
