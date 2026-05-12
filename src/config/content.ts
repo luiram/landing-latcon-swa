@@ -98,6 +98,20 @@ export const content = {
         image: "/verticals/agroindustria_gestion_campo.webp",
         imageAlt:
           "Agroindustria y gestión en campo: captura en campo, georreferenciación y análisis visual sobre el territorio.",
+        useCases: [
+          "Seguimiento de visitas técnicas y actividades en predio con evidencia fotográfica.",
+          "Trazabilidad de lotes, cosechas o insumos con lectura clara para dirección y campo.",
+          "Inspecciones y checklists en terreno sin depender de papel ni hojas sueltas.",
+          "Indicadores territoriales y reportes que se actualizan con lo que ocurre en campo.",
+        ],
+        components: [
+          "Aplicaciones móviles",
+          "Formularios digitales",
+          "Geolocalización",
+          "Visión computacional",
+          "Dashboards web",
+          "Integración en la nube",
+        ],
       },
       {
         title: "Operaciones de campo y servicios distribuidos",
@@ -105,6 +119,20 @@ export const content = {
         image: "/verticals/operaciones_campo_servicios_distribuidos.webp",
         imageAlt:
           "Operaciones distribuidas: coordinación de ventas, mantenimiento, instalaciones y entregas con optimización y apoyo de IA.",
+        useCases: [
+          "Asignación y seguimiento de órdenes de trabajo, rutas y cuadrillas en tiempo real.",
+          "Priorización de visitas o intervenciones según urgencia, distancia o capacidad.",
+          "Visibilidad del cumplimiento de entregas, mantenimientos o instalaciones por zona.",
+          "Menos idas y vueltas entre oficina y terreno gracias a una lectura operativa común.",
+        ],
+        components: [
+          "Aplicaciones móviles",
+          "Dashboards web",
+          "Modelos matemáticos",
+          "Agentes de IA",
+          "Geolocalización",
+          "Integración en la nube",
+        ],
       },
       {
         title: "Entornos con alta carga manual de información",
@@ -112,6 +140,20 @@ export const content = {
         image: "/verticals/entornos_alta_carga_manual_informacion.webp",
         imageAlt:
           "Entornos con carga manual de información: formularios digitales, captura estructurada, validaciones y tableros operativos.",
+        useCases: [
+          "Sustituir bitácoras y formatos dispersos por captura guiada y consistente.",
+          "Reducir retrabajo por datos incompletos o duplicados entre equipos.",
+          "Liberar tiempo de digitación y consolidación para priorizar la gestión.",
+          "Tableros de cumplimiento y estado sin depender de hojas de cálculo paralelas.",
+        ],
+        components: [
+          "Formularios digitales",
+          "Dashboards web",
+          "Validaciones y reglas de negocio",
+          "Integración en la nube",
+          "Agentes de IA",
+          "Flujos de aprobación y notificación",
+        ],
       },
       {
         title: "Transición de herramientas sueltas a plataforma",
@@ -119,42 +161,51 @@ export const content = {
         image: "/verticals/transicion_herramientas_a_plataforma.webp",
         imageAlt:
           "Ilustración abstracta: paso de herramientas dispersas a una plataforma integrada y escalable.",
+        useCases: [
+          "Unificar Excel, correos y carpetas en flujos conectados y auditables.",
+          "Dar una sola vista de avance entre áreas sin depender de reportes manuales.",
+          "Migración por etapas sin parar la operación ni perder trazabilidad.",
+          "Preparar el crecimiento con gobierno de datos y roles más claros.",
+        ],
+        components: [
+          "Dashboards web",
+          "Integración en la nube",
+          "Aplicaciones móviles",
+          "APIs y conectores entre sistemas",
+          "Modelos matemáticos",
+          "Agentes de IA",
+        ],
       },
     ],
   },
   process: {
-    title: "Cómo convertimos una operación compleja en una solución funcional",
+    title: "Cómo llevamos una necesidad real a una solución que funciona",
+    intro:
+      "No empezamos por tecnología. Empezamos por entender el contexto, diseñar bien la solución y construir solo lo que realmente aporta valor.",
     steps: [
-      { title: "Diagnóstico de operación", body: "Entender fricción, datos y decisiones reales." },
-      { title: "Diseño de arquitectura funcional", body: "Definir el sistema antes de construir." },
-      { title: "Desarrollo de solución inicial", body: "MVP con valor tangible y medible." },
-      { title: "Implementación y validación", body: "Uso real, ajustes y trazabilidad." },
-      { title: "Escalamiento", body: "Crecer con control, performance y gobernanza." },
+      {
+        title: "Entendemos el contexto",
+        body: "Conversamos contigo para entender cómo funciona hoy la operación, dónde están las fricciones y qué decisiones necesitan mejor soporte.",
+        result: "Claridad sobre el problema que realmente vale la pena resolver.",
+      },
+      {
+        title: "Diseñamos la solución",
+        body: "Traducimos esa necesidad en una propuesta concreta: estructura, flujo o prototipo, para que puedas visualizar la solución antes de desarrollar.",
+        result: "Una solución clara, validada y alineada con tu realidad.",
+      },
+      {
+        title: "Construimos por etapas",
+        body: "Desarrollamos la solución con entregas parciales y validaciones continuas, enfocándonos primero en lo que más valor aporta.",
+        result: "Avances visibles, aprendizaje rápido y mejor uso de la inversión.",
+      },
+      {
+        title: "Implementamos y ajustamos",
+        body: "Acompañamos la puesta en marcha y los ajustes necesarios para que la solución empiece a usarse bien y genere resultados desde el inicio.",
+        result: "Una solución funcionando en contexto real, con adopción y trazabilidad.",
+      },
     ],
-  },
-  useCases: {
-    title: "Ejemplos de aplicación",
-    cards: [
-      { title: "Monitoreo productivo en agro", body: "Indicadores y seguimiento en contexto rural." },
-      {
-        title: "Integración y automatización de procesos internos",
-        body: "Menos copy-paste, más flujo continuo entre sistemas.",
-      },
-      {
-        title: "Dashboards operativos y visibilidad de gestión",
-        body: "Paneles para ver lo que importa, a tiempo.",
-      },
-      {
-        title: "Machine learning para predicción y priorización",
-        body: "Anticipar cuellos de botella y focalizar recursos.",
-      },
-      {
-        title: "Detección de imágenes y visión computacional",
-        body: "Validación visual y conteo con modelos entrenados.",
-      },
-      { title: "Sistemas multiagente con IA", body: "Coordinación inteligente entre agentes." },
-      { title: "Plataformas SaaS especializadas", body: "Producto enfocado en un problema concreto." },
-    ],
+    closing:
+      "Y cuando la solución ya funciona, la preparamos para crecer con más integración, analítica y automatización.",
   },
   differentiators: {
     title: "Lo que hace diferente este enfoque",

@@ -1,13 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, Eye, TrendingUp, Waypoints } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { content } from "@/config/content";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
 import { cn } from "@/lib/cn";
-
-const stageIcons = [Eye, Waypoints, TrendingUp] as const;
 
 function parseNumberedTitle(title: string): { num: string; label: string } {
   const m = title.match(/^(\d+)\.\s+(.+)$/);
@@ -27,11 +25,11 @@ function SignalsList({
   return (
     <div>
       {heading ? (
-        <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.16em] text-blue-mid-2/85">
+        <p className="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-accent/80">
           {heading}
         </p>
       ) : null}
-      <ul className="space-y-3.5 border-t border-border-subtle/50 pt-3.5">
+      <ul className="space-y-3.5 border-t border-accent/22 pt-3.5">
         {signals.map((signal) => (
           <li key={signal.title} className="flex gap-2.5">
             <span className={cn("mt-2 size-1 shrink-0 rounded-full sm:size-1.5", dotClass)} aria-hidden />
@@ -78,7 +76,6 @@ export function Problems() {
           <Reveal delay={0.05} className="mt-8 lg:col-span-7 lg:mt-0 xl:col-span-8">
             <div className="flex flex-col gap-2.5 sm:gap-3 lg:gap-3">
               {groups.map((group, gi) => {
-                const Icon = stageIcons[gi] ?? Eye;
                 const isOpen = openIdx === gi;
                 const panelId = `problem-panel-${gi}`;
                 const triggerId = `problem-trigger-${gi}`;
@@ -91,8 +88,8 @@ export function Problems() {
                         "group",
                         cardSurface,
                         isOpen
-                          ? "border border-border-subtle/55 bg-bg-panel shadow-[0_14px_44px_-20px_rgba(0,0,0,0.14)] ring-1 ring-accent/[0.09] hover:border-accent/45 hover:shadow-[0_18px_48px_-20px_rgba(0,0,0,0.16)]"
-                          : "border border-border-subtle/40 bg-bg-panel shadow-[0_1px_3px_rgba(89,90,93,0.06)] hover:border-accent/42 hover:shadow-[0_14px_44px_-22px_rgba(245,130,32,0.12),0_0_0_1px_rgba(245,130,32,0.08)]",
+                          ? "border border-accent/30 bg-bg-panel shadow-[0_14px_44px_-20px_rgba(245,130,32,0.12)] hover:border-accent/48 hover:shadow-[0_18px_48px_-20px_rgba(245,130,32,0.16)]"
+                          : "border border-accent/30 bg-bg-panel shadow-[0_1px_3px_rgba(245,130,32,0.07)] hover:border-accent/48 hover:shadow-[0_2px_16px_-6px_rgba(245,130,32,0.14)]",
                       )}
                     >
                       <button
@@ -104,18 +101,9 @@ export function Problems() {
                         className={cn(
                           "flex w-full items-start gap-3 px-4 py-3.5 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-accent/30 sm:px-[1.125rem] sm:py-4 lg:px-5 lg:py-[1.125rem]",
                           isOpen &&
-                            "border-b border-border-subtle/45 bg-gradient-to-b from-accent/[0.05] to-transparent group-hover:border-accent/35",
+                            "border-b border-accent/22 bg-gradient-to-b from-accent/[0.05] to-transparent group-hover:border-accent/35",
                         )}
                       >
-                        <span
-                          className={cn(
-                            "inline-flex size-11 shrink-0 items-center justify-center rounded-2xl border border-accent/25 bg-gradient-to-br from-accent/12 to-transparent text-accent/80 transition-transform duration-300 motion-reduce:transition-none motion-reduce:hover:scale-100 hover:scale-[1.03]",
-                            isOpen && "border-accent/35 from-accent/16",
-                          )}
-                          aria-hidden
-                        >
-                          <Icon className="size-5" strokeWidth={1.75} aria-hidden />
-                        </span>
                         <span className="min-w-0 flex-1 pr-1">
                           <span
                             className={cn(
@@ -162,7 +150,7 @@ export function Problems() {
                         )}
                       >
                         <div className="min-h-0 overflow-hidden">
-                          <div className="border-t border-border-subtle/40 bg-bg-panel/80 px-4 pb-4 pt-4 transition-colors duration-300 group-hover:border-accent/30 sm:px-[1.125rem] lg:px-5">
+                          <div className="border-t border-accent/22 bg-bg-panel/80 px-4 pb-4 pt-4 transition-colors duration-300 group-hover:border-accent/35 sm:px-[1.125rem] lg:px-5">
                             <SignalsList
                               signals={group.signals}
                               dotClass="bg-gradient-to-br from-accent to-blue-mid-2"

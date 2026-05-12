@@ -2,6 +2,7 @@ import Image from "next/image";
 import { content } from "@/config/content";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
+import { VerticalBlockExpandables } from "@/components/sections/VerticalBlockExpandables";
 import { cn } from "@/lib/cn";
 
 export function Verticals() {
@@ -42,6 +43,11 @@ export function Verticals() {
                       <p className="mt-4 text-pretty text-sm font-normal leading-[1.72] text-text-muted sm:mt-5 sm:text-[0.9375rem] sm:leading-[1.75] lg:text-[1rem]">
                         {block.body}
                       </p>
+                      <VerticalBlockExpandables
+                        blockId={`vertical-${i}`}
+                        useCases={block.useCases}
+                        components={block.components}
+                      />
                     </div>
                   </Reveal>
 
