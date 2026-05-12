@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import { content } from "@/config/content";
 import { Container } from "@/components/ui/Container";
@@ -7,6 +10,8 @@ import { cn } from "@/lib/cn";
 
 export function Verticals() {
   const { title, intro, blocks } = content.verticals;
+  /** Solo un acordeón abierto a la vez en toda la sección Contextos. */
+  const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
 
   return (
     <section id="verticals" className="scroll-mt-36 bg-bg-page pb-20 pt-20 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28">
@@ -27,7 +32,6 @@ export function Verticals() {
             const imageOnLeftDesktop = i % 2 === 1;
             return (
               <article key={block.title} className={cn(i > 0 && "mt-10 sm:mt-12 lg:mt-14")}>
-                {/* Dos columnas imaginarias iguales en lg+; móvil: texto → imagen */}
                 <div className="grid grid-cols-1 items-start gap-10 sm:gap-11 lg:grid-cols-2 lg:items-center lg:gap-x-10 xl:gap-x-12">
                   <Reveal
                     className={cn(
@@ -45,6 +49,9 @@ export function Verticals() {
                       </p>
                       <VerticalBlockExpandables
                         blockId={`vertical-${i}`}
+                        blockIndex={i}
+                        activeKey={activeAccordion}
+                        onActiveChange={setActiveAccordion}
                         useCases={block.useCases}
                         components={block.components}
                       />

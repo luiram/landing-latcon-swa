@@ -1,6 +1,6 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId } from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/cn";
 
@@ -8,6 +8,10 @@ type VerticalBlockExpandablesProps = {
   useCases: readonly string[];
   components: readonly string[];
   blockId: string;
+  blockIndex: number;
+  /** Clave del acordeón abierto en toda la sección, p. ej. "0-casos" o null. */
+  activeKey: string | null;
+  onActiveChange: (key: string | null) => void;
 };
 
 function ExpandableRow({
@@ -77,11 +81,18 @@ function ExpandableRow({
   );
 }
 
-export function VerticalBlockExpandables({ useCases, components, blockId }: VerticalBlockExpandablesProps) {
+export function VerticalBlockExpandables({
+  useCases,
+  components,
+  blockId,
+  blockIndex,
+  activeKey,
+  onActiveChange,
+}: VerticalBlockExpandablesProps) {
   const uid = useId().replace(/:/g, "");
   const base = `${blockId}-${uid}`;
-  const [casosOpen, setCasosOpen] = useState(false);
-  const [componentesOpen, setComponentesOpen] = useState(false);
+  const casosKey = `${blockIndex}-casos`;
+  const compKey = `${blockIndex}-componentes`;
 
   return (
     <div className="mt-6 w-full min-w-0 space-y-2.5 sm:mt-7 sm:space-y-3">
@@ -89,15 +100,15 @@ export function VerticalBlockExpandables({ useCases, components, blockId }: Vert
         id={`${base}-casos`}
         label="Casos de uso"
         items={useCases}
-        open={casosOpen}
-        onToggle={() => setCasosOpen((v) => !v)}
+        open={activeKey === casosKey}
+        onToggle={() => onActiveChange(activeKey === casosKey ? null : casosKey)}
       />
       <ExpandableRow
         id={`${base}-componentes`}
         label="Componentes"
         items={components}
-        open={componentesOpen}
-        onToggle={() => setComponentesOpen((v) => !v)}
+        open={activeKey === compKey}
+        onToggle={() => onActiveChange(activeKey === compKey ? null : compKey)}
       />
     </div>
   );

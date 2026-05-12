@@ -9,6 +9,6 @@ export const site = {
     { label: "Soluciones", href: "#solutions" },
     { label: "Contextos", href: "#verticals" },
     { label: "Método", href: "#process" },
-    { label: "Sobre mí", href: "#about" },
+    { label: "Nosotros", href: "#nosotros" },
   ],
 } as const;

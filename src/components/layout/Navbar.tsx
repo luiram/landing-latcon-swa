@@ -57,7 +57,7 @@ export function Navbar() {
     /**
      * Activo = sección del menú con mayor altura visible en el viewport por debajo de
      * scroll-padding-top. Así, si hay un bloque intermedio (#differentiators) y la línea de
-     * lectura cae en un “hueco” entre #process y #about, no se vuelve a Método por el fallback
+     * lectura cae en un “hueco” entre #process y #nosotros, no se vuelve a Método por el fallback
      * antiguo (última con top <= Y).
      */
     const measureActive = () => {
