@@ -40,12 +40,19 @@ function scrollLeftToCenterCard(root: HTMLElement, card: HTMLElement) {
   return Math.max(0, Math.min(target, maxScroll));
 }
 
+/** Índice inicial: tarjeta centrada al cargar (Analítica avanzada y machine learning). */
+const solutionsInitialActiveIndex = content.solutions.capabilities.findIndex(
+  (c) => c.title === "Analítica avanzada y machine learning",
+);
+const SOLUTIONS_INITIAL_ACTIVE =
+  solutionsInitialActiveIndex >= 0 ? solutionsInitialActiveIndex : 0;
+
 export function Solutions() {
   const { title, capabilities } = content.solutions;
   const count = capabilities.length;
   const scrollerRef = useRef<HTMLDivElement>(null);
-  const activeRef = useRef(0);
-  const [active, setActive] = useState(0);
+  const activeRef = useRef(SOLUTIONS_INITIAL_ACTIVE);
+  const [active, setActive] = useState(SOLUTIONS_INITIAL_ACTIVE);
   const [sidePad, setSidePad] = useState(0);
 
   activeRef.current = active;
@@ -108,7 +115,7 @@ export function Solutions() {
   return (
     <section
       id="solutions"
-      className="scroll-mt-36 border-t border-border-subtle bg-bg-warm pb-20 pt-20 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28"
+      className="scroll-mt-36 border-t border-border-subtle bg-bg-page pb-20 pt-20 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28"
     >
       <Container>
         {/* Bloque 1: título */}
@@ -134,11 +141,11 @@ export function Solutions() {
                 </p>
 
                 <div
-                  className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-bg-warm to-transparent sm:w-10"
+                  className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-bg-page to-transparent sm:w-10"
                   aria-hidden
                 />
                 <div
-                  className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-bg-warm to-transparent sm:w-10"
+                  className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-bg-page to-transparent sm:w-10"
                   aria-hidden
                 />
 
@@ -197,7 +204,7 @@ export function Solutions() {
                               fill
                               className="object-cover object-center"
                               sizes="(max-width: 768px) 78vw, 300px"
-                              priority={i < 2}
+                              priority={i === SOLUTIONS_INITIAL_ACTIVE || i < 2}
                             />
                             <div
                               className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg-panel/30 via-transparent to-transparent"

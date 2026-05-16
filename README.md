@@ -26,7 +26,10 @@ npm start
 ## Contenido y marca
 
 - Textos y listas: [`src/config/content.ts`](src/config/content.ts)
-- Marca, descriptor, agenda y privacidad: [`src/config/site.ts`](src/config/site.ts)
+- Marca, descriptor, ruta de agenda y privacidad: [`src/config/site.ts`](src/config/site.ts)
+- Flujo **Agendar conversación**: [`/agenda`](src/app/agenda/page.tsx), [`src/features/booking/`](src/features/booking/)
+- API de reservas (Azure Functions): [`api/`](api/) — ver [`docs/azure-swa.md`](docs/azure-swa.md)
+- SQL inicial: [`db/migrations/001_init.sql`](db/migrations/001_init.sql)
 
 ## Fases
 

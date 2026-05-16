@@ -5,8 +5,11 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:api": "npm run build --prefix api",
+    "build:all": "npm run build && npm run build:api",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "preview:out": "npx --yes serve@14 out -p 3000"
   },
   "dependencies": {
     "clsx": "^2.1.1",

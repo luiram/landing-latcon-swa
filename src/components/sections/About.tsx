@@ -9,7 +9,7 @@ export function About() {
   const { panel, title, paragraphs, tags, ctaAgenda } = content.about;
 
   return (
-    <section id="nosotros" className="scroll-mt-36 border-t border-border-subtle bg-bg-page py-24 sm:py-28">
+    <section id="nosotros" className="scroll-mt-36 border-t border-border-subtle bg-bg-warm py-24 sm:py-28">
       <Container>
         <div className="grid gap-14 lg:grid-cols-12 lg:items-start">
           <Reveal className="lg:col-span-5" y={20}>
@@ -40,7 +40,7 @@ export function About() {
               ))}
             </div>
             <div className="mt-9">
-              <Button href={site.agendaUrl} external variant="primary">
+              <Button href={site.bookingPath} variant="primary">
                 {ctaAgenda}
               </Button>
             </div>

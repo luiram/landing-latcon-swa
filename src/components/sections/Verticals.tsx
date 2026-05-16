@@ -14,7 +14,10 @@ export function Verticals() {
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
 
   return (
-    <section id="verticals" className="scroll-mt-36 bg-bg-page pb-20 pt-20 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28">
+    <section
+      id="verticals"
+      className="scroll-mt-36 border-t border-border-subtle bg-bg-warm pb-20 pt-20 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28"
+    >
       <Container>
         <Reveal>
           <header className="max-w-[42rem]">
@@ -69,7 +72,7 @@ export function Verticals() {
                     <figure className="group w-full max-w-[min(92vw,364px)] sm:max-w-[392px] lg:max-w-[min(100%,428px)]">
                       <div
                         className={cn(
-                          "relative aspect-[16/10] w-full overflow-hidden rounded-[1.625rem] border border-border-subtle/50 bg-bg-elevated",
+                          "relative aspect-[16/10] w-full overflow-hidden rounded-[1.625rem] border border-border-subtle/50 bg-bg-page",
                           "shadow-[0_18px_50px_-26px_rgba(75,104,140,0.2)]",
                           "transition-[box-shadow,transform] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none",
                           "sm:aspect-[5/3] sm:rounded-[2rem]",

@@ -58,7 +58,7 @@ export function Problems() {
   return (
     <section
       id="problems"
-      className="scroll-mt-36 bg-bg-page pt-20 pb-16 sm:pt-24 sm:pb-20 lg:pt-28 lg:pb-24"
+      className="scroll-mt-36 bg-bg-warm pt-20 pb-16 sm:pt-24 sm:pb-20 lg:pt-28 lg:pb-24"
     >
       <Container>
         <div className="lg:grid lg:grid-cols-12 lg:items-start lg:gap-x-8 xl:gap-x-11">

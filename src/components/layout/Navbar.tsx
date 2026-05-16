@@ -169,8 +169,7 @@ export function Navbar() {
           <div className="ml-auto flex shrink-0 items-center gap-4 sm:gap-5">
             <LanguageSelector className="flex items-center" />
             <Button
-              href={site.agendaUrl}
-              external
+              href={site.bookingPath}
               variant="primary"
               className="hidden h-9 shrink-0 items-center px-4 py-0 text-sm leading-none sm:inline-flex"
             >
@@ -216,8 +215,7 @@ export function Navbar() {
             </nav>
             <div className="mt-4 border-t border-border-subtle pt-4 sm:hidden">
               <Button
-                href={site.agendaUrl}
-                external
+                href={site.bookingPath}
                 variant="primary"
                 className="w-full justify-center"
                 onClick={() => setOpen(false)}

@@ -1,7 +1,8 @@
 export const site = {
   brand: "Latcon",
   descriptor: "Soluciones que integran operación, datos y tecnología.",
-  agendaUrl: "https://calendly.com/",
+  /** Ruta interna del flujo de agendamiento (Fase 1). */
+  bookingPath: "/agenda",
   privacyUrl: "#privacidad",
   nav: [
     { label: "Soluciones", href: "#solutions" },

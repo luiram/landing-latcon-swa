@@ -1,0 +1,12 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "SQL_CONNECTION_STRING": "Server=tcp:YOUR_SERVER.database.windows.net,1433;Database=YOUR_DB;User ID=...;Password=...;Encrypt=True;",
+    "ACS_CONNECTION_STRING": "endpoint=https://YOUR_RESOURCE.communication.azure.com/;accesskey=...",
+    "ACS_EMAIL_FROM": "agenda@latcon.co",
+    "CONTACT_NOTIFICATION_TO": "contacto@latcon.co",
+    "ALLOWED_ORIGINS": "http://localhost:3000"
+  }
+}

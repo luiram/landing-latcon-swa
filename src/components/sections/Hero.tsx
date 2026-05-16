@@ -59,7 +59,7 @@ export function Hero() {
                 {subtitle}
               </p>
               <div className="mt-[3.35rem] sm:mt-[3.85rem]">
-                <Button href={site.agendaUrl} external variant="primary">
+                <Button href={site.bookingPath} variant="primary">
                   {ctaPrimary}
                 </Button>
               </div>

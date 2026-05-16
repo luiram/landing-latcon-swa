@@ -36,3 +36,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# Azure Functions (secrets; use local.settings.json.example)
+/api/local.settings.json

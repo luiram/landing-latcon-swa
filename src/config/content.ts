@@ -4,7 +4,7 @@ export const content = {
     title: "Conecta información, procesos y decisiones para escalar con visibilidad y control",
     subtitle:
       "Diseñamos sistemas que integran información, automatización e inteligencia artificial aplicada para dar visibilidad, mejorar la coordinación y fortalecer la toma de decisiones.",
-    ctaPrimary: "Agendar una conversación",
+    ctaPrimary: "Agendar conversación",
   },
   problems: {
     title: "Sin un sistema conectado, la gestión pierde visibilidad, coordinación y control",
