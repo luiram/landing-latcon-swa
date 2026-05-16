@@ -40,8 +40,9 @@ jobs:
       - name: Install dependencies
         run: npm ci --no-audit
 
-      - name: Rebuild native modules (Tailwind / lightningcss en Linux)
-        run: npm rebuild lightningcss --verbose
+      - name: Verify CSS native bindings (Linux)
+        run: |
+          node -e "require('lightningcss'); console.log('lightningcss OK')"
 
       - name: Build static export (out/)
         id: build
@@ -50,9 +51,14 @@ jobs:
           NODE_OPTIONS: --max-old-space-size=4096
           CI: true
         run: |
-          set -o pipefail
+          set -euxo pipefail
           export NEXT_PUBLIC_FUNCTIONS_BASE_URL=$(printf '%s' "$NEXT_PUBLIC_FUNCTIONS_BASE_URL" | tr -d '"' | tr -d '[:space:]')
-          npm run build 2>&1 | tee build-log.txt
+          npm run build > build-log.txt 2>&1 || {
+            echo "::group::Build log"
+            cat build-log.txt
+            echo "::endgroup::"
+            exit 1
+          }
 
       - name: Upload build log on failure
         if: failure() && steps.build.outcome == 'failure'
