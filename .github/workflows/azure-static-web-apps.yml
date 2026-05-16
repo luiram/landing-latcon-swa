@@ -24,7 +24,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-          # Sin cache de npm: evita node_modules corruptos entre runs/OS
 
       - name: Check API URL secret
         env:
@@ -34,17 +33,34 @@ jobs:
             echo "::error::Falta el secret NEXT_PUBLIC_FUNCTIONS_BASE_URL en GitHub (Settings → Secrets)."
             exit 1
           fi
-          echo "NEXT_PUBLIC_FUNCTIONS_BASE_URL está definido."
+          # Valor sin comillas ni espacios (error frecuente al pegar en GitHub)
+          CLEAN=$(printf '%s' "$NEXT_PUBLIC_FUNCTIONS_BASE_URL" | tr -d '"' | tr -d '[:space:]')
+          echo "NEXT_PUBLIC_FUNCTIONS_BASE_URL length=${#CLEAN}"
 
       - name: Install dependencies
         run: npm ci --no-audit
 
+      - name: Rebuild native modules (Tailwind / lightningcss en Linux)
+        run: npm rebuild lightningcss --verbose
+
       - name: Build static export (out/)
+        id: build
         env:
           NEXT_PUBLIC_FUNCTIONS_BASE_URL: ${{ secrets.NEXT_PUBLIC_FUNCTIONS_BASE_URL }}
           NODE_OPTIONS: --max-old-space-size=4096
           CI: true
-        run: npm run build
+        run: |
+          set -o pipefail
+          export NEXT_PUBLIC_FUNCTIONS_BASE_URL=$(printf '%s' "$NEXT_PUBLIC_FUNCTIONS_BASE_URL" | tr -d '"' | tr -d '[:space:]')
+          npm run build 2>&1 | tee build-log.txt
+
+      - name: Upload build log on failure
+        if: failure() && steps.build.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build-log.txt
+          retention-days: 3
 
       - name: Verify out/
         run: |
