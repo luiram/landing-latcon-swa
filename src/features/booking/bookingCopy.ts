@@ -36,6 +36,8 @@ export type BookingCopy = {
   errorSlotTaken: string;
   errorGeneric: string;
   errorApiNotConfigured: string;
+  /** Navegador bloqueó la petición (CORS, red, API caída). */
+  errorFetchFailed: string;
   homeLink: string;
 };
 
@@ -78,6 +80,8 @@ const copy: Record<LocaleCode, BookingCopy> = {
     errorSlotTaken: "Ese horario acaba de ser tomado. Elige otro.",
     errorGeneric: "No pudimos completar la acción. Intenta de nuevo.",
     errorApiNotConfigured: "El servicio de agenda no está configurado (falta URL de API).",
+    errorFetchFailed:
+      "No se pudo conectar con el servidor de horarios. Suele deberse a CORS en Azure: en el Function App añade https://latconservices.com en API → CORS y en ALLOWED_ORIGINS, guarda y reinicia.",
     homeLink: "Volver al inicio",
   },
   en: {
@@ -117,6 +121,8 @@ const copy: Record<LocaleCode, BookingCopy> = {
     errorSlotTaken: "That time was just taken. Please pick another.",
     errorGeneric: "We could not complete the action. Please try again.",
     errorApiNotConfigured: "The booking API URL is not configured.",
+    errorFetchFailed:
+      "Could not reach the scheduling server. Often a CORS issue: add https://latconservices.com to the Function App (API → CORS and ALLOWED_ORIGINS), then restart.",
     homeLink: "Back to home",
   },
   pt: {
@@ -156,6 +162,8 @@ const copy: Record<LocaleCode, BookingCopy> = {
     errorSlotTaken: "Esse horário acabou de ser reservado. Escolha outro.",
     errorGeneric: "Não foi possível concluir. Tente novamente.",
     errorApiNotConfigured: "A URL da API de agendamento não está configurada.",
+    errorFetchFailed:
+      "Não foi possível contactar o servidor de horários. Verifique CORS no Function App (https://latconservices.com).",
     homeLink: "Voltar ao início",
   },
   fr: {
@@ -196,9 +204,20 @@ const copy: Record<LocaleCode, BookingCopy> = {
     errorSlotTaken: "Ce créneau vient d’être pris. Choisissez-en un autre.",
     errorGeneric: "L’action n’a pas pu aboutir. Réessayez.",
     errorApiNotConfigured: "L’URL de l’API de réservation n’est pas configurée.",
+    errorFetchFailed:
+      "Impossible de joindre le serveur des créneaux. Vérifiez CORS sur le Function App (https://latconservices.com).",
     homeLink: "Retour à l’accueil",
   },
 };
+
+/** Mensaje legible para errores al cargar /api/slots. */
+export function formatSlotsLoadError(message: string, t: BookingCopy): string {
+  if (message.includes("NEXT_PUBLIC")) return `${message} — ${t.errorApiNotConfigured}`;
+  if (message === "Failed to fetch" || message.includes("NetworkError") || message.includes("Load failed")) {
+    return t.errorFetchFailed;
+  }
+  return message;
+}
 
 export function getBookingCopy(locale: LocaleCode): BookingCopy {
   return copy[locale] ?? copy.es;

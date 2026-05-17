@@ -7,7 +7,7 @@ import type { LocaleCode } from "@/lib/locales";
 import { Button } from "@/components/ui/Button";
 import { BookingCalendar } from "@/features/booking/BookingCalendar";
 import { createAppointment, fetchSlots, type SlotsDay, type SlotsResponse } from "@/features/booking/bookingApi";
-import { formatDayCard, formatSlotLabel, getBookingCopy } from "@/features/booking/bookingCopy";
+import { formatDayCard, formatSlotLabel, formatSlotsLoadError, getBookingCopy } from "@/features/booking/bookingCopy";
 
 type FormState = {
   fullName: string;
@@ -266,10 +266,7 @@ export function BookingWizard() {
           <p className="text-sm text-text-muted">{t.step2Intro}</p>
           {slotsLoading ? <p className="text-sm text-text-muted">{t.loadingSlots}</p> : null}
           {slotsError ? (
-            <p className="text-sm text-accent">
-              {slotsError}
-              {slotsError.includes("NEXT_PUBLIC") ? ` — ${t.errorApiNotConfigured}` : ""}
-            </p>
+            <p className="text-sm text-accent">{formatSlotsLoadError(slotsError, t)}</p>
           ) : null}
           {!slotsLoading && slotsData && daysWithSlots.length === 0 ? (
             <p className="text-sm text-text-muted">{t.noSlots}</p>

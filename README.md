@@ -20,8 +20,10 @@ Abre [http://localhost:3000](http://localhost:3000).
 
 ```bash
 npm run build
-npm start
+npm run preview:out   # sirve out/ en http://localhost:3000 (export estático)
 ```
+
+Producción: el sitio se despliega con **GitHub Actions** a Azure Static Web Apps (`out/`). Ver [docs/github-ci.md](docs/github-ci.md).
 
 ## Contenido y marca
 
@@ -30,6 +32,24 @@ npm start
 - Flujo **Agendar conversación**: [`/agenda`](src/app/agenda/page.tsx), [`src/features/booking/`](src/features/booking/)
 - API de reservas (Azure Functions): [`api/`](api/) — ver [`docs/azure-swa.md`](docs/azure-swa.md)
 - SQL inicial: [`db/migrations/001_init.sql`](db/migrations/001_init.sql)
+
+## Producción
+
+- **Sitio:** https://latconservices.com · **Agenda:** https://latconservices.com/agenda
+
+## Documentación
+
+Índice completo: [**docs/README.md**](docs/README.md)
+
+| Tema | Documento |
+|------|-----------|
+| Runbook producción | [docs/produccion.md](docs/produccion.md) |
+| Azure (SWA, Functions, SQL) | [docs/azure-swa.md](docs/azure-swa.md) |
+| Cloudflare / dominio | [docs/cloudflare-latconservices.md](docs/cloudflare-latconservices.md) |
+| GitHub CI/CD | [docs/github-ci.md](docs/github-ci.md) |
+| Operación agenda | [docs/agenda-operacion.md](docs/agenda-operacion.md) |
+| Correo ACS | [docs/email-acs.md](docs/email-acs.md) |
+| Mejoras (roadmap) | [docs/mejoras-roadmap.md](docs/mejoras-roadmap.md) |
 
 ## Fases
 

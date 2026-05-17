@@ -39,10 +39,18 @@ Definir en **Configuration → Application settings** del Function App (o en `lo
 | `ACS_CONNECTION_STRING` | Cadena del recurso Communication Services. |
 | `ACS_EMAIL_FROM` | Remitente verificado, ej. `agenda@latcon.co`. |
 | `CONTACT_NOTIFICATION_TO` | Destino del correo interno, ej. `contacto@latcon.co`. |
-| `ALLOWED_ORIGINS` | Orígenes CORS separados por coma (URL del SWA de producción + `http://localhost:3000` en desarrollo). |
+| `ALLOWED_ORIGINS` | Orígenes CORS separados por coma. Producción: `https://latconservices.com`, URL legacy del SWA y `http://localhost:3000`. |
 | `AzureWebJobsStorage` | Obligatorio para el runtime (cola/logs); en local suele usarse `UseDevelopmentStorage=true` con Azurite. |
 
-**CORS en el portal (importante):** además de `ALLOWED_ORIGINS`, en el **Function App** abre **API → CORS** (o **CORS** en el menú) y añade los mismos orígenes, p. ej. `http://localhost:3000` y la URL del Static Web App. Azure suele resolver el **preflight (OPTIONS)** en la capa del servicio; si aquí no está `localhost`, el navegador puede mostrar *No 'Access-Control-Allow-Origin' header* aunque la app setting exista.
+**CORS en el portal (obligatorio):** además de `ALLOWED_ORIGINS`, en el **Function App** abre **API → CORS** y añade **los mismos orígenes** (sin barra final). Azure responde al **preflight (OPTIONS)** en la capa del servicio **antes** de ejecutar el código en `api/src/lib/cors.ts`.
+
+Ejemplo producción:
+
+```text
+http://localhost:3000,https://latconservices.com,https://ashy-stone-04e30940f.7.azurestaticapps.net
+```
+
+Si falta `https://latconservices.com` en **API → CORS**, la agenda en el dominio propio muestra **«Failed to fetch»** en el paso 2 (aunque `ALLOWED_ORIGINS` esté bien). Tras cambiar CORS: **guardar** y **reiniciar** el Function App. Detalle: [produccion.md](./produccion.md).
 
 Plantilla local: copiar [`api/local.settings.json.example`](../api/local.settings.json.example) a `api/local.settings.json`.
 
@@ -71,6 +79,14 @@ Ejecutar el script inicial en el servidor SQL:
 - Zona fija **America/Bogota**; lun–vie; **08:00–16:00**; reuniones **30 min**; **buffer 15 min** entre citas.
 - Slots **calculados** en API; tabla `manual_slot_blocks` para bloqueos manuales futuros.
 - Sin festivos automáticos en Fase 1.
+
+## Documentación relacionada
+
+- [Índice de documentación](./README.md)
+- [Runbook producción](./produccion.md)
+- [Cloudflare / dominio](./cloudflare-latconservices.md)
+- [GitHub CI/CD](./github-ci.md)
+- [Roadmap de mejoras](./mejoras-roadmap.md)
 
 ## Enlaces útiles
 
