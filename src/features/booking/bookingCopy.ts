@@ -48,7 +48,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     step1Title: "Tus datos",
     step2Title: "Fecha y hora",
     step2Intro:
-      "Selecciona uno de los cinco días disponibles (martes, miércoles o jueves) en el calendario; luego elige un horario de los mostrados para ese día.",
+      "Selecciona uno de los cinco días disponibles en el calendario; luego elige un horario de los mostrados para ese día.",
     step3Title: "Confirmar",
     step4Title: "Listo",
     timesPanelTitle: "Horarios disponibles",
@@ -91,7 +91,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     step1Title: "Your details",
     step2Title: "Date & time",
     step2Intro:
-      "Select one of the five available days (Tuesday, Wednesday, or Thursday) on the calendar, then choose a time from the options shown for that day.",
+      "Select one of the five available days on the calendar, then choose a time from the options shown for that day.",
     step3Title: "Confirm",
     step4Title: "Done",
     timesPanelTitle: "Available times",
@@ -133,7 +133,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     step1Title: "Seus dados",
     step2Title: "Data e hora",
     step2Intro:
-      "Selecione um dos cinco dias disponíveis (terça, quarta ou quinta) no calendário; em seguida escolha um horário entre os exibidos para esse dia.",
+      "Selecione um dos cinco dias disponíveis no calendário; em seguida escolha um horário entre os exibidos para esse dia.",
     step3Title: "Confirmar",
     step4Title: "Concluído",
     timesPanelTitle: "Horários disponíveis",
@@ -175,7 +175,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     step1Title: "Vos coordonnées",
     step2Title: "Date et heure",
     step2Intro:
-      "Sélectionnez l’un des cinq jours disponibles (mardi, mercredi ou jeudi) dans le calendrier, puis choisissez un créneau parmi ceux proposés pour ce jour.",
+      "Sélectionnez l’un des cinq jours disponibles dans le calendrier, puis choisissez un créneau parmi ceux proposés pour ce jour.",
     step3Title: "Confirmer",
     step4Title: "Terminé",
     timesPanelTitle: "Créneaux disponibles",
