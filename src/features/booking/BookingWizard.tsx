@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { BookingCalendar } from "@/features/booking/BookingCalendar";
 import { createAppointment, fetchSlots, type SlotsResponse } from "@/features/booking/bookingApi";
 import { formatDayCard, formatSlotLabel, formatSlotsLoadError, getBookingCopy } from "@/features/booking/bookingCopy";
+import { bogotaTodayIso, nextBookingDayIsos } from "@/features/booking/bookingCalendarUtils";
 import { getVisibleSlotsForSelectedDay } from "@/features/booking/bookingSlotDisplay";
 
 type FormState = {
@@ -50,8 +51,26 @@ export function BookingWizard() {
   const [successMeta, setSuccessMeta] = useState<{ emailUser: string; emailInternal: string } | null>(null);
   const idempotencyRef = useRef<string | null>(null);
 
-  const daysWithSlots = useMemo(() => (slotsData?.days ?? []).filter((d) => d.slots.length > 0), [slotsData]);
+  const allowedBookingDates = useMemo(
+    () => new Set(nextBookingDayIsos(bogotaTodayIso(), 5)),
+    [step],
+  );
+
+  const daysWithSlots = useMemo(
+    () =>
+      (slotsData?.days ?? []).filter(
+        (d) => d.slots.length > 0 && allowedBookingDates.has(d.date),
+      ),
+    [slotsData, allowedBookingDates],
+  );
   const availableIsoDates = useMemo(() => daysWithSlots.map((d) => d.date), [daysWithSlots]);
+
+  useEffect(() => {
+    if (selectedDate && !availableIsoDates.includes(selectedDate)) {
+      setSelectedDate(null);
+      setSelectedSlotStart(null);
+    }
+  }, [selectedDate, availableIsoDates]);
 
   const visibleSlotsForDay = useMemo(
     () => getVisibleSlotsForSelectedDay(daysWithSlots, selectedDate),

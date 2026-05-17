@@ -100,7 +100,7 @@ Cambios de esquema: ejecutar scripts en `db/migrations/` contra `sqldb-latcon-bo
 ## Checklist post-cambio
 
 - [ ] `https://latconservices.com` OK
-- [ ] `/agenda` — horarios cargan (cold start puede tardar varios segundos la primera vez)
+- [ ] `/agenda` — horarios cargan; calendario solo habilita **mar–jue** (si cambió reglas de días, publicar también la **Function App**)
 - [ ] Reserva de prueba → filas en `appointments`, `meeting_requests`, etc.
 - [ ] Correos en bandeja (revisar spam)
 - [ ] Si cambió dominio/CORS: `ALLOWED_ORIGINS` + portal CORS + reinicio Functions

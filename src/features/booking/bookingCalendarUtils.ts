@@ -21,6 +21,29 @@ export function bogotaWeekdaySunday0(isoDate: string): number {
   return new Date(bogotaNoonUtcMs(isoDate)).getUTCDay();
 }
 
+/** Martes, miércoles y jueves (domingo = 0). */
+export const BOOKING_WEEKDAYS_SUNDAY0 = [2, 3, 4] as const;
+
+export function isBookingWeekdayIso(isoDate: string): boolean {
+  return (BOOKING_WEEKDAYS_SUNDAY0 as readonly number[]).includes(bogotaWeekdaySunday0(isoDate));
+}
+
+export function addDaysToIso(isoDate: string, days: number): string {
+  const ms = bogotaNoonUtcMs(isoDate) + days * 86400000;
+  return new Date(ms).toLocaleDateString("en-CA", { timeZone: "America/Bogota" });
+}
+
+/** Próximos `count` días de reserva (mar–jue) desde `fromIso` inclusive (Bogotá). */
+export function nextBookingDayIsos(fromIso: string, count: number): string[] {
+  const out: string[] = [];
+  let cursor = fromIso;
+  for (let scanned = 0; scanned < 60 && out.length < count; scanned++) {
+    if (isBookingWeekdayIso(cursor)) out.push(cursor);
+    cursor = addDaysToIso(cursor, 1);
+  }
+  return out;
+}
+
 export function isoFromParts(year: number, monthIndex: number, day: number): string {
   return `${year}-${String(monthIndex + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 }
