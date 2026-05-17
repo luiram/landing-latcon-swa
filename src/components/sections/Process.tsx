@@ -1,7 +1,9 @@
-import { content } from "@/config/content";
+"use client";
+
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Reveal } from "@/components/motion/Reveal";
+import { useLandingContent } from "@/hooks/useLandingContent";
 import { cn } from "@/lib/cn";
 
 /** Tarjetas: borde accent + mismo hover que Problemas (elevación suave). */
@@ -13,7 +15,8 @@ function stepOrdinal(idx: number) {
 }
 
 export function Process() {
-  const { title, intro, steps, closing } = content.process;
+  const { content } = useLandingContent();
+  const { title, intro, steps, closing, resultLabel } = content.process;
 
   return (
     <section
@@ -48,7 +51,7 @@ export function Process() {
                 </p>
                 <div className="border-t border-accent/22 px-5 pb-5 pt-5">
                   <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-accent/80">
-                    Resultado
+                    {resultLabel}
                   </p>
                   <p className="mt-2.5 text-[0.8125rem] font-medium leading-snug text-text-primary lg:text-sm lg:leading-snug">
                     {step.result}
@@ -73,7 +76,7 @@ export function Process() {
                 </p>
                 <div className="mt-5 border-t border-accent/22 pt-5">
                   <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-accent/80">
-                    Resultado
+                    {resultLabel}
                   </p>
                   <p className="mt-2.5 text-sm font-medium leading-snug text-text-primary">{step.result}</p>
                 </div>

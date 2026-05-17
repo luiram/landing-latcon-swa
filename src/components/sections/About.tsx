@@ -1,11 +1,13 @@
-import { content } from "@/config/content";
-import { site } from "@/config/site";
+"use client";
+
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Tag } from "@/components/ui/Tag";
 import { Reveal } from "@/components/motion/Reveal";
+import { useLandingContent } from "@/hooks/useLandingContent";
 
 export function About() {
+  const { content, site } = useLandingContent();
   const { panel, title, paragraphs, tags, ctaAgenda } = content.about;
 
   return (

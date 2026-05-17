@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { content } from "@/config/content";
 import { Container } from "@/components/ui/Container";
+import { useLandingContent } from "@/hooks/useLandingContent";
 import { Reveal } from "@/components/motion/Reveal";
 import { cn } from "@/lib/cn";
 
@@ -40,15 +40,21 @@ function scrollLeftToCenterCard(root: HTMLElement, card: HTMLElement) {
   return Math.max(0, Math.min(target, maxScroll));
 }
 
-/** Índice inicial: tarjeta centrada al cargar (Analítica avanzada y machine learning). */
-const solutionsInitialActiveIndex = content.solutions.capabilities.findIndex(
-  (c) => c.title === "Analítica avanzada y machine learning",
-);
-const SOLUTIONS_INITIAL_ACTIVE =
-  solutionsInitialActiveIndex >= 0 ? solutionsInitialActiveIndex : 0;
+/** Índice inicial: tarjeta centrada al cargar (4.ª capacidad: analítica avanzada). */
+const SOLUTIONS_INITIAL_ACTIVE = 3;
 
 export function Solutions() {
-  const { title, capabilities } = content.solutions;
+  const { content } = useLandingContent();
+  const {
+    title,
+    intro,
+    capabilities,
+    srOnlyCarousel,
+    prevCapabilityAria,
+    nextCapabilityAria,
+    capabilitiesNavAria,
+    capabilityNavAria,
+  } = content.solutions;
   const count = capabilities.length;
   const scrollerRef = useRef<HTMLDivElement>(null);
   const activeRef = useRef(SOLUTIONS_INITIAL_ACTIVE);
@@ -125,8 +131,7 @@ export function Solutions() {
               {title}
             </h2>
             <p className="mt-3 max-w-[34rem] text-pretty text-sm font-normal leading-[1.68] text-text-muted sm:mt-4 sm:text-[0.9375rem] sm:leading-[1.72]">
-              Combinamos arquitectura, automatización e inteligencia aplicada para construir capacidades que mejoran la
-              gestión desde la operación hasta la dirección.
+              {intro}
             </p>
           </header>
         </Reveal>
@@ -135,10 +140,7 @@ export function Solutions() {
         <div className="mt-4 pt-2 sm:mt-6 sm:pt-3 lg:mt-7 lg:pt-4">
           <Reveal delay={0.05} y={12}>
             <div className="relative">
-                <p className="sr-only">
-                  Seis capacidades en pasarela horizontal. Tonos azules, verdes y ámbar agrupan cada línea de solución de
-                  forma visual.
-                </p>
+                <p className="sr-only">{srOnlyCarousel}</p>
 
                 <div
                   className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-bg-page to-transparent sm:w-10"
@@ -152,7 +154,7 @@ export function Solutions() {
                 <button
                   type="button"
                   className="absolute left-0 top-[42%] z-20 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-border-subtle/70 bg-bg-panel text-text-primary shadow-sm transition-colors hover:border-accent/30 hover:text-accent sm:left-0 sm:size-11"
-                  aria-label="Capacidad anterior"
+                  aria-label={prevCapabilityAria}
                   onClick={goPrev}
                 >
                   <ChevronLeft className="size-5" strokeWidth={2} aria-hidden />
@@ -160,7 +162,7 @@ export function Solutions() {
                 <button
                   type="button"
                   className="absolute right-0 top-[42%] z-20 flex size-10 -translate-y-1/2 items-center justify-center rounded-full border border-border-subtle/70 bg-bg-panel text-text-primary shadow-sm transition-colors hover:border-accent/30 hover:text-accent sm:right-0 sm:size-11"
-                  aria-label="Capacidad siguiente"
+                  aria-label={nextCapabilityAria}
                   onClick={goNext}
                 >
                   <ChevronRight className="size-5" strokeWidth={2} aria-hidden />
@@ -225,7 +227,7 @@ export function Solutions() {
                   })}
                 </div>
 
-                <nav className="mt-6 flex flex-wrap justify-center gap-2 sm:mt-7" aria-label="Navegación entre capacidades">
+                <nav className="mt-6 flex flex-wrap justify-center gap-2 sm:mt-7" aria-label={capabilitiesNavAria}>
                   {capabilities.map((cap, i) => {
                     const line = isSolutionLine(cap.line) ? cap.line : "integrate";
                     const selected = i === active;
@@ -233,7 +235,7 @@ export function Solutions() {
                       <button
                         key={`nav-${cap.title}`}
                         type="button"
-                        aria-label={`${cap.title} (${i + 1} de ${count})`}
+                        aria-label={capabilityNavAria(cap.title, i + 1, count)}
                         aria-current={selected ? "true" : undefined}
                         onClick={() => scrollToIndex(i, "smooth")}
                         className="flex min-h-10 min-w-10 items-center justify-center rounded-full p-2 touch-manipulation"

@@ -3,18 +3,18 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { site } from "@/config/site";
 import { Button } from "@/components/ui/Button";
 import { LanguageSelector } from "@/components/layout/LanguageSelector";
+import { useLandingContent } from "@/hooks/useLandingContent";
 import { cn } from "@/lib/cn";
 
-const NAV_HREFS = site.nav.map((n) => n.href);
+const NAV_HREFS = ["#solutions", "#verticals", "#process", "#nosotros"] as const;
 type NavHref = (typeof NAV_HREFS)[number];
 
 const navLinkBase =
   "rounded-full px-3 py-1 text-sm tracking-tight transition-[color,background-color] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent";
 
-function navLinkClass(href: NavHref, activeHref: NavHref | "") {
+function navLinkClass(href: string, activeHref: NavHref | "") {
   const isCurrent = href === activeHref;
   return cn(
     navLinkBase,
@@ -24,7 +24,7 @@ function navLinkClass(href: NavHref, activeHref: NavHref | "") {
   );
 }
 
-function mobileNavLinkClass(href: NavHref, activeHref: NavHref | "") {
+function mobileNavLinkClass(href: string, activeHref: NavHref | "") {
   const isCurrent = href === activeHref;
   return cn(
     "rounded-2xl px-4 py-3.5 text-sm tracking-tight transition-[color,background-color] duration-200",
@@ -35,6 +35,7 @@ function mobileNavLinkClass(href: NavHref, activeHref: NavHref | "") {
 }
 
 export function Navbar() {
+  const { site } = useLandingContent();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeHref, setActiveHref] = useState<NavHref | "">("");
@@ -152,7 +153,7 @@ export function Navbar() {
 
           <nav
             className="hidden flex-1 justify-center gap-1 lg:flex"
-            aria-label="Principal"
+            aria-label={site.navAriaMain}
           >
             {site.nav.map((item) => (
               <a
@@ -173,13 +174,13 @@ export function Navbar() {
               variant="primary"
               className="hidden h-9 shrink-0 items-center px-4 py-0 text-sm leading-none sm:inline-flex"
             >
-              Agendar conversación
+              {site.ctaSchedule}
             </Button>
             <button
               type="button"
               className="inline-flex size-9 items-center justify-center rounded-full border border-white/36 bg-[rgba(255,252,249,0.55)] text-neutral-800 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.78),0_1px_2px_rgba(255,255,255,0.16),0_2px_14px_-4px_rgba(0,0,0,0.065)] backdrop-blur-xl backdrop-saturate-[115%] transition-colors hover:border-white/46 hover:bg-[rgba(255,252,249,0.72)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-transparent lg:hidden"
               aria-expanded={open}
-              aria-label={open ? "Cerrar menú" : "Abrir menú"}
+              aria-label={open ? site.closeMenu : site.openMenu}
               onClick={() => setOpen((v) => !v)}
             >
               {open ? <X className="size-[1.125rem]" /> : <Menu className="size-[1.125rem]" />}
@@ -196,11 +197,11 @@ export function Navbar() {
           <button
             type="button"
             className="absolute inset-0 bg-black/28 backdrop-blur-[2px]"
-            aria-label="Cerrar menú"
+            aria-label={site.closeMenu}
             onClick={() => setOpen(false)}
           />
           <div className="absolute left-4 right-4 top-[4.25rem] max-h-[min(70vh,calc(100vh-6rem))] overflow-y-auto rounded-3xl border border-border-subtle bg-bg-page/98 p-4 shadow-[0_20px_50px_-16px_rgba(75,104,140,0.25)] backdrop-blur-lg sm:left-6 sm:right-6 sm:top-[4.5rem]">
-            <nav className="flex flex-col gap-1" aria-label="Móvil">
+            <nav className="flex flex-col gap-1" aria-label={site.navAriaMobile}>
               {site.nav.map((item) => (
                 <a
                   key={item.href}
@@ -220,7 +221,7 @@ export function Navbar() {
                 className="w-full justify-center"
                 onClick={() => setOpen(false)}
               >
-                Agendar conversación
+                {site.ctaSchedule}
               </Button>
             </div>
           </div>

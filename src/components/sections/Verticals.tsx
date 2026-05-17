@@ -2,14 +2,15 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { content } from "@/config/content";
 import { Container } from "@/components/ui/Container";
+import { useLandingContent } from "@/hooks/useLandingContent";
 import { Reveal } from "@/components/motion/Reveal";
 import { VerticalBlockExpandables } from "@/components/sections/VerticalBlockExpandables";
 import { cn } from "@/lib/cn";
 
 export function Verticals() {
-  const { title, intro, blocks } = content.verticals;
+  const { content } = useLandingContent();
+  const { title, intro, blocks, useCasesLabel, componentsLabel } = content.verticals;
   /** Solo un acordeón abierto a la vez en toda la sección Contextos. */
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
 
@@ -57,6 +58,8 @@ export function Verticals() {
                         onActiveChange={setActiveAccordion}
                         useCases={block.useCases}
                         components={block.components}
+                        useCasesLabel={useCasesLabel}
+                        componentsLabel={componentsLabel}
                       />
                     </div>
                   </Reveal>

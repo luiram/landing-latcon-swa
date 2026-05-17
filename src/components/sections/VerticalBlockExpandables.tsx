@@ -7,6 +7,8 @@ import { cn } from "@/lib/cn";
 type VerticalBlockExpandablesProps = {
   useCases: readonly string[];
   components: readonly string[];
+  useCasesLabel: string;
+  componentsLabel: string;
   blockId: string;
   blockIndex: number;
   /** Clave del acordeón abierto en toda la sección, p. ej. "0-casos" o null. */
@@ -84,6 +86,8 @@ function ExpandableRow({
 export function VerticalBlockExpandables({
   useCases,
   components,
+  useCasesLabel,
+  componentsLabel,
   blockId,
   blockIndex,
   activeKey,
@@ -98,14 +102,14 @@ export function VerticalBlockExpandables({
     <div className="mt-6 w-full min-w-0 space-y-2.5 sm:mt-7 sm:space-y-3">
       <ExpandableRow
         id={`${base}-casos`}
-        label="Casos de uso"
+        label={useCasesLabel}
         items={useCases}
         open={activeKey === casosKey}
         onToggle={() => onActiveChange(activeKey === casosKey ? null : casosKey)}
       />
       <ExpandableRow
         id={`${base}-componentes`}
-        label="Componentes"
+        label={componentsLabel}
         items={components}
         open={activeKey === compKey}
         onToggle={() => onActiveChange(activeKey === compKey ? null : compKey)}

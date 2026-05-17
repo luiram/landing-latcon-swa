@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { content } from "@/config/content";
 import { Container } from "@/components/ui/Container";
+import { useLandingContent } from "@/hooks/useLandingContent";
 import { Reveal } from "@/components/motion/Reveal";
 import { cn } from "@/lib/cn";
 
@@ -45,7 +45,8 @@ function SignalsList({
 }
 
 export function Problems() {
-  const { title, intro, groups } = content.problems;
+  const { content } = useLandingContent();
+  const { title, intro, groups, signalsHeading } = content.problems;
   const [openIdx, setOpenIdx] = useState<number | null>(null);
 
   const toggle = (idx: number) => {
@@ -154,7 +155,7 @@ export function Problems() {
                             <SignalsList
                               signals={group.signals}
                               dotClass="bg-gradient-to-br from-accent to-blue-mid-2"
-                              heading="Señales habituales"
+                              heading={signalsHeading}
                             />
                           </div>
                         </div>

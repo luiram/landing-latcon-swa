@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { site } from "@/config/site";
+import { LocaleDocument } from "@/components/layout/LocaleDocument";
 import { LocaleProvider } from "@/context/LocaleProvider";
 
 export const metadata: Metadata = {
@@ -17,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className="min-h-screen bg-bg-warm text-text-primary">
-        <LocaleProvider>{children}</LocaleProvider>
+        <LocaleProvider>
+          <LocaleDocument />
+          {children}
+        </LocaleProvider>
       </body>
     </html>
   );

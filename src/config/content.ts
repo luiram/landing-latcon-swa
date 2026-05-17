@@ -1,4 +1,6 @@
-export const content = {
+import type { LandingContent } from "./landing/types";
+
+export const landingContentEs = {
   hero: {
     chip: "Arquitectura · Integración · IA aplicada",
     title: "Conecta información, procesos y decisiones para escalar con visibilidad y control",
@@ -10,6 +12,7 @@ export const content = {
     title: "Sin un sistema conectado, la gestión pierde visibilidad, coordinación y control",
     intro:
       "El problema no suele aparecer en un solo punto. Comienza con información dispersa, se refleja en la ejecución diaria y termina limitando la capacidad de coordinar, decidir y escalar con control.",
+    signalsHeading: "Señales habituales",
     groups: [
       {
         title: "01. Visibilidad",
@@ -42,6 +45,15 @@ export const content = {
   },
   solutions: {
     title: "Soluciones para conectar información, ejecución y decisiones",
+    intro:
+      "Combinamos arquitectura, automatización e inteligencia aplicada para construir capacidades que mejoran la gestión desde la operación hasta la dirección.",
+    srOnlyCarousel:
+      "Seis capacidades en pasarela horizontal. Tonos azules, verdes y ámbar agrupan cada línea de solución de forma visual.",
+    prevCapabilityAria: "Capacidad anterior",
+    nextCapabilityAria: "Capacidad siguiente",
+    capabilitiesNavAria: "Navegación entre capacidades",
+    capabilityNavAria: (title: string, index: number, total: number) =>
+      `${title} (${index} de ${total})`,
     capabilities: [
       {
         line: "integrate",
@@ -91,6 +103,8 @@ export const content = {
     title: "Actividades y contextos donde este enfoque genera más impacto",
     intro:
       "Aplica especialmente bien en contextos donde la coordinación, la trazabilidad y la capacidad de respuesta dependen de integrar mejor información, procesos y decisiones.",
+    useCasesLabel: "Casos de uso",
+    componentsLabel: "Componentes",
     blocks: [
       {
         title: "Entornos con alta carga manual de información",
@@ -182,6 +196,7 @@ export const content = {
     title: "Cómo llevamos una necesidad real a una solución que funciona",
     intro:
       "No empezamos por tecnología. Empezamos por entender el contexto, diseñar bien la solución y construir solo lo que realmente aporta valor.",
+    resultLabel: "Resultado",
     steps: [
       {
         title: "Entendemos el contexto",
@@ -231,4 +246,7 @@ export const content = {
     ],
     ctaAgenda: "Agendar conversación",
   },
-} as const;
+} satisfies LandingContent;
+
+/** @deprecated Usar getLandingContent desde @/config/landing */
+export const content = landingContentEs;

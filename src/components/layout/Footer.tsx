@@ -1,10 +1,14 @@
-import { site } from "@/config/site";
+"use client";
+
 import { Container } from "@/components/ui/Container";
+import { useLandingContent } from "@/hooks/useLandingContent";
 
 const footLink =
   "inline-flex rounded-md text-sm font-medium text-text-muted transition-colors duration-200 hover:text-blue-mid-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-page";
 
 export function Footer() {
+  const { site } = useLandingContent();
+
   return (
     <footer id="privacidad" className="border-t border-border-subtle bg-bg-page py-11 sm:py-12">
       <Container className="flex flex-col gap-7 sm:gap-8 md:flex-row md:items-start md:justify-between md:gap-10">
@@ -16,16 +20,16 @@ export function Footer() {
         </div>
         <nav
           className="flex shrink-0 flex-col border-t border-border-subtle pt-6 text-sm md:border-t-0 md:pt-0 md:text-right"
-          aria-label="Enlaces de pie de página"
+          aria-label={site.navAriaFooter}
         >
           <a className={footLink} href={site.privacyUrl}>
-            Privacidad
+            {site.privacy}
           </a>
         </nav>
       </Container>
       <Container className="mt-7 border-t border-border-subtle pt-5 sm:mt-8 sm:pt-6">
         <p className="text-xs leading-relaxed text-text-muted">
-          © 2026 {site.brand}. Todos los derechos reservados.
+          © 2026 {site.brand}. {site.copyright}
         </p>
       </Container>
     </footer>

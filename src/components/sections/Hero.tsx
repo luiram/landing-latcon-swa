@@ -1,11 +1,13 @@
+"use client";
+
 import Image from "next/image";
-import { content } from "@/config/content";
-import { site } from "@/config/site";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
+import { useLandingContent } from "@/hooks/useLandingContent";
 
 export function Hero() {
+  const { content, site } = useLandingContent();
   const { chip, title, subtitle, ctaPrimary } = content.hero;
 
   return (
