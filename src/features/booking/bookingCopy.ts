@@ -27,6 +27,8 @@ export type BookingCopy = {
   noSlots: string;
   selectDay: string;
   selectSlot: string;
+  showMoreSlots: (n: number) => string;
+  showLessSlots: string;
   confirm: string;
   summary: string;
   successTitle: string;
@@ -48,7 +50,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     step1Title: "Tus datos",
     step2Title: "Fecha y hora",
     step2Intro:
-      "Selecciona en el calendario uno de los días hábiles con disponibilidad; después elige el horario que prefieras.",
+      "Elige un horario en cualquiera de los días con disponibilidad. También puedes marcar el día en el calendario.",
     step3Title: "Confirmar",
     step4Title: "Listo",
     timesPanelTitle: "Horarios disponibles",
@@ -70,6 +72,8 @@ const copy: Record<LocaleCode, BookingCopy> = {
     noSlots: "No hay horarios disponibles en los próximos días hábiles. Intenta más tarde o contáctanos por otro canal.",
     selectDay: "Selecciona un día",
     selectSlot: "Selecciona una hora",
+    showMoreSlots: (n) => `Ver ${n} horarios más`,
+    showLessSlots: "Ver menos horarios",
     confirm: "Confirmar agendamiento",
     summary: "Resumen",
     successTitle: "Reserva creada",
@@ -89,7 +93,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     stepLabel: (n) => `Step ${n} of 4`,
     step1Title: "Your details",
     step2Title: "Date & time",
-    step2Intro: "Pick an available business day in the calendar, then choose your preferred time.",
+    step2Intro: "Pick a time on any available day below. You can also highlight a day in the calendar.",
     step3Title: "Confirm",
     step4Title: "Done",
     timesPanelTitle: "Available times",
@@ -111,6 +115,8 @@ const copy: Record<LocaleCode, BookingCopy> = {
     noSlots: "No slots are available in the next business days. Please try again later.",
     selectDay: "Choose a day",
     selectSlot: "Choose a time",
+    showMoreSlots: (n) => `Show ${n} more times`,
+    showLessSlots: "Show fewer times",
     confirm: "Confirm booking",
     summary: "Summary",
     successTitle: "Booking created",
@@ -130,7 +136,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     stepLabel: (n) => `Passo ${n} de 4`,
     step1Title: "Seus dados",
     step2Title: "Data e hora",
-    step2Intro: "Selecione no calendário um dos dias úteis disponíveis; em seguida escolha o horário desejado.",
+    step2Intro: "Escolha um horário em qualquer dia disponível abaixo. Você também pode marcar o dia no calendário.",
     step3Title: "Confirmar",
     step4Title: "Concluído",
     timesPanelTitle: "Horários disponíveis",
@@ -152,6 +158,8 @@ const copy: Record<LocaleCode, BookingCopy> = {
     noSlots: "Não há horários nos próximos dias úteis. Tente mais tarde.",
     selectDay: "Selecione um dia",
     selectSlot: "Selecione um horário",
+    showMoreSlots: (n) => `Ver mais ${n} horários`,
+    showLessSlots: "Ver menos horários",
     confirm: "Confirmar agendamento",
     summary: "Resumo",
     successTitle: "Reserva criada",
@@ -172,7 +180,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     step1Title: "Vos coordonnées",
     step2Title: "Date et heure",
     step2Intro:
-      "Choisissez dans le calendrier un jour ouvré disponible, puis sélectionnez l’horaire souhaité.",
+      "Choisissez un créneau sur l’un des jours disponibles ci-dessous. Vous pouvez aussi sélectionner un jour dans le calendrier.",
     step3Title: "Confirmer",
     step4Title: "Terminé",
     timesPanelTitle: "Créneaux disponibles",
@@ -194,6 +202,8 @@ const copy: Record<LocaleCode, BookingCopy> = {
     noSlots: "Aucun créneau disponible sur les prochains jours ouvrés. Réessayez plus tard.",
     selectDay: "Choisissez un jour",
     selectSlot: "Choisissez une heure",
+    showMoreSlots: (n) => `Voir ${n} créneaux de plus`,
+    showLessSlots: "Voir moins de créneaux",
     confirm: "Confirmer le rendez-vous",
     summary: "Récapitulatif",
     successTitle: "Rendez-vous enregistré",
