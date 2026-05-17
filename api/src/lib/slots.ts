@@ -8,18 +8,24 @@ export const WORK_END_HOUR = 16;
 
 export type BusyInterval = { start: DateTime; end: DateTime };
 
+/** Martes, miércoles y jueves (Luxon: 2, 3, 4). */
+export const BOOKING_WEEKDAYS = [2, 3, 4] as const;
+
 export function appointmentBlockEnd(slotEndUtc: DateTime): DateTime {
   return slotEndUtc.plus({ minutes: BUFFER_MINUTES });
 }
 
-/** Primeros `count` días hábiles (lun–vie) desde la fecha local Bogotá de `from` (sin festivos). */
+export function isBookingWeekday(dayLocal: DateTime): boolean {
+  return (BOOKING_WEEKDAYS as readonly number[]).includes(dayLocal.setZone(TZ).weekday);
+}
+
+/** Primeros `count` días de reserva (mar–jue) desde la fecha local Bogotá de `from` (sin festivos). */
 export function nextBusinessDays(fromUtc: DateTime, count: number): DateTime[] {
   const days: DateTime[] = [];
   let cursor = fromUtc.setZone(TZ).startOf("day");
-  const maxScan = 45;
+  const maxScan = 60;
   for (let i = 0; i < maxScan && days.length < count; i++) {
-    const wd = cursor.weekday;
-    if (wd >= 1 && wd <= 5) {
+    if (isBookingWeekday(cursor)) {
       days.push(cursor);
     }
     cursor = cursor.plus({ days: 1 });

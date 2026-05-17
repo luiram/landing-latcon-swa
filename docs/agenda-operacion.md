@@ -26,11 +26,11 @@ Código: [`api/src/functions/`](../api/src/functions/), lógica de slots en [`ap
 | Regla | Valor |
 |-------|--------|
 | Zona horaria | `America/Bogota` |
-| Días hábiles | Lunes a viernes |
+| Días de reserva | **Martes, miércoles y jueves** |
 | Horario laboral | 08:00–16:00 (hora local) |
 | Duración reunión | 30 minutos |
 | Buffer entre citas | 15 minutos después del fin |
-| Días ofrecidos en UI | Próximos **5** días hábiles |
+| Días ofrecidos en UI | Próximos **5** días (solo mar–jue) |
 | Festivos | **No** automáticos en Fase 1 |
 | Tabla de slots | **No existe** — se calculan en API |
 
@@ -42,7 +42,7 @@ El buffer implica que una cita 10:00–10:30 bloquea hasta 10:45 para nuevas res
 
 1. Usuario completa formulario (paso 1).
 2. Al pasar al paso 2 se llama `fetchSlots` → puede tardar si la Function está fría.
-3. En el paso 2 elige **un día** entre los **5 hábiles** en el calendario (sin contador bajo cada día).
+3. En el paso 2 elige **un día** entre los **5 disponibles** (martes, miércoles o jueves) en el calendario.
 4. Se muestran solo los horarios del día elegido: subconjunto repartido **3, 4, 5, 4 o 3** según la posición del día (1.º al 5.º hábil). No hay «ver más horarios».
 5. Confirma → `POST /api/appointments` con `Idempotency-Key` (UUID en cliente).
 

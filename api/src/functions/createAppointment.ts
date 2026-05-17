@@ -7,6 +7,7 @@ import {
   TZ,
   MEETING_MINUTES,
   appointmentBlockEnd,
+  isBookingWeekday,
   nextBusinessDays,
   isSlotFree,
   type BusyInterval,
@@ -32,8 +33,7 @@ function isValidEmail(s: string): boolean {
 
 function isValidGridSlot(startUtc: DateTime): boolean {
   const b = startUtc.setZone(TZ);
-  const wd = b.weekday;
-  if (wd < 1 || wd > 5) return false;
+  if (!isBookingWeekday(b)) return false;
   if (b.minute !== 0 && b.minute !== 30) return false;
   if (b.second !== 0 || b.millisecond !== 0) return false;
   if (b.hour < 8 || b.hour > 15) return false;

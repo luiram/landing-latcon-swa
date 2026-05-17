@@ -31,7 +31,7 @@ export function pickSpreadSlots<T>(items: readonly T[], count: number): T[] {
   return picked;
 }
 
-/** Horarios mostrados para el día seleccionado según su posición entre los 5 hábiles. */
+/** Horarios mostrados para el día seleccionado según su posición entre los 5 días ofrecidos (mar–jue). */
 export function getVisibleSlotsForSelectedDay(
   days: readonly SlotsDay[],
   selectedDate: string | null,

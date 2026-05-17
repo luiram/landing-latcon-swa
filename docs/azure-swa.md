@@ -76,7 +76,7 @@ Ejecutar el script inicial en el servidor SQL:
 
 ## Reglas de negocio (recordatorio)
 
-- Zona fija **America/Bogota**; lun–vie; **08:00–16:00**; reuniones **30 min**; **buffer 15 min** entre citas.
+- Zona fija **America/Bogota**; reservas **mar–jue** (5 días ofrecidos); **08:00–16:00**; reuniones **30 min**; **buffer 15 min** entre citas.
 - Slots **calculados** en API; tabla `manual_slot_blocks` para bloqueos manuales futuros.
 - Sin festivos automáticos en Fase 1.
 
