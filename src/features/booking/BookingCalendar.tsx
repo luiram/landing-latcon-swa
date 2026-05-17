@@ -55,8 +55,6 @@ export type BookingCalendarProps = {
   locale: LocaleCode;
   timezone: string;
   availableIsoDates: string[];
-  /** Cupos sugeridos visibles por día (p. ej. 3, 4, 5, 4, 3) para indicador en el calendario. */
-  dayPreviewCounts?: Record<string, number>;
   selectedDate: string | null;
   onSelectDate: (iso: string) => void;
 };
@@ -65,7 +63,6 @@ export function BookingCalendar({
   locale,
   timezone,
   availableIsoDates,
-  dayPreviewCounts,
   selectedDate,
   onSelectDate,
 }: BookingCalendarProps) {
@@ -205,7 +202,6 @@ export function BookingCalendar({
           const isAvail = available.has(iso);
           const isSel = selectedDate === iso;
           const isToday = iso === todayIso;
-          const preview = dayPreviewCounts?.[iso];
           return (
             <button
               key={iso}
@@ -213,7 +209,7 @@ export function BookingCalendar({
               disabled={!isAvail}
               onClick={() => onSelectDate(iso)}
               className={[
-                "relative flex aspect-square flex-col items-center justify-center rounded-full text-sm font-medium transition-colors",
+                "flex aspect-square items-center justify-center rounded-full text-sm font-medium transition-colors",
                 !isAvail && "cursor-not-allowed text-text-muted/40",
                 isAvail && !isSel && "bg-bg-warm text-text-primary hover:bg-accent/15",
                 isSel && "bg-accent text-white shadow-sm",
@@ -222,10 +218,7 @@ export function BookingCalendar({
                 .filter(Boolean)
                 .join(" ")}
             >
-              <span>{cell.dayNum}</span>
-              {isAvail && preview && preview > 0 ? (
-                <span className="mt-0.5 text-[0.6rem] font-semibold leading-none text-accent/90">{preview}</span>
-              ) : null}
+              {cell.dayNum}
             </button>
           );
         })}

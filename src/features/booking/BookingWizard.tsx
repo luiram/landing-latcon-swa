@@ -6,10 +6,9 @@ import { useLocale } from "@/context/LocaleProvider";
 import type { LocaleCode } from "@/lib/locales";
 import { Button } from "@/components/ui/Button";
 import { BookingCalendar } from "@/features/booking/BookingCalendar";
-import { BookingDaySlotsList } from "@/features/booking/BookingDaySlotsList";
 import { createAppointment, fetchSlots, type SlotsResponse } from "@/features/booking/bookingApi";
-import { formatSlotLabel, formatSlotsLoadError, getBookingCopy } from "@/features/booking/bookingCopy";
-import { buildDaySlotsDisplay } from "@/features/booking/bookingSlotDisplay";
+import { formatDayCard, formatSlotLabel, formatSlotsLoadError, getBookingCopy } from "@/features/booking/bookingCopy";
+import { getVisibleSlotsForSelectedDay } from "@/features/booking/bookingSlotDisplay";
 
 type FormState = {
   fullName: string;
@@ -50,37 +49,14 @@ export function BookingWizard() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [successMeta, setSuccessMeta] = useState<{ emailUser: string; emailInternal: string } | null>(null);
   const idempotencyRef = useRef<string | null>(null);
-  const [expandedSlotDates, setExpandedSlotDates] = useState<Set<string>>(() => new Set());
 
   const daysWithSlots = useMemo(() => (slotsData?.days ?? []).filter((d) => d.slots.length > 0), [slotsData]);
   const availableIsoDates = useMemo(() => daysWithSlots.map((d) => d.date), [daysWithSlots]);
 
-  const displayDays = useMemo(
-    () => buildDaySlotsDisplay(daysWithSlots, expandedSlotDates),
-    [daysWithSlots, expandedSlotDates],
+  const visibleSlotsForDay = useMemo(
+    () => getVisibleSlotsForSelectedDay(daysWithSlots, selectedDate),
+    [daysWithSlots, selectedDate],
   );
-
-  const dayPreviewCounts = useMemo(() => {
-    const map: Record<string, number> = {};
-    for (const day of displayDays) {
-      map[day.date] = day.visibleSlots.length;
-    }
-    return map;
-  }, [displayDays]);
-
-  const toggleExpandedDay = useCallback((date: string) => {
-    setExpandedSlotDates((prev) => {
-      const next = new Set(prev);
-      if (next.has(date)) next.delete(date);
-      else next.add(date);
-      return next;
-    });
-  }, []);
-
-  const selectSlot = useCallback((date: string, startUtc: string) => {
-    setSelectedDate(date);
-    setSelectedSlotStart(startUtc);
-  }, []);
 
   const loadSlots = useCallback(async () => {
     setSlotsLoading(true);
@@ -125,7 +101,6 @@ export function BookingWizard() {
     setSlotsError(null);
     setSelectedDate(null);
     setSelectedSlotStart(null);
-    setExpandedSlotDates(new Set());
     setStep(2);
   };
 
@@ -302,7 +277,6 @@ export function BookingWizard() {
                 locale={locale as LocaleCode}
                 timezone={slotsData.timezone}
                 availableIsoDates={availableIsoDates}
-                dayPreviewCounts={dayPreviewCounts}
                 selectedDate={selectedDate}
                 onSelectDate={(iso) => {
                   setSelectedDate(iso);
@@ -311,20 +285,35 @@ export function BookingWizard() {
               />
               <div className="rounded-2xl border border-border-subtle bg-bg-panel p-4 sm:p-5">
                 <h3 className="text-sm font-semibold text-text-primary">{t.timesPanelTitle}</h3>
-                <BookingDaySlotsList
-                  days={displayDays}
-                  locale={locale as LocaleCode}
-                  selectedDate={selectedDate}
-                  selectedSlotStart={selectedSlotStart}
-                  expandedDates={expandedSlotDates}
-                  onToggleExpand={toggleExpandedDay}
-                  onSelectSlot={selectSlot}
-                  labels={{
-                    selectSlot: t.selectSlot,
-                    showMore: t.showMoreSlots,
-                    showLess: t.showLessSlots,
-                  }}
-                />
+                {!selectedDate ? (
+                  <p className="mt-3 text-sm text-text-muted">{t.selectDayFirst}</p>
+                ) : (
+                  <>
+                    <p className="mt-1 text-xs capitalize text-text-muted">
+                      {formatDayCard(selectedDate, locale as LocaleCode)}
+                    </p>
+                    <p className="mt-3 text-xs text-text-muted">{t.selectSlot}</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {visibleSlotsForDay.map((s) => {
+                        const sel = selectedSlotStart === s.startUtc;
+                        return (
+                          <button
+                            key={s.startUtc}
+                            type="button"
+                            onClick={() => setSelectedSlotStart(s.startUtc)}
+                            className={`rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
+                              sel
+                                ? "border-accent bg-accent text-white shadow-sm"
+                                : "border-border-subtle bg-bg-warm text-text-primary hover:border-accent/35"
+                            }`}
+                          >
+                            {formatSlotLabel(s.startUtc, locale as LocaleCode)}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           ) : null}

@@ -42,11 +42,11 @@ El buffer implica que una cita 10:00–10:30 bloquea hasta 10:45 para nuevas res
 
 1. Usuario completa formulario (paso 1).
 2. Al pasar al paso 2 se llama `fetchSlots` → puede tardar si la Function está fría.
-3. En el paso 2 ve los **5 días hábiles** con horarios: por día se muestran de forma repartida **3, 4, 5, 4 y 3** cupos (patrón cíclico), no solo la mañana; «Ver N horarios más» expande el día completo. El calendario marca el día seleccionado y un contador de cupos visibles.
-4. Elige hora (lista por día o día en calendario) y continúa.
+3. En el paso 2 elige **un día** entre los **5 hábiles** en el calendario (sin contador bajo cada día).
+4. Se muestran solo los horarios del día elegido: subconjunto repartido **3, 4, 5, 4 o 3** según la posición del día (1.º al 5.º hábil). No hay «ver más horarios».
 5. Confirma → `POST /api/appointments` con `Idempotency-Key` (UUID en cliente).
 
-Código: [`src/features/booking/BookingWizard.tsx`](../src/features/booking/BookingWizard.tsx), lógica de vista previa en [`bookingSlotDisplay.ts`](../src/features/booking/bookingSlotDisplay.ts) y [`BookingDaySlotsList.tsx`](../src/features/booking/BookingDaySlotsList.tsx).
+Código: [`src/features/booking/BookingWizard.tsx`](../src/features/booking/BookingWizard.tsx), patrón de cupos en [`bookingSlotDisplay.ts`](../src/features/booking/bookingSlotDisplay.ts).
 
 ---
 

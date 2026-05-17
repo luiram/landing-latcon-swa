@@ -31,28 +31,15 @@ export function pickSpreadSlots<T>(items: readonly T[], count: number): T[] {
   return picked;
 }
 
-export type DaySlotsDisplay = {
-  date: string;
-  dayIndex: number;
-  allSlots: SlotsDay["slots"];
-  visibleSlots: SlotsDay["slots"];
-  hiddenCount: number;
-};
-
-export function buildDaySlotsDisplay(days: SlotsDay[], expandedDates: ReadonlySet<string>): DaySlotsDisplay[] {
-  return days
-    .filter((d) => d.slots.length > 0)
-    .map((day, dayIndex) => {
-      const limit = visibleSlotLimitForDayIndex(dayIndex);
-      const expanded = expandedDates.has(day.date);
-      const visibleSlots = expanded ? day.slots : pickSpreadSlots(day.slots, limit);
-      const hiddenCount = expanded ? 0 : Math.max(0, day.slots.length - visibleSlots.length);
-      return {
-        date: day.date,
-        dayIndex,
-        allSlots: day.slots,
-        visibleSlots,
-        hiddenCount,
-      };
-    });
+/** Horarios mostrados para el día seleccionado según su posición entre los 5 hábiles. */
+export function getVisibleSlotsForSelectedDay(
+  days: readonly SlotsDay[],
+  selectedDate: string | null,
+): SlotsDay["slots"] {
+  if (!selectedDate) return [];
+  const dayIndex = days.findIndex((d) => d.date === selectedDate);
+  if (dayIndex < 0) return [];
+  const day = days[dayIndex];
+  const limit = visibleSlotLimitForDayIndex(dayIndex);
+  return pickSpreadSlots(day.slots, limit);
 }
