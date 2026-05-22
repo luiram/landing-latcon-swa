@@ -9,6 +9,16 @@ const base = (): string => {
   return b.replace(/\/$/, "");
 };
 
+// Fires once per page session to wake up the Azure Function before the user navigates to /agenda.
+let _prefetchFired = false;
+export function prefetchSlots(): void {
+  if (_prefetchFired) return;
+  const root = base();
+  if (!root) return;
+  _prefetchFired = true;
+  fetch(`${root}/api/slots?locale=es`, { method: "GET" }).catch(() => undefined);
+}
+
 export async function fetchSlots(locale: LocaleCode): Promise<SlotsResponse> {
   const root = base();
   if (!root) {

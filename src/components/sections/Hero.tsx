@@ -2,13 +2,19 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { useLandingContent } from "@/hooks/useLandingContent";
+import { prefetchSlots } from "@/features/booking/bookingApi";
 
 export function Hero() {
   const { content, site } = useLandingContent();
+
+  useEffect(() => {
+    prefetchSlots();
+  }, []);
   const { chip, title, subtitle, ctaPrimary, ctaReassurance, secondaryCtaLabel, secondaryCtaHref } = content.hero;
 
   return (
