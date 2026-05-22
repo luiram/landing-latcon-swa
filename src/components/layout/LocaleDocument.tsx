@@ -11,7 +11,7 @@ export function LocaleDocument() {
 
   useEffect(() => {
     document.documentElement.lang = locale;
-    document.title = `${site.brand} — ${site.descriptor}`;
+    document.title = site.metadataTitle;
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", site.metadataDescription);
   }, [locale, site]);

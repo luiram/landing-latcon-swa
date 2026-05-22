@@ -4,6 +4,21 @@ export type LandingContent = {
     title: string;
     subtitle: string;
     ctaPrimary: string;
+    ctaReassurance: string;
+    secondaryCtaLabel: string;
+    secondaryCtaHref: string;
+  };
+  audience: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    painSignals: readonly string[];
+    profiles: ReadonlyArray<{
+      title: string;
+      description: string;
+      quote: string;
+      sectors: string;
+    }>;
   };
   problems: {
     title: string;
@@ -23,12 +38,16 @@ export type LandingContent = {
     nextCapabilityAria: string;
     capabilitiesNavAria: string;
     capabilityNavAria: (title: string, index: number, total: number) => string;
+    includesLabel: string;
+    resultLabel: string;
     capabilities: ReadonlyArray<{
       line: "integrate" | "coordinate" | "amplify";
       image: string;
       imageAlt: string;
       title: string;
       body: string;
+      includes: readonly string[];
+      result: string;
     }>;
   };
   verticals: {
@@ -36,6 +55,7 @@ export type LandingContent = {
     intro: string;
     useCasesLabel: string;
     componentsLabel: string;
+    midCtaLabel: string;
     blocks: ReadonlyArray<{
       title: string;
       body: string;
@@ -57,20 +77,26 @@ export type LandingContent = {
     title: string;
     paragraphs: readonly string[];
     tags: readonly string[];
-    ctaAgenda: string;
+  };
+  finalCta: {
+    title: string;
+    body: string;
+    ctaPrimary: string;
+    ctaReassurance: string;
   };
 };
 
 export type SiteContent = {
   brand: string;
   descriptor: string;
+  metadataTitle: string;
+  metadataDescription: string;
   bookingPath: string;
   privacyUrl: string;
   nav: ReadonlyArray<{ label: string; href: string }>;
   ctaSchedule: string;
   privacy: string;
   copyright: string;
-  metadataDescription: string;
   navAriaMain: string;
   navAriaMobile: string;
   navAriaFooter: string;

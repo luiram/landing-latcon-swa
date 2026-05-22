@@ -2,11 +2,49 @@ import type { LandingContent } from "./types";
 
 export const landingContentPt = {
   hero: {
-    chip: "Arquitetura · Integração · IA aplicada",
-    title: "Conecte informação, processos e decisões para escalar com visibilidade e controle",
+    chip: "Operação · Dados · Tecnologia — para empresas em crescimento",
+    title: "Quanto custa para a sua empresa decidir tarde ou com informação incompleta?",
     subtitle:
-      "Projetamos sistemas que integram informação, automação e inteligência artificial aplicada para dar visibilidade, melhorar a coordenação e fortalecer a tomada de decisões.",
-    ctaPrimary: "Agendar uma conversa",
+      "Desenvolvemos sistemas que integram seus dados, automatizam seus processos e dão à sua equipe a informação que precisa — no momento em que ainda serve para agir.",
+    ctaPrimary: "Agende seu diagnóstico gratuito",
+    ctaReassurance: "30 minutos · Sem compromisso · Dizemos com honestidade se somos a equipe certa para o seu caso",
+    secondaryCtaLabel: "Conheça nossa abordagem →",
+    secondaryCtaHref: "#process",
+  },
+  audience: {
+    eyebrow: "Para quem",
+    title: "Trabalhamos com empresas onde decidir tarde ou sem informação clara já tem um custo visível",
+    intro: "Nossos clientes geralmente chegam quando alguma destas situações lhes parece familiar:",
+    painSignals: [
+      "Foram tomadas más decisões porque os dados chegaram tarde ou estavam dispersos.",
+      "A operação depende de pessoas-chave e ninguém mais tem o contexto completo.",
+      "Os relatórios chegam tarde ou estão em várias planilhas sem consolidação.",
+      "Escalar significa contratar mais pessoas, não ter melhores sistemas.",
+      "Perdeu-se a rastreabilidade: é difícil saber o que aconteceu, quando e por quê.",
+    ],
+    profiles: [
+      {
+        title: "Empresa em crescimento",
+        description:
+          "A operação cresce ou se torna mais complexa, mas os sistemas e processos não evoluíram no mesmo ritmo. Aplica tanto a empresas em expansão quanto a áreas dentro de organizações grandes que precisam de maior visibilidade e autonomia operacional.",
+        quote: "\"Temos os dados, mas não conseguimos usá-los.\"",
+        sectors: "Serviços · Varejo · Manufatura · Serviços Financeiros · Mídia",
+      },
+      {
+        title: "Operação distribuída ou em campo",
+        description:
+          "Equipes em campo, múltiplas unidades ou processos que dependem de coordenação entre áreas. A execução falha na comunicação.",
+        quote: "\"Coordenamos tudo pelo WhatsApp e ninguém sabe quem fez o quê.\"",
+        sectors: "Logística · Agroindústria · Serviços de campo",
+      },
+      {
+        title: "Empresa que já investiu em tecnologia sem resultados",
+        description:
+          "Compraram um ERP, CRM ou plataforma que não foi adotada. Investiram em desenvolvimento que ficou pela metade. Agora buscam uma equipe que entenda o negócio antes de propor software.",
+        quote: "\"Já investimos em tecnologia e não funcionou como esperávamos.\"",
+        sectors: "Qualquer indústria com operação complexa",
+      },
+    ],
   },
   problems: {
     title: "Sem um sistema conectado, a gestão perde visibilidade, coordenação e controle",
@@ -18,93 +56,92 @@ export const landingContentPt = {
         title: "01. Visibilidade",
         narrative: "Leitura tardia do que acontece, dados fragmentados e pouca rastreabilidade para a direção e as equipes.",
         signals: [
-          { title: "Dados dispersos", body: "Fontes desconectadas e pouca consolidação para decidir com uma leitura comum." },
-          { title: "Relatórios tardios", body: "Indicadores que chegam quando já não alimentam a gestão nem a resposta." },
-          { title: "Baixa rastreabilidade", body: "Dificulta auditar o que ocorreu, quando e por quê—na operação e na cadeia de decisões." },
+          { title: "Dados dispersos", body: "Fontes desconectadas sem uma leitura comum para decidir." },
+          { title: "Relatórios tardios", body: "Indicadores que chegam quando já não servem para agir." },
+          { title: "Baixa rastreabilidade", body: "Dificulta auditar o que ocorreu, quando e por quê." },
         ],
       },
       {
         title: "02. Execução e coordenação",
         narrative: "Acompanhamento frágil, dependência de pessoas e coordenação que não escala com a complexidade.",
         signals: [
-          { title: "Processos manuais", body: "Tarefas repetitivas que concentram risco e não liberam tempo para priorizar." },
-          { title: "Dependência de pessoas", body: "Conhecimento e critério em cabeças e chats, não governados em um sistema compartilhado." },
-          { title: "Retrabalho e coordenação frágil", body: "Desalinhamento entre áreas, idas e vindas e custo oculto de alinhar equipes." },
+          { title: "Processos manuais", body: "Tarefas repetitivas que concentram risco e consomem tempo." },
+          { title: "Dependência de pessoas", body: "Conhecimento em cabeças e chats, não em sistemas compartilhados." },
+          { title: "Retrabalho e coordenação frágil", body: "Desalinhamento entre áreas com alto custo oculto de alinhamento." },
         ],
       },
       {
         title: "03. Escalabilidade e controle",
         narrative: "Ao crescer volume ou complexidade, surgem gargalos e o controle na gestão se enfraquece.",
         signals: [
-          { title: "Dificuldade de escalar", body: "Mais demanda ou mais equipes sem uma estrutura que absorva o crescimento com clareza." },
-          { title: "Gargalos", body: "Pontos únicos de falha que freiam entregas, resposta e capacidade de priorizar." },
-          { title: "Menos controle na gestão", body: "Menos visibilidade de riscos, prazos e desempenho quando a organização se amplia." },
+          { title: "Dificuldade de escalar", body: "Mais demanda sem estrutura que absorva o crescimento." },
+          { title: "Gargalos", body: "Pontos únicos de falha que freiam entregas e resposta." },
+          { title: "Menos controle na gestão", body: "Menos visibilidade de riscos e desempenho ao crescer." },
         ],
       },
     ],
   },
   solutions: {
-    title: "Soluções para conectar informação, execução e decisões",
+    title: "Três capacidades para que sua equipe pare de decidir tarde ou com informação incompleta",
     intro:
-      "Combinamos arquitetura, automação e inteligência aplicada para construir capacidades que melhoram a gestão da operação até a direção.",
-    srOnlyCarousel:
-      "Seis capacidades em carrossel horizontal. Tons azuis, verdes e âmbar agrupam visualmente cada linha de solução.",
+      "Não vendemos tecnologia isolada. Construímos capacidades integradas — cada uma orientada a um resultado de negócio concreto.",
+    srOnlyCarousel: "Três capacidades em carrossel horizontal com navegação por pontos.",
     prevCapabilityAria: "Capacidade anterior",
     nextCapabilityAria: "Próxima capacidade",
     capabilitiesNavAria: "Navegação entre capacidades",
     capabilityNavAria: (title: string, index: number, total: number) =>
       `${title} (${index} de ${total})`,
+    includesLabel: "O que inclui",
+    resultLabel: "Resultado",
     capabilities: [
       {
         line: "integrate",
         image: "/solutions/arquitectura_sistemas.webp",
-        imageAlt: "Arquitetura de sistemas: estrutura conectada de informação e processos.",
-        title: "Arquitetura de sistemas",
-        body: "Estrutura funcional e tecnológica para organizar informação, processos e dependências.",
+        imageAlt: "Visibilidade operacional: painéis e integração de dados.",
+        title: "Visibilidade que chega a tempo",
+        body: "Consolidamos seus dados dispersos e construímos painéis operacionais que oferecem uma leitura clara do que está acontecendo — sem esperar relatórios manuais.",
+        includes: [
+          "Arquitetura de dados e integração de fontes",
+          "Painéis operacionais em tempo real",
+          "Alertas automáticos sobre indicadores críticos",
+        ],
+        result: "Menos tempo esperando dados · Decisões que chegam quando ainda servem para agir",
       },
       {
-        line: "integrate",
+        line: "coordinate",
         image: "/solutions/automatizacion_integracion.webp",
-        imageAlt: "Automação e integração: fluxos conectados entre ferramentas e sistemas.",
-        title: "Automação e integração",
-        body: "Conexões e fluxos entre ferramentas para consolidar informação e reduzir atrito manual.",
+        imageAlt: "Automação e integração de processos operacionais.",
+        title: "Execução sem atrito manual",
+        body: "Automatizamos os processos que hoje dependem de pessoas ou mensagens de WhatsApp — para que sua equipe se concentre no que realmente gera valor.",
+        includes: [
+          "Fluxos de trabalho digitalizados e validados",
+          "Integração entre ferramentas (apps, ERP, formulários, mensageria)",
+          "Agentes de IA para classificação, suporte e coordenação",
+        ],
+        result: "Menos erros, menos retrabalho e operação que escala sem contratar mais pessoas.",
       },
       {
-        line: "coordinate",
-        image: "/solutions/plataforma_saas_sistema.webp",
-        imageAlt: "Plataformas SaaS e sistemas sob medida: monitoramento e coordenação de processos.",
-        title: "Plataformas SaaS e sistemas sob medida",
-        body: "Soluções web para monitorar, coordenar e sustentar processos críticos com rastreabilidade.",
-      },
-      {
-        line: "coordinate",
+        line: "amplify",
         image: "/solutions/analitica_avanzada_machine_learning.webp",
-        imageAlt: "Analítica avançada e machine learning: modelos e sinais para a gestão.",
-        title: "Analítica avançada e machine learning",
-        body: "Modelos e analítica para priorizar, antecipar e apoiar a gestão com sinais acionáveis.",
-      },
-      {
-        line: "amplify",
-        image: "/solutions/deteccion_analisis_imagenes.webp",
-        imageAlt: "Detecção e análise de imagens: visão computacional e dados auditáveis.",
-        title: "Detecção e análise de imagens",
-        body: "Contagem, classificação e validação visual para transformar imagens em dados úteis e auditáveis.",
-      },
-      {
-        line: "amplify",
-        image: "/solutions/sistemas_multiagente.webp",
-        imageAlt: "Sistemas multiagente com IA: agentes colaborando em monitoramento e coordenação.",
-        title: "Sistemas multiagente com IA",
-        body: "Agentes que colaboram em monitoramento, suporte e coordenação repetitiva, sem substituir o critério humano.",
+        imageAlt: "Analítica avançada e machine learning aplicados à gestão.",
+        title: "Decisões apoiadas em inteligência, não em intuição",
+        body: "Construímos modelos analíticos e sistemas de IA aplicada que antecipam problemas, otimizam recursos e dão à sua equipe sinais acionáveis.",
+        includes: [
+          "Modelos preditivos e de otimização",
+          "Machine learning aplicado à operação e demanda",
+          "Visão computacional e sistemas multiagente",
+        ],
+        result: "Menor custo operacional e capacidade de antecipar problemas antes que ocorram.",
       },
     ],
   },
   verticals: {
-    title: "Atividades e contextos em que essa abordagem gera mais impacto",
+    title: "Indústrias e contextos onde atuamos",
     intro:
-      "Aplica-se especialmente bem onde coordenação, rastreabilidade e capacidade de resposta dependem de integrar melhor informação, processos e decisões.",
+      "Nossas soluções se adaptam a diferentes contextos operacionais. Estes são os que conhecemos com maior profundidade:",
     useCasesLabel: "Casos de uso",
     componentsLabel: "Componentes",
+    midCtaLabel: "Sua indústria não está aqui? Conte-nos seu caso →",
     blocks: [
       {
         title: "Ambientes com alta carga manual de informação",
@@ -226,13 +263,13 @@ export const landingContentPt = {
     panel: {
       eyebrow: "QUEM SOMOS",
       headline: "Operação + dados + tecnologia",
-      body: "Equipe interdisciplinar para projetar soluções aplicadas a contextos reais.",
+      body: "Desenvolvemos plataformas operacionais, modelos de ML e automações com IA em implementações reais.",
     },
-    title: "Uma equipe que conecta operação, dados e tecnologia",
+    title: "A equipe por trás da Latcon",
     paragraphs: [
-      "Somos profissionais que combinam operação, dados e tecnologia para projetar soluções aplicadas a contextos reais. Integramos captura de informação, automação, analítica e inteligência aplicada para transformar processos manuais em sistemas mais visíveis, mensuráveis e escaláveis.",
-      "Nossa abordagem não parte só do software: entendemos primeiro a operação, as fricções e as decisões que precisam de melhor suporte. A partir daí, projetamos soluções com mais controle, rastreabilidade e capacidade de crescimento.",
-      "Trabalhamos com automação, analítica avançada, machine learning, visão computacional e sistemas multiagente para construir soluções úteis, adotáveis e orientadas a valor real.",
+      "A equipe da Latcon tem experiência direta construindo as soluções que oferece: projetamos plataformas operacionais que integram aplicação web, painéis, repositório de dados na nuvem e apps móveis para iOS e Android — e implementamos modelos de machine learning e automações com sistemas multiagente de IA em contextos reais de operação.",
+      "Integramos três perfis complementares: uma consultoria com mais de cinco anos em implementação de estratégia e gestão por resultados, e dois engenheiros com mais de uma década em automação, desenvolvimento de software, analítica aplicada, visão computacional e sistemas de IA.",
+      "Nossa abordagem não parte do software: primeiro entendemos como funciona a sua operação, onde estão as fricções reais e quais decisões precisam de melhor suporte. A partir daí, projetamos e implementamos a solução.",
     ],
     tags: [
       "Operação",
@@ -244,6 +281,11 @@ export const landingContentPt = {
       "Visão",
       "Multiagentes",
     ],
-    ctaAgenda: "Agendar uma conversa",
+  },
+  finalCta: {
+    title: "Cada semana sem visibilidade tem um custo. Vamos descobrir juntos se podemos ajudá-lo a reduzi-lo.",
+    body: "Agende uma sessão de diagnóstico de 30 minutos. Revisamos juntos a sua operação, identificamos os principais pontos de fricção e damos uma recomendação concreta — mesmo que você não trabalhe conosco.",
+    ctaPrimary: "Agende seu diagnóstico gratuito",
+    ctaReassurance: "Sem pitch de vendas · Sem compromisso · 30 minutos",
   },
 } satisfies LandingContent;

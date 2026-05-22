@@ -1,14 +1,13 @@
 "use client";
 
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
 import { Tag } from "@/components/ui/Tag";
 import { Reveal } from "@/components/motion/Reveal";
 import { useLandingContent } from "@/hooks/useLandingContent";
 
 export function About() {
-  const { content, site } = useLandingContent();
-  const { panel, title, paragraphs, tags, ctaAgenda } = content.about;
+  const { content } = useLandingContent();
+  const { panel, title, paragraphs, tags } = content.about;
 
   return (
     <section id="nosotros" className="scroll-mt-36 border-t border-border-subtle bg-bg-warm py-24 sm:py-28">
@@ -40,11 +39,6 @@ export function About() {
               {tags.map((t) => (
                 <Tag key={t}>{t}</Tag>
               ))}
-            </div>
-            <div className="mt-9">
-              <Button href={site.bookingPath} variant="primary">
-                {ctaAgenda}
-              </Button>
             </div>
           </Reveal>
         </div>

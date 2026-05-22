@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
@@ -8,7 +9,7 @@ import { useLandingContent } from "@/hooks/useLandingContent";
 
 export function Hero() {
   const { content, site } = useLandingContent();
-  const { chip, title, subtitle, ctaPrimary } = content.hero;
+  const { chip, title, subtitle, ctaPrimary, ctaReassurance, secondaryCtaLabel, secondaryCtaHref } = content.hero;
 
   return (
     <section className="relative scroll-mt-36 overflow-hidden border-b border-white/15 bg-[#101012] pb-20 pt-32 sm:pb-28 sm:pt-36 lg:pb-32 lg:pt-40">
@@ -64,6 +65,13 @@ export function Hero() {
                 <Button href={site.bookingPath} variant="primary">
                   {ctaPrimary}
                 </Button>
+                <p className="mt-3 max-w-md text-xs leading-relaxed text-white/72 sm:text-sm">{ctaReassurance}</p>
+                <Link
+                  href={secondaryCtaHref}
+                  className="mt-4 inline-flex text-sm font-semibold text-white/88 underline-offset-4 transition-colors hover:text-white hover:underline"
+                >
+                  {secondaryCtaLabel}
+                </Link>
               </div>
             </div>
           </Reveal>

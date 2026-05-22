@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { site } from "@/config/site";
+import { getSiteContent } from "@/config/landing";
 import { LocaleDocument } from "@/components/layout/LocaleDocument";
 import { LocaleProvider } from "@/context/LocaleProvider";
 
+const defaultSite = getSiteContent("es");
+
 export const metadata: Metadata = {
-  title: `${site.brand} — ${site.descriptor}`,
-  description:
-    "Soluciones que integran operación, datos y tecnología. Automatización, analítica e IA aplicada con enfoque consultivo.",
+  title: defaultSite.metadataTitle,
+  description: defaultSite.metadataDescription,
 };
 
 export default function RootLayout({

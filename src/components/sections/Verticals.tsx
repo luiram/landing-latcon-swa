@@ -3,14 +3,15 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Container } from "@/components/ui/Container";
+import { Button } from "@/components/ui/Button";
 import { useLandingContent } from "@/hooks/useLandingContent";
 import { Reveal } from "@/components/motion/Reveal";
 import { VerticalBlockExpandables } from "@/components/sections/VerticalBlockExpandables";
 import { cn } from "@/lib/cn";
 
 export function Verticals() {
-  const { content } = useLandingContent();
-  const { title, intro, blocks, useCasesLabel, componentsLabel } = content.verticals;
+  const { content, site } = useLandingContent();
+  const { title, intro, blocks, useCasesLabel, componentsLabel, midCtaLabel } = content.verticals;
   /** Solo un acordeón abierto a la vez en toda la sección Contextos. */
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
 
@@ -101,6 +102,12 @@ export function Verticals() {
             );
           })}
         </div>
+
+        <Reveal delay={0.1} className="mt-14 flex justify-center sm:mt-16">
+          <Button href={site.bookingPath} variant="secondary">
+            {midCtaLabel}
+          </Button>
+        </Reveal>
       </Container>
     </section>
   );

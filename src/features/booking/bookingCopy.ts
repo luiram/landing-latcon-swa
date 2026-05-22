@@ -4,12 +4,16 @@ export type BookingCopy = {
   pageTitle: string;
   stepLabel: (n: number) => string;
   step1Title: string;
+  step1Intro: string;
   step2Title: string;
-  step2Intro: string;
   step3Title: string;
   step4Title: string;
+  step5Title: string;
   timesPanelTitle: string;
   selectDayFirst: string;
+  continueHint: string;
+  sectorPlaceholder: string;
+  sectorOptions: ReadonlyArray<{ value: string; label: string }>;
   fields: {
     fullName: string;
     roleTitle: string;
@@ -18,6 +22,7 @@ export type BookingCopy = {
     company: string;
     sector: string;
     cityCountry: string;
+    cityCountryOptional: string;
     need: string;
     comment: string;
   };
@@ -43,16 +48,28 @@ export type BookingCopy = {
 
 const copy: Record<LocaleCode, BookingCopy> = {
   es: {
-    pageTitle: "Agendar conversación",
-    stepLabel: (n) => `Paso ${n} de 4`,
-    step1Title: "Tus datos",
-    step2Title: "Fecha y hora",
-    step2Intro:
+    pageTitle: "Agenda tu diagnóstico gratuito",
+    stepLabel: (n) => (n <= 4 ? `Paso ${n} de 4` : ""),
+    step1Title: "Fecha y hora",
+    step1Intro:
       "Selecciona uno de los cinco días disponibles en el calendario; luego elige un horario de los mostrados para ese día.",
-    step3Title: "Confirmar",
-    step4Title: "Listo",
+    step2Title: "Datos de contacto",
+    step3Title: "Contexto",
+    step4Title: "Confirmar",
+    step5Title: "Listo",
     timesPanelTitle: "Horarios disponibles",
     selectDayFirst: "Primero elige un día en el calendario.",
+    continueHint: "Recibirás una confirmación por correo con los detalles de la sesión.",
+    sectorPlaceholder: "Selecciona un sector",
+    sectorOptions: [
+      { value: "Agroindustria", label: "Agroindustria" },
+      { value: "Logística", label: "Logística" },
+      { value: "Manufactura", label: "Manufactura" },
+      { value: "Servicios", label: "Servicios" },
+      { value: "Retail", label: "Retail" },
+      { value: "Tecnología", label: "Tecnología" },
+      { value: "Otro", label: "Otro" },
+    ],
     fields: {
       fullName: "Nombre completo",
       roleTitle: "Cargo",
@@ -61,6 +78,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
       company: "Empresa",
       sector: "Sector",
       cityCountry: "Ciudad / país",
+      cityCountryOptional: "Ciudad / país (opcional)",
       need: "Necesidad principal",
       comment: "Comentario (opcional)",
     },
@@ -86,16 +104,28 @@ const copy: Record<LocaleCode, BookingCopy> = {
     homeLink: "Volver al inicio",
   },
   en: {
-    pageTitle: "Schedule a conversation",
-    stepLabel: (n) => `Step ${n} of 4`,
-    step1Title: "Your details",
-    step2Title: "Date & time",
-    step2Intro:
+    pageTitle: "Book your free diagnostic",
+    stepLabel: (n) => (n <= 4 ? `Step ${n} of 4` : ""),
+    step1Title: "Date & time",
+    step1Intro:
       "Select one of the five available days on the calendar, then choose a time from the options shown for that day.",
-    step3Title: "Confirm",
-    step4Title: "Done",
+    step2Title: "Contact details",
+    step3Title: "Context",
+    step4Title: "Confirm",
+    step5Title: "Done",
     timesPanelTitle: "Available times",
     selectDayFirst: "Choose a day on the calendar first.",
+    continueHint: "You will receive a confirmation email with the session details.",
+    sectorPlaceholder: "Select an industry",
+    sectorOptions: [
+      { value: "Agroindustria", label: "Agribusiness" },
+      { value: "Logística", label: "Logistics" },
+      { value: "Manufactura", label: "Manufacturing" },
+      { value: "Servicios", label: "Services" },
+      { value: "Retail", label: "Retail" },
+      { value: "Tecnología", label: "Technology" },
+      { value: "Otro", label: "Other" },
+    ],
     fields: {
       fullName: "Full name",
       roleTitle: "Role",
@@ -104,6 +134,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
       company: "Company",
       sector: "Industry",
       cityCountry: "City / country",
+      cityCountryOptional: "City / country (optional)",
       need: "Main need",
       comment: "Comments (optional)",
     },
@@ -128,16 +159,28 @@ const copy: Record<LocaleCode, BookingCopy> = {
     homeLink: "Back to home",
   },
   pt: {
-    pageTitle: "Agendar conversa",
-    stepLabel: (n) => `Passo ${n} de 4`,
-    step1Title: "Seus dados",
-    step2Title: "Data e hora",
-    step2Intro:
+    pageTitle: "Agende seu diagnóstico gratuito",
+    stepLabel: (n) => (n <= 4 ? `Passo ${n} de 4` : ""),
+    step1Title: "Data e hora",
+    step1Intro:
       "Selecione um dos cinco dias disponíveis no calendário; em seguida escolha um horário entre os exibidos para esse dia.",
-    step3Title: "Confirmar",
-    step4Title: "Concluído",
+    step2Title: "Dados de contato",
+    step3Title: "Contexto",
+    step4Title: "Confirmar",
+    step5Title: "Concluído",
     timesPanelTitle: "Horários disponíveis",
     selectDayFirst: "Primeiro escolha um dia no calendário.",
+    continueHint: "Você receberá um e-mail de confirmação com os detalhes da sessão.",
+    sectorPlaceholder: "Selecione um setor",
+    sectorOptions: [
+      { value: "Agroindustria", label: "Agroindústria" },
+      { value: "Logística", label: "Logística" },
+      { value: "Manufactura", label: "Manufatura" },
+      { value: "Servicios", label: "Serviços" },
+      { value: "Retail", label: "Varejo" },
+      { value: "Tecnología", label: "Tecnologia" },
+      { value: "Otro", label: "Outro" },
+    ],
     fields: {
       fullName: "Nome completo",
       roleTitle: "Cargo",
@@ -146,6 +189,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
       company: "Empresa",
       sector: "Setor",
       cityCountry: "Cidade / país",
+      cityCountryOptional: "Cidade / país (opcional)",
       need: "Necessidade principal",
       comment: "Comentário (opcional)",
     },
@@ -170,16 +214,28 @@ const copy: Record<LocaleCode, BookingCopy> = {
     homeLink: "Voltar ao início",
   },
   fr: {
-    pageTitle: "Planifier un entretien",
-    stepLabel: (n) => `Étape ${n} sur 4`,
-    step1Title: "Vos coordonnées",
-    step2Title: "Date et heure",
-    step2Intro:
+    pageTitle: "Planifiez votre diagnostic gratuit",
+    stepLabel: (n) => (n <= 4 ? `Étape ${n} sur 4` : ""),
+    step1Title: "Date et heure",
+    step1Intro:
       "Sélectionnez l’un des cinq jours disponibles dans le calendrier, puis choisissez un créneau parmi ceux proposés pour ce jour.",
-    step3Title: "Confirmer",
-    step4Title: "Terminé",
+    step2Title: "Coordonnées",
+    step3Title: "Contexte",
+    step4Title: "Confirmer",
+    step5Title: "Terminé",
     timesPanelTitle: "Créneaux disponibles",
     selectDayFirst: "Choisissez d’abord un jour dans le calendrier.",
+    continueHint: "Vous recevrez un e-mail de confirmation avec les détails de la session.",
+    sectorPlaceholder: "Sélectionnez un secteur",
+    sectorOptions: [
+      { value: "Agroindustria", label: "Agro-industrie" },
+      { value: "Logística", label: "Logistique" },
+      { value: "Manufactura", label: "Manufacture" },
+      { value: "Servicios", label: "Services" },
+      { value: "Retail", label: "Commerce de détail" },
+      { value: "Tecnología", label: "Technologie" },
+      { value: "Otro", label: "Autre" },
+    ],
     fields: {
       fullName: "Nom complet",
       roleTitle: "Fonction",
@@ -188,6 +244,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
       company: "Entreprise",
       sector: "Secteur",
       cityCountry: "Ville / pays",
+      cityCountryOptional: "Ville / pays (facultatif)",
       need: "Besoin principal",
       comment: "Commentaire (facultatif)",
     },

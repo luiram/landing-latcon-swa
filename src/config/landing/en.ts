@@ -2,109 +2,146 @@ import type { LandingContent } from "./types";
 
 export const landingContentEn = {
   hero: {
-    chip: "Architecture · Integration · Applied AI",
-    title: "Connect information, processes, and decisions to scale with visibility and control",
+    chip: "Operations · Data · Technology — for growing companies",
+    title: "How much is it costing your company to decide late or with incomplete information?",
     subtitle:
-      "We design systems that integrate information, automation, and applied artificial intelligence to improve visibility, coordination, and decision-making.",
-    ctaPrimary: "Schedule a conversation",
+      "We design systems that integrate your data, automate your processes, and give your team the information they need — at the moment it can still drive action.",
+    ctaPrimary: "Book your free diagnostic session",
+    ctaReassurance: "30 minutes · No commitment · We will honestly tell you if we are the right team for your case",
+    secondaryCtaLabel: "Explore our approach →",
+    secondaryCtaHref: "#process",
+  },
+  audience: {
+    eyebrow: "Who we work with",
+    title: "We work with companies where deciding late or without clear information already has a visible cost",
+    intro: "Our clients usually come to us when one of these situations feels familiar:",
+    painSignals: [
+      "Poor decisions were made because data arrived late or was scattered.",
+      "Operations depend on key people and no one else has the full context.",
+      "Reports arrive late or sit across multiple spreadsheets without consolidation.",
+      "Scaling means hiring more people, not building better systems.",
+      "Traceability has been lost: it is hard to know what happened, when, and why.",
+    ],
+    profiles: [
+      {
+        title: "Growing company",
+        description:
+          "Operations are growing or becoming more complex, but systems and processes have not evolved at the same pace. This applies to expanding companies and to areas within large organizations that need greater visibility and operational autonomy.",
+        quote: "\"We have the data but we cannot use it.\"",
+        sectors: "Services · Retail · Manufacturing · Banking · Media",
+      },
+      {
+        title: "Distributed or field-based operations",
+        description:
+          "Field teams, multiple sites, or processes that depend on coordination across departments. Execution breaks down in communication.",
+        quote: "\"We coordinate everything on WhatsApp and no one knows who did what.\"",
+        sectors: "Logistics · Agribusiness · Field services",
+      },
+      {
+        title: "Company that already invested in technology without results",
+        description:
+          "They bought an ERP, CRM, or platform that was never adopted. They invested in development that stalled halfway. Now they need a team that understands the business before proposing software.",
+        quote: "\"We already invested in technology and it did not work as we expected.\"",
+        sectors: "Any industry with complex operations",
+      },
+    ],
   },
   problems: {
     title: "Without a connected system, management loses visibility, coordination, and control",
     intro:
-      "The issue rarely shows up in one place alone. It starts with scattered information, shows up in day-to-day execution, and ends up limiting your ability to coordinate, decide, and scale with control.",
+      "The problem rarely shows up in one place alone. It starts with scattered information, shows up in day-to-day execution, and ends up limiting your ability to coordinate, decide, and scale with control.",
     signalsHeading: "Common signals",
     groups: [
       {
         title: "01. Visibility",
         narrative: "Late insight into what is happening, fragmented data, and limited traceability for leadership and teams.",
         signals: [
-          { title: "Scattered data", body: "Disconnected sources and weak consolidation, making it hard to decide from a shared view." },
-          { title: "Late reporting", body: "Indicators arrive when they no longer support management or timely response." },
-          { title: "Low traceability", body: "Hard to audit what happened, when, and why—in operations and across the chain of decisions." },
+          { title: "Scattered data", body: "Disconnected sources with no shared view for decision-making." },
+          { title: "Late reporting", body: "Indicators arrive when they no longer support timely action." },
+          { title: "Low traceability", body: "Hard to audit what happened, when, and why." },
         ],
       },
       {
         title: "02. Execution and coordination",
         narrative: "Fragile follow-ups, reliance on individuals, and coordination that does not scale with complexity.",
         signals: [
-          { title: "Manual processes", body: "Repetitive tasks that concentrate risk and free little time for priorities." },
-          { title: "Reliance on people", body: "Knowledge and judgment live in heads and chats, not governed in a shared system." },
-          { title: "Rework and fragile coordination", body: "Misalignment across teams, back-and-forth, and a hidden cost of getting everyone aligned." },
+          { title: "Manual processes", body: "Repetitive tasks that concentrate risk and consume time." },
+          { title: "Reliance on people", body: "Knowledge lives in heads and chats, not in shared systems." },
+          { title: "Rework and fragile coordination", body: "Misalignment across teams with a hidden cost of getting everyone aligned." },
         ],
       },
       {
         title: "03. Scalability and control",
         narrative: "As volume or complexity grows, bottlenecks appear and control over management weakens.",
         signals: [
-          { title: "Scaling difficulty", body: "More demand or more teams without a structure that absorbs growth with clarity." },
-          { title: "Bottlenecks", body: "Single points of failure that slow deliveries, response, and the ability to prioritize." },
-          { title: "Weaker management control", body: "Less visibility into risks, timelines, and performance as the organization grows." },
+          { title: "Scaling difficulty", body: "More demand without a structure that absorbs growth." },
+          { title: "Bottlenecks", body: "Single points of failure that slow deliveries and response." },
+          { title: "Weaker management control", body: "Less visibility into risks and performance as the organization grows." },
         ],
       },
     ],
   },
   solutions: {
-    title: "Solutions to connect information, execution, and decisions",
+    title: "Three capabilities so your team stops deciding late or with incomplete information",
     intro:
-      "We combine architecture, automation, and applied intelligence to build capabilities that improve management from operations to leadership.",
-    srOnlyCarousel:
-      "Six capabilities in a horizontal carousel. Blue, green, and amber tones visually group each solution line.",
+      "We do not sell technology in isolation. We build integrated capabilities — each one aimed at a concrete business outcome.",
+    srOnlyCarousel: "Three capabilities in a horizontal carousel with dot navigation.",
     prevCapabilityAria: "Previous capability",
     nextCapabilityAria: "Next capability",
     capabilitiesNavAria: "Navigate between capabilities",
     capabilityNavAria: (title: string, index: number, total: number) =>
       `${title} (${index} of ${total})`,
+    includesLabel: "What's included",
+    resultLabel: "Outcome",
     capabilities: [
       {
         line: "integrate",
         image: "/solutions/arquitectura_sistemas.webp",
-        imageAlt: "Systems architecture: connected structure of information and processes.",
-        title: "Systems architecture",
-        body: "Functional and technical structure to organize information, processes, and dependencies.",
+        imageAlt: "Operational visibility: dashboards and data integration.",
+        title: "Visibility that arrives on time",
+        body: "We consolidate your scattered data and build operational dashboards that provide a clear view of what is happening — without waiting for manual reports.",
+        includes: [
+          "Data architecture and source integration",
+          "Real-time operational dashboards",
+          "Automatic alerts on critical indicators",
+        ],
+        result: "Less time waiting for data · Decisions that arrive when they can still drive action",
       },
       {
-        line: "integrate",
+        line: "coordinate",
         image: "/solutions/automatizacion_integracion.webp",
-        imageAlt: "Automation and integration: connected flows across tools and systems.",
-        title: "Automation and integration",
-        body: "Connections and flows across tools to consolidate information and reduce manual friction.",
+        imageAlt: "Automation and integration of operational processes.",
+        title: "Execution without manual friction",
+        body: "We automate the processes that today depend on people or WhatsApp messages — so your team can focus on what truly creates value.",
+        includes: [
+          "Digitized and validated workflows",
+          "Integration across tools (apps, ERP, forms, messaging)",
+          "AI agents for classification, support, and coordination",
+        ],
+        result: "Fewer errors, less rework, and operations that scale without hiring more people.",
       },
       {
-        line: "coordinate",
-        image: "/solutions/plataforma_saas_sistema.webp",
-        imageAlt: "SaaS platforms and custom systems: monitoring and coordination of processes.",
-        title: "SaaS platforms and custom systems",
-        body: "Web solutions to monitor, coordinate, and sustain critical processes with traceability.",
-      },
-      {
-        line: "coordinate",
+        line: "amplify",
         image: "/solutions/analitica_avanzada_machine_learning.webp",
-        imageAlt: "Advanced analytics and machine learning: models and signals for management.",
-        title: "Advanced analytics and machine learning",
-        body: "Models and analytics to prioritize, anticipate, and support management with actionable signals.",
-      },
-      {
-        line: "amplify",
-        image: "/solutions/deteccion_analisis_imagenes.webp",
-        imageAlt: "Image detection and analysis: computer vision and auditable data.",
-        title: "Image detection and analysis",
-        body: "Counting, classification, and visual validation to turn images into useful, auditable data.",
-      },
-      {
-        line: "amplify",
-        image: "/solutions/sistemas_multiagente.webp",
-        imageAlt: "Multi-agent AI systems: agents collaborating on monitoring and coordination.",
-        title: "Multi-agent AI systems",
-        body: "Agents that collaborate on monitoring, support, and repetitive coordination—without replacing human judgment.",
+        imageAlt: "Advanced analytics and machine learning applied to management.",
+        title: "Decisions backed by intelligence, not intuition",
+        body: "We build analytical models and applied AI systems that anticipate problems, optimize resources, and give your team actionable signals.",
+        includes: [
+          "Predictive and optimization models",
+          "Machine learning applied to operations and demand",
+          "Computer vision and multi-agent systems",
+        ],
+        result: "Lower operating costs and the ability to anticipate problems before they occur.",
       },
     ],
   },
   verticals: {
-    title: "Activities and contexts where this approach creates the most impact",
+    title: "Industries and contexts where we work",
     intro:
-      "It fits especially well where coordination, traceability, and responsiveness depend on integrating information, processes, and decisions more effectively.",
+      "Our solutions adapt to different operational contexts. These are the ones we know most deeply:",
     useCasesLabel: "Use cases",
     componentsLabel: "Components",
+    midCtaLabel: "Your industry is not listed? Tell us about your case →",
     blocks: [
       {
         title: "Environments with heavy manual information load",
@@ -129,7 +166,7 @@ export const landingContentEn = {
       },
       {
         title: "Transition from loose tools to a platform",
-        body: "We guide the shift from scattered tools, loose files, and disconnected processes toward a more structured, connected, and scalable platform—able to centralize management and increase visibility into operations and decisions.",
+        body: "We guide the shift from scattered tools, loose files, and disconnected processes toward a more structured, connected, and scalable platform — able to centralize management and increase visibility into operations and decisions.",
         image: "/verticals/transicion_herramientas_a_plataforma.webp",
         imageAlt:
           "Abstract illustration: moving from scattered tools to an integrated, scalable platform.",
@@ -150,7 +187,7 @@ export const landingContentEn = {
       },
       {
         title: "Field operations and distributed services",
-        body: "We design solutions to coordinate sales, maintenance, installations, and deliveries in distributed operations—optimizing routes, assignments, and tracking with mathematical models and AI agents that support execution where it matters most.",
+        body: "We design solutions to coordinate sales, maintenance, installations, and deliveries in distributed operations — optimizing routes, assignments, and tracking with mathematical models and AI agents that support execution where it matters most.",
         image: "/verticals/operaciones_campo_servicios_distribuidos.webp",
         imageAlt:
           "Distributed operations: coordination of sales, maintenance, installations, and deliveries with optimization and AI support.",
@@ -205,7 +242,7 @@ export const landingContentEn = {
       },
       {
         title: "We design the solution",
-        body: "We translate that need into a concrete proposal—structure, flow, or prototype—so you can visualize the solution before development.",
+        body: "We translate that need into a concrete proposal — structure, flow, or prototype — so you can visualize the solution before development.",
         result: "A clear solution, validated and aligned with your reality.",
       },
       {
@@ -226,13 +263,13 @@ export const landingContentEn = {
     panel: {
       eyebrow: "ABOUT US",
       headline: "Operations + data + technology",
-      body: "An interdisciplinary team designing solutions for real contexts.",
+      body: "We have built operational platforms, ML models, and AI automations in real implementations.",
     },
-    title: "A team that connects operations, data, and technology",
+    title: "The team behind Latcon",
     paragraphs: [
-      "We are professionals who blend operations, data, and technology to design solutions for real contexts. We integrate information capture, automation, analytics, and applied intelligence to turn manual processes into systems that are more visible, measurable, and scalable.",
-      "Our approach does not start with software alone: we first understand operations, friction, and the decisions that need better support. From there, we design solutions with more control, traceability, and room to grow.",
-      "We work with automation, advanced analytics, machine learning, computer vision, and multi-agent systems to build useful, adoptable solutions focused on real value.",
+      "The Latcon team has direct hands-on experience building the solutions it offers: we have designed operational platforms integrating web applications, dashboards, cloud data repositories, and mobile apps for iOS and Android — and implemented machine learning models and AI multi-agent automations in real operational contexts.",
+      "We bring together three complementary profiles: a consultant with more than five years in strategy implementation and results-based management, and two engineers with over a decade in automation, software development, applied analytics, computer vision, and AI systems.",
+      "Our approach does not start with software: we first understand how your operations work, where the real friction is, and which decisions need better support. From there, we design and implement the solution.",
     ],
     tags: [
       "Operations",
@@ -244,6 +281,11 @@ export const landingContentEn = {
       "Vision",
       "Multi-agent",
     ],
-    ctaAgenda: "Schedule a conversation",
+  },
+  finalCta: {
+    title: "Every week without visibility has a cost. Let's find out together if we can help you reduce it.",
+    body: "Book a 30-minute diagnostic session. We review your operations together, identify the main friction points, and give you a concrete recommendation — even if you do not work with us.",
+    ctaPrimary: "Book your free diagnostic session",
+    ctaReassurance: "No sales pitch · No commitment · 30 minutes",
   },
 } satisfies LandingContent;

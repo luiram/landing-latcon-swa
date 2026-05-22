@@ -3,20 +3,21 @@ import type { SiteContent } from "./types";
 
 const siteEs: SiteContent = {
   brand: "Latcon",
-  descriptor: "Soluciones que integran operación, datos y tecnología.",
+  descriptor: "Operación, datos y tecnología para empresas en crecimiento",
+  metadataTitle: "Latcon — Operación, datos y tecnología para empresas en crecimiento",
+  metadataDescription:
+    "¿Qué tanto le cuesta a tu empresa operar con información dispersa? Integramos datos, procesos y tecnología para que tu organización gane visibilidad y capacidad de decisión.",
   bookingPath: "/agenda",
   privacyUrl: "#privacidad",
   nav: [
+    { label: "Para quién", href: "#para-quien" },
     { label: "Soluciones", href: "#solutions" },
-    { label: "Contextos", href: "#verticals" },
     { label: "Método", href: "#process" },
     { label: "Nosotros", href: "#nosotros" },
   ],
-  ctaSchedule: "Agendar conversación",
+  ctaSchedule: "Agenda tu diagnóstico gratuito",
   privacy: "Privacidad",
   copyright: "Todos los derechos reservados.",
-  metadataDescription:
-    "Soluciones que integran operación, datos y tecnología. Automatización, analítica e IA aplicada con enfoque consultivo.",
   navAriaMain: "Principal",
   navAriaMobile: "Móvil",
   navAriaFooter: "Enlaces de pie de página",
@@ -26,20 +27,21 @@ const siteEs: SiteContent = {
 
 const siteEn: SiteContent = {
   brand: "Latcon",
-  descriptor: "Solutions that integrate operations, data, and technology.",
+  descriptor: "Operations, data, and technology for growing companies",
+  metadataTitle: "Latcon — Operations, data, and technology for growing companies",
+  metadataDescription:
+    "How much does scattered information cost your company? We integrate data, processes, and technology so your organization gains visibility and decision-making capacity.",
   bookingPath: "/agenda",
   privacyUrl: "#privacidad",
   nav: [
+    { label: "Who we help", href: "#para-quien" },
     { label: "Solutions", href: "#solutions" },
-    { label: "Contexts", href: "#verticals" },
     { label: "Method", href: "#process" },
     { label: "About us", href: "#nosotros" },
   ],
-  ctaSchedule: "Schedule a conversation",
+  ctaSchedule: "Book your free diagnostic",
   privacy: "Privacy",
   copyright: "All rights reserved.",
-  metadataDescription:
-    "Solutions that integrate operations, data, and technology. Automation, analytics, and applied AI with a consultative approach.",
   navAriaMain: "Main",
   navAriaMobile: "Mobile",
   navAriaFooter: "Footer links",
@@ -49,20 +51,21 @@ const siteEn: SiteContent = {
 
 const sitePt: SiteContent = {
   brand: "Latcon",
-  descriptor: "Soluções que integram operação, dados e tecnologia.",
+  descriptor: "Operação, dados e tecnologia para empresas em crescimento",
+  metadataTitle: "Latcon — Operação, dados e tecnologia para empresas em crescimento",
+  metadataDescription:
+    "Quanto custa à sua empresa operar com informação dispersa? Integramos dados, processos e tecnologia para ganhar visibilidade e capacidade de decisão.",
   bookingPath: "/agenda",
   privacyUrl: "#privacidad",
   nav: [
+    { label: "Para quem", href: "#para-quien" },
     { label: "Soluções", href: "#solutions" },
-    { label: "Contextos", href: "#verticals" },
     { label: "Método", href: "#process" },
     { label: "Sobre nós", href: "#nosotros" },
   ],
-  ctaSchedule: "Agendar conversa",
+  ctaSchedule: "Agende seu diagnóstico gratuito",
   privacy: "Privacidade",
   copyright: "Todos os direitos reservados.",
-  metadataDescription:
-    "Soluções que integram operação, dados e tecnologia. Automação, analítica e IA aplicada com abordagem consultiva.",
   navAriaMain: "Principal",
   navAriaMobile: "Móvel",
   navAriaFooter: "Links do rodapé",
@@ -72,20 +75,21 @@ const sitePt: SiteContent = {
 
 const siteFr: SiteContent = {
   brand: "Latcon",
-  descriptor: "Des solutions qui intègrent opérations, données et technologie.",
+  descriptor: "Opérations, données et technologie pour les entreprises en croissance",
+  metadataTitle: "Latcon — Opérations, données et technologie pour les entreprises en croissance",
+  metadataDescription:
+    "Combien coûte à votre entreprise une information dispersée ? Nous intégrons données, processus et technologie pour gagner en visibilité et en capacité de décision.",
   bookingPath: "/agenda",
   privacyUrl: "#privacidad",
   nav: [
+    { label: "Pour qui", href: "#para-quien" },
     { label: "Solutions", href: "#solutions" },
-    { label: "Contextes", href: "#verticals" },
     { label: "Méthode", href: "#process" },
     { label: "À propos", href: "#nosotros" },
   ],
-  ctaSchedule: "Planifier un entretien",
+  ctaSchedule: "Planifiez votre diagnostic gratuit",
   privacy: "Confidentialité",
   copyright: "Tous droits réservés.",
-  metadataDescription:
-    "Des solutions qui intègrent opérations, données et technologie. Automatisation, analytique et IA appliquée avec une approche consultative.",
   navAriaMain: "Principal",
   navAriaMobile: "Mobile",
   navAriaFooter: "Liens du pied de page",
