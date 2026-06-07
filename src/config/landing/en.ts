@@ -15,13 +15,6 @@ export const landingContentEn = {
     eyebrow: "Who we work with",
     title: "We work with companies where deciding late or without clear information already has a visible cost",
     intro: "Our clients usually come to us when one of these situations feels familiar:",
-    painSignals: [
-      "Poor decisions were made because data arrived late or was scattered.",
-      "Operations depend on key people and no one else has the full context.",
-      "Reports arrive late or sit across multiple spreadsheets without consolidation.",
-      "Scaling means hiring more people, not building better systems.",
-      "Traceability has been lost: it is hard to know what happened, when, and why.",
-    ],
     profiles: [
       {
         title: "Growing company",

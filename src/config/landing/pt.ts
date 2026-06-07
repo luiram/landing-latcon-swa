@@ -15,13 +15,6 @@ export const landingContentPt = {
     eyebrow: "Para quem",
     title: "Trabalhamos com empresas onde decidir tarde ou sem informação clara já tem um custo visível",
     intro: "Nossos clientes geralmente chegam quando alguma destas situações lhes parece familiar:",
-    painSignals: [
-      "Foram tomadas más decisões porque os dados chegaram tarde ou estavam dispersos.",
-      "A operação depende de pessoas-chave e ninguém mais tem o contexto completo.",
-      "Os relatórios chegam tarde ou estão em várias planilhas sem consolidação.",
-      "Escalar significa contratar mais pessoas, não ter melhores sistemas.",
-      "Perdeu-se a rastreabilidade: é difícil saber o que aconteceu, quando e por quê.",
-    ],
     profiles: [
       {
         title: "Empresa em crescimento",

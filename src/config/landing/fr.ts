@@ -15,13 +15,6 @@ export const landingContentFr = {
     eyebrow: "Pour qui",
     title: "Nous travaillons avec des entreprises où décider tard ou sans information claire a déjà un coût visible",
     intro: "Nos clients nous contactent généralement lorsque l'une de ces situations leur semble familière :",
-    painSignals: [
-      "De mauvaises décisions ont été prises parce que les données sont arrivées tard ou étaient dispersées.",
-      "L'opération dépend de personnes clés et personne d'autre n'a le contexte complet.",
-      "Les rapports arrivent tard ou sont répartis sur plusieurs feuilles de calcul sans consolidation.",
-      "Grandir signifie recruter plus de personnes, pas disposer de meilleurs systèmes.",
-      "La traçabilité a été perdue : difficile de savoir ce qui s'est passé, quand et pourquoi.",
-    ],
     profiles: [
       {
         title: "Entreprise en croissance",

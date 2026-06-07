@@ -14,34 +14,27 @@ export const landingContentEs = {
   audience: {
     eyebrow: "Para quién",
     title: "Trabajamos con empresas donde decidir tarde o sin información clara ya tiene un costo visible",
-    intro: "Nuestros clientes suelen llegar cuando alguna de estas situaciones les resulta familiar:",
-    painSignals: [
-      "Se tomaron malas decisiones porque los datos llegaron tarde o estaban dispersos.",
-      "La operación depende de personas clave y nadie más tiene el contexto completo.",
-      "Los reportes llegan tarde o están en varias hojas de cálculo sin consolidar.",
-      "Escalar implica contratar más personas, no tener mejores sistemas.",
-      "Se perdió trazabilidad: es difícil saber qué pasó, cuándo y por qué.",
-    ],
+    intro: "",
     profiles: [
       {
-        title: "Empresa en crecimiento",
+        title: "Datos sin análisis",
         description:
-          "La operación crece o se complejiza, pero los sistemas y procesos no han evolucionado al mismo ritmo. Aplica tanto a empresas en expansión como a áreas dentro de organizaciones grandes que necesitan mayor visibilidad y autonomía operativa.",
+          "Los datos están ahí, pero analizarlos en tiempo real requiere tiempo y personal que la operación no tiene disponible. Las oportunidades pasan y los problemas se detectan tarde — cuando ya tienen un costo visible.",
         quote: "«Tenemos los datos pero no podemos usarlos.»",
         sectors: "Servicios · Retail · Manufactura · Banca · Medios",
       },
       {
         title: "Operación distribuida o en campo",
         description:
-          "Equipos en campo, múltiples sedes o procesos que dependen de coordinación entre áreas. La ejecución se cae en la comunicación.",
+          "Equipos en campo, múltiples sedes o procesos entre áreas que se coordinan por WhatsApp y correo. Sin trazabilidad centralizada, es difícil saber qué pasó, quién lo hizo y cuándo — hasta que el error ya tiene consecuencias.",
         quote: "«Coordinamos todo por WhatsApp y nadie sabe quién hizo qué.»",
         sectors: "Logística · Agroindustria · Servicios de campo",
       },
       {
-        title: "Empresa que ya invirtió en tecnología sin resultados",
+        title: "Tecnología sin integración",
         description:
-          "Compraron un ERP, CRM o plataforma que no se adoptó. Invirtieron en desarrollo que quedó a medias. Ahora buscan un equipo que entienda el negocio antes de proponer software.",
-        quote: "«Ya invertimos en tecnología y no funcionó como esperábamos.»",
+          "Tienen ERP, CRM, plataformas y aplicativos — cada uno funcionando por separado. Sin integración entre sistemas, la operación genera ajustes manuales, reprocesos y decisiones basadas en datos incompletos. Buscan un equipo que conecte lo que ya tienen antes de proponer algo nuevo.",
+        quote: "«Tenemos varios sistemas pero ninguno le habla al otro.»",
         sectors: "Cualquier industria con operación compleja",
       },
     ],

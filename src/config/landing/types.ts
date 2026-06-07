@@ -12,7 +12,6 @@ export type LandingContent = {
     eyebrow: string;
     title: string;
     intro: string;
-    painSignals: readonly string[];
     profiles: ReadonlyArray<{
       title: string;
       description: string;
