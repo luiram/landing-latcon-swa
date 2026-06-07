@@ -140,7 +140,7 @@ export function Navbar() {
       <header className="pointer-events-none fixed left-0 right-0 top-3 z-50 flex justify-center px-4 sm:top-4 sm:px-6">
         <div
           className={cn(
-            "pointer-events-auto flex w-full max-w-[min(75rem,calc(100vw-2rem))] items-center gap-2 rounded-full border border-white/20 bg-[rgba(255,253,250,0.68)] px-3 py-1.5 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.92),0_1px_2px_rgba(255,255,255,0.22),0_4px_32px_-6px_rgba(0,0,0,0.13),0_1px_4px_rgba(0,0,0,0.05)] backdrop-blur-2xl backdrop-saturate-[110%] backdrop-brightness-[1.18] backdrop-contrast-[0.92] transition-[box-shadow,border-color,background-color,backdrop-filter] duration-300 sm:gap-2.5 sm:px-3.5 sm:py-1.5",
+            "pointer-events-auto flex h-[48px] w-full max-w-[min(75rem,calc(100vw-2rem))] items-center gap-2 rounded-full border border-white/20 bg-[rgba(255,253,250,0.68)] px-3 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.92),0_1px_2px_rgba(255,255,255,0.22),0_4px_32px_-6px_rgba(0,0,0,0.13),0_1px_4px_rgba(0,0,0,0.05)] backdrop-blur-2xl backdrop-saturate-[110%] backdrop-brightness-[1.18] backdrop-contrast-[0.92] transition-[box-shadow,border-color,background-color,backdrop-filter] duration-300 sm:gap-2.5 sm:px-3.5",
             scrolled &&
               "border-white/26 bg-[rgba(255,253,250,0.82)] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.96),0_1px_2px_rgba(255,255,255,0.24),0_4px_30px_-8px_rgba(0,0,0,0.08),0_1px_5px_rgba(0,0,0,0.04)] backdrop-brightness-[1.06] backdrop-contrast-[0.96]",
           )}
@@ -150,9 +150,9 @@ export function Navbar() {
             className="shrink-0 rounded-full px-1 py-0.5 transition-opacity hover:opacity-[0.88] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
           >
             <img
-                src="/logo/logo_1_primary_horizontal.png"
+                src="/logo/logo_1_primary_horizontal.svg"
                 alt="Latcon Services"
-                className="h-7 w-auto"
+                className="h-9 w-auto object-contain"
                 draggable={false}
               />
           </Link>

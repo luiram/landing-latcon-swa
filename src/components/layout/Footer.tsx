@@ -15,7 +15,7 @@ export function Footer() {
       <Container className="flex flex-col gap-7 sm:gap-8 md:flex-row md:items-start md:justify-between md:gap-10">
         <div className="max-w-lg md:min-w-0 md:flex-1">
           <img
-              src="/logo/logo_1_primary_horizontal.png"
+              src="/logo/logo_1_primary_horizontal.svg"
               alt="Latcon Services"
               className="h-11 w-auto"
               draggable={false}
