@@ -13,28 +13,28 @@ export const landingContentPt = {
   },
   audience: {
     eyebrow: "Para quem",
-    title: "Trabalhamos com empresas onde decidir tarde ou sem informação clara já tem um custo visível",
-    intro: "Nossos clientes geralmente chegam quando alguma destas situações lhes parece familiar:",
+    title: "Trabalhamos com empresas onde os dados, os sistemas e as equipes não estão conectados",
+    intro: "",
     profiles: [
       {
-        title: "Empresa em crescimento",
+        title: "Dados sem análise",
         description:
-          "A operação cresce ou se torna mais complexa, mas os sistemas e processos não evoluíram no mesmo ritmo. Aplica tanto a empresas em expansão quanto a áreas dentro de organizações grandes que precisam de maior visibilidade e autonomia operacional.",
+          "Os dados estão lá, mas analisá-los em tempo real requer tempo e pessoal que a operação não tem disponível. As oportunidades passam e os problemas são detectados tarde — quando já têm um custo visível.",
         quote: "\"Temos os dados, mas não conseguimos usá-los.\"",
         sectors: "Serviços · Varejo · Manufatura · Serviços Financeiros · Mídia",
       },
       {
         title: "Operação distribuída ou em campo",
         description:
-          "Equipes em campo, múltiplas unidades ou processos que dependem de coordenação entre áreas. A execução falha na comunicação.",
+          "Equipes em campo, múltiplas unidades ou processos entre áreas coordenados por WhatsApp e e-mail. Sem rastreabilidade centralizada, é difícil saber o que aconteceu, quem fez e quando — até que o erro já tenha consequências.",
         quote: "\"Coordenamos tudo pelo WhatsApp e ninguém sabe quem fez o quê.\"",
         sectors: "Logística · Agroindústria · Serviços de campo",
       },
       {
-        title: "Empresa que já investiu em tecnologia sem resultados",
+        title: "Tecnologia sem integração",
         description:
-          "Compraram um ERP, CRM ou plataforma que não foi adotada. Investiram em desenvolvimento que ficou pela metade. Agora buscam uma equipe que entenda o negócio antes de propor software.",
-        quote: "\"Já investimos em tecnologia e não funcionou como esperávamos.\"",
+          "Têm ERP, CRM, plataformas e aplicativos — cada um funcionando separadamente. Sem integração entre sistemas, a operação gera ajustes manuais, retrabalho e decisões baseadas em dados incompletos. Buscam uma equipe que conecte o que já têm antes de propor algo novo.",
+        quote: "\"Temos vários sistemas, mas nenhum fala com o outro.\"",
         sectors: "Qualquer indústria com operação complexa",
       },
     ],

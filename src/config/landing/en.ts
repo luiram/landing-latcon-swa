@@ -13,28 +13,28 @@ export const landingContentEn = {
   },
   audience: {
     eyebrow: "Who we work with",
-    title: "We work with companies where deciding late or without clear information already has a visible cost",
-    intro: "Our clients usually come to us when one of these situations feels familiar:",
+    title: "We work with companies where data, systems and teams are not connected",
+    intro: "",
     profiles: [
       {
-        title: "Growing company",
+        title: "Data without analysis",
         description:
-          "Operations are growing or becoming more complex, but systems and processes have not evolved at the same pace. This applies to expanding companies and to areas within large organizations that need greater visibility and operational autonomy.",
+          "The data is there, but analyzing it in real time requires time and staff the operation does not have available. Opportunities pass and problems are detected late — when they already have a visible cost.",
         quote: "\"We have the data but we cannot use it.\"",
         sectors: "Services · Retail · Manufacturing · Banking · Media",
       },
       {
         title: "Distributed or field-based operations",
         description:
-          "Field teams, multiple sites, or processes that depend on coordination across departments. Execution breaks down in communication.",
+          "Field teams, multiple sites or cross-area processes coordinated over WhatsApp and email. Without centralized traceability, it is hard to know what happened, who did it and when — until the error already has consequences.",
         quote: "\"We coordinate everything on WhatsApp and no one knows who did what.\"",
         sectors: "Logistics · Agribusiness · Field services",
       },
       {
-        title: "Company that already invested in technology without results",
+        title: "Technology without integration",
         description:
-          "They bought an ERP, CRM, or platform that was never adopted. They invested in development that stalled halfway. Now they need a team that understands the business before proposing software.",
-        quote: "\"We already invested in technology and it did not work as we expected.\"",
+          "They have ERP, CRM, platforms and applications — each running separately. Without integration between systems, operations generate manual adjustments, rework and decisions based on incomplete data. They need a team that connects what they already have before proposing something new.",
+        quote: "\"We have multiple systems but none of them talk to each other.\"",
         sectors: "Any industry with complex operations",
       },
     ],

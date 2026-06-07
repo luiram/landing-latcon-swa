@@ -40,7 +40,7 @@ export function Audience() {
               >
                 <h3 className="text-lg font-semibold tracking-tight text-text-primary">{profile.title}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-text-muted">{profile.description}</p>
-                <p className="mt-4 text-sm italic leading-relaxed text-text-muted/90">{profile.quote}</p>
+                <p className="mt-4 text-sm font-semibold italic leading-relaxed text-text-muted/90">{profile.quote}</p>
                 <p className="mt-4 border-t border-border-subtle pt-4 text-xs font-medium uppercase tracking-wide text-accent/85">
                   {profile.sectors}
                 </p>

@@ -13,7 +13,7 @@ export const landingContentEs = {
   },
   audience: {
     eyebrow: "Para quién",
-    title: "Trabajamos con empresas donde decidir tarde o sin información clara ya tiene un costo visible",
+    title: "Trabajamos con empresas donde los datos, los sistemas y los equipos no están conectados",
     intro: "",
     profiles: [
       {

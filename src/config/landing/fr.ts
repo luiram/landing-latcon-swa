@@ -13,28 +13,28 @@ export const landingContentFr = {
   },
   audience: {
     eyebrow: "Pour qui",
-    title: "Nous travaillons avec des entreprises où décider tard ou sans information claire a déjà un coût visible",
-    intro: "Nos clients nous contactent généralement lorsque l'une de ces situations leur semble familière :",
+    title: "Nous travaillons avec des entreprises où les données, les systèmes et les équipes ne sont pas connectés",
+    intro: "",
     profiles: [
       {
-        title: "Entreprise en croissance",
+        title: "Données sans analyse",
         description:
-          "L'opération croît ou se complexifie, mais les systèmes et processus n'ont pas évolué au même rythme. Cela concerne aussi bien une entreprise en expansion qu'un département au sein d'une grande organisation ayant besoin de plus de visibilité et d'autonomie opérationnelle.",
+          "Les données sont là, mais les analyser en temps réel demande du temps et du personnel que l'opération n'a pas disponible. Les opportunités passent et les problèmes sont détectés tard — quand ils ont déjà un coût visible.",
         quote: "« Nous avons les données mais nous ne pouvons pas les utiliser. »",
         sectors: "Services · Distribution · Industrie · Banque · Médias",
       },
       {
         title: "Opération distribuée ou terrain",
         description:
-          "Équipes sur le terrain, plusieurs sites ou processus qui dépendent de la coordination entre services. L'exécution échoue dans la communication.",
+          "Équipes sur le terrain, plusieurs sites ou processus entre services coordonnés par WhatsApp et e-mail. Sans traçabilité centralisée, il est difficile de savoir ce qui s'est passé, qui l'a fait et quand — jusqu'à ce que l'erreur ait déjà des conséquences.",
         quote: "« Nous coordonnons tout sur WhatsApp et personne ne sait qui a fait quoi. »",
         sectors: "Logistique · Agro-industrie · Services de terrain",
       },
       {
-        title: "Entreprise ayant déjà investi dans la technologie sans résultats",
+        title: "Technologie sans intégration",
         description:
-          "Elle a acheté un ERP, un CRM ou une plateforme qui n'a pas été adoptée. Elle a investi dans un développement resté inachevé. Elle cherche maintenant une équipe qui comprend le métier avant de proposer un logiciel.",
-        quote: "« Nous avons déjà investi dans la technologie et cela n'a pas fonctionné comme prévu. »",
+          "Ils ont ERP, CRM, plateformes et applications — chacun fonctionnant séparément. Sans intégration entre systèmes, l'opération génère des ajustements manuels, des reprises et des décisions basées sur des données incomplètes. Ils cherchent une équipe qui connecte ce qu'ils ont déjà avant de proposer quelque chose de nouveau.",
+        quote: "« Nous avons plusieurs systèmes mais aucun ne parle à l'autre. »",
         sectors: "Toute industrie à opération complexe",
       },
     ],
