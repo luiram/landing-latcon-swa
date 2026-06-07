@@ -2,7 +2,7 @@ import type { LandingContent } from "./landing/types";
 
 export const landingContentEs = {
   hero: {
-    chip: "Datos · Automatización · IA · Resultados",
+    chip: "Datos · Automatización · IA · Anticipación",
     title: "¿Tu empresa ya tiene los datos pero todavía no puede usarlos para decidir a tiempo?",
     subtitle:
       "Integramos tus datos, automatizamos tus procesos y construimos sistemas de IA que le dan a tu equipo señales claras para actuar — antes de que el problema sea visible.",

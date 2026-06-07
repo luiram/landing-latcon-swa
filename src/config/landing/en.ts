@@ -2,13 +2,13 @@ import type { LandingContent } from "./types";
 
 export const landingContentEn = {
   hero: {
-    chip: "Operations · Data · Technology — for growing companies",
-    title: "How much is it costing your company to decide late or with incomplete information?",
+    chip: "Data · Automation · AI · Anticipation",
+    title: "Does your company already have the data but still can't use it to decide in time?",
     subtitle:
-      "We design systems that integrate your data, automate your processes, and give your team the information they need — at the moment it can still drive action.",
+      "We integrate your data, automate your processes and build AI systems that give your team clear signals to act — before the problem becomes visible.",
     ctaPrimary: "Book your free diagnostic session",
-    ctaReassurance: "30 minutes · No commitment · We will honestly tell you if we are the right team for your case",
-    secondaryCtaLabel: "Explore our approach →",
+    ctaReassurance: "30 minutes · No commitment · We'll honestly tell you if we're the right team for your case",
+    secondaryCtaLabel: "See our approach →",
     secondaryCtaHref: "#process",
   },
   audience: {

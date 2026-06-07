@@ -2,12 +2,12 @@ import type { LandingContent } from "./types";
 
 export const landingContentPt = {
   hero: {
-    chip: "Operação · Dados · Tecnologia — para empresas em crescimento",
-    title: "Quanto custa para a sua empresa decidir tarde ou com informação incompleta?",
+    chip: "Dados · Automação · IA · Antecipação",
+    title: "Sua empresa já tem os dados mas ainda não consegue usá-los para decidir a tempo?",
     subtitle:
-      "Desenvolvemos sistemas que integram seus dados, automatizam seus processos e dão à sua equipe a informação que precisa — no momento em que ainda serve para agir.",
+      "Integramos seus dados, automatizamos seus processos e construímos sistemas de IA que dão à sua equipe sinais claros para agir — antes que o problema se torne visível.",
     ctaPrimary: "Agende seu diagnóstico gratuito",
-    ctaReassurance: "30 minutos · Sem compromisso · Dizemos com honestidade se somos a equipe certa para o seu caso",
+    ctaReassurance: "30 minutos · Sem compromisso · Diremos com honestidade se somos a equipe certa para o seu caso",
     secondaryCtaLabel: "Conheça nossa abordagem →",
     secondaryCtaHref: "#process",
   },
