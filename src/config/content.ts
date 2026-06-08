@@ -100,7 +100,7 @@ export const landingContentEs = {
         image: "/solutions/arquitectura_sistemas.webp",
         imageAlt: "Visibilidad operativa: dashboards e integración de datos.",
         title: "Visibilidad que llega a tiempo",
-        body: "Tu operación genera datos en múltiples sistemas. Los conectamos, los organizamos y los convertimos en señales claras — para que tu equipo actúe, no que espere.",
+        body: "Tu operación genera datos en múltiples sistemas. Los conectamos, los organizamos y los convertimos en señales claras para que tu equipo actúe.",
         includes: [
           "Tus fuentes de datos conectadas en un solo lugar — sin consolidación manual",
           "Tableros operativos actualizados en tiempo real — sin depender de reportes manuales",
@@ -119,7 +119,7 @@ export const landingContentEs = {
           "ERP, apps, formularios y mensajería integrados en un solo flujo de información",
           "Agentes de IA que ejecutan tareas repetitivas — sin intervención humana",
         ],
-        result: "Menos errores, menos retrabajo y operación que escala sin contratar más personas.",
+        result: "Operación que fluye sin cuellos de botella, con trazabilidad completa y capacidad de crecer sin agregar complejidad.",
       },
       {
         line: "amplify",
@@ -128,11 +128,11 @@ export const landingContentEs = {
         title: "Decisiones apoyadas en inteligencia, no en intuición",
         body: "Tu equipo ya toma decisiones todos los días. La diferencia es si las toma con datos del pasado o con modelos que ven lo que viene — antes de que sea urgente.",
         includes: [
-          "Modelos predictivos para demanda, inventario y cuellos de botella — antes de que sean urgentes",
+          "Modelos predictivos para demanda, inventario y cuellos de botella",
           "Sistemas que aprenden del comportamiento de tu operación y mejoran sus recomendaciones con el tiempo",
           "Análisis visual automatizado para operaciones donde el ojo humano no escala",
         ],
-        result: "Menor costo operativo y capacidad de anticipar problemas antes de que ocurran.",
+        result: "Decisiones basadas en lo que viene, no en lo que ya pasó · Problemas detectados antes de que tengan costo visible.",
       },
     ],
   },

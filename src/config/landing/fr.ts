@@ -100,7 +100,7 @@ export const landingContentFr = {
         image: "/solutions/arquitectura_sistemas.webp",
         imageAlt: "Visibilité opérationnelle : tableaux de bord et intégration de données.",
         title: "Une visibilité qui arrive à temps",
-        body: "Votre opération génère des données dans plusieurs systèmes. Nous les connectons, les organisons et les convertissons en signaux clairs — pour que votre équipe agisse, pas attende.",
+        body: "Votre opération génère des données dans plusieurs systèmes. Nous les connectons, les organisons et les convertissons en signaux clairs pour que votre équipe agisse.",
         includes: [
           "Vos sources de données connectées en un seul endroit — sans consolidation manuelle",
           "Tableaux de bord opérationnels mis à jour en temps réel — sans dépendre de rapports manuels",
@@ -119,7 +119,7 @@ export const landingContentFr = {
           "ERP, apps, formulaires et messagerie intégrés dans un seul flux d'information",
           "Agents IA qui exécutent des tâches répétitives — sans intervention humaine",
         ],
-        result: "Moins d'erreurs, moins de retravail et une opération qui scale sans recruter plus de personnes.",
+        result: "Une opération qui fonctionne sans goulots d'étranglement, avec une traçabilité complète et la capacité de croître sans ajouter de complexité.",
       },
       {
         line: "amplify",
@@ -128,11 +128,11 @@ export const landingContentFr = {
         title: "Des décisions appuyées sur l'intelligence, pas sur l'intuition",
         body: "Votre équipe prend déjà des décisions tous les jours. La différence est de savoir si elle les prend avec des données passées ou avec des modèles qui voient ce qui arrive — avant que ce soit urgent.",
         includes: [
-          "Modèles prédictifs pour la demande, les stocks et les goulots d'étranglement — avant qu'ils ne deviennent urgents",
+          "Modèles prédictifs pour la demande, les stocks et les goulots d'étranglement",
           "Machine learning appliqué à l'opération et à la demande",
           "Vision par ordinateur et systèmes multi-agents",
         ],
-        result: "Des coûts opérationnels plus bas et la capacité d'anticiper les problèmes avant qu'ils surviennent.",
+        result: "Des décisions basées sur ce qui vient, pas sur ce qui s'est déjà passé · Problèmes détectés avant qu'ils n'aient un coût visible.",
       },
     ],
   },

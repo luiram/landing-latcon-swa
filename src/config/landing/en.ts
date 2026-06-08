@@ -100,7 +100,7 @@ export const landingContentEn = {
         image: "/solutions/arquitectura_sistemas.webp",
         imageAlt: "Operational visibility: dashboards and data integration.",
         title: "Visibility that arrives on time",
-        body: "Your operation generates data across multiple systems. We connect it, organize it and turn it into clear signals — so your team acts, not waits.",
+        body: "Your operation generates data across multiple systems. We connect it, organize it and turn it into clear signals so your team can act.",
         includes: [
           "Your data sources connected in one place — no manual consolidation",
           "Operational dashboards updated in real time — without depending on manual reports",
@@ -119,7 +119,7 @@ export const landingContentEn = {
           "ERP, apps, forms and messaging integrated into a single information flow",
           "AI agents that execute repetitive tasks — without human intervention",
         ],
-        result: "Fewer errors, less rework, and operations that scale without hiring more people.",
+        result: "Operations that flow without bottlenecks, with full traceability and the ability to grow without adding complexity.",
       },
       {
         line: "amplify",
@@ -128,11 +128,11 @@ export const landingContentEn = {
         title: "Decisions backed by intelligence, not intuition",
         body: "Your team already makes decisions every day. The difference is whether they make them with past data or with models that see what is coming — before it becomes urgent.",
         includes: [
-          "Predictive models for demand, inventory and bottlenecks — before they become urgent",
+          "Predictive models for demand, inventory and bottlenecks",
           "Machine learning applied to operations and demand",
           "Computer vision and multi-agent systems",
         ],
-        result: "Lower operating costs and the ability to anticipate problems before they occur.",
+        result: "Decisions based on what is coming, not what already happened · Problems detected before they have a visible cost.",
       },
     ],
   },

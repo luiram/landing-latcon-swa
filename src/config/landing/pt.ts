@@ -100,7 +100,7 @@ export const landingContentPt = {
         image: "/solutions/arquitectura_sistemas.webp",
         imageAlt: "Visibilidade operacional: painéis e integração de dados.",
         title: "Visibilidade que chega a tempo",
-        body: "Sua operação gera dados em múltiplos sistemas. Nós os conectamos, organizamos e convertemos em sinais claros — para que sua equipe aja, não espere.",
+        body: "Sua operação gera dados em múltiplos sistemas. Nós os conectamos, organizamos e convertemos em sinais claros para que sua equipe aja.",
         includes: [
           "Suas fontes de dados conectadas em um só lugar — sem consolidação manual",
           "Painéis operacionais atualizados em tempo real — sem depender de relatórios manuais",
@@ -119,7 +119,7 @@ export const landingContentPt = {
           "ERP, apps, formulários e mensageria integrados em um único fluxo de informação",
           "Agentes de IA que executam tarefas repetitivas — sem intervenção humana",
         ],
-        result: "Menos erros, menos retrabalho e operação que escala sem contratar mais pessoas.",
+        result: "Operação que flui sem gargalos, com rastreabilidade completa e capacidade de crescer sem adicionar complexidade.",
       },
       {
         line: "amplify",
@@ -128,11 +128,11 @@ export const landingContentPt = {
         title: "Decisões apoiadas em inteligência, não em intuição",
         body: "Sua equipe já toma decisões todos os dias. A diferença é se as toma com dados do passado ou com modelos que veem o que vem — antes que seja urgente.",
         includes: [
-          "Modelos preditivos para demanda, inventário e gargalos — antes que se tornem urgentes",
+          "Modelos preditivos para demanda, inventário e gargalos",
           "Machine learning aplicado à operação e demanda",
           "Visão computacional e sistemas multiagente",
         ],
-        result: "Menor custo operacional e capacidade de antecipar problemas antes que ocorram.",
+        result: "Decisões baseadas no que vem, não no que já passou · Problemas detectados antes de terem um custo visível.",
       },
     ],
   },
