@@ -232,9 +232,9 @@ export const landingContentFr = {
   },
   process: {
     eyebrow: "MÉTHODE",
-    title: "Comment nous passons d'un besoin réel à une solution qui fonctionne",
+    title: "Comment nous travaillons : d'abord comprendre, puis construire.",
     intro:
-      "Nous ne partons pas de la technologie. Nous commençons par comprendre le contexte, bien concevoir la solution et ne construire que ce qui apporte réellement de la valeur.",
+      "Chaque étape a un livrable concret. Nous ne passons à la suivante qu'une fois que la précédente crée de la clarté.",
     resultLabel: "Résultat",
     steps: [
       {
@@ -244,13 +244,13 @@ export const landingContentFr = {
       },
       {
         title: "Nous concevons la solution",
-        body: "Nous traduisons ce besoin en une proposition concrète — structure, flux ou prototype — pour visualiser la solution avant de développer.",
+        body: "Nous traduisons le diagnostic en une proposition concrète — pour que vous puissiez voir la solution avant d'investir dans son développement.",
         result: "Une solution claire, validée et alignée avec votre réalité.",
       },
       {
         title: "Nous construisons par étapes",
         body: "Nous développons avec des livraisons partielles et des validations continues, en priorisant d'abord ce qui apporte le plus de valeur.",
-        result: "Des avancées visibles, un apprentissage rapide et un meilleur usage de l'investissement.",
+        result: "Une solution partielle fonctionnelle, validée avec de vrais utilisateurs avant la livraison finale.",
       },
       {
         title: "Nous déployons et ajustons",
@@ -267,11 +267,26 @@ export const landingContentFr = {
       headline: "Opération + données + technologie",
       body: "Nous avons construit des plateformes opérationnelles, des modèles ML et des automatisations avec l'IA dans des implémentations réelles.",
     },
-    title: "L'équipe derrière Latcon",
+    title: "L'équipe qui comprend votre opération et construit la solution.",
+    members: [
+      {
+        name: "Luis Ramírez",
+        role: "Opérations · Données · Architecture",
+        credential: "Ingénieur industriel. 15 ans à connecter l'opération et la technologie en logistique, agro-industrie et intelligence des données.",
+      },
+      {
+        name: "César Ramírez",
+        role: "Stratégie · Résultats",
+        credential: "5+ ans à accompagner des organisations dans la mise en œuvre de stratégies opérationnelles et la gestion par les résultats en distribution, télécommunications et ventes.",
+      },
+      {
+        name: "John Ramírez",
+        role: "Développement · IA · Cloud",
+        credential: "10+ ans en apps, ML, vision par ordinateur, systèmes multi-agents et cloud.",
+      },
+    ],
     paragraphs: [
-      "L'équipe Latcon a une expérience directe dans la construction des solutions qu'elle propose : nous avons conçu des plateformes opérationnelles intégrant une application web, des tableaux de bord, un référentiel de données en nuage et des applications mobiles pour iOS et Android — et mis en œuvre des modèles de machine learning et des automatisations avec des systèmes multi-agents d'IA dans des contextes opérationnels réels.",
-      "Nous réunissons trois profils complémentaires : un cabinet avec plus de cinq ans d'expérience en mise en œuvre de stratégie et gestion par les résultats, et deux ingénieurs avec plus d'une décennie en automatisation, développement logiciel, analytique appliquée, vision par ordinateur et systèmes d'IA.",
-      "Notre approche ne part pas du logiciel : nous comprenons d'abord comment fonctionne votre opération, où sont les frictions réelles et quelles décisions ont besoin d'un meilleur soutien. Ensuite, nous concevons et mettons en œuvre la solution.",
+      "Nous ne sommes pas une agence de développement ni un cabinet de conseil en stratégie. Nous sommes ingénierie des opérations, développement propre et gestion par les résultats — travaillant comme une seule équipe du diagnostic à la mise en œuvre.",
     ],
     tags: [
       "Opération",
@@ -286,7 +301,7 @@ export const landingContentFr = {
   },
   finalCta: {
     title: "Chaque semaine sans visibilité a un coût. Découvrons ensemble si nous pouvons vous aider à le réduire.",
-    body: "Réservez une session de diagnostic de 30 minutes. Nous examinons ensemble votre opération, identifions les principaux points de friction et vous donnons une recommandation concrète — même si vous ne travaillez pas avec nous.",
+    body: "Réservez une session de diagnostic de 30 minutes. Nous examinons ensemble comment fonctionne votre opération, identifions où se perdent données, temps ou décisions — et vous donnons une recommandation concrète, même si vous ne travaillez pas avec nous.",
     ctaPrimary: "Réservez votre diagnostic gratuit",
     ctaReassurance: "Sans pitch commercial · Sans engagement · 30 minutes",
   },

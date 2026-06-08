@@ -232,9 +232,9 @@ export const landingContentEn = {
   },
   process: {
     eyebrow: "METHOD",
-    title: "How we take a real need to a solution that works",
+    title: "How we work: first we understand, then we build.",
     intro:
-      "We do not start from technology. We start by understanding the context, designing the solution well, and building only what truly adds value.",
+      "Each stage has a concrete deliverable. We don't move to the next until the previous one creates clarity.",
     resultLabel: "Outcome",
     steps: [
       {
@@ -244,13 +244,13 @@ export const landingContentEn = {
       },
       {
         title: "We design the solution",
-        body: "We translate that need into a concrete proposal — structure, flow, or prototype — so you can visualize the solution before development.",
+        body: "We turn the diagnosis into a concrete proposal — so you can see the solution before investing in building it.",
         result: "A clear solution, validated and aligned with your reality.",
       },
       {
         title: "We build in stages",
         body: "We develop with incremental deliveries and continuous validation, focusing first on what delivers the most value.",
-        result: "Visible progress, fast learning, and better use of investment.",
+        result: "A working partial solution, validated with real users before final delivery.",
       },
       {
         title: "We implement and refine",
@@ -267,11 +267,26 @@ export const landingContentEn = {
       headline: "Operations + data + technology",
       body: "We have built operational platforms, ML models, and AI automations in real implementations.",
     },
-    title: "The team behind Latcon",
+    title: "The team that understands your operation and builds the solution.",
+    members: [
+      {
+        name: "Luis Ramírez",
+        role: "Operations · Data · Architecture",
+        credential: "Industrial Engineer. 15 years connecting operations and technology in logistics, agribusiness and data intelligence.",
+      },
+      {
+        name: "César Ramírez",
+        role: "Strategy · Results",
+        credential: "5+ years guiding organizations in the implementation of operational strategies and results-based management in distribution, telecommunications and sales.",
+      },
+      {
+        name: "John Ramírez",
+        role: "Development · AI · Cloud",
+        credential: "10+ years in apps, ML, computer vision, multi-agent systems and cloud.",
+      },
+    ],
     paragraphs: [
-      "The Latcon team has direct hands-on experience building the solutions it offers: we have designed operational platforms integrating web applications, dashboards, cloud data repositories, and mobile apps for iOS and Android — and implemented machine learning models and AI multi-agent automations in real operational contexts.",
-      "We bring together three complementary profiles: a consultant with more than five years in strategy implementation and results-based management, and two engineers with over a decade in automation, software development, applied analytics, computer vision, and AI systems.",
-      "Our approach does not start with software: we first understand how your operations work, where the real friction is, and which decisions need better support. From there, we design and implement the solution.",
+      "We are not a development agency or a strategy consultancy. We are operations engineering, in-house development and results-based management — working as one team from diagnosis to implementation.",
     ],
     tags: [
       "Operations",
@@ -286,7 +301,7 @@ export const landingContentEn = {
   },
   finalCta: {
     title: "Every week without visibility has a cost. Let's find out together if we can help you reduce it.",
-    body: "Book a 30-minute diagnostic session. We review your operations together, identify the main friction points, and give you a concrete recommendation — even if you do not work with us.",
+    body: "Book a 30-minute diagnostic session. We review together how your operation flows, identify where data, time or decisions are being lost — and give you a concrete recommendation, even if you don't work with us.",
     ctaPrimary: "Book your free diagnostic session",
     ctaReassurance: "No sales pitch · No commitment · 30 minutes",
   },

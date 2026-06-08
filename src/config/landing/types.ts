@@ -76,6 +76,7 @@ export type LandingContent = {
   about: {
     panel: { eyebrow: string; headline: string; body: string };
     title: string;
+    members: ReadonlyArray<{ name: string; role: string; credential: string }>;
     paragraphs: readonly string[];
     tags: readonly string[];
   };

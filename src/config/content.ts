@@ -232,9 +232,9 @@ export const landingContentEs = {
   },
   process: {
     eyebrow: "MÉTODO",
-    title: "Cómo llevamos una necesidad real a una solución que funciona",
+    title: "Así trabajamos: primero entendemos, luego construimos.",
     intro:
-      "No empezamos por tecnología. Empezamos por entender el contexto, diseñar bien la solución y construir solo lo que realmente aporta valor.",
+      "Cada etapa tiene un entregable concreto. No avanzamos a la siguiente hasta que la anterior genera claridad.",
     resultLabel: "Resultado",
     steps: [
       {
@@ -244,13 +244,13 @@ export const landingContentEs = {
       },
       {
         title: "Diseñamos la solución",
-        body: "Traducimos esa necesidad en una propuesta concreta: estructura, flujo o prototipo, para que puedas visualizar la solución antes de desarrollar.",
+        body: "Traducimos el diagnóstico en una propuesta concreta — para que veas la solución antes de invertir en desarrollarla.",
         result: "Una solución clara, validada y alineada con tu realidad.",
       },
       {
         title: "Construimos por etapas",
         body: "Desarrollamos la solución con entregas parciales y validaciones continuas, enfocándonos primero en lo que más valor aporta.",
-        result: "Avances visibles, aprendizaje rápido y mejor uso de la inversión.",
+        result: "Solución parcial funcionando, validada con usuarios reales antes de la entrega final.",
       },
       {
         title: "Implementamos y ajustamos",
@@ -267,11 +267,26 @@ export const landingContentEs = {
       headline: "Operación + datos + tecnología",
       body: "Hemos construido plataformas operativas, modelos de ML y automatizaciones con IA en implementaciones reales.",
     },
-    title: "El equipo detrás de Latcon",
+    title: "El equipo que entiende tu operación y construye la solución.",
+    members: [
+      {
+        name: "Luis Ramírez",
+        role: "Operación · Datos · Arquitectura",
+        credential: "Ingeniero Industrial. 15 años conectando operación y tecnología en logística, agroindustria e inteligencia de datos.",
+      },
+      {
+        name: "César Ramírez",
+        role: "Estrategia · Resultados",
+        credential: "5+ años acompañando organizaciones en la implementación de estrategias operativas y gestión por resultados en distribución, telecomunicaciones y ventas.",
+      },
+      {
+        name: "John Ramírez",
+        role: "Desarrollo · IA · Cloud",
+        credential: "10+ años en apps, ML, visión computacional, sistemas multiagente y cloud.",
+      },
+    ],
     paragraphs: [
-      "El equipo de Latcon tiene experiencia directa construyendo las soluciones que ofrece: hemos diseñado plataformas operativas que integran aplicación web, dashboards, repositorio de datos en la nube y apps móviles para iOS y Android — y hemos implementado modelos de machine learning y automatizaciones con sistemas multiagente de IA en contextos reales de operación.",
-      "Integramos tres perfiles complementarios: una consultora con más de cinco años en implementación de estrategia y gestión por resultados, y dos ingenieros con más de una década en automatización, desarrollo de software, analítica aplicada, visión computacional y sistemas de IA.",
-      "Nuestro enfoque no parte del software: primero entendemos cómo funciona tu operación, dónde están las fricciones reales y qué decisiones necesitan mejor soporte. A partir de ahí, diseñamos e implementamos la solución.",
+      "No somos una agencia de desarrollo ni una consultora de estrategia. Somos ingeniería de operaciones, desarrollo propio y gestión por resultados — trabajando como un solo equipo desde el diagnóstico hasta la implementación.",
     ],
     tags: [
       "Operación",
@@ -286,7 +301,7 @@ export const landingContentEs = {
   },
   finalCta: {
     title: "Cada semana sin visibilidad tiene un costo. Averigüemos juntos si podemos ayudarte a reducirlo.",
-    body: "Agenda una sesión de diagnóstico de 30 minutos. Revisamos juntos tu operación, identificamos los principales puntos de fricción y te damos una recomendación concreta — aunque no trabajes con nosotros.",
+    body: "Agenda una sesión de diagnóstico de 30 minutos. Revisamos juntos cómo fluye tu operación, identificamos dónde se pierden datos, tiempo o decisiones — y te damos una recomendación concreta, aunque no trabajes con nosotros.",
     ctaPrimary: "Agenda tu diagnóstico gratuito",
     ctaReassurance: "Sin pitch de ventas · Sin compromiso · 30 minutos",
   },
