@@ -1,6 +1,7 @@
 "use client";
 
 import { Container } from "@/components/ui/Container";
+
 import { useLandingContent } from "@/hooks/useLandingContent";
 
 const footLink =
@@ -13,7 +14,12 @@ export function Footer() {
     <footer id="privacidad" className="border-t border-border-subtle bg-bg-page py-11 sm:py-12">
       <Container className="flex flex-col gap-7 sm:gap-8 md:flex-row md:items-start md:justify-between md:gap-10">
         <div className="max-w-lg md:min-w-0 md:flex-1">
-          <p className="text-base font-semibold tracking-tight text-text-primary">{site.brand}</p>
+          <img
+              src="/logo/logo_1_primary_horizontal.svg"
+              alt="Latcon Services"
+              className="h-11 w-auto"
+              draggable={false}
+            />
           <p className="mt-2 text-sm leading-relaxed text-text-muted sm:mt-2.5 sm:text-[0.9375rem] sm:leading-relaxed">
             {site.descriptor}
           </p>

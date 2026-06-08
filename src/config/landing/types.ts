@@ -12,7 +12,6 @@ export type LandingContent = {
     eyebrow: string;
     title: string;
     intro: string;
-    painSignals: readonly string[];
     profiles: ReadonlyArray<{
       title: string;
       description: string;
@@ -31,6 +30,7 @@ export type LandingContent = {
     }>;
   };
   solutions: {
+    eyebrow: string;
     title: string;
     intro: string;
     srOnlyCarousel: string;
@@ -66,6 +66,7 @@ export type LandingContent = {
     }>;
   };
   process: {
+    eyebrow: string;
     title: string;
     intro: string;
     resultLabel: string;
@@ -75,6 +76,7 @@ export type LandingContent = {
   about: {
     panel: { eyebrow: string; headline: string; body: string };
     title: string;
+    members: ReadonlyArray<{ name: string; role: string; credential: string }>;
     paragraphs: readonly string[];
     tags: readonly string[];
   };

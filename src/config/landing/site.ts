@@ -3,7 +3,7 @@ import type { SiteContent } from "./types";
 
 const siteEs: SiteContent = {
   brand: "Latcon",
-  descriptor: "Operación, datos y tecnología para empresas en crecimiento",
+  descriptor: "Conectamos tu operación, tus datos y tu tecnología.",
   metadataTitle: "Latcon — Operación, datos y tecnología para empresas en crecimiento",
   metadataDescription:
     "¿Qué tanto le cuesta a tu empresa operar con información dispersa? Integramos datos, procesos y tecnología para que tu organización gane visibilidad y capacidad de decisión.",
@@ -27,7 +27,7 @@ const siteEs: SiteContent = {
 
 const siteEn: SiteContent = {
   brand: "Latcon",
-  descriptor: "Operations, data, and technology for growing companies",
+  descriptor: "We connect your operations, your data, and your technology.",
   metadataTitle: "Latcon — Operations, data, and technology for growing companies",
   metadataDescription:
     "How much does scattered information cost your company? We integrate data, processes, and technology so your organization gains visibility and decision-making capacity.",
@@ -51,7 +51,7 @@ const siteEn: SiteContent = {
 
 const sitePt: SiteContent = {
   brand: "Latcon",
-  descriptor: "Operação, dados e tecnologia para empresas em crescimento",
+  descriptor: "Conectamos sua operação, seus dados e sua tecnologia.",
   metadataTitle: "Latcon — Operação, dados e tecnologia para empresas em crescimento",
   metadataDescription:
     "Quanto custa à sua empresa operar com informação dispersa? Integramos dados, processos e tecnologia para ganhar visibilidade e capacidade de decisão.",
@@ -75,7 +75,7 @@ const sitePt: SiteContent = {
 
 const siteFr: SiteContent = {
   brand: "Latcon",
-  descriptor: "Opérations, données et technologie pour les entreprises en croissance",
+  descriptor: "Nous connectons votre opération, vos données et votre technologie.",
   metadataTitle: "Latcon — Opérations, données et technologie pour les entreprises en croissance",
   metadataDescription:
     "Combien coûte à votre entreprise une information dispersée ? Nous intégrons données, processus et technologie pour gagner en visibilité et en capacité de décision.",

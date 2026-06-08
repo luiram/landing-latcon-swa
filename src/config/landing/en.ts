@@ -2,46 +2,46 @@ import type { LandingContent } from "./types";
 
 export const landingContentEn = {
   hero: {
-    chip: "Operations · Data · Technology — for growing companies",
-    title: "How much is it costing your company to decide late or with incomplete information?",
+    chip: "Data · Automation · AI · Anticipation",
+    title: "Does your company already have the data but still can't use it to decide in time?",
     subtitle:
-      "We design systems that integrate your data, automate your processes, and give your team the information they need — at the moment it can still drive action.",
+      "We integrate your data, automate your processes and build AI systems that give your team clear signals to act — before the problem becomes visible.",
     ctaPrimary: "Book your free diagnostic session",
-    ctaReassurance: "30 minutes · No commitment · We will honestly tell you if we are the right team for your case",
-    secondaryCtaLabel: "Explore our approach →",
+    ctaReassurance: "30 minutes · No commitment · We'll honestly tell you if we're the right team for your case",
+    secondaryCtaLabel: "See our approach →",
     secondaryCtaHref: "#process",
   },
   audience: {
     eyebrow: "Who we work with",
-    title: "We work with companies where deciding late or without clear information already has a visible cost",
-    intro: "Our clients usually come to us when one of these situations feels familiar:",
-    painSignals: [
-      "Poor decisions were made because data arrived late or was scattered.",
-      "Operations depend on key people and no one else has the full context.",
-      "Reports arrive late or sit across multiple spreadsheets without consolidation.",
-      "Scaling means hiring more people, not building better systems.",
-      "Traceability has been lost: it is hard to know what happened, when, and why.",
-    ],
+    title: "We work with companies where data, systems and teams are not connected",
+    intro: "",
     profiles: [
       {
-        title: "Growing company",
+        title: "Data without analysis",
         description:
-          "Operations are growing or becoming more complex, but systems and processes have not evolved at the same pace. This applies to expanding companies and to areas within large organizations that need greater visibility and operational autonomy.",
+          "The data is there, but analyzing it in real time requires time and staff the operation does not have available. Opportunities pass and problems are detected late — when they already have a visible cost.",
         quote: "\"We have the data but we cannot use it.\"",
         sectors: "Services · Retail · Manufacturing · Banking · Media",
       },
       {
+        title: "Areas operating in silos",
+        description:
+          "Sales promises without knowing what can be produced. Purchasing restocks without seeing real demand. Production plans without knowing what is coming. Each area works with its own version of the data — and the misalignment has a cost that no one measures.",
+        quote: "\"Each area works with different numbers and no one knows which one is real.\"",
+        sectors: "Manufacturing · Retail · Distribution · Agribusiness",
+      },
+      {
         title: "Distributed or field-based operations",
         description:
-          "Field teams, multiple sites, or processes that depend on coordination across departments. Execution breaks down in communication.",
+          "Field teams, multiple sites or cross-area processes coordinated over WhatsApp and email. Without centralized traceability, it is hard to know what happened, who did it and when — until the error already has consequences.",
         quote: "\"We coordinate everything on WhatsApp and no one knows who did what.\"",
         sectors: "Logistics · Agribusiness · Field services",
       },
       {
-        title: "Company that already invested in technology without results",
+        title: "Technology without integration",
         description:
-          "They bought an ERP, CRM, or platform that was never adopted. They invested in development that stalled halfway. Now they need a team that understands the business before proposing software.",
-        quote: "\"We already invested in technology and it did not work as we expected.\"",
+          "They have ERP, CRM, platforms and applications — each running separately. Without integration between systems, operations generate manual adjustments, rework and decisions based on incomplete data. They need a team that connects what they already have before proposing something new.",
+        quote: "\"We have multiple systems but none of them talk to each other.\"",
         sectors: "Any industry with complex operations",
       },
     ],
@@ -82,9 +82,10 @@ export const landingContentEn = {
     ],
   },
   solutions: {
-    title: "Three capabilities so your team stops deciding late or with incomplete information",
+    eyebrow: "SOLUTIONS",
+    title: "This is how we connect what is disconnected in your operation today.",
     intro:
-      "We do not sell technology in isolation. We build integrated capabilities — each one aimed at a concrete business outcome.",
+      "Three integrated capabilities. One goal: your team acts on real information, on time.",
     srOnlyCarousel: "Three capabilities in a horizontal carousel with dot navigation.",
     prevCapabilityAria: "Previous capability",
     nextCapabilityAria: "Next capability",
@@ -99,11 +100,11 @@ export const landingContentEn = {
         image: "/solutions/arquitectura_sistemas.webp",
         imageAlt: "Operational visibility: dashboards and data integration.",
         title: "Visibility that arrives on time",
-        body: "We consolidate your scattered data and build operational dashboards that provide a clear view of what is happening — without waiting for manual reports.",
+        body: "Your operation generates data across multiple systems. We connect it, organize it and turn it into clear signals so your team can act.",
         includes: [
-          "Data architecture and source integration",
-          "Real-time operational dashboards",
-          "Automatic alerts on critical indicators",
+          "Your data sources connected in one place — no manual consolidation",
+          "Operational dashboards updated in real time — without depending on manual reports",
+          "Alerts that arrive before the problem becomes visible",
         ],
         result: "Less time waiting for data · Decisions that arrive when they can still drive action",
       },
@@ -112,26 +113,26 @@ export const landingContentEn = {
         image: "/solutions/automatizacion_integracion.webp",
         imageAlt: "Automation and integration of operational processes.",
         title: "Execution without manual friction",
-        body: "We automate the processes that today depend on people or WhatsApp messages — so your team can focus on what truly creates value.",
+        body: "Every manual process is a failure point. We identify which ones slow your operation and turn them into automated, traceable and reliable flows.",
         includes: [
-          "Digitized and validated workflows",
-          "Integration across tools (apps, ERP, forms, messaging)",
-          "AI agents for classification, support, and coordination",
+          "Manual processes converted into automated, validated and traceable flows",
+          "ERP, apps, forms and messaging integrated into a single information flow",
+          "AI agents that execute repetitive tasks — without human intervention",
         ],
-        result: "Fewer errors, less rework, and operations that scale without hiring more people.",
+        result: "Operations that flow without bottlenecks, with full traceability and the ability to grow without adding complexity.",
       },
       {
         line: "amplify",
         image: "/solutions/analitica_avanzada_machine_learning.webp",
         imageAlt: "Advanced analytics and machine learning applied to management.",
         title: "Decisions backed by intelligence, not intuition",
-        body: "We build analytical models and applied AI systems that anticipate problems, optimize resources, and give your team actionable signals.",
+        body: "Your team already makes decisions every day. The difference is whether they make them with past data or with models that see what is coming — before it becomes urgent.",
         includes: [
-          "Predictive and optimization models",
+          "Predictive models for demand, inventory and bottlenecks",
           "Machine learning applied to operations and demand",
           "Computer vision and multi-agent systems",
         ],
-        result: "Lower operating costs and the ability to anticipate problems before they occur.",
+        result: "Decisions based on what is coming, not what already happened · Problems detected before they have a visible cost.",
       },
     ],
   },
@@ -230,9 +231,10 @@ export const landingContentEn = {
     ],
   },
   process: {
-    title: "How we take a real need to a solution that works",
+    eyebrow: "METHOD",
+    title: "How we work: first we understand, then we build.",
     intro:
-      "We do not start from technology. We start by understanding the context, designing the solution well, and building only what truly adds value.",
+      "Each stage has a concrete deliverable. We don't move to the next until the previous one creates clarity.",
     resultLabel: "Outcome",
     steps: [
       {
@@ -242,13 +244,13 @@ export const landingContentEn = {
       },
       {
         title: "We design the solution",
-        body: "We translate that need into a concrete proposal — structure, flow, or prototype — so you can visualize the solution before development.",
+        body: "We turn the diagnosis into a concrete proposal — so you can see the solution before investing in building it.",
         result: "A clear solution, validated and aligned with your reality.",
       },
       {
         title: "We build in stages",
         body: "We develop with incremental deliveries and continuous validation, focusing first on what delivers the most value.",
-        result: "Visible progress, fast learning, and better use of investment.",
+        result: "A working partial solution, validated with real users before final delivery.",
       },
       {
         title: "We implement and refine",
@@ -265,11 +267,26 @@ export const landingContentEn = {
       headline: "Operations + data + technology",
       body: "We have built operational platforms, ML models, and AI automations in real implementations.",
     },
-    title: "The team behind Latcon",
+    title: "The team that understands your operation and builds the solution.",
+    members: [
+      {
+        name: "Luis Ramírez",
+        role: "Operations · Data · Architecture",
+        credential: "Industrial Engineer. 15 years connecting operations and technology in logistics, agribusiness and data intelligence.",
+      },
+      {
+        name: "César Ramírez",
+        role: "Strategy · Results",
+        credential: "5+ years guiding organizations in the implementation of operational strategies and results-based management in distribution, telecommunications and sales.",
+      },
+      {
+        name: "John Ramírez",
+        role: "Development · AI · Cloud",
+        credential: "10+ years in apps, ML, computer vision, multi-agent systems and cloud.",
+      },
+    ],
     paragraphs: [
-      "The Latcon team has direct hands-on experience building the solutions it offers: we have designed operational platforms integrating web applications, dashboards, cloud data repositories, and mobile apps for iOS and Android — and implemented machine learning models and AI multi-agent automations in real operational contexts.",
-      "We bring together three complementary profiles: a consultant with more than five years in strategy implementation and results-based management, and two engineers with over a decade in automation, software development, applied analytics, computer vision, and AI systems.",
-      "Our approach does not start with software: we first understand how your operations work, where the real friction is, and which decisions need better support. From there, we design and implement the solution.",
+      "We are not a development agency or a strategy consultancy. We are operations engineering, in-house development and results-based management — working as one team from diagnosis to implementation.",
     ],
     tags: [
       "Operations",
@@ -284,7 +301,7 @@ export const landingContentEn = {
   },
   finalCta: {
     title: "Every week without visibility has a cost. Let's find out together if we can help you reduce it.",
-    body: "Book a 30-minute diagnostic session. We review your operations together, identify the main friction points, and give you a concrete recommendation — even if you do not work with us.",
+    body: "Book a 30-minute diagnostic session. We review together how your operation flows, identify where data, time or decisions are being lost — and give you a concrete recommendation, even if you don't work with us.",
     ctaPrimary: "Book your free diagnostic session",
     ctaReassurance: "No sales pitch · No commitment · 30 minutes",
   },

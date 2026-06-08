@@ -2,10 +2,10 @@ import type { LandingContent } from "./types";
 
 export const landingContentFr = {
   hero: {
-    chip: "Opération · Données · Technologie — pour les entreprises en croissance",
-    title: "Combien cela coûte-t-il à votre entreprise de décider tard ou avec des informations incomplètes ?",
+    chip: "Données · Automatisation · IA · Anticipation",
+    title: "Votre entreprise a déjà les données mais ne peut toujours pas les utiliser pour décider à temps ?",
     subtitle:
-      "Nous concevons des systèmes qui intègrent vos données, automatisent vos processus et donnent à votre équipe l'information dont elle a besoin — au moment où elle peut encore conduire à l'action.",
+      "Nous intégrons vos données, automatisons vos processus et construisons des systèmes d'IA qui donnent à votre équipe des signaux clairs pour agir — avant que le problème ne devienne visible.",
     ctaPrimary: "Réservez votre diagnostic gratuit",
     ctaReassurance: "30 minutes · Sans engagement · Nous vous dirons honnêtement si nous sommes l'équipe adaptée à votre cas",
     secondaryCtaLabel: "Découvrez notre approche →",
@@ -13,35 +13,35 @@ export const landingContentFr = {
   },
   audience: {
     eyebrow: "Pour qui",
-    title: "Nous travaillons avec des entreprises où décider tard ou sans information claire a déjà un coût visible",
-    intro: "Nos clients nous contactent généralement lorsque l'une de ces situations leur semble familière :",
-    painSignals: [
-      "De mauvaises décisions ont été prises parce que les données sont arrivées tard ou étaient dispersées.",
-      "L'opération dépend de personnes clés et personne d'autre n'a le contexte complet.",
-      "Les rapports arrivent tard ou sont répartis sur plusieurs feuilles de calcul sans consolidation.",
-      "Grandir signifie recruter plus de personnes, pas disposer de meilleurs systèmes.",
-      "La traçabilité a été perdue : difficile de savoir ce qui s'est passé, quand et pourquoi.",
-    ],
+    title: "Nous travaillons avec des entreprises où les données, les systèmes et les équipes ne sont pas connectés",
+    intro: "",
     profiles: [
       {
-        title: "Entreprise en croissance",
+        title: "Données sans analyse",
         description:
-          "L'opération croît ou se complexifie, mais les systèmes et processus n'ont pas évolué au même rythme. Cela concerne aussi bien une entreprise en expansion qu'un département au sein d'une grande organisation ayant besoin de plus de visibilité et d'autonomie opérationnelle.",
+          "Les données sont là, mais les analyser en temps réel demande du temps et du personnel que l'opération n'a pas disponible. Les opportunités passent et les problèmes sont détectés tard — quand ils ont déjà un coût visible.",
         quote: "« Nous avons les données mais nous ne pouvons pas les utiliser. »",
         sectors: "Services · Distribution · Industrie · Banque · Médias",
       },
       {
+        title: "Services qui fonctionnent en silos",
+        description:
+          "Le commercial promet sans savoir ce qui peut être produit. Les achats réapprovisionnent sans voir la demande réelle. La production planifie sans connaître ce qui arrive. Chaque service travaille avec sa propre version des données — et le manque de coordination a un coût que personne ne mesure.",
+        quote: "« Chaque service travaille avec des chiffres différents et personne ne sait lequel est le bon. »",
+        sectors: "Industrie · Distribution · Commerce · Agro-industrie",
+      },
+      {
         title: "Opération distribuée ou terrain",
         description:
-          "Équipes sur le terrain, plusieurs sites ou processus qui dépendent de la coordination entre services. L'exécution échoue dans la communication.",
+          "Équipes sur le terrain, plusieurs sites ou processus entre services coordonnés par WhatsApp et e-mail. Sans traçabilité centralisée, il est difficile de savoir ce qui s'est passé, qui l'a fait et quand — jusqu'à ce que l'erreur ait déjà des conséquences.",
         quote: "« Nous coordonnons tout sur WhatsApp et personne ne sait qui a fait quoi. »",
         sectors: "Logistique · Agro-industrie · Services de terrain",
       },
       {
-        title: "Entreprise ayant déjà investi dans la technologie sans résultats",
+        title: "Technologie sans intégration",
         description:
-          "Elle a acheté un ERP, un CRM ou une plateforme qui n'a pas été adoptée. Elle a investi dans un développement resté inachevé. Elle cherche maintenant une équipe qui comprend le métier avant de proposer un logiciel.",
-        quote: "« Nous avons déjà investi dans la technologie et cela n'a pas fonctionné comme prévu. »",
+          "Ils ont ERP, CRM, plateformes et applications — chacun fonctionnant séparément. Sans intégration entre systèmes, l'opération génère des ajustements manuels, des reprises et des décisions basées sur des données incomplètes. Ils cherchent une équipe qui connecte ce qu'ils ont déjà avant de proposer quelque chose de nouveau.",
+        quote: "« Nous avons plusieurs systèmes mais aucun ne parle à l'autre. »",
         sectors: "Toute industrie à opération complexe",
       },
     ],
@@ -82,9 +82,10 @@ export const landingContentFr = {
     ],
   },
   solutions: {
-    title: "Trois capacités pour que votre équipe cesse de décider tard ou avec des informations incomplètes",
+    eyebrow: "SOLUTIONS",
+    title: "Voici comment nous connectons ce qui est aujourd'hui déconnecté dans votre opération.",
     intro:
-      "Nous ne vendons pas la technologie séparément. Nous construisons des capacités intégrées — chacune orientée vers un résultat métier concret.",
+      "Trois capacités intégrées. Un seul objectif : que votre équipe agisse avec des informations réelles et à temps.",
     srOnlyCarousel: "Trois capacités en carrousel horizontal avec navigation par points.",
     prevCapabilityAria: "Capacité précédente",
     nextCapabilityAria: "Capacité suivante",
@@ -99,11 +100,11 @@ export const landingContentFr = {
         image: "/solutions/arquitectura_sistemas.webp",
         imageAlt: "Visibilité opérationnelle : tableaux de bord et intégration de données.",
         title: "Une visibilité qui arrive à temps",
-        body: "Nous consolidons vos données dispersées et construisons des tableaux opérationnels qui offrent une lecture claire de ce qui se passe — sans attendre de rapports manuels.",
+        body: "Votre opération génère des données dans plusieurs systèmes. Nous les connectons, les organisons et les convertissons en signaux clairs pour que votre équipe agisse.",
         includes: [
-          "Architecture de données et intégration des sources",
-          "Tableaux de bord opérationnels en temps réel",
-          "Alertes automatiques sur les indicateurs critiques",
+          "Vos sources de données connectées en un seul endroit — sans consolidation manuelle",
+          "Tableaux de bord opérationnels mis à jour en temps réel — sans dépendre de rapports manuels",
+          "Alertes qui arrivent avant que le problème ne devienne visible",
         ],
         result: "Moins de temps à attendre des données · Des décisions qui arrivent quand elles peuvent encore conduire à l'action",
       },
@@ -112,26 +113,26 @@ export const landingContentFr = {
         image: "/solutions/automatizacion_integracion.webp",
         imageAlt: "Automatisation et intégration des processus opérationnels.",
         title: "Une exécution sans friction manuelle",
-        body: "Nous automatisons les processus qui dépendent aujourd'hui de personnes ou de messages WhatsApp — pour que votre équipe se concentre sur ce qui crée réellement de la valeur.",
+        body: "Chaque processus manuel est un point de défaillance. Nous identifions ceux qui freinent votre opération et les convertissons en flux automatiques, traçables et fiables.",
         includes: [
-          "Flux de travail digitalisés et validés",
-          "Intégration entre outils (apps, ERP, formulaires, messagerie)",
-          "Agents IA pour classification, support et coordination",
+          "Processus manuels convertis en flux automatiques, validés et traçables",
+          "ERP, apps, formulaires et messagerie intégrés dans un seul flux d'information",
+          "Agents IA qui exécutent des tâches répétitives — sans intervention humaine",
         ],
-        result: "Moins d'erreurs, moins de retravail et une opération qui scale sans recruter plus de personnes.",
+        result: "Une opération qui fonctionne sans goulots d'étranglement, avec une traçabilité complète et la capacité de croître sans ajouter de complexité.",
       },
       {
         line: "amplify",
         image: "/solutions/analitica_avanzada_machine_learning.webp",
         imageAlt: "Analytique avancée et machine learning appliqués à la gestion.",
         title: "Des décisions appuyées sur l'intelligence, pas sur l'intuition",
-        body: "Nous construisons des modèles analytiques et des systèmes d'IA appliquée qui anticipent les problèmes, optimisent les ressources et donnent à votre équipe des signaux actionnables.",
+        body: "Votre équipe prend déjà des décisions tous les jours. La différence est de savoir si elle les prend avec des données passées ou avec des modèles qui voient ce qui arrive — avant que ce soit urgent.",
         includes: [
-          "Modèles prédictifs et d'optimisation",
+          "Modèles prédictifs pour la demande, les stocks et les goulots d'étranglement",
           "Machine learning appliqué à l'opération et à la demande",
           "Vision par ordinateur et systèmes multi-agents",
         ],
-        result: "Des coûts opérationnels plus bas et la capacité d'anticiper les problèmes avant qu'ils surviennent.",
+        result: "Des décisions basées sur ce qui vient, pas sur ce qui s'est déjà passé · Problèmes détectés avant qu'ils n'aient un coût visible.",
       },
     ],
   },
@@ -230,9 +231,10 @@ export const landingContentFr = {
     ],
   },
   process: {
-    title: "Comment nous passons d'un besoin réel à une solution qui fonctionne",
+    eyebrow: "MÉTHODE",
+    title: "Comment nous travaillons : d'abord comprendre, puis construire.",
     intro:
-      "Nous ne partons pas de la technologie. Nous commençons par comprendre le contexte, bien concevoir la solution et ne construire que ce qui apporte réellement de la valeur.",
+      "Chaque étape a un livrable concret. Nous ne passons à la suivante qu'une fois que la précédente crée de la clarté.",
     resultLabel: "Résultat",
     steps: [
       {
@@ -242,13 +244,13 @@ export const landingContentFr = {
       },
       {
         title: "Nous concevons la solution",
-        body: "Nous traduisons ce besoin en une proposition concrète — structure, flux ou prototype — pour visualiser la solution avant de développer.",
+        body: "Nous traduisons le diagnostic en une proposition concrète — pour que vous puissiez voir la solution avant d'investir dans son développement.",
         result: "Une solution claire, validée et alignée avec votre réalité.",
       },
       {
         title: "Nous construisons par étapes",
         body: "Nous développons avec des livraisons partielles et des validations continues, en priorisant d'abord ce qui apporte le plus de valeur.",
-        result: "Des avancées visibles, un apprentissage rapide et un meilleur usage de l'investissement.",
+        result: "Une solution partielle fonctionnelle, validée avec de vrais utilisateurs avant la livraison finale.",
       },
       {
         title: "Nous déployons et ajustons",
@@ -265,11 +267,26 @@ export const landingContentFr = {
       headline: "Opération + données + technologie",
       body: "Nous avons construit des plateformes opérationnelles, des modèles ML et des automatisations avec l'IA dans des implémentations réelles.",
     },
-    title: "L'équipe derrière Latcon",
+    title: "L'équipe qui comprend votre opération et construit la solution.",
+    members: [
+      {
+        name: "Luis Ramírez",
+        role: "Opérations · Données · Architecture",
+        credential: "Ingénieur industriel. 15 ans à connecter l'opération et la technologie en logistique, agro-industrie et intelligence des données.",
+      },
+      {
+        name: "César Ramírez",
+        role: "Stratégie · Résultats",
+        credential: "5+ ans à accompagner des organisations dans la mise en œuvre de stratégies opérationnelles et la gestion par les résultats en distribution, télécommunications et ventes.",
+      },
+      {
+        name: "John Ramírez",
+        role: "Développement · IA · Cloud",
+        credential: "10+ ans en apps, ML, vision par ordinateur, systèmes multi-agents et cloud.",
+      },
+    ],
     paragraphs: [
-      "L'équipe Latcon a une expérience directe dans la construction des solutions qu'elle propose : nous avons conçu des plateformes opérationnelles intégrant une application web, des tableaux de bord, un référentiel de données en nuage et des applications mobiles pour iOS et Android — et mis en œuvre des modèles de machine learning et des automatisations avec des systèmes multi-agents d'IA dans des contextes opérationnels réels.",
-      "Nous réunissons trois profils complémentaires : un cabinet avec plus de cinq ans d'expérience en mise en œuvre de stratégie et gestion par les résultats, et deux ingénieurs avec plus d'une décennie en automatisation, développement logiciel, analytique appliquée, vision par ordinateur et systèmes d'IA.",
-      "Notre approche ne part pas du logiciel : nous comprenons d'abord comment fonctionne votre opération, où sont les frictions réelles et quelles décisions ont besoin d'un meilleur soutien. Ensuite, nous concevons et mettons en œuvre la solution.",
+      "Nous ne sommes pas une agence de développement ni un cabinet de conseil en stratégie. Nous sommes ingénierie des opérations, développement propre et gestion par les résultats — travaillant comme une seule équipe du diagnostic à la mise en œuvre.",
     ],
     tags: [
       "Opération",
@@ -284,7 +301,7 @@ export const landingContentFr = {
   },
   finalCta: {
     title: "Chaque semaine sans visibilité a un coût. Découvrons ensemble si nous pouvons vous aider à le réduire.",
-    body: "Réservez une session de diagnostic de 30 minutes. Nous examinons ensemble votre opération, identifions les principaux points de friction et vous donnons une recommandation concrète — même si vous ne travaillez pas avec nous.",
+    body: "Réservez une session de diagnostic de 30 minutes. Nous examinons ensemble comment fonctionne votre opération, identifions où se perdent données, temps ou décisions — et vous donnons une recommandation concrète, même si vous ne travaillez pas avec nous.",
     ctaPrimary: "Réservez votre diagnostic gratuit",
     ctaReassurance: "Sans pitch commercial · Sans engagement · 30 minutes",
   },

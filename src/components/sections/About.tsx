@@ -2,43 +2,55 @@
 
 import { Container } from "@/components/ui/Container";
 import { Tag } from "@/components/ui/Tag";
+import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { useLandingContent } from "@/hooks/useLandingContent";
 
 export function About() {
-  const { content } = useLandingContent();
-  const { panel, title, paragraphs, tags } = content.about;
+  const { content, site } = useLandingContent();
+  const { panel, title, members, paragraphs, tags } = content.about;
 
   return (
     <section id="nosotros" className="scroll-mt-36 border-t border-border-subtle bg-bg-warm py-24 sm:py-28">
       <Container>
-        <div className="grid gap-14 lg:grid-cols-12 lg:items-start">
-          <Reveal className="lg:col-span-5" y={20}>
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-blue-mid-2 to-blue-mid-1 shadow-[0_28px_70px_-28px_rgba(75,104,140,0.35)] transition-all duration-500 hover:border-white/30 hover:shadow-[0_32px_80px_-28px_rgba(75,104,140,0.42)]">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(245,130,32,0.2),transparent_52%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_72%,rgba(255,255,255,0.18),transparent_48%)]" />
-              <div className="relative flex h-full flex-col justify-end p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/85">{panel.eyebrow}</p>
-                <p className="mt-3 text-xl font-semibold leading-snug tracking-tight text-white sm:text-2xl">
-                  {panel.headline}
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-white/82 sm:text-[0.9375rem]">{panel.body}</p>
-              </div>
-            </div>
-          </Reveal>
-          <Reveal className="lg:col-span-7" delay={0.08} y={20}>
+        <div>
+          <Reveal delay={0.08} y={20}>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-accent/90">{panel.eyebrow}</p>
             <h2 className="text-balance text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
               {title}
             </h2>
-            <div className="mt-7 space-y-5 text-base leading-relaxed text-text-muted">
+            <div className="mt-8 space-y-5 text-base leading-relaxed text-text-muted">
               {paragraphs.map((p, i) => (
                 <p key={`about-p-${i}`}>{p}</p>
+              ))}
+            </div>
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              {members.map((member, i) => (
+                <Reveal key={`member-${i}`} delay={0.1 + i * 0.06} y={12}>
+                  <div className="flex h-full flex-col gap-3 rounded-xl border border-border-subtle bg-bg-page p-4">
+                    <div className="flex size-12 items-center justify-center rounded-full border border-border-subtle bg-bg-panel">
+                      <svg className="size-6 text-text-muted/40" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                        <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zm0 2c-3.333 0-10 1.667-10 5v1h20v-1c0-3.333-6.667-5-10-5z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-text-primary">{member.name}</p>
+                      <p className="mt-0.5 text-xs font-medium text-accent/90">{member.role}</p>
+                    </div>
+                    <p className="text-xs leading-relaxed text-text-muted">{member.credential}</p>
+                  </div>
+                </Reveal>
               ))}
             </div>
             <div className="mt-9 flex flex-wrap gap-2">
               {tags.map((t) => (
                 <Tag key={t}>{t}</Tag>
               ))}
+            </div>
+            <div className="mt-10 flex justify-center sm:mt-12">
+              <Button href={site.bookingPath} variant="primary">
+                {site.ctaSchedule}
+              </Button>
             </div>
           </Reveal>
         </div>

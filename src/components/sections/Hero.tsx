@@ -58,7 +58,10 @@ export function Hero() {
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-12 xl:gap-14">
           <Reveal className="lg:col-span-8 xl:col-span-9">
             <div className="max-w-[34rem] sm:max-w-[38rem] lg:max-w-[46rem] xl:max-w-[52rem]">
-              <p className="inline-flex max-w-full rounded-full border border-white/12 bg-white/[0.045] px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-white/68 backdrop-blur-[2px] sm:px-4 sm:text-xs sm:tracking-[0.11em]">
+              <p
+                className="inline-flex max-w-full rounded-full border border-white/12 bg-white/[0.045] px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-white/90 backdrop-blur-[2px] sm:px-4 sm:text-xs sm:tracking-[0.11em]"
+                style={{ textShadow: "0 0 7px rgba(255,255,255,0.55), 0 0 20px rgba(255,255,255,0.22)" }}
+              >
                 {chip}
               </p>
               <h1 className="mt-8 max-w-[min(100%,28.5rem)] text-balance text-[2.62rem] font-semibold leading-[1.16] tracking-normal text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.38)] sm:mt-9 sm:max-w-[32.5rem] sm:text-[2.4rem] sm:leading-[1.14] lg:mt-10 lg:max-w-[44rem] lg:text-[2.9rem] lg:leading-[1.1] xl:max-w-[48rem] xl:text-[3.08rem] xl:leading-[1.08]">

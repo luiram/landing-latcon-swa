@@ -7,7 +7,7 @@ import { cn } from "@/lib/cn";
 
 export function Audience() {
   const { content } = useLandingContent();
-  const { eyebrow, title, intro, painSignals, profiles } = content.audience;
+  const { eyebrow, title, intro, profiles } = content.audience;
 
   return (
     <section
@@ -21,24 +21,15 @@ export function Audience() {
             <h2 className="mt-3 text-balance text-[1.75rem] font-semibold leading-[1.2] tracking-[-0.02em] text-text-primary sm:text-[2rem] sm:leading-[1.18]">
               {title}
             </h2>
-            <p className="mt-4 max-w-[38rem] text-pretty text-sm leading-[1.68] text-text-muted sm:text-[0.9375rem] sm:leading-[1.72]">
-              {intro}
-            </p>
+            {intro && (
+              <p className="mt-4 max-w-[38rem] text-pretty text-sm leading-[1.68] text-text-muted sm:text-[0.9375rem] sm:leading-[1.72]">
+                {intro}
+              </p>
+            )}
           </header>
         </Reveal>
 
-        <Reveal delay={0.05} className="mt-10 sm:mt-12">
-          <ul className="max-w-[42rem] space-y-3 border-l-2 border-accent/25 pl-5 sm:pl-6">
-            {painSignals.map((signal) => (
-              <li key={signal} className="flex gap-2.5 text-sm leading-relaxed text-text-muted sm:text-[0.9375rem]">
-                <span className="mt-2 size-1.5 shrink-0 rounded-full bg-accent/70" aria-hidden />
-                <span>{signal}</span>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-
-        <div className="mt-14 grid gap-5 sm:mt-16 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-6">
+        <div className="mt-14 grid gap-5 sm:mt-16 sm:grid-cols-2 sm:gap-6 lg:gap-6">
           {profiles.map((profile, i) => (
             <Reveal key={profile.title} delay={0.08 + i * 0.05} y={14}>
               <article
@@ -49,7 +40,7 @@ export function Audience() {
               >
                 <h3 className="text-lg font-semibold tracking-tight text-text-primary">{profile.title}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-text-muted">{profile.description}</p>
-                <p className="mt-4 text-sm italic leading-relaxed text-text-muted/90">{profile.quote}</p>
+                <p className="mt-4 text-sm font-semibold italic leading-relaxed text-text-muted/90">{profile.quote}</p>
                 <p className="mt-4 border-t border-border-subtle pt-4 text-xs font-medium uppercase tracking-wide text-accent/85">
                   {profile.sectors}
                 </p>
