@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 153 140" role="img" aria-labelledby="title desc">
+  <title id="title">LC logo</title>
+  <desc id="desc">Stylized orange L and dark gray C mark with orange dot.</desc>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M32 45 V86 C32 102 42 110 58 110 H83" stroke="#FF6B00" stroke-width="15"/>
+    <path d="M133 45 H91 C73 45 62 58 62 77 C62 96 74 110 92 110 H133" stroke="#2F373A" stroke-width="15"/>
+  </g>
+  <circle cx="108" cy="77" r="9.5" fill="#FF6B00"/>
+</svg>
