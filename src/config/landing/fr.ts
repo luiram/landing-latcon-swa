@@ -24,6 +24,13 @@ export const landingContentFr = {
         sectors: "Services · Distribution · Industrie · Banque · Médias",
       },
       {
+        title: "Services qui fonctionnent en silos",
+        description:
+          "Le commercial promet sans savoir ce qui peut être produit. Les achats réapprovisionnent sans voir la demande réelle. La production planifie sans connaître ce qui arrive. Chaque service travaille avec sa propre version des données — et le manque de coordination a un coût que personne ne mesure.",
+        quote: "« Chaque service travaille avec des chiffres différents et personne ne sait lequel est le bon. »",
+        sectors: "Industrie · Distribution · Commerce · Agro-industrie",
+      },
+      {
         title: "Opération distribuée ou terrain",
         description:
           "Équipes sur le terrain, plusieurs sites ou processus entre services coordonnés par WhatsApp et e-mail. Sans traçabilité centralisée, il est difficile de savoir ce qui s'est passé, qui l'a fait et quand — jusqu'à ce que l'erreur ait déjà des conséquences.",
@@ -75,9 +82,10 @@ export const landingContentFr = {
     ],
   },
   solutions: {
-    title: "Trois capacités pour que votre équipe cesse de décider tard ou avec des informations incomplètes",
+    eyebrow: "SOLUTIONS",
+    title: "Voici comment nous connectons ce qui est aujourd'hui déconnecté dans votre opération.",
     intro:
-      "Nous ne vendons pas la technologie séparément. Nous construisons des capacités intégrées — chacune orientée vers un résultat métier concret.",
+      "Trois capacités intégrées. Un seul objectif : que votre équipe agisse avec des informations réelles et à temps.",
     srOnlyCarousel: "Trois capacités en carrousel horizontal avec navigation par points.",
     prevCapabilityAria: "Capacité précédente",
     nextCapabilityAria: "Capacité suivante",
@@ -92,11 +100,11 @@ export const landingContentFr = {
         image: "/solutions/arquitectura_sistemas.webp",
         imageAlt: "Visibilité opérationnelle : tableaux de bord et intégration de données.",
         title: "Une visibilité qui arrive à temps",
-        body: "Nous consolidons vos données dispersées et construisons des tableaux opérationnels qui offrent une lecture claire de ce qui se passe — sans attendre de rapports manuels.",
+        body: "Votre opération génère des données dans plusieurs systèmes. Nous les connectons, les organisons et les convertissons en signaux clairs — pour que votre équipe agisse, pas attende.",
         includes: [
-          "Architecture de données et intégration des sources",
-          "Tableaux de bord opérationnels en temps réel",
-          "Alertes automatiques sur les indicateurs critiques",
+          "Vos sources de données connectées en un seul endroit — sans consolidation manuelle",
+          "Tableaux de bord opérationnels mis à jour en temps réel — sans dépendre de rapports manuels",
+          "Alertes qui arrivent avant que le problème ne devienne visible",
         ],
         result: "Moins de temps à attendre des données · Des décisions qui arrivent quand elles peuvent encore conduire à l'action",
       },
@@ -105,11 +113,11 @@ export const landingContentFr = {
         image: "/solutions/automatizacion_integracion.webp",
         imageAlt: "Automatisation et intégration des processus opérationnels.",
         title: "Une exécution sans friction manuelle",
-        body: "Nous automatisons les processus qui dépendent aujourd'hui de personnes ou de messages WhatsApp — pour que votre équipe se concentre sur ce qui crée réellement de la valeur.",
+        body: "Chaque processus manuel est un point de défaillance. Nous identifions ceux qui freinent votre opération et les convertissons en flux automatiques, traçables et fiables.",
         includes: [
-          "Flux de travail digitalisés et validés",
-          "Intégration entre outils (apps, ERP, formulaires, messagerie)",
-          "Agents IA pour classification, support et coordination",
+          "Processus manuels convertis en flux automatiques, validés et traçables",
+          "ERP, apps, formulaires et messagerie intégrés dans un seul flux d'information",
+          "Agents IA qui exécutent des tâches répétitives — sans intervention humaine",
         ],
         result: "Moins d'erreurs, moins de retravail et une opération qui scale sans recruter plus de personnes.",
       },
@@ -118,9 +126,9 @@ export const landingContentFr = {
         image: "/solutions/analitica_avanzada_machine_learning.webp",
         imageAlt: "Analytique avancée et machine learning appliqués à la gestion.",
         title: "Des décisions appuyées sur l'intelligence, pas sur l'intuition",
-        body: "Nous construisons des modèles analytiques et des systèmes d'IA appliquée qui anticipent les problèmes, optimisent les ressources et donnent à votre équipe des signaux actionnables.",
+        body: "Votre équipe prend déjà des décisions tous les jours. La différence est de savoir si elle les prend avec des données passées ou avec des modèles qui voient ce qui arrive — avant que ce soit urgent.",
         includes: [
-          "Modèles prédictifs et d'optimisation",
+          "Modèles prédictifs pour la demande, les stocks et les goulots d'étranglement — avant qu'ils ne deviennent urgents",
           "Machine learning appliqué à l'opération et à la demande",
           "Vision par ordinateur et systèmes multi-agents",
         ],
@@ -223,6 +231,7 @@ export const landingContentFr = {
     ],
   },
   process: {
+    eyebrow: "MÉTHODE",
     title: "Comment nous passons d'un besoin réel à une solution qui fonctionne",
     intro:
       "Nous ne partons pas de la technologie. Nous commençons par comprendre le contexte, bien concevoir la solution et ne construire que ce qui apporte réellement de la valeur.",

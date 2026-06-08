@@ -16,7 +16,7 @@ function stepOrdinal(idx: number) {
 
 export function Process() {
   const { content } = useLandingContent();
-  const { title, intro, steps, closing, resultLabel } = content.process;
+  const { eyebrow, title, intro, steps, closing, resultLabel } = content.process;
 
   return (
     <section
@@ -25,7 +25,7 @@ export function Process() {
     >
       <Container>
         <Reveal>
-          <SectionHeader title={title} intro={intro} />
+          <SectionHeader eyebrow={eyebrow} title={title} intro={intro} />
         </Reveal>
 
         {/* Desktop: subgrid alinea la fila "Resultado" entre columnas aunque los títulos ocupen distinta altura */}

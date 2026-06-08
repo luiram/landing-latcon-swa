@@ -30,6 +30,7 @@ export type LandingContent = {
     }>;
   };
   solutions: {
+    eyebrow: string;
     title: string;
     intro: string;
     srOnlyCarousel: string;
@@ -65,6 +66,7 @@ export type LandingContent = {
     }>;
   };
   process: {
+    eyebrow: string;
     title: string;
     intro: string;
     resultLabel: string;

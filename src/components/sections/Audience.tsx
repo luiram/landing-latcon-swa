@@ -29,7 +29,7 @@ export function Audience() {
           </header>
         </Reveal>
 
-        <div className="mt-14 grid gap-5 sm:mt-16 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-6">
+        <div className="mt-14 grid gap-5 sm:mt-16 sm:grid-cols-2 sm:gap-6 lg:gap-6">
           {profiles.map((profile, i) => (
             <Reveal key={profile.title} delay={0.08 + i * 0.05} y={14}>
               <article

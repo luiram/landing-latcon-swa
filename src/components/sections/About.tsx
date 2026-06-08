@@ -27,6 +27,7 @@ export function About() {
             </div>
           </Reveal>
           <Reveal className="lg:col-span-7" delay={0.08} y={20}>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-accent/90">{panel.eyebrow}</p>
             <h2 className="text-balance text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
               {title}
             </h2>

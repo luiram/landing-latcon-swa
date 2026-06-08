@@ -21,7 +21,7 @@ function isSolutionLine(v: string): v is SolutionLine {
 
 export function Solutions() {
   const { content, site } = useLandingContent();
-  const { title, intro, capabilities, includesLabel, resultLabel } =
+  const { eyebrow, title, intro, capabilities, includesLabel, resultLabel } =
     content.solutions;
 
   return (
@@ -32,6 +32,7 @@ export function Solutions() {
       <Container>
         <Reveal>
           <header className="max-w-[38rem]">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-accent/90">{eyebrow}</p>
             <h2 className="text-balance text-[1.75rem] font-semibold leading-[1.2] tracking-[-0.02em] text-text-primary sm:text-[2rem] sm:leading-[1.18]">
               {title}
             </h2>

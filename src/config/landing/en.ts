@@ -24,6 +24,13 @@ export const landingContentEn = {
         sectors: "Services · Retail · Manufacturing · Banking · Media",
       },
       {
+        title: "Areas operating in silos",
+        description:
+          "Sales promises without knowing what can be produced. Purchasing restocks without seeing real demand. Production plans without knowing what is coming. Each area works with its own version of the data — and the misalignment has a cost that no one measures.",
+        quote: "\"Each area works with different numbers and no one knows which one is real.\"",
+        sectors: "Manufacturing · Retail · Distribution · Agribusiness",
+      },
+      {
         title: "Distributed or field-based operations",
         description:
           "Field teams, multiple sites or cross-area processes coordinated over WhatsApp and email. Without centralized traceability, it is hard to know what happened, who did it and when — until the error already has consequences.",
@@ -75,9 +82,10 @@ export const landingContentEn = {
     ],
   },
   solutions: {
-    title: "Three capabilities so your team stops deciding late or with incomplete information",
+    eyebrow: "SOLUTIONS",
+    title: "This is how we connect what is disconnected in your operation today.",
     intro:
-      "We do not sell technology in isolation. We build integrated capabilities — each one aimed at a concrete business outcome.",
+      "Three integrated capabilities. One goal: your team acts on real information, on time.",
     srOnlyCarousel: "Three capabilities in a horizontal carousel with dot navigation.",
     prevCapabilityAria: "Previous capability",
     nextCapabilityAria: "Next capability",
@@ -92,11 +100,11 @@ export const landingContentEn = {
         image: "/solutions/arquitectura_sistemas.webp",
         imageAlt: "Operational visibility: dashboards and data integration.",
         title: "Visibility that arrives on time",
-        body: "We consolidate your scattered data and build operational dashboards that provide a clear view of what is happening — without waiting for manual reports.",
+        body: "Your operation generates data across multiple systems. We connect it, organize it and turn it into clear signals — so your team acts, not waits.",
         includes: [
-          "Data architecture and source integration",
-          "Real-time operational dashboards",
-          "Automatic alerts on critical indicators",
+          "Your data sources connected in one place — no manual consolidation",
+          "Operational dashboards updated in real time — without depending on manual reports",
+          "Alerts that arrive before the problem becomes visible",
         ],
         result: "Less time waiting for data · Decisions that arrive when they can still drive action",
       },
@@ -105,11 +113,11 @@ export const landingContentEn = {
         image: "/solutions/automatizacion_integracion.webp",
         imageAlt: "Automation and integration of operational processes.",
         title: "Execution without manual friction",
-        body: "We automate the processes that today depend on people or WhatsApp messages — so your team can focus on what truly creates value.",
+        body: "Every manual process is a failure point. We identify which ones slow your operation and turn them into automated, traceable and reliable flows.",
         includes: [
-          "Digitized and validated workflows",
-          "Integration across tools (apps, ERP, forms, messaging)",
-          "AI agents for classification, support, and coordination",
+          "Manual processes converted into automated, validated and traceable flows",
+          "ERP, apps, forms and messaging integrated into a single information flow",
+          "AI agents that execute repetitive tasks — without human intervention",
         ],
         result: "Fewer errors, less rework, and operations that scale without hiring more people.",
       },
@@ -118,9 +126,9 @@ export const landingContentEn = {
         image: "/solutions/analitica_avanzada_machine_learning.webp",
         imageAlt: "Advanced analytics and machine learning applied to management.",
         title: "Decisions backed by intelligence, not intuition",
-        body: "We build analytical models and applied AI systems that anticipate problems, optimize resources, and give your team actionable signals.",
+        body: "Your team already makes decisions every day. The difference is whether they make them with past data or with models that see what is coming — before it becomes urgent.",
         includes: [
-          "Predictive and optimization models",
+          "Predictive models for demand, inventory and bottlenecks — before they become urgent",
           "Machine learning applied to operations and demand",
           "Computer vision and multi-agent systems",
         ],
@@ -223,6 +231,7 @@ export const landingContentEn = {
     ],
   },
   process: {
+    eyebrow: "METHOD",
     title: "How we take a real need to a solution that works",
     intro:
       "We do not start from technology. We start by understanding the context, designing the solution well, and building only what truly adds value.",

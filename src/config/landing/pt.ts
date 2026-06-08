@@ -24,6 +24,13 @@ export const landingContentPt = {
         sectors: "Serviços · Varejo · Manufatura · Serviços Financeiros · Mídia",
       },
       {
+        title: "Áreas que operam em silos",
+        description:
+          "Vendas promete sem saber o que pode ser produzido. Compras reabastece sem ver a demanda real. Produção planifica sem saber o que está por vir. Cada área trabalha com sua própria versão dos dados — e a descoordenaçāo tem um custo que ninguém mede.",
+        quote: "\"Cada área trabalha com números diferentes e ninguém sabe qual é o real.\"",
+        sectors: "Manufatura · Varejo · Distribuição · Agroindústria",
+      },
+      {
         title: "Operação distribuída ou em campo",
         description:
           "Equipes em campo, múltiplas unidades ou processos entre áreas coordenados por WhatsApp e e-mail. Sem rastreabilidade centralizada, é difícil saber o que aconteceu, quem fez e quando — até que o erro já tenha consequências.",
@@ -75,9 +82,10 @@ export const landingContentPt = {
     ],
   },
   solutions: {
-    title: "Três capacidades para que sua equipe pare de decidir tarde ou com informação incompleta",
+    eyebrow: "SOLUÇÕES",
+    title: "É assim que conectamos o que hoje está desconectado na sua operação.",
     intro:
-      "Não vendemos tecnologia isolada. Construímos capacidades integradas — cada uma orientada a um resultado de negócio concreto.",
+      "Três capacidades integradas. Um único objetivo: que sua equipe atue com informação real e a tempo.",
     srOnlyCarousel: "Três capacidades em carrossel horizontal com navegação por pontos.",
     prevCapabilityAria: "Capacidade anterior",
     nextCapabilityAria: "Próxima capacidade",
@@ -92,11 +100,11 @@ export const landingContentPt = {
         image: "/solutions/arquitectura_sistemas.webp",
         imageAlt: "Visibilidade operacional: painéis e integração de dados.",
         title: "Visibilidade que chega a tempo",
-        body: "Consolidamos seus dados dispersos e construímos painéis operacionais que oferecem uma leitura clara do que está acontecendo — sem esperar relatórios manuais.",
+        body: "Sua operação gera dados em múltiplos sistemas. Nós os conectamos, organizamos e convertemos em sinais claros — para que sua equipe aja, não espere.",
         includes: [
-          "Arquitetura de dados e integração de fontes",
-          "Painéis operacionais em tempo real",
-          "Alertas automáticos sobre indicadores críticos",
+          "Suas fontes de dados conectadas em um só lugar — sem consolidação manual",
+          "Painéis operacionais atualizados em tempo real — sem depender de relatórios manuais",
+          "Alertas que chegam antes que o problema se torne visível",
         ],
         result: "Menos tempo esperando dados · Decisões que chegam quando ainda servem para agir",
       },
@@ -105,11 +113,11 @@ export const landingContentPt = {
         image: "/solutions/automatizacion_integracion.webp",
         imageAlt: "Automação e integração de processos operacionais.",
         title: "Execução sem atrito manual",
-        body: "Automatizamos os processos que hoje dependem de pessoas ou mensagens de WhatsApp — para que sua equipe se concentre no que realmente gera valor.",
+        body: "Cada processo manual é um ponto de falha. Identificamos quais travam sua operação e os convertemos em fluxos automáticos, rastreáveis e confiáveis.",
         includes: [
-          "Fluxos de trabalho digitalizados e validados",
-          "Integração entre ferramentas (apps, ERP, formulários, mensageria)",
-          "Agentes de IA para classificação, suporte e coordenação",
+          "Processos manuais convertidos em fluxos automáticos, validados e rastreáveis",
+          "ERP, apps, formulários e mensageria integrados em um único fluxo de informação",
+          "Agentes de IA que executam tarefas repetitivas — sem intervenção humana",
         ],
         result: "Menos erros, menos retrabalho e operação que escala sem contratar mais pessoas.",
       },
@@ -118,9 +126,9 @@ export const landingContentPt = {
         image: "/solutions/analitica_avanzada_machine_learning.webp",
         imageAlt: "Analítica avançada e machine learning aplicados à gestão.",
         title: "Decisões apoiadas em inteligência, não em intuição",
-        body: "Construímos modelos analíticos e sistemas de IA aplicada que antecipam problemas, otimizam recursos e dão à sua equipe sinais acionáveis.",
+        body: "Sua equipe já toma decisões todos os dias. A diferença é se as toma com dados do passado ou com modelos que veem o que vem — antes que seja urgente.",
         includes: [
-          "Modelos preditivos e de otimização",
+          "Modelos preditivos para demanda, inventário e gargalos — antes que se tornem urgentes",
           "Machine learning aplicado à operação e demanda",
           "Visão computacional e sistemas multiagente",
         ],
@@ -223,6 +231,7 @@ export const landingContentPt = {
     ],
   },
   process: {
+    eyebrow: "MÉTODO",
     title: "Como levamos uma necessidade real a uma solução que funciona",
     intro:
       "Não começamos pela tecnologia. Começamos entendendo o contexto, projetando bem a solução e construindo só o que realmente agrega valor.",
