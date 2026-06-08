@@ -2,11 +2,12 @@
 
 import { Container } from "@/components/ui/Container";
 import { Tag } from "@/components/ui/Tag";
+import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
 import { useLandingContent } from "@/hooks/useLandingContent";
 
 export function About() {
-  const { content } = useLandingContent();
+  const { content, site } = useLandingContent();
   const { panel, title, members, paragraphs, tags } = content.about;
 
   return (
@@ -45,6 +46,11 @@ export function About() {
               {tags.map((t) => (
                 <Tag key={t}>{t}</Tag>
               ))}
+            </div>
+            <div className="mt-10 flex justify-center sm:mt-12">
+              <Button href={site.bookingPath} variant="primary">
+                {site.ctaSchedule}
+              </Button>
             </div>
           </Reveal>
         </div>
