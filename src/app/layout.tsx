@@ -4,6 +4,7 @@ import { getSiteContent } from "@/config/landing";
 import { LocaleDocument } from "@/components/layout/LocaleDocument";
 import { LocaleProvider } from "@/context/LocaleProvider";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { CookieConsentBanner } from "@/components/analytics/CookieConsentBanner";
 
 const defaultSite = getSiteContent("es");
 
@@ -50,6 +51,7 @@ export default function RootLayout({
         <LocaleProvider>
           <LocaleDocument />
           {children}
+          <CookieConsentBanner />
         </LocaleProvider>
       </body>
     </html>

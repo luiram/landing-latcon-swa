@@ -75,7 +75,7 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 | S2 | ✅ `canonical` en `https://latconservices.com` | P2 | Hecho 2026-07-03, `alternates.canonical` en las 3 páginas |
 | S3 | ✅ Google Analytics (GA4) | P3 | Hecho 2026-07-03, `NEXT_PUBLIC_GA_MEASUREMENT_ID` (secret GitHub), componente `GoogleAnalytics.tsx` |
 | S4 | ✅ Search Console con dominio propio | P2 | Hecho 2026-07-03, verificado automático + sitemap enviado |
-| S5 | Banner de consentimiento de cookies (RGPD/UE) | P3 | **Pendiente a propósito** — campañas iniciales son solo LatAm, riesgo real de UE hoy es bajo. Revisar si se activa marketing/pauta en Francia u otro país de la UE. Si se implementa: diseño sutil/transparente (pedido explícito del cliente), con Google Consent Mode (`analytics_storage` denegado por defecto) |
+| S5 | ✅ Banner de consentimiento de cookies (RGPD/UE) | P3 | Hecho 2026-07-03 — `CookieConsentBanner.tsx`, diseño translúcido/minimalista (mismo lenguaje visual del Navbar), Google Consent Mode con `analytics_storage` denegado por defecto hasta aceptar. Se decidió implementarlo igual pese al bajo riesgo actual, ya que la política de privacidad ya menciona el uso de cookies |
 
 ---
 

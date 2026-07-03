@@ -88,6 +88,13 @@ export type LandingContent = {
   };
 };
 
+export type CookieConsentContent = {
+  message: string;
+  accept: string;
+  reject: string;
+  privacyLink: string;
+};
+
 export type PrivacyContent = {
   metaTitle: string;
   metaDescription: string;

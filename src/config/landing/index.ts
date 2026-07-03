@@ -5,9 +5,10 @@ import { landingContentEn } from "./en";
 import { landingContentPt } from "./pt";
 import { landingContentFr } from "./fr";
 
-export type { LandingContent, SiteContent, PrivacyContent } from "./types";
+export type { LandingContent, SiteContent, PrivacyContent, CookieConsentContent } from "./types";
 export { getSiteContent } from "./site";
 export { getPrivacyContent } from "./privacy";
+export { getCookieConsentContent } from "./cookieConsent";
 
 const byLocale: Record<LocaleCode, LandingContent> = {
   es: landingContentEs,
