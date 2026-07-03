@@ -7,6 +7,7 @@ import { LocaleProvider } from "@/context/LocaleProvider";
 const defaultSite = getSiteContent("es");
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://latconservices.com"),
   title: defaultSite.metadataTitle,
   description: defaultSite.metadataDescription,
 };

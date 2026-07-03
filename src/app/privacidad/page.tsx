@@ -6,6 +6,7 @@ import { PrivacyPolicy } from "@/features/privacy/PrivacyPolicy";
 export const metadata = {
   title: "Política de Privacidad — Latcon",
   description: "Cómo Latcon recopila, usa y protege tus datos personales.",
+  alternates: { canonical: "/privacidad" },
 };
 
 export default function PrivacidadPage() {

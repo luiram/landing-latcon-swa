@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 export const metadata = {
   title: "Agendar conversación — Latcon",
   description: "Reserva una reunión con Latcon.",
+  alternates: { canonical: "/agenda" },
 };
 
 export default function AgendaPage() {
