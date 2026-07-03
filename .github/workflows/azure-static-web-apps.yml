@@ -2,6 +2,7 @@
 # Secrets → Settings → Secrets and variables → Actions → Secrets:
 #   AZURE_STATIC_WEB_APPS_API_TOKEN_ASHY_STONE_04E30940F
 #   NEXT_PUBLIC_FUNCTIONS_BASE_URL  (URL Function App, sin barra final)
+#   NEXT_PUBLIC_GA_MEASUREMENT_ID   (opcional, formato G-XXXXXXXXXX; sin este secret GA simplemente no carga)
 
 name: Azure Static Web Apps CI/CD
 
@@ -48,11 +49,13 @@ jobs:
         id: build
         env:
           NEXT_PUBLIC_FUNCTIONS_BASE_URL: ${{ secrets.NEXT_PUBLIC_FUNCTIONS_BASE_URL }}
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
           NODE_OPTIONS: --max-old-space-size=4096
           CI: true
         run: |
           set -euxo pipefail
           export NEXT_PUBLIC_FUNCTIONS_BASE_URL=$(printf '%s' "$NEXT_PUBLIC_FUNCTIONS_BASE_URL" | tr -d '"' | tr -d '[:space:]')
+          export NEXT_PUBLIC_GA_MEASUREMENT_ID=$(printf '%s' "$NEXT_PUBLIC_GA_MEASUREMENT_ID" | tr -d '"' | tr -d '[:space:]')
           npm run build > build-log.txt 2>&1 || {
             echo "::group::Build log"
             cat build-log.txt
