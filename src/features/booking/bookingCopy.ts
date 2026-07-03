@@ -293,6 +293,22 @@ export function getBookingCopy(locale: LocaleCode): BookingCopy {
   return copy[locale] ?? copy.es;
 }
 
+/** Fecha completa (día, mes, año y hora) para el resumen del paso de confirmación. */
+export function formatSlotFull(isoUtc: string, locale: LocaleCode): string {
+  const d = new Date(isoUtc);
+  const loc =
+    locale === "en" ? "en-CO" : locale === "pt" ? "pt-BR" : locale === "fr" ? "fr-FR" : "es-CO";
+  return new Intl.DateTimeFormat(loc, {
+    timeZone: "America/Bogota",
+    weekday: "short",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  }).format(d);
+}
+
 export function formatSlotLabel(isoUtc: string, locale: LocaleCode): string {
   const d = new Date(isoUtc);
   const loc =

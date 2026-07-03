@@ -7,7 +7,7 @@ import type { LocaleCode } from "@/lib/locales";
 import { Button } from "@/components/ui/Button";
 import { BookingCalendar } from "@/features/booking/BookingCalendar";
 import { createAppointment, fetchSlots, type SlotsResponse } from "@/features/booking/bookingApi";
-import { formatDayCard, formatSlotLabel, formatSlotsLoadError, getBookingCopy } from "@/features/booking/bookingCopy";
+import { formatDayCard, formatSlotFull, formatSlotLabel, formatSlotsLoadError, getBookingCopy } from "@/features/booking/bookingCopy";
 import { bogotaTodayIso, nextBookingDayIsos } from "@/features/booking/bookingCalendarUtils";
 import { getVisibleSlotsForSelectedDay } from "@/features/booking/bookingSlotDisplay";
 
@@ -472,7 +472,7 @@ export function BookingWizard() {
             <ul className="mt-3 list-inside list-disc space-y-1">
               {selectedSlotStart ? (
                 <li>
-                  {formatSlotLabel(selectedSlotStart, locale as LocaleCode)} ({slotsData?.timezone ?? "America/Bogota"})
+                  {formatSlotFull(selectedSlotStart, locale as LocaleCode)} ({slotsData?.timezone ?? "America/Bogota"})
                 </li>
               ) : null}
               <li>
