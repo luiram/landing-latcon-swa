@@ -7,6 +7,12 @@ export const metadata = {
   title: "Agendar conversación — Latcon",
   description: "Reserva una reunión con Latcon.",
   alternates: { canonical: "/agenda" },
+  openGraph: {
+    title: "Agendar conversación — Latcon",
+    description: "Reserva una reunión con Latcon.",
+    url: "https://latconservices.com/agenda",
+    type: "website",
+  },
 };
 
 export default function AgendaPage() {

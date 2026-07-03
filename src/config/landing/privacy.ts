@@ -5,7 +5,7 @@ const privacyEs: PrivacyContent = {
   metaTitle: "Política de Privacidad — Latcon",
   metaDescription: "Cómo Latcon recopila, usa y protege tus datos personales.",
   pageTitle: "Política de Privacidad",
-  lastUpdated: "Última actualización: julio de 2026",
+  lastUpdated: "Última actualización: 3 de julio de 2026",
   intro:
     "En Latcon respetamos tu privacidad y tratamos tus datos personales con responsabilidad. Esta política explica qué información recopilamos a través de este sitio, para qué la usamos y cuáles son tus derechos.",
   sections: [
@@ -15,7 +15,7 @@ const privacyEs: PrivacyContent = {
     },
     {
       heading: "Qué datos recopilamos",
-      body: "Cuando agendas una reunión en /agenda, recopilamos: nombre completo, cargo (opcional), correo electrónico, teléfono/WhatsApp, nombre de tu empresa, sector, ciudad/país (opcional), y la necesidad o comentario que nos compartas. No recopilamos datos a través de cookies de rastreo ni herramientas de analítica en este momento.",
+      body: "Cuando agendas una reunión en /agenda, recopilamos: nombre completo, cargo (opcional), correo electrónico, teléfono/WhatsApp, nombre de tu empresa, sector, ciudad/país (opcional), y la necesidad o comentario que nos compartas. Además, usamos Google Analytics para recopilar datos generales de navegación (ver la sección “Cookies y analítica” más abajo).",
     },
     {
       heading: "Para qué usamos tus datos",
@@ -35,7 +35,7 @@ const privacyEs: PrivacyContent = {
     },
     {
       heading: "Cookies y analítica",
-      body: "Actualmente este sitio no utiliza cookies de rastreo ni herramientas de analítica de terceros. Si en el futuro incorporamos herramientas como Google Analytics u otras, actualizaremos esta política para explicar qué se recopila y cómo puedes gestionarlo.",
+      body: "Este sitio utiliza Google Analytics para entender cómo se usa (qué páginas se visitan, cuánto tiempo, desde dónde llegan los visitantes). Esto implica el uso de cookies y el envío de datos de navegación a Google, bajo su propia política de privacidad. Esta información es estadística y no se cruza con los datos personales que nos compartes al agendar una reunión. Puedes bloquear estas cookies desde la configuración de tu navegador o instalando el complemento de inhabilitación de Google Analytics.",
     },
     {
       heading: "Cambios a esta política",
@@ -51,7 +51,7 @@ const privacyEn: PrivacyContent = {
   metaTitle: "Privacy Policy — Latcon",
   metaDescription: "How Latcon collects, uses, and protects your personal data.",
   pageTitle: "Privacy Policy",
-  lastUpdated: "Last updated: July 2026",
+  lastUpdated: "Last updated: July 3, 2026",
   intro:
     "At Latcon we respect your privacy and handle your personal data responsibly. This policy explains what information we collect through this site, what we use it for, and what rights you have.",
   sections: [
@@ -61,7 +61,7 @@ const privacyEn: PrivacyContent = {
     },
     {
       heading: "What data we collect",
-      body: "When you book a meeting at /agenda, we collect: full name, role (optional), email, phone/WhatsApp, company name, industry, city/country (optional), and the need or comment you share with us. We do not currently collect data through tracking cookies or analytics tools.",
+      body: "When you book a meeting at /agenda, we collect: full name, role (optional), email, phone/WhatsApp, company name, industry, city/country (optional), and the need or comment you share with us. We also use Google Analytics to collect general browsing data (see the “Cookies and analytics” section below).",
     },
     {
       heading: "What we use your data for",
@@ -81,7 +81,7 @@ const privacyEn: PrivacyContent = {
     },
     {
       heading: "Cookies and analytics",
-      body: "This site currently does not use tracking cookies or third-party analytics tools. If we add tools such as Google Analytics in the future, we will update this policy to explain what is collected and how you can manage it.",
+      body: "This site uses Google Analytics to understand how it is used (which pages are visited, how long, where visitors come from). This involves cookies and sending browsing data to Google, under its own privacy policy. This information is statistical and is not cross-referenced with the personal data you share when booking a meeting. You can block these cookies through your browser settings or by installing the Google Analytics opt-out add-on.",
     },
     {
       heading: "Changes to this policy",
@@ -97,7 +97,7 @@ const privacyPt: PrivacyContent = {
   metaTitle: "Política de Privacidade — Latcon",
   metaDescription: "Como a Latcon coleta, usa e protege seus dados pessoais.",
   pageTitle: "Política de Privacidade",
-  lastUpdated: "Última atualização: julho de 2026",
+  lastUpdated: "Última atualização: 3 de julho de 2026",
   intro:
     "Na Latcon respeitamos sua privacidade e tratamos seus dados pessoais com responsabilidade. Esta política explica quais informações coletamos por meio deste site, para que as usamos e quais são seus direitos.",
   sections: [
@@ -107,7 +107,7 @@ const privacyPt: PrivacyContent = {
     },
     {
       heading: "Quais dados coletamos",
-      body: "Ao agendar uma reunião em /agenda, coletamos: nome completo, cargo (opcional), e-mail, telefone/WhatsApp, nome da sua empresa, setor, cidade/país (opcional) e a necessidade ou comentário que você compartilhar conosco. Atualmente não coletamos dados por meio de cookies de rastreamento nem ferramentas de análise.",
+      body: "Ao agendar uma reunião em /agenda, coletamos: nome completo, cargo (opcional), e-mail, telefone/WhatsApp, nome da sua empresa, setor, cidade/país (opcional) e a necessidade ou comentário que você compartilhar conosco. Também usamos o Google Analytics para coletar dados gerais de navegação (veja a seção “Cookies e análise” abaixo).",
     },
     {
       heading: "Para que usamos seus dados",
@@ -127,7 +127,7 @@ const privacyPt: PrivacyContent = {
     },
     {
       heading: "Cookies e análise",
-      body: "Atualmente este site não utiliza cookies de rastreamento nem ferramentas de análise de terceiros. Se no futuro incorporarmos ferramentas como o Google Analytics, atualizaremos esta política para explicar o que é coletado e como você pode gerenciá-lo.",
+      body: "Este site utiliza o Google Analytics para entender como é usado (quais páginas são visitadas, por quanto tempo, de onde vêm os visitantes). Isso envolve o uso de cookies e o envio de dados de navegação ao Google, sob sua própria política de privacidade. Essa informação é estatística e não é cruzada com os dados pessoais que você compartilha ao agendar uma reunião. Você pode bloquear esses cookies nas configurações do seu navegador ou instalando o complemento de desativação do Google Analytics.",
     },
     {
       heading: "Alterações a esta política",
@@ -143,7 +143,7 @@ const privacyFr: PrivacyContent = {
   metaTitle: "Politique de Confidentialité — Latcon",
   metaDescription: "Comment Latcon collecte, utilise et protège vos données personnelles.",
   pageTitle: "Politique de Confidentialité",
-  lastUpdated: "Dernière mise à jour : juillet 2026",
+  lastUpdated: "Dernière mise à jour : 3 juillet 2026",
   intro:
     "Chez Latcon, nous respectons votre vie privée et traitons vos données personnelles de manière responsable. Cette politique explique quelles informations nous collectons via ce site, à quelles fins nous les utilisons et quels sont vos droits.",
   sections: [
@@ -153,7 +153,7 @@ const privacyFr: PrivacyContent = {
     },
     {
       heading: "Quelles données nous collectons",
-      body: "Lorsque vous réservez une réunion sur /agenda, nous collectons : nom complet, fonction (facultatif), e-mail, téléphone/WhatsApp, nom de votre entreprise, secteur, ville/pays (facultatif), ainsi que le besoin ou commentaire que vous partagez avec nous. Nous ne collectons actuellement aucune donnée via des cookies de suivi ou des outils d'analyse.",
+      body: "Lorsque vous réservez une réunion sur /agenda, nous collectons : nom complet, fonction (facultatif), e-mail, téléphone/WhatsApp, nom de votre entreprise, secteur, ville/pays (facultatif), ainsi que le besoin ou commentaire que vous partagez avec nous. Nous utilisons également Google Analytics pour collecter des données générales de navigation (voir la section « Cookies et analyse » ci-dessous).",
     },
     {
       heading: "À quelles fins nous utilisons vos données",
@@ -173,7 +173,7 @@ const privacyFr: PrivacyContent = {
     },
     {
       heading: "Cookies et analyse",
-      body: "Ce site n'utilise actuellement aucun cookie de suivi ni outil d'analyse tiers. Si nous intégrons à l'avenir des outils comme Google Analytics, nous mettrons à jour cette politique pour expliquer ce qui est collecté et comment vous pouvez le gérer.",
+      body: "Ce site utilise Google Analytics pour comprendre son utilisation (pages visitées, durée, provenance des visiteurs). Cela implique l'utilisation de cookies et l'envoi de données de navigation à Google, selon sa propre politique de confidentialité. Ces informations sont statistiques et ne sont pas croisées avec les données personnelles que vous partagez lors de la réservation d'une réunion. Vous pouvez bloquer ces cookies dans les paramètres de votre navigateur ou en installant le module complémentaire de désactivation de Google Analytics.",
     },
     {
       heading: "Modifications de cette politique",

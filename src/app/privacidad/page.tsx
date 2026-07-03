@@ -7,6 +7,12 @@ export const metadata = {
   title: "Política de Privacidad — Latcon",
   description: "Cómo Latcon recopila, usa y protege tus datos personales.",
   alternates: { canonical: "/privacidad" },
+  openGraph: {
+    title: "Política de Privacidad — Latcon",
+    description: "Cómo Latcon recopila, usa y protege tus datos personales.",
+    url: "https://latconservices.com/privacidad",
+    type: "website",
+  },
 };
 
 export default function PrivacidadPage() {
