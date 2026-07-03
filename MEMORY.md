@@ -57,4 +57,9 @@ Se implementaron 4 piezas, cada una resuelve un problema distinto:
 
 **Importante para expectativas**: esto no hace que el sitio aparezca en Google mañana — son los cimientos técnicos correctos, pero el posicionamiento real (aparecer arriba en resultados) toma semanas o meses y depende también de otros factores (contenido, enlaces externos, competencia). Sin estos cimientos, ni siquiera se puede empezar a competir por posicionamiento.
 
-**Lo que queda pendiente en SEO** (no se hizo hoy): analítica (Google Analytics u otro), y las etiquetas para que el sitio se vea bien al compartirlo en redes sociales (Open Graph / JSON-LD). Ver [docs/mejoras-roadmap.md](docs/mejoras-roadmap.md).
+**Actualización**: más tarde ese mismo día se completaron las dos piezas que faltaban:
+- **Open Graph**: controla cómo se ve el link al compartirlo en WhatsApp/LinkedIn/etc. (título, descripción, imagen)
+- **JSON-LD**: le confirma a Google que Latcon es una empresa real (nombre, logo, contacto)
+- **Google Analytics (GA4)**: para saber cuánta gente visita el sitio, qué páginas ven y de dónde vienen
+
+**Decisión pendiente a propósito — banner de cookies para Europa**: el sitio tiene francés como idioma, lo que en teoría podría atraer visitantes de la Unión Europea (donde la ley exige pedir permiso *antes* de activar Analytics, no solo avisar). Se decidió **no construir el banner todavía**, porque las campañas iniciales son 100% Latinoamérica y el riesgo real es bajo por ahora. Si en el futuro se hace marketing activo en Francia o la UE, hay que retomarlo — el cliente pidió explícitamente que sea de diseño sutil/transparente, no invasivo. Ver ítem S5 en [docs/mejoras-roadmap.md](docs/mejoras-roadmap.md).
