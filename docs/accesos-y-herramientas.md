@@ -21,7 +21,7 @@ Las credenciales reales (usuario + contraseña + notas de MFA) se guardan en un 
 | **Azure SQL** (`sqldb-latcon-booking` en `sql-latcon-prd-2026`) | Base de datos de reservas (`appointments`, `companies`, `contacts`, etc.) | Autenticación **Microsoft Entra ID** (mismo login que Azure Portal, sin contraseña SQL separada) | Igual que Azure Portal |
 | **GitHub** (`luiram/landing-latcon-swa`) | Código fuente + despliegue automático (GitHub Actions → Azure Static Web Apps) | Cuenta de GitHub del dueño del repositorio | Quien haga cambios de código o revise el CI/CD |
 | **Cloudflare** (dash.cloudflare.com) | DNS de `latconservices.com`, SSL/proxy, SPF/DKIM/DMARC del correo, **y registrador del dominio** (confirmado por WHOIS/RDAP el 2026-07-03) | Cuenta Cloudflare | Quien administre DNS, correo o renovación del dominio |
-| **Gmail `latconwebapp@gmail.com`** | Recibe notificación interna de cada reserva nueva + reportes agregados de DMARC | Cuenta de Google | Quien revise las reservas entrantes |
+| **Google Workspace** (`admin.google.com`, plan Starter) | Bandeja de correo real del negocio: `luis.ramirez@latconservices.com` (buzón principal, usado también para prospección en frío con YAMM) y su alias `contacto@latconservices.com` (recibe notificación interna de cada reserva nueva + reportes agregados de DMARC desde 2026-07-03) | Cuenta Google Workspace propia del dominio | Quien revise reservas entrantes y/o dé seguimiento comercial |
 
 ### Dominio `latconservices.com`
 
@@ -36,3 +36,4 @@ Las credenciales reales (usuario + contraseña + notas de MFA) se guardan en un 
 - El login de Azure SQL con Entra ID reemplaza la necesidad de recordar usuario/contraseña de SQL Server (ver [azure-swa.md](./azure-swa.md) para detalle de arquitectura).
 - Los *secrets* de despliegue (token SWA, URL de la API) viven dentro de GitHub → Settings → Secrets, documentados en [github-ci.md](./github-ci.md) — no se duplican aquí.
 - Las variables de conexión de la Function App (`SQL_CONNECTION_STRING`, `ACS_*`, `ALLOWED_ORIGINS`) viven en Azure Portal → Function App → Configuración, documentadas en [produccion.md](./produccion.md).
+- **2026-07-03**: la notificación interna de reservas y el `rua` de DMARC se migraron de `latconwebapp@gmail.com` (Gmail personal) a `contacto@latconservices.com` (alias de Google Workspace, mismo dominio). Esto se hizo para evitar el requisito de autorización cruzada de DMARC entre dominios distintos y para tener un correo de rol en vez de uno personal. Ver la variable `CONTACT_NOTIFICATION_TO` en la Function App y el registro `_dmarc` en Cloudflare.
