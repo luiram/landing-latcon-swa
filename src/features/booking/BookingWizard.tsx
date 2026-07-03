@@ -10,6 +10,7 @@ import { createAppointment, fetchSlots, type SlotsResponse } from "@/features/bo
 import { formatDayCard, formatSlotFull, formatSlotLabel, formatSlotsLoadError, getBookingCopy } from "@/features/booking/bookingCopy";
 import { bogotaTodayIso, nextBookingDayIsos } from "@/features/booking/bookingCalendarUtils";
 import { getVisibleSlotsForSelectedDay } from "@/features/booking/bookingSlotDisplay";
+import { isPersonalEmailDomain } from "@/features/booking/emailDomains";
 
 type FormState = {
   fullName: string;
@@ -265,6 +266,10 @@ export function BookingWizard() {
         void loadSlots();
         return;
       }
+      if (res.status === 429 || code === "RATE_LIMITED") {
+        setSubmitError(t.errorRateLimited);
+        return;
+      }
       setSubmitError(t.errorGeneric);
       return;
     }
@@ -393,6 +398,9 @@ export function BookingWizard() {
                 autoComplete="email"
               />
               <FieldError message={fieldErrors.email} />
+              {!fieldErrors.email && isPersonalEmailDomain(form.email) ? (
+                <p className="mt-1.5 text-xs text-blue-mid-2">{t.personalEmailWarning}</p>
+              ) : null}
             </label>
             <label className="block sm:col-span-2">
               <span className="text-sm font-medium text-text-primary">{t.fields.phone} *</span>

@@ -13,6 +13,10 @@ import {
   type BusyInterval,
 } from "../lib/slots";
 import { isLocaleCode, type LocaleCode } from "../lib/types";
+import { getClientIp, isRateLimited } from "../lib/rateLimit";
+
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000;
 
 type Body = {
   idempotencyKey: string;
@@ -118,6 +122,11 @@ app.http("createAppointment", {
     const origin = request.headers.get("origin") ?? undefined;
     if (request.method === "OPTIONS") {
       return { status: 204, headers: corsHeaders(origin) };
+    }
+
+    const clientIp = getClientIp(request);
+    if (isRateLimited(clientIp, RATE_LIMIT_MAX, RATE_LIMIT_WINDOW_MS)) {
+      return jsonResponse(429, { code: "RATE_LIMITED" }, origin);
     }
 
     const pool = await getSqlPool();

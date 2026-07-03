@@ -41,7 +41,9 @@ export type BookingCopy = {
   errorValidation: string;
   errorRequired: string;
   errorInvalidEmail: string;
+  personalEmailWarning: string;
   errorSlotTaken: string;
+  errorRateLimited: string;
   errorGeneric: string;
   errorApiNotConfigured: string;
   /** Navegador bloqueó la petición (CORS, red, API caída). */
@@ -102,7 +104,10 @@ const copy: Record<LocaleCode, BookingCopy> = {
     errorValidation: "Revisa los campos obligatorios.",
     errorRequired: "Campo requerido.",
     errorInvalidEmail: "Correo inválido.",
+    personalEmailWarning:
+      "Detectamos un correo personal. Si tienes uno corporativo, te recomendamos usarlo para un mejor seguimiento.",
     errorSlotTaken: "Ese horario acaba de ser tomado. Elige otro.",
+    errorRateLimited: "Demasiados intentos en poco tiempo. Espera unos minutos e inténtalo de nuevo.",
     errorGeneric: "No pudimos completar la acción. Intenta de nuevo.",
     errorApiNotConfigured: "El servicio de agenda no está configurado (falta URL de API).",
     errorFetchFailed:
@@ -160,7 +165,10 @@ const copy: Record<LocaleCode, BookingCopy> = {
     errorValidation: "Please check required fields.",
     errorRequired: "Required field.",
     errorInvalidEmail: "Invalid email.",
+    personalEmailWarning:
+      "We noticed a personal email address. If you have a company email, we recommend using it for better follow-up.",
     errorSlotTaken: "That time was just taken. Please pick another.",
+    errorRateLimited: "Too many attempts in a short time. Please wait a few minutes and try again.",
     errorGeneric: "We could not complete the action. Please try again.",
     errorApiNotConfigured: "The booking API URL is not configured.",
     errorFetchFailed:
@@ -218,7 +226,10 @@ const copy: Record<LocaleCode, BookingCopy> = {
     errorValidation: "Verifique os campos obrigatórios.",
     errorRequired: "Campo obrigatório.",
     errorInvalidEmail: "E-mail inválido.",
+    personalEmailWarning:
+      "Detectamos um e-mail pessoal. Se você tiver um e-mail corporativo, recomendamos usá-lo para um melhor acompanhamento.",
     errorSlotTaken: "Esse horário acabou de ser reservado. Escolha outro.",
+    errorRateLimited: "Muitas tentativas em pouco tempo. Aguarde alguns minutos e tente novamente.",
     errorGeneric: "Não foi possível concluir. Tente novamente.",
     errorApiNotConfigured: "A URL da API de agendamento não está configurada.",
     errorFetchFailed:
@@ -276,7 +287,10 @@ const copy: Record<LocaleCode, BookingCopy> = {
     errorValidation: "Vérifiez les champs obligatoires.",
     errorRequired: "Champ requis.",
     errorInvalidEmail: "E-mail invalide.",
+    personalEmailWarning:
+      "Nous avons détecté une adresse e-mail personnelle. Si vous avez une adresse professionnelle, nous vous recommandons de l'utiliser pour un meilleur suivi.",
     errorSlotTaken: "Ce créneau vient d’être pris. Choisissez-en un autre.",
+    errorRateLimited: "Trop de tentatives en peu de temps. Patientez quelques minutes puis réessayez.",
     errorGeneric: "L’action n’a pas pu aboutir. Réessayez.",
     errorApiNotConfigured: "L’URL de l’API de réservation n’est pas configurée.",
     errorFetchFailed:
