@@ -8,7 +8,7 @@ const siteEs: SiteContent = {
   metadataDescription:
     "¿Qué tanto le cuesta a tu empresa operar con información dispersa? Integramos datos, procesos y tecnología para que tu organización gane visibilidad y capacidad de decisión.",
   bookingPath: "/agenda",
-  privacyUrl: "#privacidad",
+  privacyUrl: "/privacidad",
   nav: [
     { label: "Para quién", href: "#para-quien" },
     { label: "Soluciones", href: "#solutions" },
@@ -32,7 +32,7 @@ const siteEn: SiteContent = {
   metadataDescription:
     "How much does scattered information cost your company? We integrate data, processes, and technology so your organization gains visibility and decision-making capacity.",
   bookingPath: "/agenda",
-  privacyUrl: "#privacidad",
+  privacyUrl: "/privacidad",
   nav: [
     { label: "Who we help", href: "#para-quien" },
     { label: "Solutions", href: "#solutions" },
@@ -56,7 +56,7 @@ const sitePt: SiteContent = {
   metadataDescription:
     "Quanto custa à sua empresa operar com informação dispersa? Integramos dados, processos e tecnologia para ganhar visibilidade e capacidade de decisão.",
   bookingPath: "/agenda",
-  privacyUrl: "#privacidad",
+  privacyUrl: "/privacidad",
   nav: [
     { label: "Para quem", href: "#para-quien" },
     { label: "Soluções", href: "#solutions" },
@@ -80,7 +80,7 @@ const siteFr: SiteContent = {
   metadataDescription:
     "Combien coûte à votre entreprise une information dispersée ? Nous intégrons données, processus et technologie pour gagner en visibilité et en capacité de décision.",
   bookingPath: "/agenda",
-  privacyUrl: "#privacidad",
+  privacyUrl: "/privacidad",
   nav: [
     { label: "Pour qui", href: "#para-quien" },
     { label: "Solutions", href: "#solutions" },

@@ -88,6 +88,18 @@ export type LandingContent = {
   };
 };
 
+export type PrivacyContent = {
+  metaTitle: string;
+  metaDescription: string;
+  pageTitle: string;
+  lastUpdated: string;
+  intro: string;
+  sections: ReadonlyArray<{ heading: string; body: string }>;
+  contactLabel: string;
+  contactEmail: string;
+  backLink: string;
+};
+
 export type SiteContent = {
   brand: string;
   descriptor: string;

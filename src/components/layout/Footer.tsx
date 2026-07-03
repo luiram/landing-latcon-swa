@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 
 import { useLandingContent } from "@/hooks/useLandingContent";
@@ -11,7 +12,7 @@ export function Footer() {
   const { site } = useLandingContent();
 
   return (
-    <footer id="privacidad" className="border-t border-border-subtle bg-bg-page py-11 sm:py-12">
+    <footer className="border-t border-border-subtle bg-bg-page py-11 sm:py-12">
       <Container className="flex flex-col gap-7 sm:gap-8 md:flex-row md:items-start md:justify-between md:gap-10">
         <div className="max-w-lg md:min-w-0 md:flex-1">
           <img
@@ -28,9 +29,9 @@ export function Footer() {
           className="flex shrink-0 flex-col border-t border-border-subtle pt-6 text-sm md:border-t-0 md:pt-0 md:text-right"
           aria-label={site.navAriaFooter}
         >
-          <a className={footLink} href={site.privacyUrl}>
+          <Link className={footLink} href={site.privacyUrl}>
             {site.privacy}
-          </a>
+          </Link>
         </nav>
       </Container>
       <Container className="mt-7 border-t border-border-subtle pt-5 sm:mt-8 sm:pt-6">
