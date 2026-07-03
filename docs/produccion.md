@@ -120,6 +120,14 @@ Cambios de esquema: ejecutar scripts en `db/migrations/` contra `sqldb-latcon-bo
 | CI falla deploy | Token SWA; `app_location: out` en workflow |
 | Correo no llega | `notification_logs`; [email-acs.md](./email-acs.md) |
 
+### Application Insights
+
+Ya está conectado (`APPLICATIONINSIGHTS_CONNECTION_STRING` en la configuración del Function App, recurso `func-latcon-booking-prd` en Azure Monitor) — se creó automáticamente junto con el Function App, no hubo que configurarlo desde cero.
+
+Vistas útiles: **Live Metrics** (tráfico en vivo), **Fallas** (excepciones agrupadas), **Rendimiento** (latencia por dependencia: SQL, ACS).
+
+**Alerta configurada (2026-07-03)**: `alert-latcon-failed-requests` — se dispara si hay ≥3 solicitudes fallidas en una ventana de 15 minutos (revisión cada 5 min), notifica por correo a `contacto@latconservices.com` vía el grupo de acción `ag-latcon-alerts`. Ajustable en Azure Portal → Monitor → Alertas, o sobre el recurso de Application Insights.
+
 ### Prueba rápida API (navegador o curl)
 
 ```text

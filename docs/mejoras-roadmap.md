@@ -11,9 +11,9 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 | ID | Mejora | Prioridad | Notas |
 |----|--------|-----------|--------|
 | I1 | `www.latconservices.com` + redirect 301 canónico | P2 | [cloudflare-latconservices.md](./cloudflare-latconservices.md) |
-| I2 | DMARC en Cloudflare | P1 | [email-acs.md](./email-acs.md) |
+| I2 | ✅ DMARC en Cloudflare | P1 | Hecho 2026-07-02, [email-acs.md](./email-acs.md) |
 | I3 | Quitar URL `*.azurestaticapps.net` de CORS cuando no se use | P3 | [produccion.md](./produccion.md) |
-| I4 | Application Insights en Function App | P2 | Métricas, alertas, trazas |
+| I4 | ✅ Application Insights en Function App | P2 | Ya estaba conectado; alerta de fallas agregada 2026-07-03, ver [produccion.md](./produccion.md) |
 | I5 | Function Premium / mínimo de instancias (menos cold start) | P2 | Coste vs latencia en `/api/slots` |
 | I6 | SQL: revisar auto-pause / min vCores | P2 | Primera query lenta tras pausa |
 
@@ -23,8 +23,8 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 
 | ID | Mejora | Prioridad | Notas |
 |----|--------|-----------|--------|
-| L1 | Comprimir imágenes `public/` (hero, soluciones, verticales) | P1 | Mucho peso en primera visita |
-| L2 | `loading="lazy"` / Next Image con tamaños | P1 | Secciones below the fold |
+| L1 | ✅ Comprimir imágenes `public/` (hero, soluciones, verticales) | P1 | Hecho 2026-07-03, ~53% menos peso |
+| L2 | ✅ `loading="lazy"` / Next Image con tamaños | P1 | Ya estaba implementado en su mayoría; se ajustó `priority` en Solutions |
 | L3 | Reducir JS inicial (revisar framer-motion por sección) | P2 | Home ~170 KB First Load JS |
 | L4 | Precarga solo hero; diferir resto | P3 | |
 | L5 | CDN/cache headers vía `staticwebapp.config.json` | P3 | |
@@ -46,11 +46,11 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 
 | ID | Mejora | Prioridad | Notas |
 |----|--------|-----------|--------|
-| E1 | `ACS_EMAIL_FROM` → `agenda@latconservices.com` | P1 | [email-acs.md](./email-acs.md) |
-| E2 | Header `Reply-To` a buzón humano | P1 | Código `api/src/lib/email.ts` |
-| E3 | Parte `text/plain` en mensajes | P2 | |
-| E4 | Plantillas HTML más «transactional» | P3 | |
-| E5 | Cloudflare Email Routing para `contacto@` | P3 | Solo recepción |
+| E1 | ✅ `ACS_EMAIL_FROM` → `contacto@latconservices.com` | P1 | Hecho 2026-07-03, [email-acs.md](./email-acs.md) |
+| E2 | ✅ Reply-to buzón humano | P1 | `contacto@` es buzón real de Google Workspace, no requirió tocar código |
+| E3 | ✅ Parte `text/plain` en mensajes | P2 | Ya estaba implementado en `api/src/lib/email.ts` |
+| E4 | Plantillas HTML más «transactional» (logo, firma) | P3 | |
+| E5 | ~~Cloudflare Email Routing para `contacto@`~~ | — | Obsoleto: se optó por buzón real en Google Workspace en vez de reenvío |
 
 ---
 
@@ -62,8 +62,8 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 | P2 | Cancelación real de citas (stub existe) | P2 | `cancelStub.ts` |
 | P3 | Festivos Colombia en API | P3 | Fuera de MVP actual |
 | P4 | Recordatorio 24 h antes (Logic App / Function timer) | P3 | |
-| P5 | Enlace «Agendar» en todos los CTAs → `/agenda` | P1 | Revisar `site.ts`, secciones |
-| P6 | Página de privacidad real (no `#privacidad`) | P2 | `site.privacyUrl` |
+| P5 | ✅ Enlace «Agendar» en todos los CTAs → `/agenda` | P1 | Ya estaba hecho, verificado 2026-07-03 |
+| P6 | ✅ Página de privacidad real (no `#privacidad`) | P2 | Hecho 2026-07-03, `/privacidad` en 4 idiomas |
 
 ---
 
@@ -94,7 +94,7 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 | ID | Mejora | Prioridad | Notas |
 |----|--------|-----------|--------|
 | X1 | Rotación periódica token SWA GitHub | P3 | |
-| X2 | Rate limit en `POST /api/appointments` | P2 | APIM o código |
+| X2 | ✅ Rate limit en `POST /api/appointments` | P2 | Hecho 2026-07-03 (código, 5/hora por IP) — **pendiente publicar la API en prod** |
 | X3 | Revisar que secrets no estén en logs CI | P2 | Solo length en workflow ✓ |
 
 ---
