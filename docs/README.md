@@ -41,6 +41,7 @@
 | [**azure-swa.md**](./azure-swa.md) | Arquitectura Azure, variables de entorno, CORS, SQL, reglas de negocio |
 | [**cloudflare-latconservices.md**](./cloudflare-latconservices.md) | DNS, dominio propio, SSL, pendientes Cloudflare |
 | [**github-ci.md**](./github-ci.md) | GitHub Actions, secrets, build `out/`, troubleshooting CI |
+| [**accesos-y-herramientas.md**](./accesos-y-herramientas.md) | Inventario de herramientas externas, quién debería tener acceso a cada una (sin contraseñas) |
 | [**../scripts/deploy/README.md**](../scripts/deploy/README.md) | Scripts manuales `build-all`, `publish-functions`, `publish-swa` |
 
 ### Operación funcional
@@ -80,3 +81,4 @@
 | Cita / slots / BD | [agenda-operacion.md](./agenda-operacion.md) |
 | Correo no llega / spam | [email-acs.md](./email-acs.md) |
 | Planificar mejoras | [mejoras-roadmap.md](./mejoras-roadmap.md) |
+| ¿A qué herramienta entro / quién tiene acceso? | [accesos-y-herramientas.md](./accesos-y-herramientas.md) |
