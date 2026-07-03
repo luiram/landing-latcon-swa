@@ -39,6 +39,19 @@ function ContinueHint({ text }: { text: string }) {
   return <p className="text-center text-xs text-text-muted sm:text-right">{text}</p>;
 }
 
+function Spinner({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg className={`animate-spin ${className}`} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+      <path
+        className="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+      />
+    </svg>
+  );
+}
+
 function StepFooter({
   stepLabel,
   hint,
@@ -48,6 +61,7 @@ function StepFooter({
   onNext,
   nextLabel,
   nextDisabled,
+  nextLoading,
 }: {
   stepLabel: string;
   hint?: string;
@@ -57,6 +71,7 @@ function StepFooter({
   onNext: () => void;
   nextLabel: string;
   nextDisabled?: boolean;
+  nextLoading?: boolean;
 }) {
   return (
     <div className="flex flex-col gap-2 pt-4">
@@ -73,6 +88,7 @@ function StepFooter({
         </p>
         <div className="justify-self-end">
           <Button type="button" variant="primary" disabled={nextDisabled} onClick={onNext}>
+            {nextLoading ? <Spinner className="h-4 w-4" /> : null}
             {nextLabel}
           </Button>
         </div>
@@ -277,7 +293,12 @@ export function BookingWizard() {
         <div className="mt-10 space-y-6">
           <h2 className="text-lg font-semibold text-text-primary">{t.step1Title}</h2>
           <p className="text-sm text-text-muted">{t.step1Intro}</p>
-          {slotsLoading ? <p className="text-sm text-text-muted">{t.loadingSlots}</p> : null}
+          {slotsLoading ? (
+            <div className="flex flex-col items-center gap-2 py-2 text-sm text-text-muted">
+              <Spinner className="h-6 w-6 text-accent" />
+              <span>{t.loadingSlots}</span>
+            </div>
+          ) : null}
           {slotsError ? (
             <p className="text-sm text-accent">{formatSlotsLoadError(slotsError, t)}</p>
           ) : null}
@@ -496,8 +517,9 @@ export function BookingWizard() {
             backLabel={t.back}
             backDisabled={submitting}
             onNext={() => void confirmBooking()}
-            nextLabel={submitting ? "…" : t.confirm}
+            nextLabel={submitting ? t.submitting : t.confirm}
             nextDisabled={submitting}
+            nextLoading={submitting}
           />
         </div>
       ) : null}

@@ -33,6 +33,7 @@ export type BookingCopy = {
   selectDay: string;
   selectSlot: string;
   confirm: string;
+  submitting: string;
   summary: string;
   successTitle: string;
   successBody: string;
@@ -92,6 +93,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     selectDay: "Selecciona un día",
     selectSlot: "Selecciona una hora",
     confirm: "Confirmar agendamiento",
+    submitting: "Enviando tu reserva…",
     summary: "Resumen",
     successTitle: "Reserva creada",
     successBody:
@@ -149,6 +151,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     selectDay: "Choose a day",
     selectSlot: "Choose a time",
     confirm: "Confirm booking",
+    submitting: "Sending your booking…",
     summary: "Summary",
     successTitle: "Booking created",
     successBody:
@@ -206,6 +209,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     selectDay: "Selecione um dia",
     selectSlot: "Selecione um horário",
     confirm: "Confirmar agendamento",
+    submitting: "Enviando sua reserva…",
     summary: "Resumo",
     successTitle: "Reserva criada",
     successBody:
@@ -263,6 +267,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     selectDay: "Choisissez un jour",
     selectSlot: "Choisissez une heure",
     confirm: "Confirmer le rendez-vous",
+    submitting: "Envoi de votre réservation…",
     summary: "Récapitulatif",
     successTitle: "Rendez-vous enregistré",
     successBody:
