@@ -90,9 +90,17 @@ export type LandingContent = {
 
 export type CookieConsentContent = {
   message: string;
-  accept: string;
-  reject: string;
   privacyLink: string;
+  customize: string;
+  acceptAll: string;
+  expandedTitle: string;
+  essentialLabel: string;
+  essentialDescription: string;
+  essentialBadge: string;
+  analyticsLabel: string;
+  analyticsDescription: string;
+  back: string;
+  savePreferences: string;
 };
 
 export type PrivacyContent = {
