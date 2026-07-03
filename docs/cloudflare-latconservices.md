@@ -134,22 +134,22 @@ Usuario → latconservices.com (Cloudflare DNS, proxy)
 |---|--------|--------|---------|
 | 1 | Confirmar **CORS** con dominio propio | Azure Function App | `https://latconservices.com` en `ALLOWED_ORIGINS` y en **API → CORS**. Reiniciar app. |
 | 2 | **SSL/TLS** | Cloudflare → SSL/TLS | Modo **Full** o **Full (strict)**. |
-| 3 | **DMARC** | Cloudflare → DNS → TXT `_dmarc` | Mejora entrega de correo. Ejemplo inicial: `v=DMARC1; p=none; rua=mailto:latconwebapp@gmail.com` |
+| 3 | ✅ **DMARC** | Cloudflare → DNS → TXT `_dmarc` | Hecho 2026-07-02/03, `rua=mailto:contacto@latconservices.com` |
 
 ### Prioridad media
 
 | # | Tarea | Dónde | Detalle |
 |---|--------|--------|---------|
-| 4 | Subdominio **`www`** | Cloudflare + Azure SWA | CNAME `www` → mismo destino que `@`. Redirect 301 a URL canónica. Actualizar CORS. |
-| 5 | Remitente más amigable | Function App `ACS_EMAIL_FROM` | p. ej. `agenda@latconservices.com` (verificado en ACS). |
-| 6 | **Reply-To** en emails | `api/src/lib/email.ts` | Buzón humano para confianza y menos spam. |
+| 4 | ✅ Subdominio **`www`** | Cloudflare + Azure SWA | Hecho 2026-07-03: CNAME `www` (proxied) + dominio agregado en Azure SWA + redirect 301 via Cloudflare Redirect Rules |
+| 5 | ✅ Remitente más amigable | Function App `ACS_EMAIL_FROM` | Hecho 2026-07-03: `contacto@latconservices.com` (requirió agregarlo en ACS → MailFrom addresses) |
+| 6 | ✅ **Reply-To** en emails | — | `contacto@` es buzón real de Google Workspace, no requirió tocar código |
 | 7 | Dominio predeterminado SWA | Azure → Dominios personalizados | Opcional: `latconservices.com` como predeterminado. |
 
 ### Prioridad baja / opcional
 
 | # | Tarea | Dónde | Detalle |
 |---|--------|--------|---------|
-| 8 | **Email Routing** | Cloudflare | `agenda@`, `contacto@` → reenvío a Gmail. |
+| 8 | ~~**Email Routing**~~ | — | Obsoleto: se optó por buzón real en Google Workspace (`contacto@`) en vez de reenvío |
 | 9 | Seguridad / rendimiento | Cloudflare | WAF, rate limiting (según plan). |
 | 10 | Limpiar CORS legacy | Azure | Quitar `*.azurestaticapps.net` cuando no se use. |
 | 11 | Auditoría DNS | Cloudflare → DNS | No borrar SPF/DKIM de correo. |

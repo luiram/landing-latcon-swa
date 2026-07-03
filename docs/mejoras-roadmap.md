@@ -10,7 +10,7 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 
 | ID | Mejora | Prioridad | Notas |
 |----|--------|-----------|--------|
-| I1 | `www.latconservices.com` + redirect 301 canónico | P2 | [cloudflare-latconservices.md](./cloudflare-latconservices.md) |
+| I1 | ✅ `www.latconservices.com` + redirect 301 canónico | P2 | Hecho 2026-07-03, [cloudflare-latconservices.md](./cloudflare-latconservices.md) |
 | I2 | ✅ DMARC en Cloudflare | P1 | Hecho 2026-07-02, [email-acs.md](./email-acs.md) |
 | I3 | Quitar URL `*.azurestaticapps.net` de CORS cuando no se use | P3 | [produccion.md](./produccion.md) |
 | I4 | ✅ Application Insights en Function App | P2 | Ya estaba conectado; alerta de fallas agregada 2026-07-03, ver [produccion.md](./produccion.md) |
@@ -71,10 +71,10 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 
 | ID | Mejora | Prioridad | Notas |
 |----|--------|-----------|--------|
-| S1 | Completar Fase 3 README: sitemap, robots, OG, JSON-LD | P2 | Ver [README.md](../README.md) fases |
-| S2 | `canonical` en `https://latconservices.com` | P2 | |
+| S1 | ✅ Sitemap y robots.txt | P2 | Hecho 2026-07-03, `app/sitemap.ts` + `app/robots.ts`. OG/JSON-LD siguen pendientes |
+| S2 | ✅ `canonical` en `https://latconservices.com` | P2 | Hecho 2026-07-03, `alternates.canonical` en las 3 páginas |
 | S3 | Google Analytics / Plausible (consent si aplica) | P3 | |
-| S4 | Search Console con dominio propio | P2 | |
+| S4 | ✅ Search Console con dominio propio | P2 | Hecho 2026-07-03, verificado automático + sitemap enviado |
 
 ---
 
