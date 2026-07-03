@@ -39,12 +39,61 @@ function ContinueHint({ text }: { text: string }) {
   return <p className="text-center text-xs text-text-muted sm:text-right">{text}</p>;
 }
 
+function StepFooter({
+  stepLabel,
+  hint,
+  onBack,
+  backLabel,
+  backDisabled,
+  onNext,
+  nextLabel,
+  nextDisabled,
+}: {
+  stepLabel: string;
+  hint?: string;
+  onBack?: () => void;
+  backLabel?: string;
+  backDisabled?: boolean;
+  onNext: () => void;
+  nextLabel: string;
+  nextDisabled?: boolean;
+}) {
+  return (
+    <div className="flex flex-col gap-2 pt-4">
+      <div className="grid grid-cols-3 items-center gap-3">
+        <div className="justify-self-start">
+          {onBack ? (
+            <Button type="button" variant="secondary" disabled={backDisabled} onClick={onBack}>
+              {backLabel}
+            </Button>
+          ) : null}
+        </div>
+        <p className="justify-self-center text-center text-xs font-semibold uppercase tracking-[0.14em] text-text-muted">
+          {stepLabel}
+        </p>
+        <div className="justify-self-end">
+          <Button type="button" variant="primary" disabled={nextDisabled} onClick={onNext}>
+            {nextLabel}
+          </Button>
+        </div>
+      </div>
+      {hint ? <ContinueHint text={hint} /> : null}
+    </div>
+  );
+}
+
+function FieldError({ message }: { message?: string }) {
+  if (!message) return null;
+  return <p className="mt-1.5 text-xs text-accent">{message}</p>;
+}
+
 export function BookingWizard() {
   const { locale } = useLocale();
   const t = useMemo(() => getBookingCopy(locale as LocaleCode), [locale]);
   const [step, setStep] = useState(1);
   const [form, setForm] = useState<FormState>(initialForm);
   const [formError, setFormError] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [slotsLoading, setSlotsLoading] = useState(false);
   const [slotsError, setSlotsError] = useState<string | null>(null);
   const [slotsData, setSlotsData] = useState<SlotsResponse | null>(null);
@@ -101,14 +150,28 @@ export function BookingWizard() {
     }
   }, [step, slotsData, slotsLoading, slotsError, loadSlots]);
 
+  const setField = <K extends keyof FormState>(key: K, value: FormState[K]) => {
+    setForm((p) => ({ ...p, [key]: value }));
+    setFieldErrors((prev) => {
+      if (!prev[key]) return prev;
+      const next = { ...prev };
+      delete next[key];
+      return next;
+    });
+  };
+
   const validateContact = (): boolean => {
-    if (
-      !form.fullName.trim() ||
-      !form.email.trim() ||
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim()) ||
-      !form.phoneWhatsapp.trim() ||
-      !form.company.trim()
-    ) {
+    const errors: Partial<Record<keyof FormState, string>> = {};
+    if (!form.fullName.trim()) errors.fullName = t.errorRequired;
+    if (!form.email.trim()) {
+      errors.email = t.errorRequired;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      errors.email = t.errorInvalidEmail;
+    }
+    if (!form.phoneWhatsapp.trim()) errors.phoneWhatsapp = t.errorRequired;
+    if (!form.company.trim()) errors.company = t.errorRequired;
+    setFieldErrors(errors);
+    if (Object.keys(errors).length > 0) {
       setFormError(t.errorValidation);
       return false;
     }
@@ -117,7 +180,11 @@ export function BookingWizard() {
   };
 
   const validateContext = (): boolean => {
-    if (!form.sector.trim() || !form.primaryNeed.trim()) {
+    const errors: Partial<Record<keyof FormState, string>> = {};
+    if (!form.sector.trim()) errors.sector = t.errorRequired;
+    if (!form.primaryNeed.trim()) errors.primaryNeed = t.errorRequired;
+    setFieldErrors(errors);
+    if (Object.keys(errors).length > 0) {
       setFormError(t.errorValidation);
       return false;
     }
@@ -204,10 +271,7 @@ export function BookingWizard() {
 
   return (
     <div className="mx-auto max-w-3xl">
-      {stepLabelText ? (
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-text-muted">{stepLabelText}</p>
-      ) : null}
-      <h1 className="mt-2 text-2xl font-semibold tracking-tight text-text-primary sm:text-3xl">{t.pageTitle}</h1>
+      <h1 className="text-2xl font-semibold tracking-tight text-text-primary sm:text-3xl">{t.pageTitle}</h1>
 
       {step === 1 ? (
         <div className="mt-10 space-y-6">
@@ -266,14 +330,13 @@ export function BookingWizard() {
               </div>
             </div>
           ) : null}
-          <div className="flex flex-col gap-2 pt-4">
-            <div className="flex justify-end">
-              <Button type="button" variant="primary" disabled={!selectedSlotStart || slotsLoading} onClick={goStep2}>
-                {t.next}
-              </Button>
-            </div>
-            <ContinueHint text={t.continueHint} />
-          </div>
+          <StepFooter
+            stepLabel={stepLabelText}
+            hint={t.continueHint}
+            onNext={goStep2}
+            nextLabel={t.next}
+            nextDisabled={!selectedSlotStart || slotsLoading}
+          />
         </div>
       ) : null}
 
@@ -284,69 +347,70 @@ export function BookingWizard() {
             <label className="block sm:col-span-2">
               <span className="text-sm font-medium text-text-primary">{t.fields.fullName} *</span>
               <input
-                className={inputClass}
+                className={`${inputClass}${fieldErrors.fullName ? " border-accent focus:border-accent focus:ring-accent/20" : ""}`}
                 value={form.fullName}
-                onChange={(e) => setForm((p) => ({ ...p, fullName: e.target.value }))}
+                onChange={(e) => setField("fullName", e.target.value)}
                 autoComplete="name"
               />
+              <FieldError message={fieldErrors.fullName} />
             </label>
             <label className="block">
               <span className="text-sm font-medium text-text-primary">{t.fields.roleTitle}</span>
               <input
                 className={inputClass}
                 value={form.roleTitle}
-                onChange={(e) => setForm((p) => ({ ...p, roleTitle: e.target.value }))}
+                onChange={(e) => setField("roleTitle", e.target.value)}
               />
             </label>
             <label className="block">
               <span className="text-sm font-medium text-text-primary">{t.fields.email} *</span>
               <input
-                className={inputClass}
+                className={`${inputClass}${fieldErrors.email ? " border-accent focus:border-accent focus:ring-accent/20" : ""}`}
                 type="email"
                 value={form.email}
-                onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
+                onChange={(e) => setField("email", e.target.value)}
                 autoComplete="email"
               />
+              <FieldError message={fieldErrors.email} />
             </label>
             <label className="block sm:col-span-2">
               <span className="text-sm font-medium text-text-primary">{t.fields.phone} *</span>
               <input
-                className={inputClass}
+                className={`${inputClass}${fieldErrors.phoneWhatsapp ? " border-accent focus:border-accent focus:ring-accent/20" : ""}`}
                 value={form.phoneWhatsapp}
-                onChange={(e) => setForm((p) => ({ ...p, phoneWhatsapp: e.target.value }))}
+                onChange={(e) => setField("phoneWhatsapp", e.target.value)}
                 autoComplete="tel"
               />
+              <FieldError message={fieldErrors.phoneWhatsapp} />
             </label>
             <label className="block sm:col-span-2">
               <span className="text-sm font-medium text-text-primary">{t.fields.company} *</span>
               <input
-                className={inputClass}
+                className={`${inputClass}${fieldErrors.company ? " border-accent focus:border-accent focus:ring-accent/20" : ""}`}
                 value={form.company}
-                onChange={(e) => setForm((p) => ({ ...p, company: e.target.value }))}
+                onChange={(e) => setField("company", e.target.value)}
                 autoComplete="organization"
               />
+              <FieldError message={fieldErrors.company} />
             </label>
             <label className="block sm:col-span-2">
               <span className="text-sm font-medium text-text-primary">{t.fields.cityCountryOptional}</span>
               <input
                 className={inputClass}
                 value={form.cityCountry}
-                onChange={(e) => setForm((p) => ({ ...p, cityCountry: e.target.value }))}
+                onChange={(e) => setField("cityCountry", e.target.value)}
               />
             </label>
           </div>
           {formError ? <p className="text-sm text-accent">{formError}</p> : null}
-          <div className="flex flex-col gap-2 pt-2">
-            <div className="flex flex-wrap justify-between gap-3">
-              <Button type="button" variant="secondary" onClick={() => setStep(1)}>
-                {t.back}
-              </Button>
-              <Button type="button" variant="primary" onClick={goStep3}>
-                {t.next}
-              </Button>
-            </div>
-            <ContinueHint text={t.continueHint} />
-          </div>
+          <StepFooter
+            stepLabel={stepLabelText}
+            hint={t.continueHint}
+            onBack={() => setStep(1)}
+            backLabel={t.back}
+            onNext={goStep3}
+            nextLabel={t.next}
+          />
         </div>
       ) : null}
 
@@ -357,9 +421,9 @@ export function BookingWizard() {
             <label className="block">
               <span className="text-sm font-medium text-text-primary">{t.fields.sector} *</span>
               <select
-                className={inputClass}
+                className={`${inputClass}${fieldErrors.sector ? " border-accent focus:border-accent focus:ring-accent/20" : ""}`}
                 value={form.sector}
-                onChange={(e) => setForm((p) => ({ ...p, sector: e.target.value }))}
+                onChange={(e) => setField("sector", e.target.value)}
               >
                 <option value="">{t.sectorPlaceholder}</option>
                 {t.sectorOptions.map((opt) => (
@@ -368,36 +432,35 @@ export function BookingWizard() {
                   </option>
                 ))}
               </select>
+              <FieldError message={fieldErrors.sector} />
             </label>
             <label className="block">
               <span className="text-sm font-medium text-text-primary">{t.fields.need} *</span>
               <textarea
-                className={`${inputClass} min-h-[5rem] resize-y`}
+                className={`${inputClass} min-h-[5rem] resize-y${fieldErrors.primaryNeed ? " border-accent focus:border-accent focus:ring-accent/20" : ""}`}
                 value={form.primaryNeed}
-                onChange={(e) => setForm((p) => ({ ...p, primaryNeed: e.target.value }))}
+                onChange={(e) => setField("primaryNeed", e.target.value)}
               />
+              <FieldError message={fieldErrors.primaryNeed} />
             </label>
             <label className="block">
               <span className="text-sm font-medium text-text-primary">{t.fields.comment}</span>
               <textarea
                 className={`${inputClass} min-h-[4rem] resize-y`}
                 value={form.comment}
-                onChange={(e) => setForm((p) => ({ ...p, comment: e.target.value }))}
+                onChange={(e) => setField("comment", e.target.value)}
               />
             </label>
           </div>
           {formError ? <p className="text-sm text-accent">{formError}</p> : null}
-          <div className="flex flex-col gap-2 pt-2">
-            <div className="flex flex-wrap justify-between gap-3">
-              <Button type="button" variant="secondary" onClick={() => setStep(2)}>
-                {t.back}
-              </Button>
-              <Button type="button" variant="primary" onClick={goConfirm}>
-                {t.next}
-              </Button>
-            </div>
-            <ContinueHint text={t.continueHint} />
-          </div>
+          <StepFooter
+            stepLabel={stepLabelText}
+            hint={t.continueHint}
+            onBack={() => setStep(2)}
+            backLabel={t.back}
+            onNext={goConfirm}
+            nextLabel={t.next}
+          />
         </div>
       ) : null}
 
@@ -427,14 +490,15 @@ export function BookingWizard() {
             </ul>
           </div>
           {submitError ? <p className="text-sm text-accent">{submitError}</p> : null}
-          <div className="flex flex-wrap justify-between gap-3 pt-2">
-            <Button type="button" variant="secondary" disabled={submitting} onClick={() => setStep(3)}>
-              {t.back}
-            </Button>
-            <Button type="button" variant="primary" disabled={submitting} onClick={() => void confirmBooking()}>
-              {submitting ? "…" : t.confirm}
-            </Button>
-          </div>
+          <StepFooter
+            stepLabel={stepLabelText}
+            onBack={() => setStep(3)}
+            backLabel={t.back}
+            backDisabled={submitting}
+            onNext={() => void confirmBooking()}
+            nextLabel={submitting ? "…" : t.confirm}
+            nextDisabled={submitting}
+          />
         </div>
       ) : null}
 

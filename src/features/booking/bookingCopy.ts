@@ -38,6 +38,8 @@ export type BookingCopy = {
   successBody: string;
   emailPartialWarning: string;
   errorValidation: string;
+  errorRequired: string;
+  errorInvalidEmail: string;
   errorSlotTaken: string;
   errorGeneric: string;
   errorApiNotConfigured: string;
@@ -96,6 +98,8 @@ const copy: Record<LocaleCode, BookingCopy> = {
       "Tu reunión quedó registrada. Recibirás un correo de confirmación en la dirección indicada (si el envío fallara, la reserva sigue activa y nuestro equipo verá el aviso en sistema).",
     emailPartialWarning: "La reserva está confirmada; hubo un problema al enviar uno de los correos. Te contactaremos si hace falta.",
     errorValidation: "Revisa los campos obligatorios.",
+    errorRequired: "Campo requerido.",
+    errorInvalidEmail: "Correo inválido.",
     errorSlotTaken: "Ese horario acaba de ser tomado. Elige otro.",
     errorGeneric: "No pudimos completar la acción. Intenta de nuevo.",
     errorApiNotConfigured: "El servicio de agenda no está configurado (falta URL de API).",
@@ -151,6 +155,8 @@ const copy: Record<LocaleCode, BookingCopy> = {
       "Your meeting is saved. You should receive a confirmation email (if sending fails, the booking still stands and our team is notified in the system).",
     emailPartialWarning: "Your booking is confirmed; there was an issue sending one of the emails. We may reach out if needed.",
     errorValidation: "Please check required fields.",
+    errorRequired: "Required field.",
+    errorInvalidEmail: "Invalid email.",
     errorSlotTaken: "That time was just taken. Please pick another.",
     errorGeneric: "We could not complete the action. Please try again.",
     errorApiNotConfigured: "The booking API URL is not configured.",
@@ -206,6 +212,8 @@ const copy: Record<LocaleCode, BookingCopy> = {
       "Sua reunião foi registrada. Você receberá um e-mail de confirmação (se o envio falhar, a reserva permanece e nossa equipe verá no sistema).",
     emailPartialWarning: "A reserva está confirmada; houve problema ao enviar um dos e-mails. Podemos contatá-lo se necessário.",
     errorValidation: "Verifique os campos obrigatórios.",
+    errorRequired: "Campo obrigatório.",
+    errorInvalidEmail: "E-mail inválido.",
     errorSlotTaken: "Esse horário acabou de ser reservado. Escolha outro.",
     errorGeneric: "Não foi possível concluir. Tente novamente.",
     errorApiNotConfigured: "A URL da API de agendamento não está configurada.",
@@ -261,6 +269,8 @@ const copy: Record<LocaleCode, BookingCopy> = {
       "Votre réunion est enregistrée. Vous recevrez un e-mail de confirmation (en cas d’échec d’envoi, le rendez-vous reste valide et notre équipe est informée dans le système).",
     emailPartialWarning: "Le rendez-vous est confirmé ; l’envoi d’un des e-mails a échoué. Nous pourrons vous recontacter si besoin.",
     errorValidation: "Vérifiez les champs obligatoires.",
+    errorRequired: "Champ requis.",
+    errorInvalidEmail: "E-mail invalide.",
     errorSlotTaken: "Ce créneau vient d’être pris. Choisissez-en un autre.",
     errorGeneric: "L’action n’a pas pu aboutir. Réessayez.",
     errorApiNotConfigured: "L’URL de l’API de réservation n’est pas configurée.",
