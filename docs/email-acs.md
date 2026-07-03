@@ -19,8 +19,8 @@ La aplicación **no** verifica dominios; solo usa variables de entorno en el Fun
 | Variable | Descripción |
 |----------|-------------|
 | `ACS_CONNECTION_STRING` | Cadena del recurso Communication Services |
-| `ACS_EMAIL_FROM` | Remitente (dominio verificado), ej. `DoNotReply@latconservices.com` |
-| `CONTACT_NOTIFICATION_TO` | Buzón interno Latcon, ej. `latconwebapp@gmail.com` |
+| `ACS_EMAIL_FROM` | Remitente (dominio verificado). En producción: `contacto@latconservices.com` (antes `DoNotReply@`, cambiado 2026-07-03) |
+| `CONTACT_NOTIFICATION_TO` | Buzón interno Latcon. En producción: `contacto@latconservices.com` (Google Workspace, antes `latconwebapp@gmail.com`) |
 
 Plantilla local: [`api/local.settings.json.example`](../api/local.settings.json.example)
 
@@ -62,10 +62,10 @@ No hay garantía al 100 % desde código; depende de reputación del dominio y au
 
 | Acción | Dónde |
 |--------|--------|
-| Usar remitente reconocible | `ACS_EMAIL_FROM` → `agenda@latconservices.com` o `hola@latconservices.com` (verificado en ACS), evitar solo `DoNotReply@` |
+| Usar remitente reconocible | ✅ Hecho — `ACS_EMAIL_FROM` = `contacto@latconservices.com` (evitado `DoNotReply@`) |
 | Mantener SPF + DKIM | Cloudflare DNS (registros ACS) |
-| Añadir **DMARC** | TXT `_dmarc` en Cloudflare — ver [cloudflare-latconservices.md](./cloudflare-latconservices.md) |
-| **Reply-To** humano | Mejora futura en `email.ts` hacia buzón de contacto real |
+| Añadir **DMARC** | ✅ Hecho — TXT `_dmarc` en Cloudflare, ver [cloudflare-latconservices.md](./cloudflare-latconservices.md) |
+| **Reply-To** humano | ✅ Hecho — `contacto@latconservices.com` es un buzón real (Google Workspace), las respuestas llegan de verdad |
 
 ### Prioridad media
 
@@ -85,10 +85,20 @@ No hay garantía al 100 % desde código; depende de reputación del dominio y au
 
 ## Cambiar remitente
 
-1. Azure Portal → Communication Services → **Email** → dominios → añadir/verificar alias si hace falta.
-2. Function App → `ACS_EMAIL_FROM` = nueva dirección.
-3. Guardar y **reiniciar** Function App.
-4. Cita de prueba + revisar cabeceras (`SPF`, `DKIM`, `DMARC`).
+ACS mantiene una **lista blanca de nombres de usuario remitentes por dominio** (`MailFrom addresses`) — no basta con que el dominio esté verificado, cada usuario local (`contacto`, `agenda`, etc.) debe registrarse explícitamente ahí, o el envío falla con `Invalid email sender username: 'X'. Please use a username from the list of valid usernames configured by your admin.` (visible en `dbo.notification_logs.error`).
+
+1. Azure Portal → Communication Services → `acs-latcon-email-service-prd` → **Dominios** → clic en `latconservices.com` → **Email services → MailFrom addresses**.
+2. **+ Add** → nombre de usuario (ej. `contacto`) + nombre para mostrar (ej. `Latcon`).
+   - **Bug conocido del portal**: los botones "+ Add" / "Delete" a veces aparecen deshabilitados sin motivo (no es un bloqueo de recursos — verificado que no hay Locks a nivel de recurso, grupo ni suscripción). Alternativa por API REST con `az account get-access-token`:
+     ```bash
+     TOKEN=$(az account get-access-token --resource https://management.azure.com --query accessToken -o tsv)
+     curl -X PUT "https://management.azure.com/subscriptions/<sub>/resourceGroups/rg-latcon-prd/providers/Microsoft.Communication/emailServices/acs-latcon-email-service-prd/domains/latconservices.com/senderUsernames/<usuario>?api-version=2023-04-01" \
+       -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+       -d '{"properties":{"username":"<usuario>","displayName":"<nombre>"}}'
+     ```
+3. Function App → `ACS_EMAIL_FROM` = nueva dirección.
+4. Guardar y **reiniciar** Function App.
+5. Cita de prueba + revisar cabeceras (`SPF`, `DKIM`, `DMARC`) y `dbo.notification_logs` si algo falla.
 
 ---
 
