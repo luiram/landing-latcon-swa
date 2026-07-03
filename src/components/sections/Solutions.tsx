@@ -63,7 +63,6 @@ export function Solutions() {
                         fill
                         className="object-cover object-center"
                         sizes="(max-width: 1024px) 100vw, 50vw"
-                        priority={i === 0}
                       />
                     </div>
                   </div>
