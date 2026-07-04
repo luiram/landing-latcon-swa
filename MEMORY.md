@@ -63,3 +63,11 @@ Se implementaron 4 piezas, cada una resuelve un problema distinto:
 - **Google Analytics (GA4)**: para saber cuánta gente visita el sitio, qué páginas ven y de dónde vienen
 
 **Banner de cookies para Europa — sí se implementó**: el sitio tiene francés como idioma, lo que en teoría podría atraer visitantes de la Unión Europea (donde la ley exige pedir permiso *antes* de activar Analytics, no solo avisar en la política de privacidad). Primero se evaluó dejarlo pendiente (campañas iniciales son 100% Latinoamérica, riesgo bajo), pero se decidió implementarlo de todas formas ya que la política de privacidad ya menciona el uso de cookies. Quedó con diseño sutil y translúcido (mismo estilo del menú de navegación), sin bloquear el sitio: por defecto Analytics **no** recopila datos hasta que el visitante hace clic en "Aceptar"; si no responde o rechaza, se queda desactivado. Ver ítem S5 en [docs/mejoras-roadmap.md](docs/mejoras-roadmap.md).
+
+#### 9. Página de error amigable — botón "Reintentar" corregido
+Cuando la página fallaba en el celular (por ejemplo, el bug de `localStorage` en Safari), aparecía una pantalla amigable con dos botones. El botón "Reintentar" no funcionaba porque solo volvía a dibujar la página con el código **ya cargado en el navegador** (que podía seguir siendo la versión con el error, guardada en caché). Se corrigió para que "Reintentar" haga una **recarga real desde internet**, igual que si el usuario recargara manualmente. Confirmado funcionando en producción, en Chrome y Safari reales.
+
+**Aclaración**: esa pantalla de error **no es la página normal** — es una red de seguridad que solo aparece si algo falla al cargar. Lo esperado es que `/privacidad` (y el resto del sitio) cargue directo, mostrando el contenido real.
+
+#### 10. Nuevo pendiente: firma de correo y plantilla visual para envíos
+Falta definir una **firma de correo corporativa** en Google Workspace (para `contacto@` y `luis.ramirez@`, usada en respuestas y en la futura prospección en frío) y una **plantilla HTML con logo/firma** más cuidada para los correos automáticos de reserva (ACS), que hoy son texto simple. Ver ítems E4 y E6 en [docs/mejoras-roadmap.md](docs/mejoras-roadmap.md).
