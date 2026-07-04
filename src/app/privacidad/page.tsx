@@ -19,7 +19,7 @@ export default function PrivacidadPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen scroll-mt-36 bg-bg-page pb-24 pt-28 sm:pt-32">
+      <main className="min-h-screen scroll-mt-36 bg-[color-mix(in_srgb,var(--color-blue-mid-1)_12%,var(--color-bg-page))] pb-24 pt-28 sm:pt-32">
         <Container>
           <PrivacyPolicy />
         </Container>
