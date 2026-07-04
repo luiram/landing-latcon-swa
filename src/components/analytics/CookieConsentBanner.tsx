@@ -30,6 +30,24 @@ function applyConsent(choice: ConsentChoice) {
   });
 }
 
+/** Safari en modo privado (u otros navegadores con storage restringido) puede lanzar
+ * una excepción al acceder a localStorage; sin este resguardo, tumba toda la página. */
+function readStoredConsent(): ConsentChoice | null {
+  try {
+    return parseStoredConsent(localStorage.getItem(STORAGE_KEY));
+  } catch {
+    return null;
+  }
+}
+
+function writeStoredConsent(choice: ConsentChoice) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(choice));
+  } catch {
+    /* ignore: la preferencia solo dura la sesión actual */
+  }
+}
+
 export function CookieConsentBanner() {
   const { locale } = useLocale();
   const t = getCookieConsentContent(locale as LocaleCode);
@@ -38,7 +56,7 @@ export function CookieConsentBanner() {
   const [analyticsChecked, setAnalyticsChecked] = useState(false);
 
   useEffect(() => {
-    const stored = parseStoredConsent(localStorage.getItem(STORAGE_KEY));
+    const stored = readStoredConsent();
     if (stored) {
       applyConsent(stored);
       return;
@@ -57,7 +75,7 @@ export function CookieConsentBanner() {
   }, [visible]);
 
   const save = (choice: ConsentChoice) => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(choice));
+    writeStoredConsent(choice);
     applyConsent(choice);
     setVisible(false);
   };
