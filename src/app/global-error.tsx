@@ -6,9 +6,7 @@
  * por completo, así que usa estilos inline: no podemos confiar en que el CSS del
  * sitio haya cargado si el error ocurrió muy temprano.
  */
-export default function GlobalError({
-  reset,
-}: {
+export default function GlobalError({}: {
   error: Error & { digest?: string };
   reset: () => void;
 }) {
@@ -37,7 +35,7 @@ export default function GlobalError({
           <div style={{ marginTop: "1.5rem", display: "flex", justifyContent: "center", gap: "0.75rem", flexWrap: "wrap" }}>
             <button
               type="button"
-              onClick={() => reset()}
+              onClick={() => window.location.reload()}
               style={{
                 background: "#f58220",
                 color: "#ffffff",

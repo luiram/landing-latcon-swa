@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 
-export default function Error({
-  reset,
-}: {
+export default function Error({}: {
   error: Error & { digest?: string };
   reset: () => void;
 }) {
@@ -18,7 +16,7 @@ export default function Error({
       <div className="mt-6 flex flex-wrap justify-center gap-3">
         <button
           type="button"
-          onClick={() => reset()}
+          onClick={() => window.location.reload()}
           className="rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-[transform,filter] hover:scale-[1.03] hover:brightness-95"
         >
           Reintentar
