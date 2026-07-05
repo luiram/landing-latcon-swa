@@ -96,7 +96,7 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 | ID | Mejora | Prioridad | Notas |
 |----|--------|-----------|--------|
 | X1 | Rotación periódica token SWA GitHub | P3 | |
-| X2 | ✅ Rate limit en `POST /api/appointments` | P2 | Hecho 2026-07-03 (código, 5/hora por IP) — **pendiente publicar la API en prod** |
+| X2 | ✅ Rate limit en `POST /api/appointments` | P2 | Código 2026-07-03, publicado en prod 2026-07-05 (5/hora por IP, en memoria — límite por instancia, no global; ver [email-acs.md](./email-acs.md) / `api/src/lib/rateLimit.ts`) |
 | X3 | Revisar que secrets no estén en logs CI | P2 | Solo length en workflow ✓ |
 
 ---
