@@ -69,5 +69,7 @@ Cuando la página fallaba en el celular (por ejemplo, el bug de `localStorage` e
 
 **Aclaración**: esa pantalla de error **no es la página normal** — es una red de seguridad que solo aparece si algo falla al cargar. Lo esperado es que `/privacidad` (y el resto del sitio) cargue directo, mostrando el contenido real.
 
-#### 10. Nuevo pendiente: firma de correo y plantilla visual para envíos
-Falta definir una **firma de correo corporativa** en Google Workspace (para `contacto@` y `luis.ramirez@`, usada en respuestas y en la futura prospección en frío) y una **plantilla HTML con logo/firma** más cuidada para los correos automáticos de reserva (ACS), que hoy son texto simple. Ver ítems E4 y E6 en [docs/mejoras-roadmap.md](docs/mejoras-roadmap.md).
+#### 10. Firma de correo — hecho
+Se configuraron dos firmas en Gmail/Google Workspace: **"Luis — personal"** (nombre, cargo Director/CEO, teléfono/WhatsApp, web, enlace a `/agenda`) para `luis.ramirez@latconservices.com`, y **"Equipo Latcon"** (mismo formato sin nombre personal) para el alias `contacto@latconservices.com`. Cada una se asignó como predeterminada en su dirección correspondiente (Configuración → Cuentas → "Enviar mensaje como" → desplegables por dirección en la sección Firma). Se usó una versión PNG del logo (`public/logo/logo_1_primary_horizontal_email.png`) en vez del SVG original, por mejor compatibilidad con Gmail/Outlook.
+
+**Sigue pendiente**: la plantilla HTML con logo/firma para los correos automáticos de reserva (ACS), que hoy siguen siendo texto simple. Ver ítem E4 en [docs/mejoras-roadmap.md](docs/mejoras-roadmap.md).
