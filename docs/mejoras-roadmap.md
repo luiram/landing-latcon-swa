@@ -72,7 +72,7 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 
 | ID | Mejora | Prioridad | Notas |
 |----|--------|-----------|--------|
-| S1 | ✅ Sitemap, robots.txt, Open Graph y JSON-LD | P2 | Hecho 2026-07-03 |
+| S1 | ✅ Sitemap, robots.txt, Open Graph y JSON-LD | P2 | Hecho 2026-07-03. Imagen OG personalizada (`public/og-image.jpg`, 1200×630, logo + tagline) agregada 2026-07-05, reemplaza el fallback de `hero-background.webp` |
 | S2 | ✅ `canonical` en `https://latconservices.com` | P2 | Hecho 2026-07-03, `alternates.canonical` en las 3 páginas |
 | S3 | ✅ Google Analytics (GA4) | P3 | Hecho 2026-07-03, `NEXT_PUBLIC_GA_MEASUREMENT_ID` (secret GitHub), componente `GoogleAnalytics.tsx` |
 | S4 | ✅ Search Console con dominio propio | P2 | Hecho 2026-07-03, verificado automático + sitemap enviado |

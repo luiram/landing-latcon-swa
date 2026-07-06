@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: defaultSite.metadataDescription,
     url: "https://latconservices.com",
     siteName: defaultSite.brand,
-    images: [{ url: "/hero-background.webp", width: 2560, height: 1440 }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
     locale: "es_CO",
     type: "website",
   },
