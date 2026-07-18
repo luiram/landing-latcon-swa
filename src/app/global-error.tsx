@@ -11,7 +11,7 @@ export default function GlobalError({}: {
   reset: () => void;
 }) {
   return (
-    <html lang="es">
+    <html lang="en">
       <body
         style={{
           margin: 0,
@@ -27,10 +27,10 @@ export default function GlobalError({}: {
         <div style={{ maxWidth: "26rem", textAlign: "center" }}>
           <p style={{ fontSize: "1.5rem", fontWeight: 700, color: "#f58220", margin: 0 }}>Latcon</p>
           <h1 style={{ marginTop: "1rem", fontSize: "1.15rem", fontWeight: 600, color: "#4a4b50" }}>
-            Algo no cargó correctamente
+            Something didn&apos;t load correctly
           </h1>
           <p style={{ marginTop: "0.5rem", color: "#65666c", fontSize: "0.9rem", lineHeight: 1.5 }}>
-            Puede ser un problema temporal de conexión. Intenta de nuevo.
+            This may be a temporary connection issue. Please try again.
           </p>
           <div style={{ marginTop: "1.5rem", display: "flex", justifyContent: "center", gap: "0.75rem", flexWrap: "wrap" }}>
             <button
@@ -47,7 +47,7 @@ export default function GlobalError({}: {
                 cursor: "pointer",
               }}
             >
-              Reintentar
+              Retry
             </button>
             <a
               href="/"
@@ -62,7 +62,7 @@ export default function GlobalError({}: {
                 background: "#ffffff",
               }}
             >
-              Volver al inicio
+              Back to home
             </a>
           </div>
         </div>

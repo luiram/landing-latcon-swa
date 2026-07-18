@@ -1,13 +1,10 @@
-"use client";
-
 import Link from "next/link";
-import { useLocale } from "@/context/LocaleProvider";
 import { getPrivacyContent } from "@/config/landing";
 import type { LocaleCode } from "@/lib/locales";
+import { withLocalePrefix } from "@/lib/localePaths";
 
-export function PrivacyPolicy() {
-  const { locale } = useLocale();
-  const t = getPrivacyContent(locale as LocaleCode);
+export function PrivacyPolicy({ locale }: { locale: LocaleCode }) {
+  const t = getPrivacyContent(locale);
 
   return (
     <div className="mx-auto max-w-3xl">
@@ -37,7 +34,7 @@ export function PrivacyPolicy() {
       </div>
 
       <Link
-        href="/"
+        href={withLocalePrefix("/", locale)}
         className="mt-8 inline-flex text-sm font-semibold text-blue-mid-2 underline-offset-4 hover:underline"
       >
         {t.backLink}

@@ -1,21 +1,24 @@
+import Link from "next/link";
 import { cn } from "@/lib/cn";
 import type { LocaleCode } from "@/lib/locales";
 import { LocaleFlag } from "@/components/layout/LocaleFlag";
 
 type LanguageOptionProps = {
-  value: LocaleCode;
+  href: string;
+  localeCode: LocaleCode;
   label: string;
   selected: boolean;
-  onSelect: () => void;
+  onNavigate: () => void;
 };
 
 /**
  * Opción del menú: bandera en marco fijo (vía LocaleFlag) + etiqueta, gap uniforme.
+ * Navega a la misma página en el idioma elegido (no solo cambia estado).
  */
-export function LanguageOption({ value, label, selected, onSelect }: LanguageOptionProps) {
+export function LanguageOption({ href, localeCode, label, selected, onNavigate }: LanguageOptionProps) {
   return (
-    <button
-      type="button"
+    <Link
+      href={href}
       role="option"
       aria-selected={selected}
       className={cn(
@@ -23,10 +26,10 @@ export function LanguageOption({ value, label, selected, onSelect }: LanguageOpt
         selected &&
           "bg-stone-200/55 font-medium text-neutral-950 ring-1 ring-stone-300/40 hover:bg-stone-200/70",
       )}
-      onClick={onSelect}
+      onClick={onNavigate}
     >
-      <LocaleFlag code={value} variant="row" title={label} />
+      <LocaleFlag code={localeCode} variant="row" title={label} />
       <span className="min-w-0 flex-1 leading-snug tracking-tight">{label}</span>
-    </button>
+    </Link>
   );
 }

@@ -1,7 +1,6 @@
 {
-  "navigationFallback": {
-    "rewrite": "/index.html",
-    "exclude": ["/images/*.{png,jpg,gif,webp,svg}", "/*.{css,js,map,json,ico,txt,webmanifest}"]
+  "responseOverrides": {
+    "404": { "rewrite": "/404.html" }
   },
   "globalHeaders": {
     "/*": {

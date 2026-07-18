@@ -57,12 +57,20 @@
 |-----------|-----------|
 | [**mejoras-roadmap.md**](./mejoras-roadmap.md) | Roadmap P1/P2/P3: rendimiento, SEO, correo, admin, etc. |
 
+### Rediseño v2 (en curso, rama `portal`)
+
+| Documento | Contenido |
+|-----------|-----------|
+| [**latcon-plan-maestro-sitio-v2.md**](./latcon-plan-maestro-sitio-v2.md) | Plan maestro: posicionamiento, i18n por rutas, páginas nuevas, secciones de la home, fases de implementación |
+| [**latcon-spec-diseno-interactivo.md**](./latcon-spec-diseno-interactivo.md) | Spec técnica de interacción (partículas, rotador, tarjetas apiladas, gráficos SVG, reglas de animación) — patrón de referencia: tryolabs.com |
+| [**latcon-v2-decisiones.md**](./latcon-v2-decisiones.md) | Decisiones resueltas en conversación con Claude Code (idioma default, copy de `/solutions`, `/terms`, banner de cookies, etc.) y pendientes aún abiertos |
+
 ### Código y datos
 
 | Ruta | Contenido |
 |------|-----------|
-| [`../src/config/content.ts`](../src/config/content.ts) | Copy de la landing |
-| [`../src/config/site.ts`](../src/config/site.ts) | Marca, nav, ruta `/agenda` |
+| [`../src/config/content.ts`](../src/config/content.ts) | Copy ES de la landing (fuente real; `landing/es.ts` re-exporta desde aquí) |
+| [`../src/config/landing/site.ts`](../src/config/landing/site.ts) | Marca, nav, ruta `/agenda` (por idioma) |
 | [`../db/migrations/001_init.sql`](../db/migrations/001_init.sql) | Esquema SQL inicial |
 | [`../.env.example`](../.env.example) | Variable front local |
 | [`../api/local.settings.json.example`](../api/local.settings.json.example) | Variables API local |
@@ -81,4 +89,5 @@
 | Cita / slots / BD | [agenda-operacion.md](./agenda-operacion.md) |
 | Correo no llega / spam | [email-acs.md](./email-acs.md) |
 | Planificar mejoras | [mejoras-roadmap.md](./mejoras-roadmap.md) |
+| Retomar el rediseño v2 | [latcon-v2-decisiones.md](./latcon-v2-decisiones.md) → [latcon-plan-maestro-sitio-v2.md](./latcon-plan-maestro-sitio-v2.md) |
 | ¿A qué herramienta entro / quién tiene acceso? | [accesos-y-herramientas.md](./accesos-y-herramientas.md) |

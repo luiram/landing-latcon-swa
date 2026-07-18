@@ -11,12 +11,12 @@ const base = (): string => {
 
 // Fires once per page session to wake up the Azure Function before the user navigates to /agenda.
 let _prefetchFired = false;
-export function prefetchSlots(): void {
+export function prefetchSlots(locale: LocaleCode): void {
   if (_prefetchFired) return;
   const root = base();
   if (!root) return;
   _prefetchFired = true;
-  fetch(`${root}/api/slots?locale=es`, { method: "GET" }).catch(() => undefined);
+  fetch(`${root}/api/slots?locale=${encodeURIComponent(locale)}`, { method: "GET" }).catch(() => undefined);
 }
 
 export async function fetchSlots(locale: LocaleCode): Promise<SlotsResponse> {

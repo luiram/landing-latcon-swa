@@ -1,19 +1,21 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/cn";
-import { LOCALES } from "@/lib/locales";
-import { useLocale } from "@/context/LocaleProvider";
+import { LOCALES, type LocaleCode } from "@/lib/locales";
+import { switchLocalePath } from "@/lib/localePaths";
 import { LocaleFlag } from "@/components/layout/LocaleFlag";
 import { LanguageOption } from "@/components/layout/LanguageOption";
 
 type LanguageSelectorProps = {
+  locale: LocaleCode;
   className?: string;
 };
 
-export function LanguageSelector({ className }: LanguageSelectorProps) {
-  const { locale, setLocale } = useLocale();
+export function LanguageSelector({ locale, className }: LanguageSelectorProps) {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
 
@@ -64,13 +66,11 @@ export function LanguageSelector({ className }: LanguageSelectorProps) {
           {LOCALES.map((item) => (
             <li key={item.code} role="presentation" className="list-none">
               <LanguageOption
-                value={item.code}
+                href={switchLocalePath(pathname, item.code)}
                 label={item.label}
+                localeCode={item.code}
                 selected={item.code === locale}
-                onSelect={() => {
-                  setLocale(item.code);
-                  setOpen(false);
-                }}
+                onNavigate={() => setOpen(false)}
               />
             </li>
           ))}

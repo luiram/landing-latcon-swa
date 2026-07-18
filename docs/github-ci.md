@@ -89,7 +89,7 @@ npm ci --no-audit
 CI=true NEXT_PUBLIC_FUNCTIONS_BASE_URL=https://func-latcon-booking-prd-euemhuf7drh3emac.centralus-01.azurewebsites.net npm run build
 ```
 
-Comprobar: existe `out/index.html` y `out/agenda/index.html` (rutas según export).
+Comprobar: existe `out/index.html`, `out/agenda.html` y `out/privacy.html` (inglés, en la raíz — sin `trailingSlash`, Next exporta archivos planos, no `agenda/index.html`), más `out/es.html`+`out/es/agenda.html`+`out/es/privacy.html` y el mismo patrón para `fr`/`pt` (rutas por idioma desde la Fase 3 de i18n, ver `docs/latcon-v2-decisiones.md`).
 
 ---
 
