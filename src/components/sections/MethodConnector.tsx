@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { motion, useReducedMotion, useScroll } from "framer-motion";
 
 /**
@@ -14,9 +14,17 @@ export function MethodStepsScroller({ children }: { children: ReactNode }) {
   const reducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start 0.75", "end 0.35"] });
 
+  // El server no conoce prefers-reduced-motion y siempre renderiza el conector; ramificar
+  // directo sobre `reducedMotion` en el primer render del cliente (que sí lo conoce de
+  // inmediato) produce un mismatch de hidratación real. Se espera al montaje —igual que
+  // ParticleField— para que el primer paint del cliente coincida con el del servidor.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const showConnector = !mounted || !reducedMotion;
+
   return (
     <div ref={ref} className="relative">
-      {!reducedMotion ? (
+      {showConnector ? (
         <>
           <motion.div
             aria-hidden="true"
