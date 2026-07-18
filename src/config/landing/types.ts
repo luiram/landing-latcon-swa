@@ -1,6 +1,12 @@
+/** Los 3 pilares del framing plan→ejecución→adaptación, reutilizados por `solutions` y `experience`. */
+export type Pillar = "plan" | "execute" | "adapt";
+
 export type LandingContent = {
   hero: {
-    chip: string;
+    /** Prefijo fijo del rotador, p. ej. "It breaks first". La preposición ("in"/"en la"/"no"/"na") vive
+     *  en cada palabra de chipWords porque cambia por género en portugués — no se puede fijar una sola vez. */
+    chipPrefix: string;
+    chipWords: ReadonlyArray<{ lead: string; emphasis: string }>;
     title: string;
     subtitle: string;
     ctaPrimary: string;
@@ -19,50 +25,24 @@ export type LandingContent = {
       sectors: string;
     }>;
   };
-  problems: {
-    title: string;
-    intro: string;
-    signalsHeading: string;
-    groups: ReadonlyArray<{
-      title: string;
-      narrative: string;
-      signals: ReadonlyArray<{ title: string; body: string }>;
-    }>;
-  };
+  /** Teaser de home — "título + resumen de 2 líneas + gráfico animado, nada más" (plan maestro §5.3).
+   *  El detalle rico (includes/result/capacidades por pilar) vive en /solutions (Fase 5), no aquí. */
   solutions: {
     eyebrow: string;
     title: string;
     intro: string;
-    srOnlyCarousel: string;
-    prevCapabilityAria: string;
-    nextCapabilityAria: string;
-    capabilitiesNavAria: string;
-    capabilityNavAria: (title: string, index: number, total: number) => string;
-    includesLabel: string;
-    resultLabel: string;
-    capabilities: ReadonlyArray<{
-      line: "integrate" | "coordinate" | "amplify";
-      image: string;
-      imageAlt: string;
-      title: string;
-      body: string;
-      includes: readonly string[];
-      result: string;
-    }>;
+    cards: ReadonlyArray<{ kind: Pillar; title: string; summary: string }>;
   };
-  verticals: {
+  experience: {
+    eyebrow: string;
     title: string;
-    intro: string;
-    useCasesLabel: string;
-    componentsLabel: string;
-    midCtaLabel: string;
-    blocks: ReadonlyArray<{
-      title: string;
-      body: string;
-      image: string;
-      imageAlt: string;
-      useCases: readonly string[];
-      components: readonly string[];
+    cases: ReadonlyArray<{
+      industry: string;
+      pillar: Pillar;
+      headline: string;
+      situation: string;
+      built: string;
+      changed: string;
     }>;
   };
   process: {
@@ -72,6 +52,8 @@ export type LandingContent = {
     resultLabel: string;
     steps: ReadonlyArray<{ title: string; body: string; result: string }>;
     closing: string;
+    /** Nota de César, corre junto a la línea conectora — no es un 5º paso. */
+    strategyNote: string;
   };
   about: {
     panel: { eyebrow: string; headline: string; body: string };
@@ -89,6 +71,8 @@ export type LandingContent = {
 };
 
 export type CookieConsentContent = {
+  /** aria-label del dialog — accesible incluso antes de que se anuncie el resto del contenido. */
+  dialogLabel: string;
   message: string;
   privacyLink: string;
   customize: string;
@@ -115,6 +99,39 @@ export type PrivacyContent = {
   backLink: string;
 };
 
+/** Mismo shape que PrivacyContent por coincidencia (ambas son "página legal simple") — se
+ *  duplica a propósito en vez de generalizar, son entidades distintas. */
+export type TermsContent = {
+  metaTitle: string;
+  metaDescription: string;
+  pageTitle: string;
+  lastUpdated: string;
+  intro: string;
+  sections: ReadonlyArray<{ heading: string; body: string }>;
+  contactLabel: string;
+  contactEmail: string;
+  backLink: string;
+};
+
+/** Detalle rico de /solutions (Fase 5) — complementa el teaser LandingContent.solutions de home. */
+export type SolutionsPageContent = {
+  metaTitle: string;
+  metaDescription: string;
+  eyebrow: string;
+  title: string;
+  intro: string;
+  labels: { includes: string; result: string; capabilities: string };
+  pillars: ReadonlyArray<{
+    kind: Pillar;
+    title: string;
+    lead: string;
+    includes: readonly string[];
+    result: readonly string[];
+    capabilities: readonly string[];
+  }>;
+  closing: { title: string };
+};
+
 export type SiteContent = {
   brand: string;
   descriptor: string;
@@ -122,9 +139,12 @@ export type SiteContent = {
   metadataDescription: string;
   bookingPath: string;
   privacyUrl: string;
+  solutionsUrl: string;
+  termsUrl: string;
   nav: ReadonlyArray<{ label: string; href: string }>;
   ctaSchedule: string;
   privacy: string;
+  terms: string;
   copyright: string;
   navAriaMain: string;
   navAriaMobile: string;

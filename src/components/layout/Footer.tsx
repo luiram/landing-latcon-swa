@@ -1,15 +1,14 @@
-"use client";
-
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 
-import { useLandingContent } from "@/hooks/useLandingContent";
+import { getSiteContent } from "@/config/landing";
+import type { LocaleCode } from "@/lib/locales";
 
 const footLink =
   "inline-flex rounded-md text-sm font-medium text-text-muted transition-colors duration-200 hover:text-blue-mid-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-page";
 
-export function Footer() {
-  const { site } = useLandingContent();
+export function Footer({ locale }: { locale: LocaleCode }) {
+  const site = getSiteContent(locale);
 
   return (
     <footer className="border-t border-border-subtle bg-bg-page py-11 sm:py-12">
@@ -26,11 +25,14 @@ export function Footer() {
           </p>
         </div>
         <nav
-          className="flex shrink-0 flex-col border-t border-border-subtle pt-6 text-sm md:border-t-0 md:pt-0 md:text-right"
+          className="flex shrink-0 flex-col gap-2 border-t border-border-subtle pt-6 text-sm md:border-t-0 md:pt-0 md:text-right"
           aria-label={site.navAriaFooter}
         >
           <Link className={footLink} href={site.privacyUrl}>
             {site.privacy}
+          </Link>
+          <Link className={footLink} href={site.termsUrl}>
+            {site.terms}
           </Link>
         </nav>
       </Container>

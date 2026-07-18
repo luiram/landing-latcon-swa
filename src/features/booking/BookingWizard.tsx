@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { useLocale } from "@/context/LocaleProvider";
 import type { LocaleCode } from "@/lib/locales";
+import { withLocalePrefix } from "@/lib/localePaths";
 import { Button } from "@/components/ui/Button";
 import { BookingCalendar } from "@/features/booking/BookingCalendar";
 import { createAppointment, fetchSlots, type SlotsResponse } from "@/features/booking/bookingApi";
@@ -101,12 +101,11 @@ function StepFooter({
 
 function FieldError({ message }: { message?: string }) {
   if (!message) return null;
-  return <p className="mt-1.5 text-xs text-accent">{message}</p>;
+  return <p className="mt-1.5 text-xs text-accent-ink">{message}</p>;
 }
 
-export function BookingWizard() {
-  const { locale } = useLocale();
-  const t = useMemo(() => getBookingCopy(locale as LocaleCode), [locale]);
+export function BookingWizard({ locale }: { locale: LocaleCode }) {
+  const t = useMemo(() => getBookingCopy(locale), [locale]);
   const [step, setStep] = useState(1);
   const [form, setForm] = useState<FormState>(initialForm);
   const [formError, setFormError] = useState<string | null>(null);
@@ -151,7 +150,7 @@ export function BookingWizard() {
     setSlotsLoading(true);
     setSlotsError(null);
     try {
-      const data = await fetchSlots(locale as LocaleCode);
+      const data = await fetchSlots(locale);
       setSlotsData(data);
     } catch (e) {
       setSlotsError(e instanceof Error ? e.message : String(e));
@@ -234,7 +233,7 @@ export function BookingWizard() {
     setSubmitError(null);
     const body = {
       idempotencyKey: idempotencyRef.current,
-      locale: locale as LocaleCode,
+      locale: locale,
       company: {
         name: form.company.trim(),
         sector: form.sector.trim(),
@@ -305,7 +304,7 @@ export function BookingWizard() {
             </div>
           ) : null}
           {slotsError ? (
-            <p className="text-sm text-accent">{formatSlotsLoadError(slotsError, t)}</p>
+            <p className="text-sm text-accent-ink">{formatSlotsLoadError(slotsError, t)}</p>
           ) : null}
           {!slotsLoading && slotsData && daysWithSlots.length === 0 ? (
             <p className="text-sm text-text-muted">{t.noSlots}</p>
@@ -313,7 +312,7 @@ export function BookingWizard() {
           {!slotsLoading && slotsData && daysWithSlots.length > 0 ? (
             <div className="grid gap-8 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)] lg:items-start">
               <BookingCalendar
-                locale={locale as LocaleCode}
+                locale={locale}
                 timezone={slotsData.timezone}
                 availableIsoDates={availableIsoDates}
                 selectedDate={selectedDate}
@@ -329,7 +328,7 @@ export function BookingWizard() {
                 ) : (
                   <>
                     <p className="mt-1 text-xs capitalize text-text-muted">
-                      {formatDayCard(selectedDate, locale as LocaleCode)}
+                      {formatDayCard(selectedDate, locale)}
                     </p>
                     <p className="mt-3 text-xs text-text-muted">{t.selectSlot}</p>
                     <div className="mt-3 flex flex-wrap gap-2">
@@ -342,11 +341,11 @@ export function BookingWizard() {
                             onClick={() => setSelectedSlotStart(s.startUtc)}
                             className={`rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
                               sel
-                                ? "border-accent bg-accent text-white shadow-sm"
+                                ? "border-accent bg-accent text-bg-deep shadow-sm"
                                 : "border-border-subtle bg-bg-warm text-text-primary hover:border-accent/35"
                             }`}
                           >
-                            {formatSlotLabel(s.startUtc, locale as LocaleCode)}
+                            {formatSlotLabel(s.startUtc, locale)}
                           </button>
                         );
                       })}
@@ -431,7 +430,7 @@ export function BookingWizard() {
               />
             </label>
           </div>
-          {formError ? <p className="text-sm text-accent">{formError}</p> : null}
+          {formError ? <p className="text-sm text-accent-ink">{formError}</p> : null}
           <StepFooter
             stepLabel={stepLabelText}
             hint={t.continueHint}
@@ -481,7 +480,7 @@ export function BookingWizard() {
               />
             </label>
           </div>
-          {formError ? <p className="text-sm text-accent">{formError}</p> : null}
+          {formError ? <p className="text-sm text-accent-ink">{formError}</p> : null}
           <StepFooter
             stepLabel={stepLabelText}
             hint={t.continueHint}
@@ -501,7 +500,7 @@ export function BookingWizard() {
             <ul className="mt-3 list-inside list-disc space-y-1">
               {selectedSlotStart ? (
                 <li>
-                  {formatSlotFull(selectedSlotStart, locale as LocaleCode)} ({slotsData?.timezone ?? "America/Bogota"})
+                  {formatSlotFull(selectedSlotStart, locale)} ({slotsData?.timezone ?? "America/Bogota"})
                 </li>
               ) : null}
               <li>
@@ -518,7 +517,7 @@ export function BookingWizard() {
               {form.comment.trim() ? <li>{form.comment.trim()}</li> : null}
             </ul>
           </div>
-          {submitError ? <p className="text-sm text-accent">{submitError}</p> : null}
+          {submitError ? <p className="text-sm text-accent-ink">{submitError}</p> : null}
           <StepFooter
             stepLabel={stepLabelText}
             onBack={() => setStep(3)}
@@ -538,9 +537,9 @@ export function BookingWizard() {
           <p className="text-base font-medium text-text-primary">{t.successTitle}</p>
           <p className="text-sm leading-relaxed text-text-muted">{t.successBody}</p>
           {successMeta && (successMeta.emailUser !== "sent" || successMeta.emailInternal !== "sent") ? (
-            <p className="text-sm text-accent">{t.emailPartialWarning}</p>
+            <p className="text-sm text-accent-ink">{t.emailPartialWarning}</p>
           ) : null}
-          <Link href="/" className="inline-flex text-sm font-semibold text-blue-mid-2 underline-offset-4 hover:underline">
+          <Link href={withLocalePrefix("/", locale)} className="inline-flex text-sm font-semibold text-blue-mid-2 underline-offset-4 hover:underline">
             {t.homeLink}
           </Link>
         </div>

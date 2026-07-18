@@ -1,131 +1,66 @@
-"use client";
-
-import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { Button } from "@/components/ui/Button";
-import { useLandingContent } from "@/hooks/useLandingContent";
 import { Reveal } from "@/components/motion/Reveal";
-import { cn } from "@/lib/cn";
+import { SolutionGraphic } from "@/components/graphics/SolutionGraphic";
+import { getLandingContent } from "@/config/landing";
+import type { LocaleCode } from "@/lib/locales";
+import { withLocalePrefix } from "@/lib/localePaths";
 
-const lineBorder = {
-  integrate: "border-blue-mid-1/25",
-  coordinate: "border-teal-600/22",
-  amplify: "border-amber-200/50",
-} as const;
-
-type SolutionLine = keyof typeof lineBorder;
-
-function isSolutionLine(v: string): v is SolutionLine {
-  return v in lineBorder;
-}
-
-export function Solutions() {
-  const { content, site } = useLandingContent();
-  const { eyebrow, title, intro, capabilities, includesLabel, resultLabel } =
-    content.solutions;
+export function Solutions({ locale }: { locale: LocaleCode }) {
+  const content = getLandingContent(locale);
+  const { eyebrow, title, intro, cards } = content.solutions;
+  const solutionsHref = withLocalePrefix("/solutions", locale);
 
   return (
     <section
       id="solutions"
-      className="scroll-mt-36 border-t border-border-subtle bg-bg-page pb-20 pt-20 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28"
+      className="scroll-mt-36 border-t border-border-deep bg-bg-deep pb-8 pt-20 sm:pt-24 lg:pt-28"
     >
       <Container>
         <Reveal>
           <header className="max-w-[38rem]">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-accent/90">{eyebrow}</p>
-            <h2 className="text-balance text-[1.75rem] font-semibold leading-[1.2] tracking-[-0.02em] text-text-primary sm:text-[2rem] sm:leading-[1.18]">
+            <h2 className="font-heading-deep text-balance text-[1.75rem] font-extrabold leading-[1.2] tracking-[-0.02em] text-text-on-dark sm:text-[2rem] sm:leading-[1.18]">
               {title}
             </h2>
-            <p className="mt-3 max-w-[34rem] text-pretty text-sm font-normal leading-[1.68] text-text-muted sm:mt-4 sm:text-[0.9375rem] sm:leading-[1.72]">
+            <p className="mt-3 max-w-[34rem] text-pretty text-sm font-normal leading-[1.68] text-text-on-dark-muted sm:mt-4 sm:text-[0.9375rem] sm:leading-[1.72]">
               {intro}
             </p>
           </header>
         </Reveal>
+      </Container>
 
-        <div className="mt-14 space-y-16 sm:mt-16 sm:space-y-20 lg:mt-18 lg:space-y-24">
-          {capabilities.map((cap, i) => {
-            const line = isSolutionLine(cap.line) ? cap.line : "integrate";
-            const imageRight = i % 2 === 1;
-            return (
-              <Reveal key={cap.title} delay={i * 0.06}>
-                <article className="grid gap-8 lg:grid-cols-2 lg:items-center lg:gap-14">
-                  {/* Imagen */}
-                  <div
-                    className={cn(
-                      "relative overflow-hidden rounded-2xl",
-                      imageRight && "lg:order-2",
-                    )}
-                  >
-                    <div className="relative aspect-[16/10] w-full sm:aspect-[5/3]">
-                      <Image
-                        src={cap.image}
-                        alt={cap.imageAlt}
-                        fill
-                        className="object-cover object-center"
-                        sizes="(max-width: 1024px) 100vw, 50vw"
-                      />
+      <div className="mt-14 sm:mt-16">
+        {cards.map((card, i) => (
+          <div key={card.title} className="solution-rail" style={{ zIndex: i + 1 }}>
+            <div className="solution-card">
+              <Container>
+                <Link
+                  href={`${solutionsHref}#${card.kind}`}
+                  className="solution-card-surface block transition-colors duration-300 hover:border-white/22 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep"
+                >
+                  <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+                    <div className="order-2 lg:order-1">
+                      <span className="text-sm font-bold tabular-nums text-accent/80">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="font-heading-deep mt-2 text-balance text-xl font-extrabold leading-snug tracking-[-0.01em] text-text-on-dark sm:text-2xl">
+                        {card.title}
+                      </h3>
+                      <p className="mt-3 max-w-md text-pretty text-sm leading-relaxed text-text-on-dark-muted sm:text-base">
+                        {card.summary}
+                      </p>
+                    </div>
+                    <div className="order-1 aspect-[4/3] w-full lg:order-2">
+                      <SolutionGraphic kind={card.kind} className="h-full w-full" />
                     </div>
                   </div>
-
-                  {/* Texto */}
-                  <div className={cn(imageRight && "lg:order-1")}>
-                    <h3 className="text-balance text-xl font-semibold leading-snug tracking-[-0.02em] text-text-primary sm:text-2xl">
-                      <span className="mr-2 text-accent/80">{String(i + 1).padStart(2, "0")}.</span>
-                      {cap.title}
-                    </h3>
-                    <p className="mt-3 text-pretty text-sm font-normal leading-relaxed text-text-muted sm:mt-4 sm:text-[0.9375rem] sm:leading-[1.65]">
-                      {cap.body}
-                    </p>
-
-                    {cap.includes.length > 0 && (
-                      <div
-                        className={cn(
-                          "mt-5 border-t pt-5",
-                          lineBorder[line],
-                        )}
-                      >
-                        <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-accent/80">
-                          {includesLabel}
-                        </p>
-                        <ul className="mt-2.5 space-y-1.5 text-sm leading-relaxed text-text-muted">
-                          {cap.includes.map((item) => (
-                            <li key={item} className="flex gap-2">
-                              <span className="text-accent/70" aria-hidden>
-                                ·
-                              </span>
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-
-                    {cap.result && (
-                      <p
-                        className={cn(
-                          "mt-4 border-t pt-4 text-sm font-medium leading-snug text-text-primary",
-                          lineBorder[line],
-                        )}
-                      >
-                        <span className="text-[0.6875rem] font-semibold uppercase tracking-[0.12em] text-accent/80">
-                          {resultLabel}:{" "}
-                        </span>
-                        {cap.result}
-                      </p>
-                    )}
-                  </div>
-                </article>
-              </Reveal>
-            );
-          })}
-        </div>
-
-        <Reveal delay={0.1} className="mt-14 flex justify-center sm:mt-16">
-          <Button href={site.bookingPath} variant="primary">
-            {site.ctaSchedule}
-          </Button>
-        </Reveal>
-      </Container>
+                </Link>
+              </Container>
+            </div>
+          </div>
+        ))}
+      </div>
     </section>
   );
 }

@@ -2,8 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useLocale } from "@/context/LocaleProvider";
-import { getCookieConsentContent } from "@/config/landing";
+import { getCookieConsentContent, getSiteContent } from "@/config/landing";
 import type { LocaleCode } from "@/lib/locales";
 
 const STORAGE_KEY = "latcon-cookie-consent";
@@ -48,9 +47,9 @@ function writeStoredConsent(choice: ConsentChoice) {
   }
 }
 
-export function CookieConsentBanner() {
-  const { locale } = useLocale();
-  const t = getCookieConsentContent(locale as LocaleCode);
+export function CookieConsentBanner({ locale }: { locale: LocaleCode }) {
+  const t = getCookieConsentContent(locale);
+  const site = getSiteContent(locale);
   const [visible, setVisible] = useState(false);
   const [expanded, setExpanded] = useState(false);
   const [analyticsChecked, setAnalyticsChecked] = useState(false);
@@ -83,7 +82,7 @@ export function CookieConsentBanner() {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-0 z-50" role="dialog" aria-modal="true">
+    <div className="fixed inset-0 z-50" role="dialog" aria-modal="true" aria-label={t.dialogLabel}>
       {/* Fondo que bloquea la interacción con el resto del sitio hasta elegir */}
       <div className="absolute inset-0 bg-black/28 backdrop-blur-[2px]" />
 
@@ -93,7 +92,7 @@ export function CookieConsentBanner() {
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
               <p className="text-xs leading-relaxed text-text-muted sm:flex-1">
                 {t.message}{" "}
-                <Link href="/privacidad" className="font-medium text-blue-mid-2 underline-offset-4 hover:underline">
+                <Link href={site.privacyUrl} className="font-medium text-blue-mid-2 underline-offset-4 hover:underline">
                   {t.privacyLink}
                 </Link>
               </p>
@@ -108,7 +107,7 @@ export function CookieConsentBanner() {
                 <button
                   type="button"
                   onClick={() => save({ essential: true, analytics: true })}
-                  className="rounded-lg border border-accent bg-accent px-4 py-2 text-xs font-semibold text-white shadow-sm transition-[transform,filter] hover:scale-[1.03] hover:brightness-95"
+                  className="rounded-lg border border-accent bg-accent px-4 py-2 text-xs font-semibold text-bg-deep shadow-sm transition-[transform,filter] hover:scale-[1.03] hover:brightness-95"
                 >
                   {t.acceptAll}
                 </button>
@@ -161,7 +160,7 @@ export function CookieConsentBanner() {
                 <button
                   type="button"
                   onClick={() => save({ essential: true, analytics: analyticsChecked })}
-                  className="rounded-lg border border-accent bg-accent px-4 py-2 text-xs font-semibold text-white shadow-sm transition-[transform,filter] hover:scale-[1.03] hover:brightness-95"
+                  className="rounded-lg border border-accent bg-accent px-4 py-2 text-xs font-semibold text-bg-deep shadow-sm transition-[transform,filter] hover:scale-[1.03] hover:brightness-95"
                 >
                   {t.savePreferences}
                 </button>

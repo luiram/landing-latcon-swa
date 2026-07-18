@@ -2,237 +2,119 @@ import type { LandingContent } from "./types";
 
 export const landingContentFr = {
   hero: {
-    chip: "Données · Automatisation · IA · Anticipation",
-    title: "Votre entreprise a déjà les données mais ne peut toujours pas les utiliser pour décider à temps ?",
+    chipPrefix: "Le premier écart apparaît",
+    chipWords: [
+      { lead: "en", emphasis: "planification" },
+      { lead: "en", emphasis: "programmation" },
+      { lead: "en", emphasis: "exécution" },
+      { lead: "en", emphasis: "adaptation" },
+    ],
+    title: "Le plan est parfait — jusqu'à ce que l'opération commence.",
     subtitle:
-      "Nous intégrons vos données, automatisons vos processus et construisons des systèmes d'IA qui donnent à votre équipe des signaux clairs pour agir — avant que le problème ne devienne visible.",
+      "Nous construisons de l'IA, de l'optimisation et des logiciels qui comblent l'écart entre ce que vous planifiez et ce qui se passe réellement.",
     ctaPrimary: "Réservez votre diagnostic gratuit",
-    ctaReassurance: "30 minutes · Sans engagement · Nous vous dirons honnêtement si nous sommes l'équipe adaptée à votre cas",
+    ctaReassurance: "30 minutes · sans engagement",
     secondaryCtaLabel: "Découvrez notre approche →",
     secondaryCtaHref: "#process",
   },
   audience: {
     eyebrow: "Pour qui",
-    title: "Nous travaillons avec des entreprises où les données, les systèmes et les équipes ne sont pas connectés",
+    title: "Nous travaillons avec des entreprises où les données, les systèmes et les équipes ne se parlent pas entre eux",
     intro: "",
     profiles: [
       {
         title: "Données sans analyse",
         description:
-          "Les données sont là, mais les analyser en temps réel demande du temps et du personnel que l'opération n'a pas disponible. Les opportunités passent et les problèmes sont détectés tard — quand ils ont déjà un coût visible.",
+          "Les données sont là, mais les analyser à temps demande du personnel et des heures que l'opération n'a pas. Quand le problème apparaît dans un rapport, il a déjà un coût.",
         quote: "« Nous avons les données mais nous ne pouvons pas les utiliser. »",
         sectors: "Services · Distribution · Industrie · Banque · Médias",
       },
       {
-        title: "Services qui fonctionnent en silos",
+        title: "Équipes qui travaillent en silos",
         description:
-          "Le commercial promet sans savoir ce qui peut être produit. Les achats réapprovisionnent sans voir la demande réelle. La production planifie sans connaître ce qui arrive. Chaque service travaille avec sa propre version des données — et le manque de coordination a un coût que personne ne mesure.",
+          "Le commercial promet sans savoir ce qui peut être produit. Les achats réapprovisionnent sans voir la demande réelle. Chaque service travaille avec sa propre version des données — et personne ne mesure ce que ça coûte.",
         quote: "« Chaque service travaille avec des chiffres différents et personne ne sait lequel est le bon. »",
         sectors: "Industrie · Distribution · Commerce · Agro-industrie",
       },
       {
         title: "Opération distribuée ou terrain",
         description:
-          "Équipes sur le terrain, plusieurs sites ou processus entre services coordonnés par WhatsApp et e-mail. Sans traçabilité centralisée, il est difficile de savoir ce qui s'est passé, qui l'a fait et quand — jusqu'à ce que l'erreur ait déjà des conséquences.",
+          "Équipes sur le terrain, plusieurs sites, coordination par WhatsApp et e-mail. Sans registre partagé, difficile de savoir ce qui s'est passé, qui l'a fait et quand — jusqu'à ce que ça ait déjà des conséquences.",
         quote: "« Nous coordonnons tout sur WhatsApp et personne ne sait qui a fait quoi. »",
         sectors: "Logistique · Agro-industrie · Services de terrain",
       },
       {
         title: "Technologie sans intégration",
         description:
-          "Ils ont ERP, CRM, plateformes et applications — chacun fonctionnant séparément. Sans intégration entre systèmes, l'opération génère des ajustements manuels, des reprises et des décisions basées sur des données incomplètes. Ils cherchent une équipe qui connecte ce qu'ils ont déjà avant de proposer quelque chose de nouveau.",
+          "ERP, CRM, plateformes et applications — chacun fonctionne séparément. Sans intégration, l'opération dépend d'ajustements manuels et de décisions basées sur des données incomplètes.",
         quote: "« Nous avons plusieurs systèmes mais aucun ne parle à l'autre. »",
         sectors: "Toute industrie à opération complexe",
       },
     ],
   },
-  problems: {
-    title: "Sans un système connecté, la gestion perd visibilité, coordination et contrôle",
-    intro:
-      "Le problème ne se manifeste rarement à un seul endroit. Il commence par une information dispersée, se reflète dans l'exécution quotidienne et finit par limiter la capacité de coordonner, décider et grandir avec contrôle.",
-    signalsHeading: "Signaux habituels",
-    groups: [
-      {
-        title: "01. Visibilité",
-        narrative: "Lecture tardive de ce qui se passe, données fragmentées et peu de traçabilité pour la direction et les équipes.",
-        signals: [
-          { title: "Données dispersées", body: "Sources déconnectées sans lecture commune pour décider." },
-          { title: "Rapports tardifs", body: "Indicateurs qui arrivent quand ils ne servent plus à agir." },
-          { title: "Faible traçabilité", body: "Difficile d'auditer ce qui s'est passé, quand et pourquoi." },
-        ],
-      },
-      {
-        title: "02. Exécution et coordination",
-        narrative: "Suivi fragile, dépendance aux personnes et coordination qui ne scale pas avec la complexité.",
-        signals: [
-          { title: "Processus manuels", body: "Tâches répétitives qui concentrent le risque et consomment du temps." },
-          { title: "Dépendance aux personnes", body: "Savoir dans des têtes et des chats, pas dans des systèmes partagés." },
-          { title: "Retravail et coordination fragile", body: "Désalignement entre équipes avec un coût caché d'alignement." },
-        ],
-      },
-      {
-        title: "03. Scalabilité et contrôle",
-        narrative: "Quand le volume ou la complexité augmente, des goulots d'étranglement apparaissent et le contrôle de la gestion faiblit.",
-        signals: [
-          { title: "Difficulté à grandir", body: "Plus de demande sans structure qui absorbe la croissance." },
-          { title: "Goulots d'étranglement", body: "Points de défaillance uniques qui freinent livraisons et réponse." },
-          { title: "Moindre contrôle de la gestion", body: "Moins de visibilité sur risques et performance à mesure que l'organisation grandit." },
-        ],
-      },
-    ],
-  },
   solutions: {
-    eyebrow: "SOLUTIONS",
-    title: "Voici comment nous connectons ce qui est aujourd'hui déconnecté dans votre opération.",
+    eyebrow: "Solutions",
+    title: "Trois façons de combler l'écart.",
     intro:
-      "Trois capacités intégrées. Un seul objectif : que votre équipe agisse avec des informations réelles et à temps.",
-    srOnlyCarousel: "Trois capacités en carrousel horizontal avec navigation par points.",
-    prevCapabilityAria: "Capacité précédente",
-    nextCapabilityAria: "Capacité suivante",
-    capabilitiesNavAria: "Navigation entre les capacités",
-    capabilityNavAria: (title: string, index: number, total: number) =>
-      `${title} (${index} sur ${total})`,
-    includesLabel: "Ce qui est inclus",
-    resultLabel: "Résultat",
-    capabilities: [
+      "Trois capacités intégrées, un seul objectif : que ce qui se passe reste aussi proche que possible de ce que vous avez planifié.",
+    cards: [
       {
-        line: "integrate",
-        image: "/solutions/arquitectura_sistemas.webp",
-        imageAlt: "Visibilité opérationnelle : tableaux de bord et intégration de données.",
-        title: "Une visibilité qui arrive à temps",
-        body: "Votre opération génère des données dans plusieurs systèmes. Nous les connectons, les organisons et les convertissons en signaux clairs pour que votre équipe agisse.",
-        includes: [
-          "Vos sources de données connectées en un seul endroit — sans consolidation manuelle",
-          "Tableaux de bord opérationnels mis à jour en temps réel — sans dépendre de rapports manuels",
-          "Alertes qui arrivent avant que le problème ne devienne visible",
-        ],
-        result: "Moins de temps à attendre des données · Des décisions qui arrivent quand elles peuvent encore conduire à l'action",
+        kind: "plan",
+        title: "Planifiez mieux",
+        summary:
+          "Des modèles d'optimisation et de prédiction qui transforment vos contraintes en le meilleur plan possible.",
       },
       {
-        line: "coordinate",
-        image: "/solutions/automatizacion_integracion.webp",
-        imageAlt: "Automatisation et intégration des processus opérationnels.",
-        title: "Une exécution sans friction manuelle",
-        body: "Chaque processus manuel est un point de défaillance. Nous identifions ceux qui freinent votre opération et les convertissons en flux automatiques, traçables et fiables.",
-        includes: [
-          "Processus manuels convertis en flux automatiques, validés et traçables",
-          "ERP, apps, formulaires et messagerie intégrés dans un seul flux d'information",
-          "Agents IA qui exécutent des tâches répétitives — sans intervention humaine",
-        ],
-        result: "Une opération qui fonctionne sans goulots d'étranglement, avec une traçabilité complète et la capacité de croître sans ajouter de complexité.",
+        kind: "execute",
+        title: "Exécutez sans friction",
+        summary: "Des applications et de l'automatisation qui portent le plan sur le terrain — avec une traçabilité complète.",
       },
       {
-        line: "amplify",
-        image: "/solutions/analitica_avanzada_machine_learning.webp",
-        imageAlt: "Analytique avancée et machine learning appliqués à la gestion.",
-        title: "Des décisions appuyées sur l'intelligence, pas sur l'intuition",
-        body: "Votre équipe prend déjà des décisions tous les jours. La différence est de savoir si elle les prend avec des données passées ou avec des modèles qui voient ce qui arrive — avant que ce soit urgent.",
-        includes: [
-          "Modèles prédictifs pour la demande, les stocks et les goulots d'étranglement",
-          "Machine learning appliqué à l'opération et à la demande",
-          "Vision par ordinateur et systèmes multi-agents",
-        ],
-        result: "Des décisions basées sur ce qui vient, pas sur ce qui s'est déjà passé · Problèmes détectés avant qu'ils n'aient un coût visible.",
+        kind: "adapt",
+        title: "Détectez et adaptez à temps",
+        summary:
+          "De la visibilité, des alertes et des agents IA qui détectent les écarts avant qu'ils ne deviennent un coût.",
       },
     ],
   },
-  verticals: {
-    title: "Industries et contextes où nous intervenons",
-    intro:
-      "Nos solutions s'adaptent à différents contextes opérationnels. Voici ceux que nous connaissons le mieux :",
-    useCasesLabel: "Cas d'usage",
-    componentsLabel: "Composants",
-    midCtaLabel: "Votre industrie n'est pas listée ? Parlez-nous de votre cas →",
-    blocks: [
+  experience: {
+    eyebrow: "Expérience",
+    title: "Combler l'écart, en pratique.",
+    cases: [
       {
-        title: "Environnements à forte charge manuelle d'information",
-        body: "Nous réduisons la dépendance aux saisies manuelles, aux formats dispersés et aux tâches répétitives grâce à des formulaires numériques, des flux de capture structurée, des validations automatiques et des tableaux de bord qui organisent l'information et accélèrent l'exécution.",
-        image: "/verticals/entornos_alta_carga_manual_informacion.webp",
-        imageAlt:
-          "Environnements à charge manuelle d'information : formulaires numériques, capture structurée, validations et tableaux opérationnels.",
-        useCases: [
-          "Numérisation des formulaires et des enregistrements manuels",
-          "Validation et consolidation de l'information dispersée",
-          "Suivi des incidents, constats ou activités répétitives",
-          "Classification, priorisation et assistance avec des agents IA",
-        ],
-        components: [
-          "Formulaires numériques et capture structurée",
-          "Règles et validations automatiques",
-          "Consolidation des données et traçabilité",
-          "Tableaux de bord de suivi et de contrôle",
-          "Intégration cloud",
-          "Agents IA pour classification et assistance",
-        ],
+        industry: "Agriculture",
+        pillar: "execute",
+        headline: "Du terrain à la décision.",
+        situation:
+          "L'activité de récolte était suivie sur papier — aucun moyen de mesurer l'avancement par rapport aux objectifs du programme.",
+        built:
+          "Une plateforme de bout en bout : capture de données sur le terrain, cultures géoréférencées et rapports opérationnels générés par IA.",
+        changed:
+          "Le programme suit désormais ses objectifs avec des données de terrain en direct, pas avec des papiers.",
       },
       {
-        title: "Passage d'outils épars vers une plateforme",
-        body: "Nous accompagnons la transition depuis des outils dispersés, des fichiers isolés et des processus déconnectés vers une plateforme plus structurée, connectée et scalable, capable de centraliser la gestion et d'accroître la visibilité sur l'opération et les décisions.",
-        image: "/verticals/transicion_herramientas_a_plataforma.webp",
-        imageAlt:
-          "Illustration abstraite : passage d'outils dispersés à une plateforme intégrée et scalable.",
-        useCases: [
-          "Consolidation de l'information capturée depuis mobile, formulaires et messagerie",
-          "Centralisation des indicateurs, enregistrements et suivi sur une seule plateforme",
-          "Numérisation des flux qui impliquent aujourd'hui plusieurs outils",
-          "Analyse et aide à la décision avec modèles et agents IA",
-        ],
-        components: [
-          "Applications mobiles et formulaires numériques",
-          "Intégration avec la messagerie et les canaux de capture",
-          "Services cloud et consolidation des données",
-          "Plateformes web avec tableaux de bord et enregistrement d'information",
-          "Modèles mathématiques et analytique appliquée",
-          "Agents IA intégrés au flux opérationnel",
-        ],
+        industry: "Oil & Gas",
+        pillar: "plan",
+        headline: "La demande en eau satisfaite au coût énergétique minimum.",
+        situation:
+          "Une usine d'injection d'eau avait besoin de configurations de pompage qui répondaient à la demande sans gaspiller d'énergie.",
+        built: "L'application web qui calcule la configuration de fréquence optimale pour chaque scénario.",
+        changed: "L'opération fonctionne désormais au coût énergétique le plus bas que la demande permet.",
       },
       {
-        title: "Opérations terrain et services distribués",
-        body: "Nous concevons des solutions pour coordonner ventes, maintenance, installations et livraisons dans des opérations distribuées — en optimisant itinéraires, affectations et suivi grâce à des modèles mathématiques et des agents IA qui soutiennent l'exécution là où c'est le plus nécessaire.",
-        image: "/verticals/operaciones_campo_servicios_distribuidos.webp",
-        imageAlt:
-          "Opérations distribuées : coordination des ventes, maintenance, installations et livraisons avec optimisation et aide IA.",
-        useCases: [
-          "Coordination des visites commerciales et ventes terrain",
-          "Suivi des installations et de la maintenance",
-          "Coordination des livraisons et services distribués",
-          "Affectation intelligente des ressources et support par agents IA",
-        ],
-        components: [
-          "Applications mobiles pour équipes terrain",
-          "Cartes opérationnelles et géolocalisation",
-          "Ordres de travail et suivi en temps réel",
-          "Tableaux de coordination et de contrôle",
-          "Modèles mathématiques d'affectation et de routage",
-          "Agents IA pour support opérationnel",
-        ],
-      },
-      {
-        title: "Agro-industrie et gestion terrain",
-        body: "Nous intégrons la capture terrain, la géoréférence et l'analyse visuelle pour transformer images et données territoriales en traçabilité, visibilité et décisions plus précises sur le territoire.",
-        image: "/verticals/agroindustria_gestion_campo.webp",
-        imageAlt:
-          "Agro-industrie et gestion terrain : capture terrain, géoréférence et analyse visuelle sur le territoire.",
-        useCases: [
-          "Mesure de la productivité par parcelle ou unité de production",
-          "Détection précoce de maladies et d'anomalies sur la culture",
-          "Suivi géoréférencé de variables d'environnement",
-          "Suivi et validation des activités sur le terrain",
-        ],
-        components: [
-          "Capture mobile géoréférencée",
-          "Cartes opérationnelles et couches territoriales",
-          "Vision par ordinateur sur images",
-          "Tableaux de suivi de la production",
-          "Intégration cloud",
-          "Modèles d'analyse et agents IA",
-        ],
+        industry: "Transport",
+        pillar: "adapt",
+        headline: "Voir la demande avant l'arrivée du bus.",
+        situation: "L'affluence en station était une supposition jusqu'à l'arrivée du bus — trop tard pour ajuster.",
+        built: "Un pilote de vision par ordinateur qui mesure la densité de personnes en station en temps réel.",
+        changed:
+          "La planification du service part désormais de ce qui se passe sur le quai, pas seulement des horaires fixes.",
       },
     ],
   },
   process: {
     eyebrow: "MÉTHODE",
-    title: "Comment nous travaillons : d'abord comprendre, puis construire.",
+    title: "D'abord comprendre. Ensuite construire.",
     intro:
       "Chaque étape a un livrable concret. Nous ne passons à la suivante qu'une fois que la précédente crée de la clarté.",
     resultLabel: "Résultat",
@@ -259,7 +141,9 @@ export const landingContentFr = {
       },
     ],
     closing:
-      "Et une fois la solution opérationnelle, nous la préparons à croître avec plus d'intégration, d'analytique et d'automatisation.",
+      "Et une fois qu'elle fonctionne, nous la préparons à croître — plus d'intégration, plus d'analytique, plus d'automatisation.",
+    strategyNote:
+      "À chaque étape : la discipline de stratégie et de gestion par les résultats qui garde la solution alignée avec l'entreprise — pas comme un service de conseil séparé.",
   },
   about: {
     panel: {

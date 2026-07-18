@@ -1,13 +1,13 @@
-"use client";
-
 import { Container } from "@/components/ui/Container";
 import { Tag } from "@/components/ui/Tag";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
-import { useLandingContent } from "@/hooks/useLandingContent";
+import { getLandingContent, getSiteContent } from "@/config/landing";
+import type { LocaleCode } from "@/lib/locales";
 
-export function About() {
-  const { content, site } = useLandingContent();
+export function About({ locale }: { locale: LocaleCode }) {
+  const content = getLandingContent(locale);
+  const site = getSiteContent(locale);
   const { panel, title, members, paragraphs, tags } = content.about;
 
   return (
@@ -15,7 +15,7 @@ export function About() {
       <Container>
         <div>
           <Reveal delay={0.08} y={20}>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-accent/90">{panel.eyebrow}</p>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-accent-ink">{panel.eyebrow}</p>
             <h2 className="text-balance text-3xl font-semibold tracking-tight text-text-primary sm:text-4xl">
               {title}
             </h2>
@@ -35,7 +35,7 @@ export function About() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-text-primary">{member.name}</p>
-                      <p className="mt-0.5 text-xs font-medium text-accent/90">{member.role}</p>
+                      <p className="mt-0.5 text-xs font-medium text-accent-ink">{member.role}</p>
                     </div>
                     <p className="text-xs leading-relaxed text-text-muted">{member.credential}</p>
                   </div>

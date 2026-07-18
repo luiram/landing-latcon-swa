@@ -1,12 +1,11 @@
-"use client";
-
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
-import { useLandingContent } from "@/hooks/useLandingContent";
+import { getLandingContent } from "@/config/landing";
+import type { LocaleCode } from "@/lib/locales";
 import { cn } from "@/lib/cn";
 
-export function Audience() {
-  const { content } = useLandingContent();
+export function Audience({ locale }: { locale: LocaleCode }) {
+  const content = getLandingContent(locale);
   const { eyebrow, title, intro, profiles } = content.audience;
 
   return (
@@ -17,7 +16,7 @@ export function Audience() {
       <Container>
         <Reveal>
           <header className="max-w-[42rem]">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent/90">{eyebrow}</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent-ink">{eyebrow}</p>
             <h2 className="mt-3 text-balance text-[1.75rem] font-semibold leading-[1.2] tracking-[-0.02em] text-text-primary sm:text-[2rem] sm:leading-[1.18]">
               {title}
             </h2>
@@ -41,7 +40,7 @@ export function Audience() {
                 <h3 className="text-lg font-semibold tracking-tight text-text-primary">{profile.title}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-text-muted">{profile.description}</p>
                 <p className="mt-4 text-sm font-semibold italic leading-relaxed text-text-muted/90">{profile.quote}</p>
-                <p className="mt-4 border-t border-border-subtle pt-4 text-xs font-medium uppercase tracking-wide text-accent/85">
+                <p className="mt-4 border-t border-border-subtle pt-4 text-xs font-medium uppercase tracking-wide text-accent-ink">
                   {profile.sectors}
                 </p>
               </article>

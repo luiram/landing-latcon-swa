@@ -1,0 +1,87 @@
+.root {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.root[data-paused="true"] * {
+  animation-play-state: paused !important;
+}
+
+.track {
+  stroke: var(--color-border-deep);
+  stroke-width: 1;
+}
+
+.block {
+  fill: var(--color-accent);
+  animation: execute-move 3.8s linear infinite;
+}
+
+@keyframes execute-move {
+  0% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(184px);
+    opacity: 0;
+  }
+}
+
+.gateManual {
+  fill: none;
+  stroke: var(--color-text-on-dark-muted);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 3;
+  animation: gate-crossfade-out 3.8s ease-in-out infinite;
+}
+
+.gateAuto {
+  fill: var(--color-accent);
+  opacity: 0;
+  animation: gate-crossfade-in 3.8s ease-in-out infinite;
+}
+
+@keyframes gate-crossfade-out {
+  0%,
+  40% {
+    opacity: 1;
+  }
+  55%,
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes gate-crossfade-in {
+  0%,
+  40% {
+    opacity: 0;
+  }
+  55%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .block,
+  .gateManual,
+  .gateAuto {
+    animation: none;
+  }
+  .block {
+    opacity: 0;
+  }
+  .gateManual {
+    opacity: 1;
+  }
+  .gateAuto {
+    opacity: 0;
+  }
+}

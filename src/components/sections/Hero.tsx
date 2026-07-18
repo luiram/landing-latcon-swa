@@ -6,19 +6,24 @@ import { useEffect } from "react";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/motion/Reveal";
-import { useLandingContent } from "@/hooks/useLandingContent";
+import { getLandingContent, getSiteContent } from "@/config/landing";
+import type { LocaleCode } from "@/lib/locales";
 import { prefetchSlots } from "@/features/booking/bookingApi";
+import { HeroChipRotator } from "@/components/sections/HeroChipRotator";
+import { ParticleField } from "@/components/motion/ParticleField";
 
-export function Hero() {
-  const { content, site } = useLandingContent();
+export function Hero({ locale }: { locale: LocaleCode }) {
+  const content = getLandingContent(locale);
+  const site = getSiteContent(locale);
 
   useEffect(() => {
-    prefetchSlots();
-  }, []);
-  const { chip, title, subtitle, ctaPrimary, ctaReassurance, secondaryCtaLabel, secondaryCtaHref } = content.hero;
+    prefetchSlots(locale);
+  }, [locale]);
+  const { chipPrefix, chipWords, title, subtitle, ctaPrimary, ctaReassurance, secondaryCtaLabel, secondaryCtaHref } =
+    content.hero;
 
   return (
-    <section className="relative scroll-mt-36 overflow-hidden border-b border-white/15 bg-[#101012] pb-20 pt-32 sm:pb-28 sm:pt-36 lg:pb-32 lg:pt-40">
+    <section className="relative scroll-mt-36 overflow-hidden border-b border-white/15 bg-bg-deep pb-20 pt-32 sm:pb-28 sm:pt-36 lg:pb-32 lg:pt-40">
       {/* Imagen de fondo + velos neutros (negro / charcoal / humo); calidez solo al final derecho */}
       <div className="pointer-events-none absolute inset-0" aria-hidden>
         <Image
@@ -52,6 +57,8 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/54 via-black/[0.22] to-black/46 lg:hidden" />
         {/* Anclaje inferior: smoke suave */}
         <div className="absolute inset-0 bg-gradient-to-t from-[rgba(12,12,14,0.36)] via-transparent to-transparent to-42%" />
+        {/* Datos dispersos que se conectan — casi invisible en reposo, reacciona al cursor. */}
+        <ParticleField density={1} className="absolute inset-0" />
       </div>
 
       <Container className="relative z-10">
@@ -62,7 +69,7 @@ export function Hero() {
                 className="inline-flex max-w-full rounded-full border border-white/12 bg-white/[0.045] px-3.5 py-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-white/90 backdrop-blur-[2px] sm:px-4 sm:text-xs sm:tracking-[0.11em]"
                 style={{ textShadow: "0 0 7px rgba(255,255,255,0.55), 0 0 20px rgba(255,255,255,0.22)" }}
               >
-                {chip}
+                <HeroChipRotator prefix={chipPrefix} words={chipWords} />
               </p>
               <h1 className="mt-8 max-w-[min(100%,28.5rem)] text-balance text-[2.62rem] font-semibold leading-[1.16] tracking-normal text-white [text-shadow:0_2px_18px_rgba(0,0,0,0.38)] sm:mt-9 sm:max-w-[32.5rem] sm:text-[2.4rem] sm:leading-[1.14] lg:mt-10 lg:max-w-[44rem] lg:text-[2.9rem] lg:leading-[1.1] xl:max-w-[48rem] xl:text-[3.08rem] xl:leading-[1.08]">
                 {title}

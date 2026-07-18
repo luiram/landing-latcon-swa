@@ -6,10 +6,12 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 import { LanguageSelector } from "@/components/layout/LanguageSelector";
-import { useLandingContent } from "@/hooks/useLandingContent";
+import { getSiteContent } from "@/config/landing";
+import type { LocaleCode } from "@/lib/locales";
+import { withLocalePrefix } from "@/lib/localePaths";
 import { cn } from "@/lib/cn";
 
-const NAV_HREFS = ["#solutions", "#verticals", "#process", "#nosotros"] as const;
+const NAV_HREFS = ["#experience", "#process", "#nosotros"] as const;
 type NavHref = (typeof NAV_HREFS)[number];
 
 const navLinkBase =
@@ -35,8 +37,8 @@ function mobileNavLinkClass(href: string, activeHref: NavHref | "") {
   );
 }
 
-export function Navbar() {
-  const { site } = useLandingContent();
+export function Navbar({ locale }: { locale: LocaleCode }) {
+  const site = getSiteContent(locale);
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeHref, setActiveHref] = useState<NavHref | "">("");
@@ -146,7 +148,7 @@ export function Navbar() {
           )}
         >
           <Link
-            href="/"
+            href={withLocalePrefix("/", locale)}
             className="shrink-0 rounded-full px-1 py-0.5 transition-opacity hover:opacity-[0.88] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
           >
             <img
@@ -161,20 +163,26 @@ export function Navbar() {
             className="hidden flex-1 justify-center gap-1 lg:flex"
             aria-label={site.navAriaMain}
           >
-            {site.nav.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className={navLinkClass(item.href, activeHref)}
-                aria-current={item.href === activeHref ? "true" : undefined}
-              >
-                {item.label}
-              </a>
-            ))}
+            {site.nav.map((item) =>
+              item.href.startsWith("#") ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className={navLinkClass(item.href, activeHref)}
+                  aria-current={item.href === activeHref ? "true" : undefined}
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link key={item.href} href={item.href} className={navLinkClass(item.href, activeHref)}>
+                  {item.label}
+                </Link>
+              ),
+            )}
           </nav>
 
           <div className="ml-auto flex shrink-0 items-center gap-4 sm:gap-5">
-            <LanguageSelector className="flex items-center" />
+            <LanguageSelector locale={locale} className="flex items-center" />
             <Button
               href={site.bookingPath}
               variant="primary"
@@ -208,17 +216,28 @@ export function Navbar() {
           />
           <div className="absolute left-4 right-4 top-[4.25rem] max-h-[min(70vh,calc(100vh-6rem))] overflow-y-auto rounded-3xl border border-border-subtle bg-bg-page/98 p-4 shadow-[0_20px_50px_-16px_rgba(75,104,140,0.25)] backdrop-blur-lg sm:left-6 sm:right-6 sm:top-[4.5rem]">
             <nav className="flex flex-col gap-1" aria-label={site.navAriaMobile}>
-              {site.nav.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className={mobileNavLinkClass(item.href, activeHref)}
-                  aria-current={item.href === activeHref ? "true" : undefined}
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
+              {site.nav.map((item) =>
+                item.href.startsWith("#") ? (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className={mobileNavLinkClass(item.href, activeHref)}
+                    aria-current={item.href === activeHref ? "true" : undefined}
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={mobileNavLinkClass(item.href, activeHref)}
+                    onClick={() => setOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ),
+              )}
             </nav>
             <div className="mt-4 border-t border-border-subtle pt-4 sm:hidden">
               <Button

@@ -5,13 +5,21 @@
   --color-bg-warm: #f7f4f2;
   --color-bg-panel: #ffffff;
   --color-bg-elevated: #f7f4f2;
-  --color-bg-deep: #f7f4f2;
+  /* "Museo": fondo casi-negro para secciones de contemplación (Soluciones, Experiencia, CTA final).
+     Mismo tono que Hero.tsx ya usaba hardcodeado — queda consistente con lo que ya está en producción. */
+  --color-bg-deep: #101012;
+  --color-bg-deep-panel: #18181b;
+  --color-border-deep: rgba(255, 255, 255, 0.12);
 
   --color-blue-mid-1: #567ba5;
   --color-blue-mid-2: #4b688c;
   --color-accent-deep: #4b688c;
 
   --color-accent: #f58220;
+  /* Mismo matiz que --color-accent, oscurecido para pasar WCAG AA (4.5:1) como texto pequeño
+     sobre fondo claro — el naranja base solo da ~2:1 ahí (sí es legible como fondo de botón con
+     texto oscuro, o como texto sobre fondo oscuro tipo "museo", donde el contraste real es ~7:1). */
+  --color-accent-ink: #a8480f;
 
   /* Un poco más oscuros para mejor legibilidad sobre fondos claros (AA en cuerpo pequeño). */
   --color-text-primary: #4a4b50;
@@ -24,6 +32,8 @@
   /* Misma familia que apple.com: San Francisco vía sistema en Apple; Segoe UI en Windows. */
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
     "Noto Sans", sans-serif;
+  /* Solo para titulares de secciones oscuras — ver src/lib/fonts.ts */
+  --font-heading-deep: var(--font-nunito), var(--font-sans);
 }
 
 html {
@@ -45,43 +55,58 @@ body {
   color: var(--color-text-primary);
 }
 
-@keyframes hero-line-dash {
-  0% {
-    stroke-dashoffset: 140;
-    opacity: 0.35;
-  }
-  50% {
-    opacity: 0.65;
-  }
-  100% {
-    stroke-dashoffset: 0;
-    opacity: 0.5;
+/* Tarjetas apiladas de Soluciones: sticky + scroll-driven (Chrome/Edge/Safari 26+).
+   Sin soporte (Firefox, Safari <26): degradación aceptada — sticky simple, sin scale/brightness. */
+.solution-rail {
+  position: relative;
+  height: 160vh;
+}
+.solution-rail:last-child {
+  height: 108vh;
+}
+
+.solution-card {
+  position: sticky;
+  top: 5rem;
+  height: calc(100vh - 5rem);
+  max-height: 85vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.solution-card-surface {
+  width: 100%;
+  border-radius: 1.5rem;
+  border: 1px solid var(--color-border-deep);
+  background-color: var(--color-bg-deep-panel);
+  padding: 2.5rem 1.75rem;
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.5);
+}
+
+@supports (animation-timeline: view()) {
+  .solution-card {
+    animation: solution-card-recede linear both;
+    animation-timeline: view();
+    animation-range: contain 0% cover 45%;
   }
 }
 
-.hero-line-path {
-  stroke-dasharray: 6 14;
-  stroke-dashoffset: 140;
-  animation: hero-line-dash 14s ease-in-out infinite alternate;
-}
-
-@keyframes hero-glow-pulse {
-  0%,
-  100% {
-    opacity: 0.45;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.72;
-    transform: scale(1.04);
+@keyframes solution-card-recede {
+  to {
+    transform: scale(0.94);
+    filter: brightness(0.7);
   }
 }
 
-.hero-glow-orb {
-  animation: hero-glow-pulse 5.5s ease-in-out infinite;
+@media (prefers-reduced-motion: reduce) {
+  .solution-card {
+    animation: none !important;
+  }
 }
 
-.hero-glow-orb-delayed {
-  animation: hero-glow-pulse 6.5s ease-in-out infinite;
-  animation-delay: 1.2s;
+@media (min-width: 640px) {
+  .solution-card-surface {
+    padding: 3rem 2.5rem;
+  }
 }
