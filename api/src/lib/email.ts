@@ -18,7 +18,7 @@ export type BookingEmailPayload = {
 const SITE_URL = "https://latconservices.com";
 const AGENDA_URL = `${SITE_URL}/agenda`;
 const PRIVACY_URL = `${SITE_URL}/privacidad`;
-const LOGO_URL = `${SITE_URL}/logo/logo_1_primary_horizontal_email.png`;
+const LOGO_URL = `${SITE_URL}/logo/logo_latcon.svg`;
 const PHONE_DISPLAY = "+57 318 397 1073";
 const PHONE_WA_URL = "https://wa.me/573183971073";
 

@@ -28,7 +28,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "Latcon",
   url: "https://latconservices.com",
-  logo: "https://latconservices.com/logo/logo_1_primary_horizontal.svg",
+  logo: "https://latconservices.com/logo/logo_latcon.svg",
   description: defaultSite.metadataDescription,
   email: "contacto@latconservices.com",
   areaServed: "CO",

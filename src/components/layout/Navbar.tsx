@@ -150,7 +150,7 @@ export function Navbar() {
             className="shrink-0 rounded-full px-1 py-0.5 transition-opacity hover:opacity-[0.88] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
           >
             <img
-                src="/logo/logo_1_primary_horizontal.svg"
+                src="/logo/logo_latcon.svg"
                 alt="Latcon Services"
                 className="h-9 w-auto object-contain"
                 draggable={false}
