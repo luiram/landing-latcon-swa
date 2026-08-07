@@ -12,6 +12,7 @@ export type BookingEmailPayload = {
   slotStartUtc: Date;
   slotEndUtc: Date;
   userEmail: string;
+  userPhone: string;
 };
 
 const SITE_URL = "https://latconservices.com";
@@ -248,6 +249,7 @@ function internalHtml(p: BookingEmailPayload): string {
       ${detailRow("Necesidad principal", escapeHtml(p.primaryNeed))}
       ${detailRow("Comentario", escapeHtml(p.freeText ?? "—"))}
       ${detailRow("Correo contacto", escapeHtml(p.userEmail))}
+      ${detailRow("Tel / WhatsApp", escapeHtml(p.userPhone))}
       ${detailRow("Slot (UTC)", escapeHtml(slotUtc))}
       ${detailRow("Slot (CO)", escapeHtml(whenCo))}
     </table>

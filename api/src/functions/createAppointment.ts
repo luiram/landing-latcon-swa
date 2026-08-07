@@ -249,6 +249,7 @@ app.http("createAppointment", {
       slotStartUtc: slotStart.toJSDate(),
       slotEndUtc: slotEnd.toJSDate(),
       userEmail: body.contact.email.trim(),
+      userPhone: body.contact.phoneWhatsapp.trim(),
     };
 
     const userSend = await sendUserConfirmation(emailPayload);
