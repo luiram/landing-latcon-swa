@@ -70,7 +70,33 @@ Cuando la página fallaba en el celular (por ejemplo, el bug de `localStorage` e
 **Aclaración**: esa pantalla de error **no es la página normal** — es una red de seguridad que solo aparece si algo falla al cargar. Lo esperado es que `/privacidad` (y el resto del sitio) cargue directo, mostrando el contenido real.
 
 #### 10. Firma de correo — hecho
-Se configuraron dos firmas en Gmail/Google Workspace: **"Luis — personal"** (nombre, cargo Director/CEO, teléfono/WhatsApp, web, enlace a `/agenda`) para `luis.ramirez@latconservices.com`, y **"Equipo Latcon"** (mismo formato sin nombre personal) para el alias `contacto@latconservices.com`. Cada una se asignó como predeterminada en su dirección correspondiente (Configuración → Cuentas → "Enviar mensaje como" → desplegables por dirección en la sección Firma). Se usó una versión PNG del logo (`public/logo/logo_1_primary_horizontal_email.png`) en vez del SVG original, por mejor compatibilidad con Gmail/Outlook.
+Se configuraron dos firmas en Gmail/Google Workspace: **"Luis — personal"** (nombre, cargo Director/CEO, teléfono/WhatsApp, web, enlace a `/agenda`) para `luis.ramirez@latconservices.com`, y **"Equipo Latcon"** (mismo formato sin nombre personal) para el alias `contacto@latconservices.com`. Cada una se asignó como predeterminada en su dirección correspondiente (Configuración → Cuentas → "Enviar mensaje como" → desplegables por dirección en la sección Firma). Originalmente se usó un PNG (`logo_1_primary_horizontal_email.png`) por compatibilidad con Gmail/Outlook. **2026-08-07:** el sitio y los correos ACS usan `public/logo/logo_latcon.svg`; conviene actualizar también las firmas de Workspace al mismo asset (o a un PNG derivado si Outlook no muestra SVG).
 
 #### 11. Plantilla HTML de correos de reserva (ACS) — hecho
 Los correos automáticos (confirmación al cliente + notificación interna) dejaron de ser texto plano y ahora usan una plantilla con el logo de Latcon, los datos de la cita en formato tabla, y la misma firma/marca que las firmas de Gmail (teléfono, web, enlace de privacidad). El correo interno usa una versión más simple sin el botón de "Agenda una reunión" (no aplica para el equipo). Verificado con reservas de prueba reales en español y francés — el diseño se ve igual en Gmail que en el preview. Código en `api/src/lib/email.ts`, publicado en producción 2026-07-05.
+
+---
+
+### 2026-08-07 — Agenda, marca, UX de errores y rama `portal`
+
+#### 1. Teléfono en el correo interno de reserva
+La notificación interna (a `CONTACT_NOTIFICATION_TO`) ahora incluye la fila **Tel / WhatsApp** del contacto (`userPhone` desde `createAppointment` → plantilla en `api/src/lib/email.ts`). Publicado en Function App `func-latcon-booking-prd` el mismo día. Detalle: [docs/email-acs.md](docs/email-acs.md).
+
+#### 2. Lista de sectores ampliada (`/agenda` paso 3)
+Se reemplazó el listado corto (Agroindustria, Logística, etc.) por **12 opciones** alineadas al negocio (Agricultura y agronegocios, Banca de inversión, Defensa, Educación, Energía, Manufactura, Oil & Gas, Salud, Seguros, Servicios profesionales, Transporte y logística, Otro), con `value` estable en español y **labels** en ES / EN / PT / FR. Código: `src/features/booking/bookingCopy.ts`. Front vía push a `main` + GitHub Actions.
+
+#### 3. Logo unificado: `logo_latcon.svg`
+Navbar, footer, JSON-LD y correos ACS apuntan a `public/logo/logo_latcon.svg` (ruta pública `/logo/logo_latcon.svg`). Se retiraron `logo_1_primary_horizontal.svg` y `logo_1_primary_horizontal_email.png` del repo. **Pendiente manual:** actualizar las firmas de Gmail/Workspace si aún usan el PNG antiguo.
+
+#### 4. Mensajes de error de agenda más claros
+Si fallan los horarios (`Failed to fetch` / CORS / red), el usuario ya **no** ve instrucciones técnicas de Azure. Ve un mensaje calmado, opción de **reintentar**, y WhatsApp `+57 318 397 1073`. También se suavizó `src/app/error.tsx`. Front en `main` (`37a811a`).
+
+#### 5. Despliegue: solo `main` + lección del día
+Un deploy **manual** de SWA con un `out/` generado desde la rama experimental **`portal`** publicó por error el rediseño v2 en producción. Se revirtió el sitio al landing de `main` con redeploy por CI. **Regla operativa:** el front de producción solo debe salir por **push a `main` → GitHub Actions**; no publicar a mano un `out/` de otra rama. La rama `portal` (local y `origin/portal`) se **eliminó** el 2026-08-07; el rediseño v2 ya no está como rama activa (el commit `9529e00` puede existir aún en el historial remoto si hace falta recuperar algo).
+
+#### 6. Commits relevantes en `main` (orden)
+- `df971e0` — teléfono interno + sectores  
+- `8ff31d3` — logo `logo_latcon`  
+- `37a811a` — mensajes de error amigables  
+
+(Hubo un `1af8e29` + `7bd2405` revert el mismo día antes de reaplicar el cambio de agenda de forma controlada.)

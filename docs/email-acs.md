@@ -37,6 +37,10 @@ Código de envío: [`api/src/lib/email.ts`](../api/src/lib/email.ts)
 
 La API puede responder `201` indicando `emailUser` / `emailInternal` en `sent` o `failed`.
 
+### Contenido del correo interno (2026-08-07)
+
+Además de necesidad, comentario, correo y slot, el HTML interno incluye **Tel / WhatsApp** (`userPhone` en `BookingEmailPayload`). El logo de las plantillas ACS apunta a `https://latconservices.com/logo/logo_latcon.svg` (`LOGO_URL` en `api/src/lib/email.ts`).
+
 ---
 
 ## Consultar fallos

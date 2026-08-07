@@ -118,8 +118,10 @@ GitHub → **Actions** → workflow → **Re-run all jobs** (tras corregir secre
 
 | Método | Cuándo |
 |--------|--------|
-| **GitHub Actions** | Despliegue normal del front a SWA |
-| [`scripts/deploy/publish-swa.ps1`](../scripts/deploy/publish-swa.ps1) | Deploy manual con token SWA |
+| **GitHub Actions** (`push` a `main`) | Despliegue **normal** del front a SWA — preferido |
+| [`scripts/deploy/publish-swa.ps1`](../scripts/deploy/publish-swa.ps1) | Solo emergencia; construir `out/` **desde `main`** y con `staticwebapp.config.json` completo |
 | [`scripts/deploy/publish-functions.ps1`](../scripts/deploy/publish-functions.ps1) | Deploy API (no está en CI) |
+
+**2026-08-07:** no existe rama `origin/portal`. No usar builds de ramas experimentales contra `swa-latcon-landing-prd`.
 
 Ver también: [scripts/deploy/README.md](../scripts/deploy/README.md), [produccion.md](./produccion.md).

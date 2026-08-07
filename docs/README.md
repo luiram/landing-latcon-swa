@@ -26,8 +26,9 @@
 ## Repositorio y CI
 
 - **GitHub:** [luiram/landing-latcon-swa](https://github.com/luiram/landing-latcon-swa)
-- **Rama de despliegue:** `main`
+- **Rama de despliegue:** `main` (única rama de producción; la rama experimental `portal` se eliminó el 2026-08-07)
 - **Workflow:** [`.github/workflows/azure-static-web-apps.yml`](../.github/workflows/azure-static-web-apps.yml)
+- **Marca / logo público:** `public/logo/logo_latcon.svg` → `/logo/logo_latcon.svg`
 
 ---
 
@@ -75,7 +76,7 @@
 |-----------|-------------|
 | Desarrollo en local | [README.md](../README.md) → [azure-swa.md](./azure-swa.md) (sección desarrollo local) |
 | Despliegue / incidente en prod | [produccion.md](./produccion.md) |
-| Agenda: «Failed to fetch» paso 2 | [produccion.md](./produccion.md) (CORS portal) → [agenda-operacion.md](./agenda-operacion.md) |
+| Agenda: horarios no cargan / mensaje de error | [produccion.md](./produccion.md) (CORS) → [agenda-operacion.md](./agenda-operacion.md); UX usuario: mensajes en `bookingCopy.ts` (desde 2026-08-07 ya no muestran jerga de Azure) |
 | Dominio o DNS | [cloudflare-latconservices.md](./cloudflare-latconservices.md) |
 | CI en rojo | [github-ci.md](./github-ci.md) |
 | Cita / slots / BD | [agenda-operacion.md](./agenda-operacion.md) |

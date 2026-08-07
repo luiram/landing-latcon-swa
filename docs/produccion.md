@@ -75,15 +75,17 @@ curl -sI -X OPTIONS "https://func-latcon-booking-prd-euemhuf7drh3emac.centralus-
 
 ## Despliegue habitual
 
-### Front (automático)
+### Front (automático) — **única vía recomendada a producción**
 
 1. Push a `main` en `luiram/landing-latcon-swa`.
 2. GitHub Actions: job **Build and deploy** (ver [github-ci.md](./github-ci.md)).
-3. Azure SWA sirve la carpeta `out/`.
+3. Azure SWA sirve la carpeta `out/` generada **desde `main`**.
+
+**No** publicar a mano un `out/` construido desde otra rama ni con `staticwebapp.config.json` vacío. Incidente 2026-08-07: un deploy CLI desde build de la rama `portal` (rediseño v2) llegó a producción; se corrigió redesplegando `main` por CI. La rama `portal` fue eliminada el mismo día.
 
 ### API (manual)
 
-Desde máquina con Azure Functions Core Tools:
+Desde máquina con Azure Functions Core Tools (cuenta Azure con acceso a `rg-latcon-prd`):
 
 ```powershell
 .\scripts\deploy\publish-functions.ps1 -FunctionAppName func-latcon-booking-prd
@@ -91,6 +93,7 @@ Desde máquina con Azure Functions Core Tools:
 
 O publicar desde VS Code / `func azure functionapp publish func-latcon-booking-prd` en `api/`.
 
+Requiere `az login` válido (MFA). Cambios en plantillas de correo o en `createAppointment` **no** salen con el workflow del front: hay que republicar Functions.
 ### Base de datos
 
 Cambios de esquema: ejecutar scripts en `db/migrations/` contra `sqldb-latcon-booking` (Query editor o SSMS). No hay migrador automático en Fase 1.
