@@ -305,7 +305,17 @@ export function BookingWizard() {
             </div>
           ) : null}
           {slotsError ? (
-            <p className="text-sm text-accent">{formatSlotsLoadError(slotsError, t)}</p>
+            <div className="space-y-3 rounded-2xl border border-accent/25 bg-accent/5 p-4 sm:p-5">
+              <p className="text-sm leading-relaxed text-text-primary">{formatSlotsLoadError(slotsError, t)}</p>
+              <button
+                type="button"
+                onClick={() => void loadSlots()}
+                disabled={slotsLoading}
+                className="rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-[transform,filter] hover:scale-[1.02] hover:brightness-95 disabled:opacity-60"
+              >
+                {t.retrySlots}
+              </button>
+            </div>
           ) : null}
           {!slotsLoading && slotsData && daysWithSlots.length === 0 ? (
             <p className="text-sm text-text-muted">{t.noSlots}</p>

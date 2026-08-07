@@ -48,6 +48,7 @@ export type BookingCopy = {
   errorApiNotConfigured: string;
   /** Navegador bloqueó la petición (CORS, red, API caída). */
   errorFetchFailed: string;
+  retrySlots: string;
   homeLink: string;
 };
 
@@ -113,10 +114,13 @@ const copy: Record<LocaleCode, BookingCopy> = {
       "Detectamos un correo personal. Si tienes uno corporativo, te recomendamos usarlo para un mejor seguimiento.",
     errorSlotTaken: "Ese horario acaba de ser tomado. Elige otro.",
     errorRateLimited: "Demasiados intentos en poco tiempo. Espera unos minutos e inténtalo de nuevo.",
-    errorGeneric: "No pudimos completar la acción. Intenta de nuevo.",
-    errorApiNotConfigured: "El servicio de agenda no está configurado (falta URL de API).",
+    errorGeneric:
+      "Algo no salió como esperábamos, pero no te preocupes: tu solicitud es importante para nosotros. Intenta de nuevo en unos segundos; si el problema continúa, escríbenos por WhatsApp al +57 318 397 1073 y te ayudamos a agendar.",
+    errorApiNotConfigured:
+      "Estamos preparando el calendario. En unos momentos debería estar disponible; si prefieres, escríbenos por WhatsApp al +57 318 397 1073 y te agendamos con gusto.",
     errorFetchFailed:
-      "No se pudo conectar con el servidor de horarios. Suele deberse a CORS en Azure: en el Function App añade https://latconservices.com en API → CORS y en ALLOWED_ORIGINS, guarda y reinicia.",
+      "En este momento no pudimos cargar los horarios disponibles. No te preocupes: no perdiste nada. Intenta de nuevo en un momento o escríbenos por WhatsApp al +57 318 397 1073 y te acompañamos para agendar tu diagnóstico.",
+    retrySlots: "Reintentar carga de horarios",
     homeLink: "Volver al inicio",
   },
   en: {
@@ -179,10 +183,13 @@ const copy: Record<LocaleCode, BookingCopy> = {
       "We noticed a personal email address. If you have a company email, we recommend using it for better follow-up.",
     errorSlotTaken: "That time was just taken. Please pick another.",
     errorRateLimited: "Too many attempts in a short time. Please wait a few minutes and try again.",
-    errorGeneric: "We could not complete the action. Please try again.",
-    errorApiNotConfigured: "The booking API URL is not configured.",
+    errorGeneric:
+      "Something didn’t go as expected, but don’t worry — your request matters to us. Please try again in a few seconds; if it continues, WhatsApp us at +57 318 397 1073 and we’ll help you book.",
+    errorApiNotConfigured:
+      "We’re getting the calendar ready. It should be available shortly; or WhatsApp us at +57 318 397 1073 and we’ll schedule you gladly.",
     errorFetchFailed:
-      "Could not reach the scheduling server. Often a CORS issue: add https://latconservices.com to the Function App (API → CORS and ALLOWED_ORIGINS), then restart.",
+      "We couldn’t load available times right now. Don’t worry — nothing was lost. Please try again in a moment, or WhatsApp us at +57 318 397 1073 and we’ll help you book your diagnostic.",
+    retrySlots: "Retry loading times",
     homeLink: "Back to home",
   },
   pt: {
@@ -245,10 +252,13 @@ const copy: Record<LocaleCode, BookingCopy> = {
       "Detectamos um e-mail pessoal. Se você tiver um e-mail corporativo, recomendamos usá-lo para um melhor acompanhamento.",
     errorSlotTaken: "Esse horário acabou de ser reservado. Escolha outro.",
     errorRateLimited: "Muitas tentativas em pouco tempo. Aguarde alguns minutos e tente novamente.",
-    errorGeneric: "Não foi possível concluir. Tente novamente.",
-    errorApiNotConfigured: "A URL da API de agendamento não está configurada.",
+    errorGeneric:
+      "Algo não saiu como esperávamos, mas não se preocupe: sua solicitação é importante para nós. Tente de novo em alguns segundos; se continuar, fale conosco no WhatsApp +57 318 397 1073 e ajudamos a agendar.",
+    errorApiNotConfigured:
+      "Estamos preparando o calendário. Em breve deve estar disponível; se preferir, fale conosco no WhatsApp +57 318 397 1073 e agendamos com prazer.",
     errorFetchFailed:
-      "Não foi possível contactar o servidor de horários. Verifique CORS no Function App (https://latconservices.com).",
+      "Neste momento não conseguimos carregar os horários disponíveis. Não se preocupe: nada foi perdido. Tente de novo em instantes ou fale conosco no WhatsApp +57 318 397 1073 e te ajudamos a agendar seu diagnóstico.",
+    retrySlots: "Tentar carregar horários de novo",
     homeLink: "Voltar ao início",
   },
   fr: {
@@ -311,21 +321,30 @@ const copy: Record<LocaleCode, BookingCopy> = {
       "Nous avons détecté une adresse e-mail personnelle. Si vous avez une adresse professionnelle, nous vous recommandons de l'utiliser pour un meilleur suivi.",
     errorSlotTaken: "Ce créneau vient d’être pris. Choisissez-en un autre.",
     errorRateLimited: "Trop de tentatives en peu de temps. Patientez quelques minutes puis réessayez.",
-    errorGeneric: "L’action n’a pas pu aboutir. Réessayez.",
-    errorApiNotConfigured: "L’URL de l’API de réservation n’est pas configurée.",
+    errorGeneric:
+      "Quelque chose n’a pas fonctionné comme prévu, mais ne vous inquiétez pas : votre demande compte pour nous. Réessayez dans quelques secondes ; si le problème continue, écrivez-nous sur WhatsApp au +57 318 397 1073 et nous vous aiderons à réserver.",
+    errorApiNotConfigured:
+      "Nous préparons le calendrier. Il devrait être disponible sous peu ; sinon, écrivez-nous sur WhatsApp au +57 318 397 1073 et nous vous planifierons volontiers.",
     errorFetchFailed:
-      "Impossible de joindre le serveur des créneaux. Vérifiez CORS sur le Function App (https://latconservices.com).",
+      "Nous n’avons pas pu charger les créneaux pour le moment. Ne vous inquiétez pas : rien n’est perdu. Réessayez dans un instant ou écrivez-nous sur WhatsApp au +57 318 397 1073 et nous vous accompagnerons pour planifier votre diagnostic.",
+    retrySlots: "Réessayer le chargement des créneaux",
     homeLink: "Retour à l’accueil",
   },
 };
 
-/** Mensaje legible para errores al cargar /api/slots. */
+/** Mensaje legible para errores al cargar /api/slots (sin jerga técnica). */
 export function formatSlotsLoadError(message: string, t: BookingCopy): string {
-  if (message.includes("NEXT_PUBLIC")) return `${message} — ${t.errorApiNotConfigured}`;
-  if (message === "Failed to fetch" || message.includes("NetworkError") || message.includes("Load failed")) {
+  if (message.includes("NEXT_PUBLIC")) return t.errorApiNotConfigured;
+  if (
+    message === "Failed to fetch" ||
+    message.includes("NetworkError") ||
+    message.includes("Load failed") ||
+    message.includes("CORS") ||
+    /^HTTP\s*[45]\d\d/i.test(message)
+  ) {
     return t.errorFetchFailed;
   }
-  return message;
+  return t.errorFetchFailed;
 }
 
 export function getBookingCopy(locale: LocaleCode): BookingCopy {

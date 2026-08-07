@@ -9,9 +9,10 @@ export default function Error({}: {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-bg-warm px-6 text-center">
       <p className="text-2xl font-semibold tracking-tight text-accent">Latcon</p>
-      <h1 className="mt-4 text-xl font-semibold text-text-primary">Algo no cargó correctamente</h1>
-      <p className="mt-2 max-w-sm text-sm leading-relaxed text-text-muted">
-        Puede ser un problema temporal de conexión. Intenta de nuevo.
+      <h1 className="mt-4 text-xl font-semibold text-text-primary">Estamos teniendo un momento difícil</h1>
+      <p className="mt-2 max-w-md text-sm leading-relaxed text-text-muted">
+        No te preocupes: suele ser temporal. Puedes intentarlo de nuevo o volver al inicio y escribirnos por
+        WhatsApp al +57 318 397 1073 si necesitas agendar con ayuda.
       </p>
       <div className="mt-6 flex flex-wrap justify-center gap-3">
         <button
