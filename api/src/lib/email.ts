@@ -4,6 +4,7 @@ import type { LocaleCode } from "./types";
 export type BookingEmailPayload = {
   locale: LocaleCode;
   contactName: string;
+  roleTitle: string | null;
   companyName: string;
   sector: string;
   cityCountry: string;
@@ -243,6 +244,7 @@ function internalHtml(p: BookingEmailPayload): string {
     <p style="margin:0 0 16px 0; font-size:16px; color:#1f2937; font-weight:700;">Nueva reserva</p>
     <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">
       ${detailRow("Contacto", escapeHtml(p.contactName))}
+      ${detailRow("Cargo", escapeHtml(p.roleTitle?.trim() || "—"))}
       ${detailRow("Empresa", escapeHtml(p.companyName))}
       ${detailRow("Sector", escapeHtml(p.sector))}
       ${detailRow("Ciudad / país", escapeHtml(p.cityCountry))}
@@ -301,7 +303,7 @@ export async function sendInternalNotification(p: BookingEmailPayload): Promise<
       content: {
         subject: internalSubject(),
         html: internalHtml(p),
-        plainText: `Nueva reserva: ${p.contactName} / ${p.companyName}`,
+        plainText: `Nueva reserva: ${p.contactName}${p.roleTitle?.trim() ? ` (${p.roleTitle.trim()})` : ""} / ${p.companyName}`,
       },
       recipients: { to: [{ address: to }] },
     });

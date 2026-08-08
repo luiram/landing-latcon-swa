@@ -241,6 +241,7 @@ app.http("createAppointment", {
     const emailPayload: BookingEmailPayload = {
       locale,
       contactName: body.contact.fullName.trim(),
+      roleTitle: body.contact.roleTitle?.trim() || null,
       companyName: body.company.name.trim(),
       sector: body.company.sector.trim(),
       cityCountry: body.company.cityCountry.trim(),
