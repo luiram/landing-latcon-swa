@@ -28,7 +28,7 @@
 - **GitHub:** [luiram/landing-latcon-swa](https://github.com/luiram/landing-latcon-swa)
 - **Rama de despliegue:** `main` (única rama de producción; la rama experimental `portal` se eliminó el 2026-08-07)
 - **Workflow:** [`.github/workflows/azure-static-web-apps.yml`](../.github/workflows/azure-static-web-apps.yml)
-- **Marca / logo público:** `public/logo/logo_latcon.svg` → `/logo/logo_latcon.svg`
+- **Marca / logo público:** `public/logo/logo_latcon.svg` → `/logo/logo_latcon.svg` (navbar: **46px** de alto dentro de barra `h-[48px]`)
 
 ---
 

@@ -79,14 +79,14 @@ Los correos automáticos (confirmación al cliente + notificación interna) deja
 
 ### 2026-08-07 — Agenda, marca, UX de errores y rama `portal`
 
-#### 1. Teléfono en el correo interno de reserva
-La notificación interna (a `CONTACT_NOTIFICATION_TO`) ahora incluye la fila **Tel / WhatsApp** del contacto (`userPhone` desde `createAppointment` → plantilla en `api/src/lib/email.ts`). Publicado en Function App `func-latcon-booking-prd` el mismo día. Detalle: [docs/email-acs.md](docs/email-acs.md).
+#### 1. Teléfono y cargo en el correo interno de reserva
+La notificación interna (a `CONTACT_NOTIFICATION_TO`) incluye **Tel / WhatsApp** (`userPhone`) y **Cargo** (`roleTitle`, o "—" si viene vacío), desde `createAppointment` → plantilla en `api/src/lib/email.ts`. Publicado en Function App `func-latcon-booking-prd` el mismo día (cargo en un segundo publish). Detalle: [docs/email-acs.md](docs/email-acs.md).
 
 #### 2. Lista de sectores ampliada (`/agenda` paso 3)
 Se reemplazó el listado corto (Agroindustria, Logística, etc.) por **12 opciones** alineadas al negocio (Agricultura y agronegocios, Banca de inversión, Defensa, Educación, Energía, Manufactura, Oil & Gas, Salud, Seguros, Servicios profesionales, Transporte y logística, Otro), con `value` estable en español y **labels** en ES / EN / PT / FR. Código: `src/features/booking/bookingCopy.ts`. Front vía push a `main` + GitHub Actions.
 
 #### 3. Logo unificado: `logo_latcon.svg`
-Navbar, footer, JSON-LD y correos ACS apuntan a `public/logo/logo_latcon.svg` (ruta pública `/logo/logo_latcon.svg`). Se retiraron `logo_1_primary_horizontal.svg` y `logo_1_primary_horizontal_email.png` del repo. **Pendiente manual:** actualizar las firmas de Gmail/Workspace si aún usan el PNG antiguo.
+Navbar, footer, JSON-LD y correos ACS apuntan a `public/logo/logo_latcon.svg` (ruta pública `/logo/logo_latcon.svg`). Se retiraron `logo_1_primary_horizontal.svg` y `logo_1_primary_horizontal_email.png` del repo. En la navbar el logo quedó en **46px** de alto (barra fija `h-[48px]`, sin agrandar la pastilla). **Pendiente manual:** actualizar las firmas de Gmail/Workspace si aún usan el PNG antiguo.
 
 #### 4. Mensajes de error de agenda más claros
 Si fallan los horarios (`Failed to fetch` / CORS / red), el usuario ya **no** ve instrucciones técnicas de Azure. Ve un mensaje calmado, opción de **reintentar**, y WhatsApp `+57 318 397 1073`. También se suavizó `src/app/error.tsx`. Front en `main` (`37a811a`).
@@ -98,5 +98,8 @@ Un deploy **manual** de SWA con un `out/` generado desde la rama experimental **
 - `df971e0` — teléfono interno + sectores  
 - `8ff31d3` — logo `logo_latcon`  
 - `37a811a` — mensajes de error amigables  
+- `9701097` — docs del día  
+- `873c49e` — cargo en correo interno  
+- `5f17149` — logo navbar 46px (barra 48px)  
 
 (Hubo un `1af8e29` + `7bd2405` revert el mismo día antes de reaplicar el cambio de agenda de forma controlada.)

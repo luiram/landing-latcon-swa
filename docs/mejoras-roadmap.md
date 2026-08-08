@@ -50,7 +50,7 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 | E1 | ✅ `ACS_EMAIL_FROM` → `contacto@latconservices.com` | P1 | Hecho 2026-07-03, [email-acs.md](./email-acs.md) |
 | E2 | ✅ Reply-to buzón humano | P1 | `contacto@` es buzón real de Google Workspace, no requirió tocar código |
 | E3 | ✅ Parte `text/plain` en mensajes | P2 | Ya estaba implementado en `api/src/lib/email.ts` |
-| E4 | ✅ Plantilla HTML «transactional» para correos ACS (logo, firma corporativa) | P2 | Hecho 2026-07-05 — tabla de datos, logo y firma en 4 idiomas para el correo al cliente; versión simplificada (sin CTA) para la notificación interna. **2026-08-07:** logo → `logo_latcon.svg`; correo interno incluye Tel/WhatsApp |
+| E4 | ✅ Plantilla HTML «transactional» para correos ACS (logo, firma corporativa) | P2 | Hecho 2026-07-05. **2026-08-07:** logo → `logo_latcon.svg`; correo interno incluye Tel/WhatsApp y **Cargo** (`roleTitle`) |
 | E5 | ~~Cloudflare Email Routing para `contacto@`~~ | — | Obsoleto: se optó por buzón real en Google Workspace en vez de reenvío |
 | E6 | ✅ Firma de correo en Google Workspace (`contacto@` / `luis.ramirez@`) | P2 | Hecho 2026-07-05 — dos firmas. Actualizar imagen a `logo_latcon` si aún usan el PNG antiguo (pendiente manual en Gmail) |
 

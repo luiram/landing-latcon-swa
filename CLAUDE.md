@@ -115,4 +115,4 @@ Ver archivo: LATCON_PROMPT_LANDING.md (prompt completo de 9 cambios)
 - Preguntar el framework antes de modificar cualquier archivo
 - Usar /plan antes de ejecutar cambios que toquen más de 2 archivos
 - **Deploy a producción:** front solo con push a `main` (GitHub Actions). No hacer `swa deploy` / `publish-swa` con un `out/` de otra rama ni con `staticwebapp.config.json` vacío. API: `scripts/deploy/publish-functions.ps1` tras cambios en `api/`.
-- **Logo:** `public/logo/logo_latcon.svg` (web + correos ACS). No reintroducir `logo_1_primary_horizontal*`.
+- **Logo:** `public/logo/logo_latcon.svg` (web + correos ACS). En navbar: `h-[46px]` dentro de barra `h-[48px]`. No reintroducir `logo_1_primary_horizontal*`.
