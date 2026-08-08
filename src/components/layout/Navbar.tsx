@@ -152,7 +152,7 @@ export function Navbar() {
             <img
                 src="/logo/logo_latcon.svg"
                 alt="Latcon Services"
-                className="h-[44px] w-auto max-h-full object-contain object-left"
+                className="h-[46px] w-auto max-h-full object-contain object-left"
                 draggable={false}
               />
           </Link>
