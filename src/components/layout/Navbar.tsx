@@ -147,12 +147,12 @@ export function Navbar() {
         >
           <Link
             href="/"
-            className="shrink-0 rounded-full px-1 py-0.5 transition-opacity hover:opacity-[0.88] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+            className="flex h-full shrink-0 items-center rounded-full px-0.5 transition-opacity hover:opacity-[0.88] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
           >
             <img
                 src="/logo/logo_latcon.svg"
                 alt="Latcon Services"
-                className="h-9 w-auto object-contain"
+                className="h-[40px] w-auto max-h-full object-contain object-left"
                 draggable={false}
               />
           </Link>
