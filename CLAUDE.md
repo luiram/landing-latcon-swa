@@ -44,6 +44,34 @@ Ocho pasos con compuerta. No avanzar al siguiente sin aprobación del anterior. 
 - Presentar el plan antes de escribir código en cambios estructurales.
 - Avisar si un pedido contradice los documentos de `docs/`.
 - Construir solo en español. Congelar EN, PT y FR hasta después del lanzamiento (ADR 0004).
+- Al cerrar cada paso, actualizar "Estado actual" en el mismo commit.
+
+## Estado actual
+
+Actualizado: 2026-09-28 · Rama `sitio-web` · Siguiente: **paso 3**
+
+| Paso | Estado | Commit |
+|---|---|---|
+| 0 · Inventario | Aprobado | — (informe, sin cambios) |
+| 1 · Tokens, `CLAUDE.md`, ADR | Aprobado | `6d8975e` |
+| 2 · Chasis | Aprobado | `7ae5649` |
+| 3 · Las 8 secciones | **Siguiente.** Empezar presentando el plan (primitivas y piezas antes que secciones, ADR 0003) | — |
+| 4 a 8 | Pendientes | — |
+
+**Decisiones abiertas**
+
+| Decisión | Dónde | Se cierra en |
+|---|---|---|
+| Sección sin datos no se renderiza (p. ej. el caso reservado) | ADR 0003 | Paso 3 |
+| `NavAnclas` y `EscaleraContextual` solo con variante `full` | ADR 0003 | Paso 3 |
+| Ruta `/soluciones/zero-touch` o `/soluciones/agentes-ia` | docs/recomendaciones-sitio.md §1.6b | Paso 6 |
+| Avicultura en el primer lanzamiento | docs/contenido-sitio.md §9 | Paso 6 |
+| Recursos: cadencia editorial o fuera del sitio (hoy fuera del menú) | docs/recomendaciones-sitio.md Parte 5 | Paso 6 |
+| Idiomas al lanzar: solo español con selector oculto, o esperar la traducción | ADR 0004 | Paso 8 |
+| Alinear la paleta de la web con la de las propuestas (`#152033`, `#16A34A`) | ADR 0002 | Decisión de marca, sin paso |
+| Subir `sitio-web` y `landing-v1` a GitHub (hoy solo locales) | ADR 0005 | Cuando se pida |
+
+**Conocido y aceptado:** los enlaces del menú y del footer a páginas que aún no existen dan 404 hasta los pasos 6 y 7. El error de lint en `src/app/global-error.tsx` ya estaba en `landing-v1`. `check:tokens` está en 222 (meta del paso 3: 0).
 
 ## Comandos
 
@@ -56,7 +84,7 @@ npm run check:tokens   # Valores fuera de tokens (-- --strict para fallar)
 npm run preview:out    # Sirve out/ en http://localhost:3000
 ```
 
-No hay suite de pruebas.
+No hay suite de pruebas. La verificación visual contra `landing-v1` (capturas, comparación píxel a píxel y pruebas del chasis) está en [scripts/verificacion/](scripts/verificacion/README.md).
 
 ## Arquitectura
 

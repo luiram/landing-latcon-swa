@@ -1,0 +1,17 @@
+{
+  "name": "latcon-verificacion-visual",
+  "private": true,
+  "description": "Capturas y comparaciones visuales del sitio contra landing-v1. No forma parte del build.",
+  "scripts": {
+    "capturar": "node capturar.js",
+    "comparar": "node comparar.js",
+    "comparar-main": "node comparar-main.js",
+    "chasis": "node chasis.js"
+  },
+  "devDependencies": {
+    "pixelmatch": "5.3.0",
+    "playwright": "1.63.0",
+    "pngjs": "7.0.0",
+    "serve-handler": "6.1.7"
+  }
+}
