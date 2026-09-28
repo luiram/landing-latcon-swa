@@ -49,3 +49,10 @@ El inventario del paso 0 encontró:
 
 ## Pregunta abierta
 Los documentos comerciales (propuestas) usan `#152033` y `#16A34A`; la web usa otra paleta. Alinear ambas es decisión de marca pendiente. Si se decide cambiar, se cambia en los primitivos y baja a todo el sitio.
+
+## Adiciones · 2026-09-27 (paso 2)
+- Tokens nuevos para el chasis, todos extraídos de valores que el navbar ya usaba:
+  - `--c-gray-900` (`#262626`, el `neutral-800` de Tailwind del navbar) → `text-strong`, solo para navegación.
+  - `glass-edge` (blanco del borde del vidrio), `bg-tinted` (fondo de `/privacidad`) y las sombras `glass-scrolled` y `glass-sm`.
+- **`cn()` debe conocer las escalas.** `tailwind-merge` no lee `@theme`: sin configuración trataba `text-body-sm` como un color y descartaba `text-white` del botón. `src/lib/cn.ts` registra todas las escalas; cualquier escala nueva en `@theme` se agrega también ahí.
+- `check:tokens` al cerrar el paso 2: **222** (se eliminó `Navbar.tsx`; los archivos nuevos del chasis están en 0).

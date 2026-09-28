@@ -1,7 +1,7 @@
 # 0006 · Footer legal, autorización de datos e instrumentación en el paso 7
 
 Fecha: 2026-09-27
-Estado: aceptada
+Estado: aceptada · modificada el 2026-09-27 al aprobar el paso 2 (ver abajo)
 
 ## Contexto
 El documento de recomendaciones (§1.1 y etapa 0 de §1.9) pide aplicar dos ajustes sobre el sitio publicado antes de construir nada:
@@ -22,3 +22,6 @@ Ambos ajustes se hacen en el paso 7 del plan, dentro de `sitio-web`, y no como a
 - Hasta el lanzamiento no se registra el origen de las visitas y reservas (feria, canal, campaña).
 - El footer legal del chasis (paso 2) se diseña con espacio para estos datos, pero su contenido definitivo y la casilla se cierran en el paso 7.
 - Si aparece una feria o campaña antes del lanzamiento, conviene reabrir esta decisión.
+
+## Modificación · 2026-09-27 (paso 2)
+Los datos legales del footer (razón social, NIT, régimen, dirección, teléfono y correo) se adelantaron al paso 2, porque son información fija del documento y el footer se construyó en ese paso. Siguen en el paso 7: la casilla de autorización del formulario, la página `/tratamiento-de-datos` (el footer ya enlaza a ella) y la instrumentación.

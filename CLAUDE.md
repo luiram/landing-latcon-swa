@@ -62,8 +62,9 @@ No hay suite de pruebas.
 
 - Next.js 15 (App Router) con `output: "export"`, React 19, TypeScript, Tailwind CSS 4 y Framer Motion. Alias `@/*` → `src/*`.
 - Hosting: Azure Static Web Apps. `/agenda` llama a Azure Functions (`api/`) con SQL y correo ACS. Ver [docs/azure-swa.md](docs/azure-swa.md).
-- Tokens: `src/app/globals.css`. Primitivos en `:root` (`--c-*`), semánticos y escalas en `@theme`. Tailwind 4 no tiene `tailwind.config`.
-- Contenido: `src/config/landing/{es,en,pt,fr}.ts` (`es.ts` reexporta `src/config/content.ts`). El idioma vive en `localStorage` (`latcon-locale`) vía `LocaleProvider`; no hay rutas por idioma.
+- Tokens: `src/app/globals.css`. Primitivos en `:root` (`--c-*`), semánticos y escalas en `@theme`. Tailwind 4 no tiene `tailwind.config`. Toda escala nueva en `@theme` se registra también en `src/lib/cn.ts` (tailwind-merge).
+- Chasis: toda página se envuelve en `LayoutPagina` (`src/components/layout/`) y exporta sus metadatos con `metadatosPagina()` (`src/lib/metadatos.ts`). Rutas, menú, footer y breadcrumb salen de `src/config/sitio/mapa.ts`; datos legales de `src/config/sitio/empresa.ts`.
+- Contenido: `src/config/landing/{es,en,pt,fr}.ts` (`es.ts` reexporta `src/config/content.ts`). El idioma está fijo en español durante la construcción (`IDIOMA_FIJO` en `LocaleProvider`, ADR 0004); no hay rutas por idioma.
 - Componentes: `src/components/{layout,sections,ui,motion,analytics}`. Hoy las secciones leen su contenido con `useLandingContent()`; el paso 3 las convierte en componentes que reciben props.
 - Movimiento: `src/components/motion/Reveal.tsx` (aparición al hacer scroll).
 

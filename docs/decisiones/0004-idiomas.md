@@ -19,3 +19,8 @@ Estado: aceptada
 - El chasis (paso 2) se construye con el selector de idioma preparado, pero los textos solo en español.
 - **Pendiente de decidir antes del lanzamiento (paso 8):** si el sitio sale en español y el selector se oculta hasta que existan las traducciones, o si el lanzamiento espera a la traducción. Hoy el público puede elegir 4 idiomas; lanzar solo en español quita tres.
 - Cuando se traduzca, conviene evaluar rutas por idioma (`/en/…`) para que esas versiones sean visibles en búsqueda.
+
+## Aplicación · 2026-09-27 (paso 2)
+- `LocaleProvider` tiene `IDIOMA_FIJO = "es"`: ignora el idioma guardado en `localStorage`. Para la fase de traducción se cambia a `null`.
+- El selector de idioma no aparece en el header nuevo. `LanguageSelector`, `LanguageOption` y `LocaleFlag` se conservan para la traducción.
+- `LocaleDocument` ya no reemplaza el título ni la descripción de la página; solo sincroniza `lang`. Antes pisaba el `<title>` de `/agenda` y `/privacidad` con el del home.

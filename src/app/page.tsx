@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+import { LayoutPagina } from "@/components/layout/LayoutPagina";
 import { Hero } from "@/components/sections/Hero";
 import { Audience } from "@/components/sections/Audience";
 import { FinalCta } from "@/components/sections/FinalCta";
@@ -14,17 +13,13 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <Audience />
-        <Solutions />
-        <Process />
-        <About />
-        <FinalCta />
-      </main>
-      <Footer />
-    </>
+    <LayoutPagina ruta="/">
+      <Hero />
+      <Audience />
+      <Solutions />
+      <Process />
+      <About />
+      <FinalCta />
+    </LayoutPagina>
   );
 }

@@ -1,43 +1,92 @@
-"use client";
-
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
+import { cn } from "@/lib/cn";
+import type { EnlaceNav, GrupoNav } from "@/lib/navegacion";
 
-import { useLandingContent } from "@/hooks/useLandingContent";
+type FooterProps = {
+  columnas: readonly GrupoNav[];
+  legales: readonly EnlaceNav[];
+  empresa: {
+    marca: string;
+    razonSocial: string;
+    nit: string;
+    regimen: string;
+    direccion: string;
+    telefono: string;
+    telefonoHref: string;
+    correo: string;
+    descriptor: string;
+    logo: string;
+    logoAlt: string;
+  };
+  textos: { pie: string; legal: string; derechos: string };
+  anio: number;
+};
 
-const footLink =
-  "inline-flex rounded-md text-sm font-medium text-text-muted transition-colors duration-200 hover:text-blue-mid-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-page";
+const enlace =
+  "rounded-control text-body-sm text-text-muted transition-colors duration-200 hover:text-blue-mid-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-page";
 
-export function Footer() {
-  const { site } = useLandingContent();
-
+export function Footer({ columnas, legales, empresa, textos, anio }: FooterProps) {
   return (
-    <footer className="border-t border-border-subtle bg-bg-page py-11 sm:py-12">
-      <Container className="flex flex-col gap-7 sm:gap-8 md:flex-row md:items-start md:justify-between md:gap-10">
-        <div className="max-w-lg md:min-w-0 md:flex-1">
-          <img
-              src="/logo/logo_latcon.svg"
-              alt="Latcon Services"
-              className="h-11 w-auto"
-              draggable={false}
-            />
-          <p className="mt-2 text-sm leading-relaxed text-text-muted sm:mt-2.5 sm:text-[0.9375rem] sm:leading-relaxed">
-            {site.descriptor}
-          </p>
+    <footer className="border-t border-border-subtle bg-bg-page pb-8 pt-12 sm:pt-14">
+      <Container>
+        <div className="grid gap-10 md:grid-cols-[minmax(0,1.3fr)_repeat(3,minmax(0,1fr))] md:gap-8">
+          <div className="max-w-prose-narrow">
+            <img src={empresa.logo} alt={empresa.logoAlt} className="h-11 w-auto" draggable={false} />
+            <p className="mt-2.5 text-body-sm leading-body text-text-muted">{empresa.descriptor}</p>
+          </div>
+
+          <nav aria-label={textos.pie} className="contents">
+            {columnas.map((columna) => (
+              <div key={columna.titulo}>
+                <p className="text-label font-semibold uppercase tracking-eyebrow text-text-primary">
+                  {columna.titulo}
+                </p>
+                <ul className="mt-3 space-y-2">
+                  {columna.enlaces.map((e) => (
+                    <li key={e.ruta}>
+                      <Link href={e.ruta} className={enlace}>
+                        {e.etiqueta}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
         </div>
-        <nav
-          className="flex shrink-0 flex-col border-t border-border-subtle pt-6 text-sm md:border-t-0 md:pt-0 md:text-right"
-          aria-label={site.navAriaFooter}
-        >
-          <Link className={footLink} href={site.privacyUrl}>
-            {site.privacy}
-          </Link>
-        </nav>
-      </Container>
-      <Container className="mt-7 border-t border-border-subtle pt-5 sm:mt-8 sm:pt-6">
-        <p className="text-xs leading-relaxed text-text-muted">
-          © 2026 {site.brand}. {site.copyright}
-        </p>
+
+        <div className="mt-10 border-t border-border-subtle pt-6 sm:mt-12">
+          <address className="text-caption not-italic leading-body text-text-muted">
+            <p>
+              <span className="font-semibold text-text-primary">{empresa.razonSocial}</span> · {empresa.nit} ·{" "}
+              {empresa.regimen}
+            </p>
+            <p>{empresa.direccion}</p>
+            <p>
+              <a href={empresa.telefonoHref} className={cn(enlace, "text-caption")}>
+                {empresa.telefono}
+              </a>{" "}
+              ·{" "}
+              <a href={`mailto:${empresa.correo}`} className={cn(enlace, "text-caption")}>
+                {empresa.correo}
+              </a>
+            </p>
+          </address>
+
+          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <nav aria-label={textos.legal} className="flex flex-wrap gap-x-5 gap-y-2">
+              {legales.map((e) => (
+                <Link key={e.ruta} href={e.ruta} className={cn(enlace, "text-caption font-medium")}>
+                  {e.etiqueta}
+                </Link>
+              ))}
+            </nav>
+            <p className="text-caption text-text-muted">
+              © {anio} {empresa.marca}. {textos.derechos}
+            </p>
+          </div>
+        </div>
       </Container>
     </footer>
   );
