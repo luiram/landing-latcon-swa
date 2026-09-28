@@ -44,6 +44,9 @@
 
 /* ── 2 y 3 · Semánticos y escalas ───────────────────────────────────────── */
 @theme {
+  /* Sin la paleta por defecto de Tailwind: solo existen los colores de este archivo (ADR 0002, punto 7) */
+  --color-*: initial;
+
   /* Superficies */
   --color-bg-page: var(--c-white);
   --color-bg-warm: var(--c-sand-100);
@@ -72,6 +75,7 @@
   --color-border-subtle: rgba(74, 75, 80, 0.16); /* --c-gray-700 al 16 % */
   --color-overlay: var(--c-black); /* velos sobre imagen; se usa con opacidad */
   --color-glass-edge: var(--c-white); /* borde luminoso del vidrio; se usa con opacidad */
+  --color-on-dark: var(--c-white); /* bordes y rellenos sobre fondo oscuro; se usa con opacidad */
 
   /* Marca: solo para el logo */
   --color-brand-orange: var(--c-orange-logo);
@@ -114,7 +118,7 @@
   --container-prose-narrow: 34rem;
   --container-prose: 38rem;
   --container-prose-wide: 42rem;
-  --container-page: 75rem; /* 1200px, el Container actual */
+  --container-page: 75rem; /* 1200px, el Contenedor */
 
   /* Espaciado vertical de sección: compacto (home) · normal · amplio (interiores) */
   --spacing-section-sm: 5rem;
@@ -139,6 +143,11 @@
   --shadow-card-accent-hover: 0 14px 44px -22px rgba(245, 130, 32, 0.12);
   --shadow-control-inset: inset 0 1px 0 rgba(255, 255, 255, 0.22);
   --shadow-control-hover: 0 12px 36px -14px rgba(245, 130, 32, 0.42);
+  --shadow-control-outline: 0 0 0 1px rgba(86, 123, 165, 0.1);
+  --shadow-dialog:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.92),
+    0 1px 2px rgba(255, 255, 255, 0.22),
+    0 20px 50px -16px rgba(0, 0, 0, 0.35);
   --shadow-popover:
     0 20px 50px -16px rgba(75, 104, 140, 0.22),
     0 8px 24px -8px rgba(0, 0, 0, 0.08);
@@ -157,8 +166,80 @@
     0 1px 2px rgba(255, 255, 255, 0.16),
     0 2px 14px -4px rgba(0, 0, 0, 0.065);
 
+  /* Sombras de texto sobre imagen oscura (hero) */
+  --text-shadow-glow: 0 0 7px rgba(255, 255, 255, 0.55), 0 0 20px rgba(255, 255, 255, 0.22);
+  --text-shadow-display: 0 2px 18px rgba(0, 0, 0, 0.38);
+  --text-shadow-lead: 0 1px 14px rgba(0, 0, 0, 0.24);
+
   /* Movimiento */
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/*
+ * Velos sobre imagen oscura (Hero compact). Son los once velos de la landing, agrupados en
+ * tres capas sin cambiar su orden: fondo (bajo el velo del texto), texto y luz (sobre él).
+ * En una lista de fondos, el primero queda arriba.
+ */
+@utility velo-fondo {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(7, 7, 9, 0.405) 0%,
+      rgba(10, 10, 12, 0.235) 26%,
+      rgba(14, 14, 16, 0.11) 48%,
+      rgba(10, 10, 12, 0.034) 68%,
+      transparent 87%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(8, 8, 10, 0.87) 0%,
+      rgba(10, 10, 12, 0.79) 14%,
+      rgba(12, 12, 15, 0.66) 28%,
+      rgba(14, 14, 18, 0.46) 44%,
+      rgba(12, 12, 14, 0.26) 58%,
+      rgba(11, 11, 13, 0.21) 64%,
+      rgba(9, 9, 11, 0.168) 70%,
+      rgba(8, 8, 10, 0.138) 74%,
+      rgba(7, 7, 9, 0.114) 80%,
+      rgba(6, 6, 8, 0.09) 86%,
+      rgba(5, 5, 7, 0.068) 92%,
+      rgba(6, 6, 7, 0.056) 100%
+    ),
+    radial-gradient(
+      ellipse 125% 85% at 22% 48%,
+      rgba(10, 10, 12, 0.028) 0%,
+      rgba(10, 10, 11, 0.018) 45%,
+      rgba(10, 10, 11, 0.032) 100%
+    ),
+    linear-gradient(rgba(0, 0, 0, 0.107), rgba(0, 0, 0, 0.107));
+}
+
+@utility velo-texto {
+  background-image: radial-gradient(
+    ellipse at left,
+    rgba(8, 8, 10, 0.505) 0%,
+    rgba(10, 10, 12, 0.248) 46%,
+    rgba(10, 10, 12, 0.058) 74%,
+    transparent 90%
+  );
+}
+
+@utility velo-luz {
+  --velo-suelo: linear-gradient(to top in oklab, rgba(12, 12, 14, 0.36) 0%, transparent 50%, transparent 42%);
+  --velo-luz:
+    linear-gradient(270deg, rgba(10, 10, 11, 0.07) 0%, rgba(9, 9, 10, 0.028) 28%, transparent 54%),
+    radial-gradient(ellipse 64% 74% at 84% 36%, rgba(11, 10, 10, 0.1) 0%, rgba(10, 9, 9, 0.038) 48%, transparent 78%),
+    radial-gradient(ellipse 118% 92% at 97% 5%, rgba(17, 15, 14, 0.14) 0%, rgba(12, 11, 11, 0.056) 40%, transparent 64%),
+    linear-gradient(90deg, transparent 54%, rgba(12, 12, 14, 0.042) 71%, rgba(11, 11, 12, 0.064) 86%, rgba(10, 10, 11, 0.078) 100%);
+  /* Móvil y tablet: un velo vertical más, entre la luz y el suelo */
+  background-image:
+    var(--velo-suelo),
+    linear-gradient(rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0.22) 50%, rgba(0, 0, 0, 0.46) 100%),
+    var(--velo-luz);
+
+  @media (width >= 64rem) {
+    background-image: var(--velo-suelo), var(--velo-luz);
+  }
 }
 
 html {
@@ -178,45 +259,4 @@ body {
 ::selection {
   background-color: color-mix(in srgb, var(--color-accent) 28%, transparent);
   color: var(--color-text-primary);
-}
-
-@keyframes hero-line-dash {
-  0% {
-    stroke-dashoffset: 140;
-    opacity: 0.35;
-  }
-  50% {
-    opacity: 0.65;
-  }
-  100% {
-    stroke-dashoffset: 0;
-    opacity: 0.5;
-  }
-}
-
-.hero-line-path {
-  stroke-dasharray: 6 14;
-  stroke-dashoffset: 140;
-  animation: hero-line-dash 14s ease-in-out infinite alternate;
-}
-
-@keyframes hero-glow-pulse {
-  0%,
-  100% {
-    opacity: 0.45;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.72;
-    transform: scale(1.04);
-  }
-}
-
-.hero-glow-orb {
-  animation: hero-glow-pulse 5.5s ease-in-out infinite;
-}
-
-.hero-glow-orb-delayed {
-  animation: hero-glow-pulse 6.5s ease-in-out infinite;
-  animation-delay: 1.2s;
 }

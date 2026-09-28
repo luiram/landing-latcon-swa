@@ -1,7 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Breadcrumb } from "@/components/layout/Breadcrumb";
-import { Container } from "@/components/ui/Container";
+import { Contenedor } from "@/components/ui/Contenedor";
 import { cn } from "@/lib/cn";
 import { migasDe, normalizarRuta } from "@/lib/navegacion";
 import { COLUMNAS_FOOTER, CTA_PRINCIPAL, ENLACES_LEGALES, MENU, PAGINAS } from "@/config/sitio/mapa";
@@ -40,9 +40,9 @@ export function LayoutPagina({ ruta, children, fondo = "page" }: LayoutPaginaPro
       />
       <main className={cn("min-h-screen", FONDOS[fondo], !esInicio && "pb-24 pt-24 sm:pt-28")}>
         {!esInicio ? (
-          <Container className="mb-8 sm:mb-10">
+          <Contenedor className="mb-8 sm:mb-10">
             <Breadcrumb migas={migas} etiqueta={TEXTOS_CHASIS.migas} />
-          </Container>
+          </Contenedor>
         ) : null}
         {children}
       </main>

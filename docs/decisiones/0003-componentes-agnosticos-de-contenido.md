@@ -1,7 +1,7 @@
 # 0003 · Componentes que no conocen su contenido
 
 Fecha: 2026-09-27
-Estado: aceptada. Los puntos marcados como *propuesta* se confirman al aprobar el paso 3.
+Estado: aceptada. Las dos propuestas se confirmaron al aprobar el plan del paso 3 (2026-09-28).
 
 ## Contexto
 Hoy cada sección del home llama a `useLandingContent()` y lee su parte (`content.audience`, `content.process`…). La sección sabe qué contenido muestra, así que no se puede reutilizar en otra página. `Audience`, `About` y `Verticals` son la misma tarjeta construida tres veces. El documento de recomendaciones (§1.4) define un sistema en 3 capas para las 21 páginas.
@@ -17,14 +17,56 @@ Hoy cada sección del home llama a `useLandingContent()` y lee su parte (`conten
 3. **Los nombres de componente describen estructura, no contenido.** No existen `TarjetaCaso`, `TarjetaDron` ni `TarjetaPersona`: son datos que se le pasan a `Tarjeta`.
 4. **Antes de crear un componente, se comprueba que ninguno existente sirva con otra variante.** Si hace falta uno nuevo después del paso 3, se registra en un ADR con la razón.
 5. **Variantes `compact` (home) y `full` (interiores)** en toda sección que aparece en ambos contextos: `Hero`, `GridDeTarjetas`, `TextoConImagen`, `Timeline`, `FranjaPrueba` y `BandaCTA`.
-   - *Propuesta:* `NavAnclas` y `EscaleraContextual` solo tienen variante `full`, porque nunca aparecen en el home. Dos variantes sin uso son código que nadie mantiene.
-6. *Propuesta:* **una sección sin datos no se renderiza.** Un espacio de caso "reservado" no se muestra como bloque vacío: si la página no le pasa casos a la sección, la sección no aparece. Esto lo resuelve el componente, no un `if` en cada página.
+   - **Confirmado:** `NavAnclas` y `EscaleraContextual` solo tienen variante `full`, porque nunca aparecen en el home. Dos variantes sin uso son código que nadie mantiene.
+6. **Confirmado: una sección sin datos no se renderiza.** Un espacio de caso "reservado" no se muestra como bloque vacío: si la página no le pasa casos a la sección, la sección no aparece. Esto lo resuelve el componente, no un `if` en cada página.
 
 ## Alternativas descartadas
 - Lista plana de componentes con nombre de contenido (la primera versión del documento): proliferan con cada línea de servicio nueva.
 - Diseño atómico completo con cinco niveles: burocracia para un equipo de tres.
+- Storybook como catálogo: más pesado de mantener que una página interna para un equipo de tres.
 
 ## Consecuencias
 - Cuesta más al arrancar; se paga a partir de la tercera o cuarta página.
 - Prueba del sistema: el paso 5 (`/sectores/energia-petroleo-gas`) se arma sin crear ningún componente nuevo.
 - `Problems.tsx`, `Verticals.tsx` y `VerticalBlockExpandables.tsx` no se usan hoy; se revisan como referencia y se eliminan en el paso 3.
+
+## Cómo quedó · 2026-09-28 (paso 3)
+
+**Carpetas**
+
+| Capa | Carpeta | Componentes |
+|---|---|---|
+| Primitivas | `src/components/ui/` | `Boton`, `Etiqueta`, `Titulo`, `Texto`, `Enlace`, `Imagen`, `Cita`, `Contenedor` |
+| Piezas | `src/components/piezas/` | `Tarjeta`, `Paso`, `ItemLista`, `Encabezado` |
+| Secciones | `src/components/sections/` | las 8, más `Seccion` (envoltorio común) y `About` (temporal) |
+
+**Qué significa cada variante**
+
+| Sección | `compact` | `full` |
+|---|---|---|
+| `Hero` | Titular sobre imagen oscura a todo el ancho | Fondo claro, imagen opcional a la derecha |
+| `GridDeTarjetas` | Tarjetas `compacta`, título de sección 28/32 px | Tarjetas `normal`, título 28/36 px, más aire |
+| `TextoConImagen` | Título 28/32 px | Título 28/36 px, más aire |
+| `Timeline` | Nombres de etapa en una línea, con enlace al detalle | Tarjetas con texto y resultado |
+| `FranjaPrueba` | Franja de una fila con borde superior | Tarjetas; la cifra se destaca cuando exista |
+| `BandaCTA` | Fondo claro | Banda oscura |
+
+El ritmo vertical sale de los tokens `section-*`: `compact` usa 80/96/112 px y `full` 96/112 px.
+
+**Registrados aquí por la regla 4**
+- `Encabezado` (pieza): antetítulo, título y bajada. Reemplaza a `SectionHeader` y a las cuatro copias escritas a mano en las secciones.
+- `Seccion` (interno de las secciones): ancla, fondo, borde, ritmo vertical y contenedor. No lo usan las páginas.
+- `Contenedor`: es el `Container` de siempre con nombre en español.
+- Nombres en español en todo el sistema (`Boton`, `Etiqueta`, `Tarjeta`…), como en los documentos.
+
+**Aplazados**
+- `CampoFormulario`: se construye cuando se toque `/agenda`. Hoy el wizard de reservas tiene sus propios campos y nada más lo usaría.
+- Variante "campaña con video" del `Hero` (§1.4): se construye con la primera landing de campaña (`/lp/<evento>`).
+
+**Otras decisiones del paso**
+- "Qué necesitas antes / Qué viene después" (regla 8) es un `GridDeTarjetas` de 2 columnas, no un componente.
+- Los seis escalones ya vivían en `src/config/sitio/mapa.ts` (`ESCALONES`); `EscaleraContextual` los recibe de ahí.
+- `About` pasó a recibir props, pero es temporal: sale del home en el paso 4 y sus socios vuelven en `/nosotros` como `GridDeTarjetas`.
+- `LatconLogo.tsx`, `Card.tsx` y el hook `useLandingContent` se eliminaron: ya no los usaba nadie.
+- Catálogo interno en `/catalogo` (`noindex`, fuera del menú, del footer y del sitemap), con contenido real de `docs/contenido-sitio.md`. Su publicación se decide en el paso 8.
+- Las secciones son componentes de servidor; solo `NavAnclas` y `Reveal` corren en el cliente. El JS inicial del home bajó de 189 kB a 160 kB.

@@ -18,7 +18,7 @@ export default function Error({}: {
         <button
           type="button"
           onClick={() => window.location.reload()}
-          className="rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-[transform,filter] hover:scale-[1.03] hover:brightness-95"
+          className="rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-on-accent shadow-sm transition-[transform,filter] hover:scale-[1.03] hover:brightness-95"
         >
           Reintentar
         </button>

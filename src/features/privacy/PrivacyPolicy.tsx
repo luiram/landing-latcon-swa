@@ -12,7 +12,7 @@ export function PrivacyPolicy() {
   return (
     <div className="mx-auto max-w-3xl">
       <h1 className="text-2xl font-semibold tracking-tight text-text-primary sm:text-3xl">{t.pageTitle}</h1>
-      <p className="mt-2 text-xs font-semibold uppercase tracking-[0.14em] text-text-muted">{t.lastUpdated}</p>
+      <p className="mt-2 text-xs font-semibold uppercase tracking-eyebrow text-text-muted">{t.lastUpdated}</p>
       <p className="mt-6 text-sm leading-relaxed text-text-muted sm:text-base">{t.intro}</p>
 
       <div className="mt-10 space-y-8">

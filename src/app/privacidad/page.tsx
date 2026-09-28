@@ -1,5 +1,5 @@
 import { LayoutPagina } from "@/components/layout/LayoutPagina";
-import { Container } from "@/components/ui/Container";
+import { Contenedor } from "@/components/ui/Contenedor";
 import { PrivacyPolicy } from "@/features/privacy/PrivacyPolicy";
 import { metadatosPagina } from "@/lib/metadatos";
 import { RUTAS } from "@/config/sitio/mapa";
@@ -13,9 +13,9 @@ export const metadata = metadatosPagina({
 export default function PrivacidadPage() {
   return (
     <LayoutPagina ruta={RUTAS.privacidad} fondo="tinted">
-      <Container>
+      <Contenedor>
         <PrivacyPolicy />
-      </Container>
+      </Contenedor>
     </LayoutPagina>
   );
 }

@@ -4,7 +4,7 @@ import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Boton } from "@/components/ui/Boton";
 import { cn } from "@/lib/cn";
 import { entradaActiva, type EnlaceNav, type EntradaMenu } from "@/lib/navegacion";
 
@@ -279,13 +279,13 @@ export function Header({ menu, cta, logo, textos }: HeaderProps) {
           </nav>
 
           <div className="ml-auto flex shrink-0 items-center gap-4 sm:gap-5">
-            <Button
+            <Boton
               href={cta.ruta}
-              variant="primary"
+              variante="primario"
               className="hidden h-9 shrink-0 items-center px-4 py-0 text-body-sm leading-none sm:inline-flex"
             >
               {cta.etiqueta}
-            </Button>
+            </Boton>
             <button
               type="button"
               className={cn(
@@ -390,9 +390,9 @@ export function Header({ menu, cta, logo, textos }: HeaderProps) {
               })}
             </nav>
             <div className="mt-4 border-t border-border-subtle pt-4 sm:hidden">
-              <Button href={cta.ruta} variant="primary" className="w-full justify-center">
+              <Boton href={cta.ruta} variante="primario" className="w-full justify-center">
                 {cta.etiqueta}
-              </Button>
+              </Boton>
             </div>
           </div>
         </div>

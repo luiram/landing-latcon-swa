@@ -85,10 +85,10 @@ export function CookieConsentBanner() {
   return (
     <div className="fixed inset-0 z-50" role="dialog" aria-modal="true">
       {/* Fondo que bloquea la interacción con el resto del sitio hasta elegir */}
-      <div className="absolute inset-0 bg-black/28 backdrop-blur-[2px]" />
+      <div className="absolute inset-0 bg-overlay/28 backdrop-blur-[2px]" />
 
       <div className="absolute inset-x-4 bottom-4 sm:inset-x-6 sm:bottom-6 sm:mx-auto sm:max-w-3xl">
-        <div className="rounded-2xl border border-white/20 bg-[rgba(255,253,250,0.96)] p-4 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.92),0_1px_2px_rgba(255,255,255,0.22),0_20px_50px_-16px_rgba(0,0,0,0.35)] backdrop-blur-2xl backdrop-saturate-[110%]">
+        <div className="rounded-card border border-glass-edge/20 bg-bg-glass/96 p-4 shadow-dialog backdrop-blur-2xl backdrop-saturate-[110%]">
           {!expanded ? (
             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
               <p className="text-xs leading-relaxed text-text-muted sm:flex-1">
@@ -108,7 +108,7 @@ export function CookieConsentBanner() {
                 <button
                   type="button"
                   onClick={() => save({ essential: true, analytics: true })}
-                  className="rounded-lg border border-accent bg-accent px-4 py-2 text-xs font-semibold text-white shadow-sm transition-[transform,filter] hover:scale-[1.03] hover:brightness-95"
+                  className="rounded-lg border border-accent bg-accent px-4 py-2 text-xs font-semibold text-on-accent shadow-sm transition-[transform,filter] hover:scale-[1.03] hover:brightness-95"
                 >
                   {t.acceptAll}
                 </button>
@@ -121,9 +121,9 @@ export function CookieConsentBanner() {
               <div className="flex items-start justify-between gap-3 rounded-xl border border-border-subtle bg-bg-panel/60 p-3">
                 <div>
                   <p className="text-xs font-semibold text-text-primary">{t.essentialLabel}</p>
-                  <p className="mt-0.5 text-[11px] leading-relaxed text-text-muted">{t.essentialDescription}</p>
+                  <p className="mt-0.5 text-label leading-relaxed text-text-muted">{t.essentialDescription}</p>
                 </div>
-                <span className="shrink-0 rounded-full bg-bg-elevated px-2 py-1 text-[10px] font-medium text-text-muted">
+                <span className="shrink-0 rounded-full bg-bg-elevated px-2 py-1 text-label font-medium text-text-muted">
                   {t.essentialBadge}
                 </span>
               </div>
@@ -131,7 +131,7 @@ export function CookieConsentBanner() {
               <div className="flex items-start justify-between gap-3 rounded-xl border border-border-subtle bg-bg-panel/60 p-3">
                 <div>
                   <p className="text-xs font-semibold text-text-primary">{t.analyticsLabel}</p>
-                  <p className="mt-0.5 text-[11px] leading-relaxed text-text-muted">{t.analyticsDescription}</p>
+                  <p className="mt-0.5 text-label leading-relaxed text-text-muted">{t.analyticsDescription}</p>
                 </div>
                 <button
                   type="button"
@@ -143,7 +143,7 @@ export function CookieConsentBanner() {
                   }`}
                 >
                   <span
-                    className={`absolute top-0.5 h-4 w-4 rounded-full bg-white shadow-sm transition-transform ${
+                    className={`absolute top-0.5 h-4 w-4 rounded-full bg-bg-panel shadow-sm transition-transform ${
                       analyticsChecked ? "translate-x-4" : "translate-x-0.5"
                     }`}
                   />
@@ -161,7 +161,7 @@ export function CookieConsentBanner() {
                 <button
                   type="button"
                   onClick={() => save({ essential: true, analytics: analyticsChecked })}
-                  className="rounded-lg border border-accent bg-accent px-4 py-2 text-xs font-semibold text-white shadow-sm transition-[transform,filter] hover:scale-[1.03] hover:brightness-95"
+                  className="rounded-lg border border-accent bg-accent px-4 py-2 text-xs font-semibold text-on-accent shadow-sm transition-[transform,filter] hover:scale-[1.03] hover:brightness-95"
                 >
                   {t.savePreferences}
                 </button>

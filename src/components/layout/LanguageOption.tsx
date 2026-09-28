@@ -19,9 +19,9 @@ export function LanguageOption({ value, label, selected, onSelect }: LanguageOpt
       role="option"
       aria-selected={selected}
       className={cn(
-        "flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm text-neutral-800 transition-colors hover:bg-stone-100/90 hover:text-neutral-950",
+        "flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm text-text-strong transition-colors hover:bg-bg-elevated hover:text-text-strong",
         selected &&
-          "bg-stone-200/55 font-medium text-neutral-950 ring-1 ring-stone-300/40 hover:bg-stone-200/70",
+          "bg-bg-elevated font-medium text-text-strong ring-1 ring-border-subtle",
       )}
       onClick={onSelect}
     >

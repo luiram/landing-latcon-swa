@@ -185,7 +185,7 @@ export function BookingCalendar({
         </button>
       </div>
 
-      <div className="grid grid-cols-7 gap-1 text-center text-[0.65rem] font-semibold uppercase tracking-wide text-text-muted sm:text-xs">
+      <div className="grid grid-cols-7 gap-1 text-center text-label font-semibold uppercase tracking-wide text-text-muted sm:text-xs">
         {weekdays.map((w) => (
           <div key={w} className="py-1">
             {w.replace(/\.$/, "")}
@@ -212,7 +212,7 @@ export function BookingCalendar({
                 "flex aspect-square items-center justify-center rounded-full text-sm font-medium transition-colors",
                 !isAvail && "cursor-not-allowed text-text-muted/40",
                 isAvail && !isSel && "bg-bg-warm text-text-primary hover:bg-accent/15",
-                isSel && "bg-accent text-white shadow-sm",
+                isSel && "bg-accent text-on-accent shadow-sm",
                 isToday && !isSel && isAvail && "ring-2 ring-accent/40 ring-offset-2 ring-offset-bg-panel",
               ]
                 .filter(Boolean)

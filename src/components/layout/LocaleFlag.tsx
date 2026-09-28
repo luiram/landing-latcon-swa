@@ -35,8 +35,8 @@ export function LocaleFlag({
 
   const frameClass =
     chrome === "minimal"
-      ? "rounded-[2px] ring-1 ring-neutral-800/10"
-      : "rounded-[3px] bg-neutral-200/40 shadow-[0_0_0_1px_rgba(0,0,0,0.08)]";
+      ? "rounded-[2px] ring-1 ring-text-strong/10"
+      : "rounded-[3px] bg-border-subtle/40 shadow-[0_0_0_1px_rgba(0,0,0,0.08)]";
 
   const inner = (viewBox: string, children: ReactNode) => (
     <span

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useLocale } from "@/context/LocaleProvider";
 import type { LocaleCode } from "@/lib/locales";
-import { Button } from "@/components/ui/Button";
+import { Boton } from "@/components/ui/Boton";
 import { BookingCalendar } from "@/features/booking/BookingCalendar";
 import { createAppointment, fetchSlots, type SlotsResponse } from "@/features/booking/bookingApi";
 import { formatDayCard, formatSlotFull, formatSlotLabel, formatSlotsLoadError, getBookingCopy } from "@/features/booking/bookingCopy";
@@ -79,19 +79,19 @@ function StepFooter({
       <div className="grid grid-cols-3 items-center gap-3">
         <div className="justify-self-start">
           {onBack ? (
-            <Button type="button" variant="secondary" disabled={backDisabled} onClick={onBack}>
+            <Boton type="button" variante="secundario" disabled={backDisabled} onClick={onBack}>
               {backLabel}
-            </Button>
+            </Boton>
           ) : null}
         </div>
-        <p className="justify-self-center text-center text-xs font-semibold uppercase tracking-[0.14em] text-text-muted">
+        <p className="justify-self-center text-center text-xs font-semibold uppercase tracking-eyebrow text-text-muted">
           {stepLabel}
         </p>
         <div className="justify-self-end">
-          <Button type="button" variant="primary" disabled={nextDisabled} onClick={onNext}>
+          <Boton type="button" variante="primario" disabled={nextDisabled} onClick={onNext}>
             {nextLoading ? <Spinner className="h-4 w-4" /> : null}
             {nextLabel}
-          </Button>
+          </Boton>
         </div>
       </div>
       {hint ? <ContinueHint text={hint} /> : null}
@@ -311,7 +311,7 @@ export function BookingWizard() {
                 type="button"
                 onClick={() => void loadSlots()}
                 disabled={slotsLoading}
-                className="rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-[transform,filter] hover:scale-[1.02] hover:brightness-95 disabled:opacity-60"
+                className="rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-on-accent shadow-sm transition-[transform,filter] hover:scale-[1.02] hover:brightness-95 disabled:opacity-60"
               >
                 {t.retrySlots}
               </button>
@@ -352,7 +352,7 @@ export function BookingWizard() {
                             onClick={() => setSelectedSlotStart(s.startUtc)}
                             className={`rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
                               sel
-                                ? "border-accent bg-accent text-white shadow-sm"
+                                ? "border-accent bg-accent text-on-accent shadow-sm"
                                 : "border-border-subtle bg-bg-warm text-text-primary hover:border-accent/35"
                             }`}
                           >

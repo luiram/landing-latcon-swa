@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Container } from "@/components/ui/Container";
+import { Contenedor } from "@/components/ui/Contenedor";
 import { cn } from "@/lib/cn";
 import type { EnlaceNav, GrupoNav } from "@/lib/navegacion";
 
@@ -29,7 +29,7 @@ const enlace =
 export function Footer({ columnas, legales, empresa, textos, anio }: FooterProps) {
   return (
     <footer className="border-t border-border-subtle bg-bg-page pb-8 pt-12 sm:pt-14">
-      <Container>
+      <Contenedor>
         <div className="grid gap-10 md:grid-cols-[minmax(0,1.3fr)_repeat(3,minmax(0,1fr))] md:gap-8">
           <div className="max-w-prose-narrow">
             <img src={empresa.logo} alt={empresa.logoAlt} className="h-11 w-auto" draggable={false} />
@@ -87,7 +87,7 @@ export function Footer({ columnas, legales, empresa, textos, anio }: FooterProps
             </p>
           </div>
         </div>
-      </Container>
+      </Contenedor>
     </footer>
   );
 }

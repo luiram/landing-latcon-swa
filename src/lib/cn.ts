@@ -3,7 +3,7 @@ import { extendTailwindMerge } from "tailwind-merge";
 
 /**
  * tailwind-merge debe conocer las escalas de src/app/globals.css. Si no, trata `text-body-sm`
- * como un color y descarta `text-white` al combinar clases. Mantener sincronizado con @theme.
+ * como un color y descarta el color de texto al combinar clases. Mantener sincronizado con @theme.
  */
 const twMerge = extendTailwindMerge({
   extend: {
@@ -35,11 +35,14 @@ const twMerge = extendTailwindMerge({
         "card-accent-hover",
         "control-inset",
         "control-hover",
+        "control-outline",
+        "dialog",
         "popover",
         "glass",
         "glass-scrolled",
         "glass-sm",
       ],
+      "text-shadow": ["glow", "display", "lead"],
       ease: ["out-soft"],
     },
   },

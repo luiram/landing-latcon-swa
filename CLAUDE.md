@@ -48,22 +48,22 @@ Ocho pasos con compuerta. No avanzar al siguiente sin aprobación del anterior. 
 
 ## Estado actual
 
-Actualizado: 2026-09-28 · Rama `sitio-web` · Siguiente: **paso 3**
+Actualizado: 2026-09-28 · Rama `sitio-web` · Siguiente: **paso 4**
 
 | Paso | Estado | Commit |
 |---|---|---|
 | 0 · Inventario | Aprobado | — (informe, sin cambios) |
 | 1 · Tokens, `CLAUDE.md`, ADR | Aprobado | `6d8975e` |
 | 2 · Chasis | Aprobado | `7ae5649` |
-| 3 · Las 8 secciones | **Siguiente.** Empezar presentando el plan (primitivas y piezas antes que secciones, ADR 0003) | — |
-| 4 a 8 | Pendientes | — |
+| 3 · Las 8 secciones | Aprobado. Home rearmado con las secciones, mismo contenido; catálogo en `/catalogo` | — |
+| 4 · Home ensamblado | **Siguiente.** Secuencia de §1.5: Hero · FranjaPrueba · GridDeTarjetas ×2 · Timeline compact · BandaCTA. Sale `About` | — |
+| 5 a 8 | Pendientes | — |
 
 **Decisiones abiertas**
 
 | Decisión | Dónde | Se cierra en |
 |---|---|---|
-| Sección sin datos no se renderiza (p. ej. el caso reservado) | ADR 0003 | Paso 3 |
-| `NavAnclas` y `EscaleraContextual` solo con variante `full` | ADR 0003 | Paso 3 |
+| Publicar o no `/catalogo` (hoy `noindex` y sin enlaces) | ADR 0003 | Paso 8 |
 | Ruta `/soluciones/zero-touch` o `/soluciones/agentes-ia` | docs/recomendaciones-sitio.md §1.6b | Paso 6 |
 | Avicultura en el primer lanzamiento | docs/contenido-sitio.md §9 | Paso 6 |
 | Recursos: cadencia editorial o fuera del sitio (hoy fuera del menú) | docs/recomendaciones-sitio.md Parte 5 | Paso 6 |
@@ -71,7 +71,7 @@ Actualizado: 2026-09-28 · Rama `sitio-web` · Siguiente: **paso 3**
 | Alinear la paleta de la web con la de las propuestas (`#152033`, `#16A34A`) | ADR 0002 | Decisión de marca, sin paso |
 | Subir `sitio-web` y `landing-v1` a GitHub (hoy solo locales) | ADR 0005 | Cuando se pida |
 
-**Conocido y aceptado:** los enlaces del menú y del footer a páginas que aún no existen dan 404 hasta los pasos 6 y 7. El error de lint en `src/app/global-error.tsx` ya estaba en `landing-v1`. `check:tokens` está en 222 (meta del paso 3: 0).
+**Conocido y aceptado:** los enlaces del menú y del footer a páginas que aún no existen dan 404 hasta los pasos 6 y 7. El error de lint en `src/app/global-error.tsx` ya estaba en `landing-v1`. `check:tokens -- --strict` pasa (0) y la paleta de Tailwind está desactivada: mantenerlo así. El home mide 5.824 px a 1440 (landing: 5.879) y tiene 992 palabras en `<main>`, las mismas que la landing: el recorte es del paso 4.
 
 ## Comandos
 
@@ -92,8 +92,9 @@ No hay suite de pruebas. La verificación visual contra `landing-v1` (capturas, 
 - Hosting: Azure Static Web Apps. `/agenda` llama a Azure Functions (`api/`) con SQL y correo ACS. Ver [docs/azure-swa.md](docs/azure-swa.md).
 - Tokens: `src/app/globals.css`. Primitivos en `:root` (`--c-*`), semánticos y escalas en `@theme`. Tailwind 4 no tiene `tailwind.config`. Toda escala nueva en `@theme` se registra también en `src/lib/cn.ts` (tailwind-merge).
 - Chasis: toda página se envuelve en `LayoutPagina` (`src/components/layout/`) y exporta sus metadatos con `metadatosPagina()` (`src/lib/metadatos.ts`). Rutas, menú, footer y breadcrumb salen de `src/config/sitio/mapa.ts`; datos legales de `src/config/sitio/empresa.ts`.
-- Contenido: `src/config/landing/{es,en,pt,fr}.ts` (`es.ts` reexporta `src/config/content.ts`). El idioma está fijo en español durante la construcción (`IDIOMA_FIJO` en `LocaleProvider`, ADR 0004); no hay rutas por idioma.
-- Componentes: `src/components/{layout,sections,ui,motion,analytics}`. Hoy las secciones leen su contenido con `useLandingContent()`; el paso 3 las convierte en componentes que reciben props.
+- Contenido: `src/config/landing/{es,en,pt,fr}.ts` (`es.ts` reexporta `src/config/content.ts`) y `src/config/sitio/`. Cada página importa su contenido y se lo pasa a las secciones como props. El idioma está fijo en español durante la construcción (`IDIOMA_FIJO` en `LocaleProvider`, ADR 0004); no hay rutas por idioma.
+- Componentes (ADR 0003): primitivas en `src/components/ui/`, piezas en `src/components/piezas/`, secciones en `src/components/sections/`, además de `layout`, `motion` y `analytics`. Ninguna sección conoce su contenido. Antes de crear un componente, revisar `/catalogo` (`npm run dev` → http://localhost:3000/catalogo).
+- Secciones: `variante="compact"` en el home y `"full"` en interiores. Con la lista vacía no se renderizan. Son componentes de servidor; solo `NavAnclas` y `Reveal` corren en el cliente.
 - Movimiento: `src/components/motion/Reveal.tsx` (aparición al hacer scroll).
 
 ## Despliegue

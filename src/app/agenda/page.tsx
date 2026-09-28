@@ -1,6 +1,6 @@
 import { LayoutPagina } from "@/components/layout/LayoutPagina";
 import { BookingWizard } from "@/features/booking/BookingWizard";
-import { Container } from "@/components/ui/Container";
+import { Contenedor } from "@/components/ui/Contenedor";
 import { metadatosPagina } from "@/lib/metadatos";
 import { RUTAS } from "@/config/sitio/mapa";
 
@@ -13,9 +13,9 @@ export const metadata = metadatosPagina({
 export default function AgendaPage() {
   return (
     <LayoutPagina ruta={RUTAS.agenda}>
-      <Container>
+      <Contenedor>
         <BookingWizard />
-      </Container>
+      </Contenedor>
     </LayoutPagina>
   );
 }

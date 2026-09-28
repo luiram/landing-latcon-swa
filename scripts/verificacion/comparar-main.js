@@ -17,7 +17,7 @@ async function capturarMain(browser, dir, port, width) {
   const ctx = await contextoAislado(browser, port, { viewport: { width, height: 900 } });
   const page = await ctx.newPage();
   await page.goto(`http://localhost:${port}${ruta}`, { waitUntil: "networkidle" });
-  await page.addStyleTag({ content: `${SIN_ANIMACIONES} header,.fixed{visibility:hidden!important}` });
+  await page.addStyleTag({ content: `${SIN_ANIMACIONES} .fixed{visibility:hidden!important}` });
   await recorrer(page);
   const buffer = await page.locator("main").screenshot();
   await ctx.close();

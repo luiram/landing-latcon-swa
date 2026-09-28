@@ -56,3 +56,22 @@ Los documentos comerciales (propuestas) usan `#152033` y `#16A34A`; la web usa o
   - `glass-edge` (blanco del borde del vidrio), `bg-tinted` (fondo de `/privacidad`) y las sombras `glass-scrolled` y `glass-sm`.
 - **`cn()` debe conocer las escalas.** `tailwind-merge` no lee `@theme`: sin configuración trataba `text-body-sm` como un color y descartaba `text-white` del botón. `src/lib/cn.ts` registra todas las escalas; cualquier escala nueva en `@theme` se agrega también ahí.
 - `check:tokens` al cerrar el paso 2: **222** (se eliminó `Navbar.tsx`; los archivos nuevos del chasis están en 0).
+
+## Adiciones · 2026-09-28 (paso 3)
+- **`check:tokens` en 0.** Se partió de 223, no de los 222 registrados; uno de ellos era un `text-white` dentro de un comentario de `cn.ts`.
+- **Paleta de Tailwind desactivada** (`--color-*: initial` en `@theme`), como pedía el punto 7. Verificado: 0 píxeles distintos en las cuatro páginas antes y después de desactivarla.
+- Tokens nuevos, todos con valores que ya estaban en el código:
+  - `on-dark`: bordes y rellenos sobre fondo oscuro (los `white/12`, `white/15`, `white/40` del hero y del botón inverso).
+  - Sombras `control-outline` (hover del botón secundario) y `dialog` (banner de cookies).
+  - Sombras de texto `glow`, `display` y `lead` del hero (`text-shadow-*`, Tailwind 4.1+).
+  - Utilidades `velo-fondo`, `velo-texto` y `velo-luz`: los once velos del hero, con los mismos valores y en el mismo orden, agrupados en tres capas. Son `@utility` en `globals.css` porque llevan `rgba()` literales.
+- **Valores sueltos que pasaron al token más cercano** (visibles en las capturas del paso 3):
+  - Titular del hero: 2.4–3.08rem en cuatro pasos → `display-sm` (42 px) y `display` (48 px) desde `lg`.
+  - Bajada del hero: 16.7–17.9 px → `body-lg` (18 px).
+  - Títulos de sección de 30/36 px → `heading-sm`/`heading-lg` (28/36 px).
+  - Título del cierre: 24/30 px → 24/28 px.
+  - Cuerpos con `leading-relaxed` (1.625) → `leading-body` (1.7).
+  - Bordes de "Lo que incluye" en teal y ámbar (uno por capacidad) → un solo borde azul (`blue-mid-1/25`) para los tres bloques.
+  - Selector de idioma (oculto, ADR 0004): los grises `stone` y `neutral` → `bg-elevated`, `text-strong` y `border-subtle`.
+  - Días de la semana del calendario de `/agenda`: 10.4 px → `label` (11 px). Micro-copy del banner de cookies: 10 px → 11 px.
+- Una utilidad de tamaño de texto sin interlineado propio hereda 1.5. Donde el elemento tenía la altura de `text-sm` o `text-xs` (botones, chips), se fija `leading-5` o `leading-4` para conservar la altura.
