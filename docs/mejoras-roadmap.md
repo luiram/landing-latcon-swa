@@ -15,7 +15,7 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 | I3 | Quitar URL `*.azurestaticapps.net` de CORS cuando no se use | P3 | [produccion.md](./produccion.md) |
 | I4 | ✅ Application Insights en Function App | P2 | Ya estaba conectado; alerta de fallas agregada 2026-07-03, ver [produccion.md](./produccion.md) |
 | I5 | Function Premium / mínimo de instancias (menos cold start) | P2 | Coste vs latencia en `/api/slots` |
-| I6 | SQL: revisar auto-pause / min vCores | P2 | Primera query lenta tras pausa |
+| I6 | ✅ SQL: revisar auto-pause / min vCores | P2 | Verificado 2026-09-27: `sqldb-latcon-booking` está en tier **Basic** (DTU), que no tiene auto-pause |
 
 ---
 
@@ -26,7 +26,7 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 | L1 | ✅ Comprimir imágenes `public/` (hero, soluciones, verticales) | P1 | Hecho 2026-07-03, ~53% menos peso |
 | L2 | ✅ `loading="lazy"` / Next Image con tamaños | P1 | Ya estaba implementado en su mayoría; se ajustó `priority` en Solutions |
 | L3 | Reducir JS inicial (revisar framer-motion por sección) | P2 | Home ~170 KB First Load JS |
-| L4 | Precarga solo hero; diferir resto | P3 | |
+| L4 | ✅ Precarga solo hero; diferir resto | P3 | Verificado 2026-09-27: solo `Hero.tsx` usa `priority`; el resto de `<Image>` carga en diferido (lazy por defecto) |
 | L5 | CDN/cache headers vía `staticwebapp.config.json` | P3 | |
 
 ---
@@ -35,7 +35,7 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 
 | ID | Mejora | Prioridad | Notas |
 |----|--------|-----------|--------|
-| A1 | Precargar slots al entrar en `/agenda` (no solo paso 2) | P2 | [agenda-operacion.md](./agenda-operacion.md) |
+| A1 | ✅ Precargar slots al entrar en `/agenda` (no solo paso 2) | P2 | Verificado 2026-09-27: `BookingWizard.tsx` llama `loadSlots()` al montar en el paso 1. [agenda-operacion.md](./agenda-operacion.md) |
 | A2 | ✅ Spinner / mensaje claro «Cargando horarios…» + errores amigables | P1 | Spinner ya existía; **2026-08-07:** mensajes sin jerga de CORS/Azure, botón reintentar, WhatsApp de contacto (`bookingCopy.ts` / `BookingWizard.tsx`) |
 | A3 | Caché corta de respuesta `slots` (CDN o API) | P3 | Invalidar al crear cita |
 | A4 | Keep-alive / health ping programado | P3 | Reduce cold start (coste) |
@@ -88,7 +88,7 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 | D1 | Workflow separado para deploy API en `main` | P2 | Hoy manual |
 | D2 | `docs/desarrollo-local.md` (opcional) | P3 | Azurite + func + SQL |
 | D3 | Tests e2e Playwright en `/agenda` | P3 | |
-| D4 | Enlazar `docs/README.md` en README raíz | P1 | Hecho al crear docs |
+| D4 | ✅ Enlazar `docs/README.md` en README raíz | P1 | Hecho al crear docs |
 
 ---
 
@@ -98,7 +98,7 @@ Mejoras recomendadas para la landing Latcon y el flujo de agenda (Fase 1+). Prio
 |----|--------|-----------|--------|
 | X1 | Rotación periódica token SWA GitHub | P3 | |
 | X2 | ✅ Rate limit en `POST /api/appointments` | P2 | Código 2026-07-03, publicado en prod 2026-07-05 (5/hora por IP, en memoria — límite por instancia, no global; ver [email-acs.md](./email-acs.md) / `api/src/lib/rateLimit.ts`) |
-| X3 | Revisar que secrets no estén en logs CI | P2 | Solo length en workflow ✓ |
+| X3 | ✅ Revisar que secrets no estén en logs CI | P2 | Solo length en workflow ✓ |
 
 ---
 

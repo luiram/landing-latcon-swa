@@ -87,7 +87,7 @@ Utility: `src/lib/cn.ts` wraps `clsx` + `tailwind-merge`.
 ## Contexto del proyecto
 Landing page de Latcon Services (latconservices.com).
 Emprendimiento nuevo con equipo de 3 personas:
-- 1 consultora con +5 años en implementación de estrategia y gestión por resultados
+- 1 consultor con +5 años en implementación de estrategia y gestión por resultados
 - 2 desarrolladores con +10 años en automatización, ML, visión computacional, geolocalización y sistemas multiagente
 
 ## Meta comercial
