@@ -70,3 +70,10 @@ El ritmo vertical sale de los tokens `section-*`: `compact` usa 80/96/112 px y `
 - `LatconLogo.tsx`, `Card.tsx` y el hook `useLandingContent` se eliminaron: ya no los usaba nadie.
 - Catálogo interno en `/catalogo` (`noindex`, fuera del menú, del footer y del sitemap), con contenido real de `docs/contenido-sitio.md`. Su publicación se decide en el paso 8.
 - Las secciones son componentes de servidor; solo `NavAnclas` y `Reveal` corren en el cliente. El JS inicial del home bajó de 189 kB a 160 kB.
+
+## Paso 4 · 2026-09-28
+El home se armó sin componentes nuevos. Dos ajustes de piezas existentes:
+- `Paso`: el texto es opcional, porque `Timeline` compact muestra solo el nombre de la etapa.
+- `Tarjeta`: el enlace va al pie de la tarjeta, así que en una fila los enlaces quedan alineados aunque los textos tengan distinto largo.
+
+`About.tsx` se eliminó. Como el home ya no usa `GridDeTarjetas` con densidad normal, `TextoConImagen` compact ni `Timeline` full, esas variantes pasaron a tener muestra en `/catalogo`.

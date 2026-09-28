@@ -1,11 +1,10 @@
 /**
  * Contenido de ejemplo del catálogo de secciones (/catalogo, página interna, noindex).
- * Todo sale de docs/contenido-sitio.md o del contenido de la landing: no hay cifras, casos
+ * Todo sale de docs/contenido-sitio.md: no hay cifras, casos
  * ni clientes inventados. La página interior de ejemplo es /soluciones/visibilidad-operativa.
  */
-import { ESCALONES, RUTAS, SECTORES } from "./mapa";
-
-const [energia, agroindustria, avicultura, floricultura] = SECTORES;
+import { INICIO } from "./inicio";
+import { ESCALONES } from "./mapa";
 
 export const CATALOGO = {
   titulo: "Catálogo de secciones",
@@ -71,59 +70,9 @@ export const CATALOGO = {
     },
   ],
 
-  dondeTrabajamos: {
-    encabezado: {
-      titulo: "Dónde ya trabajamos",
-      bajada:
-        "Operaciones industriales y agroindustriales, en campo y con conectividad intermitente. No llegamos a aprender su sector con su presupuesto.",
-    },
-    items: [
-      {
-        titulo: energia.etiqueta,
-        linea: "Eventos de operación, producción diferida e indicadores comparables entre campos",
-        ruta: energia.ruta,
-      },
-      {
-        titulo: agroindustria.etiqueta,
-        linea: "Cacao, aguacate y flores: captura en campo, trazabilidad y automatización de riego",
-        ruta: agroindustria.ruta,
-      },
-      { titulo: avicultura.etiqueta, linea: "Indicadores de lote capturados donde ocurren", ruta: avicultura.ruta },
-      {
-        titulo: floricultura.etiqueta,
-        linea: "Condiciones de invernadero y productividad por unidad de cultivo",
-        ruta: floricultura.ruta,
-      },
-    ],
-  },
-
-  familias: {
-    encabezado: {
-      titulo: "Casi nadie necesita todo. Casi todos necesitan lo siguiente.",
-      bajada:
-        "Seis etapas en orden. La mayoría entra por la que le duele hoy, y avanza desde ahí. Nadie salta escalones: sin dato capturado no hay tablero, y sin tablero no hay predicción que sirva.",
-    },
-    tarjetas: [
-      {
-        titulo: "Definir y medir",
-        texto: "De la estrategia en el papel al indicador que alguien mira el lunes",
-        pie: "Escalón 1",
-        enlace: { etiqueta: "Ver la etapa →", ruta: RUTAS.estrategia },
-      },
-      {
-        titulo: "Capturar y ver",
-        texto: "Del cuaderno en el campo al tablero que se actualiza solo",
-        pie: "Escalones 2 · 3",
-        enlace: { etiqueta: "Ver las etapas →", ruta: RUTAS.captura },
-      },
-      {
-        titulo: "Automatizar y decidir",
-        texto: "De reaccionar cuando ya pasó a que no vuelva a pasar",
-        pie: "Escalones 4 · 5 · 6",
-        enlace: { etiqueta: "Ver las etapas →", ruta: RUTAS.automatizacion },
-      },
-    ],
-  },
-
-  metodoEnlace: { etiqueta: "Ver el método completo →", ruta: RUTAS.metodo },
+  /** Mismos bloques que el home: el catálogo muestra el contenido real, no una copia. */
+  dondeTrabajamos: INICIO.dondeTrabajamos,
+  familias: INICIO.soluciones,
+  metodo: INICIO.metodo,
+  cierre: INICIO.cierre,
 } as const;

@@ -75,7 +75,7 @@ export function Tarjeta({
         </p>
       ) : null}
       {enlace ? (
-        <Enlace href={enlace.ruta} className={compacta ? "mt-3" : "mt-5"}>
+        <Enlace href={enlace.ruta} className={cn("mt-auto self-start", compacta ? "pt-3" : "pt-5")}>
           {enlace.etiqueta}
         </Enlace>
       ) : null}

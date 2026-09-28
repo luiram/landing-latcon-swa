@@ -15,8 +15,9 @@ import { CTA_PRINCIPAL } from "@/config/sitio/mapa";
 
 /**
  * Catálogo interno de secciones (ADR 0003). No está en el menú, el footer ni el sitemap.
- * Muestra cada sección con sus variantes. Las variantes del home (Hero compact, GridDeTarjetas
- * normal, TextoConImagen compact, Timeline full) se ven en `/`. Su publicación se decide en el paso 8.
+ * Muestra cada sección con sus variantes; Hero compact se ve en el home. Las muestras con el detalle
+ * de la landing (dolores, capacidades, método completo) usan su contenido, que irá a las páginas
+ * interiores. Su publicación se decide en el paso 8.
  */
 export const metadata: Metadata = {
   title: `${CATALOGO.titulo} — Latcon`,
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
 };
 
 export default function CatalogoPage() {
-  const { process, finalCta } = landingContentEs;
+  const { audience, solutions, process } = landingContentEs;
 
   return (
     <LayoutPagina ruta="/catalogo">
@@ -55,30 +56,51 @@ export default function CatalogoPage() {
       <Muestra nombre="GridDeTarjetas · compact, 3 columnas" />
       <GridDeTarjetas variante="compact" columnas={3} {...CATALOGO.familias} />
 
+      <Muestra nombre="GridDeTarjetas · compact, 2 columnas, densidad normal (dolores con descripción)" />
+      <GridDeTarjetas
+        variante="compact"
+        columnas={2}
+        densidad="normal"
+        encabezado={{ antetitulo: audience.eyebrow, titulo: audience.title }}
+        tarjetas={audience.profiles.map((p) => ({ titulo: p.title, texto: p.description, cita: p.quote, pie: p.sectors }))}
+      />
+
+      <Muestra nombre="TextoConImagen · compact, numerado" />
+      <TextoConImagen
+        variante="compact"
+        numerado
+        encabezado={{ antetitulo: solutions.eyebrow, titulo: solutions.title, bajada: solutions.intro }}
+        etiquetaLista={solutions.includesLabel}
+        etiquetaResultado={solutions.resultLabel}
+        bloques={solutions.capabilities.map((c) => ({
+          titulo: c.title,
+          texto: c.body,
+          imagen: { src: c.image, alt: c.imageAlt },
+          lista: c.includes,
+          resultado: c.result,
+        }))}
+      />
+
       <Muestra nombre="GridDeTarjetas · sin tarjetas: no se renderiza" />
       <GridDeTarjetas tarjetas={[]} />
 
       <Muestra nombre="Timeline · compact" />
+      <Timeline id="metodo" variante="compact" {...CATALOGO.metodo} />
+
+      <Muestra nombre="Timeline · full" />
       <Timeline
-        id="metodo"
-        variante="compact"
-        encabezado={{ titulo: process.title, bajada: process.intro }}
-        pasos={process.steps.map((s) => ({ titulo: s.title, texto: s.body }))}
-        enlace={CATALOGO.metodoEnlace}
+        variante="full"
+        encabezado={{ antetitulo: process.eyebrow, titulo: process.title, bajada: process.intro }}
+        etiquetaResultado={process.resultLabel}
+        pasos={process.steps.map((s) => ({ titulo: s.title, texto: s.body, resultado: s.result }))}
+        cierre={process.closing}
       />
 
       <Muestra nombre="BandaCTA · full" />
-      <BandaCTA
-        id="cierre"
-        variante="full"
-        titulo={finalCta.title}
-        texto={finalCta.body}
-        cta={CTA_PRINCIPAL}
-        nota={finalCta.ctaReassurance}
-      />
+      <BandaCTA id="cierre" variante="full" {...CATALOGO.cierre} />
 
       <Muestra nombre="BandaCTA · compact" />
-      <BandaCTA titulo={finalCta.title} cta={CTA_PRINCIPAL} nota={finalCta.ctaReassurance} />
+      <BandaCTA titulo={CATALOGO.cierre.titulo} cta={CATALOGO.cierre.cta} nota={CATALOGO.cierre.nota} />
     </LayoutPagina>
   );
 }
