@@ -7,6 +7,7 @@ Ver también: [CLAUDE.md](CLAUDE.md)
 
 ## Preferencias del cliente
 - Todos los cambios se deben aplicarse en ES, en, PT y FR
+- Excepción: el sitio nuevo (rama `sitio-web`) se construye solo en español y se traduce al final, cuando todo funcione (ver [docs/decisiones/0004-idiomas.md](docs/decisiones/0004-idiomas.md)).
 
 ---
 

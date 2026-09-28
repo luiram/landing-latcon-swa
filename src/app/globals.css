@@ -1,29 +1,151 @@
 @import "tailwindcss";
 
+/*
+ * Sistema de diseño LATCON · tokens
+ * Decisión: docs/decisiones/0002-tokens-extraidos-del-css.md
+ *
+ * Tres niveles, en este orden de dependencia:
+ *   1. Primitivos (:root, prefijo --c-*)  → los valores crudos extraídos del sitio publicado.
+ *      Ningún componente los usa directo. No generan utilidades de Tailwind.
+ *   2. Semánticos (@theme, --color-*)      → el rol del color. Es lo que usan los componentes.
+ *   3. Escalas (@theme)                    → tipografía, interlineado, tracking, anchos,
+ *      espaciado de sección, radios, sombras y movimiento.
+ *
+ * Regla: ningún hex, rgb() ni rgba() fuera de este archivo. Verificación: npm run check:tokens
+ */
+
+/* ── 1 · Primitivos ─────────────────────────────────────────────────────── */
+:root {
+  /* Neutros */
+  --c-white: #ffffff;
+  --c-sand-50: #fffdfa; /* blanco cálido de superficies translúcidas (navbar, banner) */
+  --c-sand-100: #f7f4f2; /* fondo cálido de página */
+  --c-gray-600: #65666c; /* texto secundario */
+  --c-gray-700: #4a4b50; /* texto principal */
+  --c-gray-shadow: #595a5d; /* solo sombras de reposo */
+  --c-ink-950: #101012; /* casi negro del hero */
+  --c-black: #000000; /* solo sombras y velos */
+
+  /* Azules grisáceos */
+  --c-blue-500: #567ba5;
+  --c-blue-600: #4b688c;
+
+  /* Naranjas: UI y marca son valores distintos a propósito (ADR 0002) */
+  --c-orange-500: #f58220; /* acento de interfaz: CTA, etiquetas, foco */
+  --c-orange-logo: #ff6a00; /* solo el logo; no usar en interfaz */
+  --c-charcoal-logo: #2b2f33; /* solo el logo; no usar en interfaz */
+
+  /* Movimiento (sin espacio de nombres en Tailwind) */
+  --duration-fast: 200ms;
+  --duration-base: 300ms;
+  --duration-reveal: 520ms;
+}
+
+/* ── 2 y 3 · Semánticos y escalas ───────────────────────────────────────── */
 @theme {
-  --color-bg-page: #ffffff;
-  --color-bg-warm: #f7f4f2;
-  --color-bg-panel: #ffffff;
-  --color-bg-elevated: #f7f4f2;
-  --color-bg-deep: #f7f4f2;
+  /* Superficies */
+  --color-bg-page: var(--c-white);
+  --color-bg-warm: var(--c-sand-100);
+  --color-bg-panel: var(--c-white);
+  --color-bg-elevated: var(--c-sand-100);
+  --color-bg-inverse: var(--c-ink-950);
+  --color-bg-glass: var(--c-sand-50); /* se usa con opacidad: bg-bg-glass/70 */
 
-  --color-blue-mid-1: #567ba5;
-  --color-blue-mid-2: #4b688c;
-  --color-accent-deep: #4b688c;
+  /* Azules */
+  --color-blue-mid-1: var(--c-blue-500);
+  --color-blue-mid-2: var(--c-blue-600);
 
-  --color-accent: #f58220;
+  /* Acento */
+  --color-accent: var(--c-orange-500);
+  --color-on-accent: var(--c-white);
 
-  /* Un poco más oscuros para mejor legibilidad sobre fondos claros (AA en cuerpo pequeño). */
-  --color-text-primary: #4a4b50;
-  --color-text-muted: #65666c;
+  /* Texto */
+  --color-text-primary: var(--c-gray-700);
+  --color-text-muted: var(--c-gray-600);
+  --color-text-on-dark: var(--c-white);
+  --color-text-on-dark-muted: rgba(255, 255, 255, 0.88); /* --c-white al 88 % */
 
-  --color-text-on-dark: #ffffff;
-  --color-text-on-dark-muted: rgba(255, 255, 255, 0.88);
+  /* Bordes y velos */
+  --color-border-subtle: rgba(74, 75, 80, 0.16); /* --c-gray-700 al 16 % */
+  --color-overlay: var(--c-black); /* velos sobre imagen; se usa con opacidad */
 
-  --color-border-subtle: rgba(74, 75, 80, 0.16);
-  /* Misma familia que apple.com: San Francisco vía sistema en Apple; Segoe UI en Windows. */
+  /* Marca: solo para el logo */
+  --color-brand-orange: var(--c-orange-logo);
+  --color-brand-charcoal: var(--c-charcoal-logo);
+
+  /* Tipografía: fuente del sistema (ADR 0002) */
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
     "Noto Sans", sans-serif;
+
+  /* Escala tipográfica por rol. Consolida los ~40 tamaños en uso. */
+  --text-label: 0.6875rem; /* 11px · antetítulos en mayúscula, rótulos */
+  --text-caption: 0.75rem; /* 12px · micro-copy, notas */
+  --text-small: 0.8125rem; /* 13px · cuerpo de tarjeta compacta */
+  --text-body-sm: 0.875rem; /* 14px · cuerpo secundario */
+  --text-body: 0.9375rem; /* 15px · cuerpo de sección */
+  --text-body-lg: 1.125rem; /* 18px · bajada del hero, intro destacada */
+  --text-title-sm: 1.125rem; /* 18px · título de tarjeta */
+  --text-title: 1.5rem; /* 24px · título de bloque */
+  --text-heading-sm: 1.75rem; /* 28px · título de sección, móvil */
+  --text-heading: 2rem; /* 32px · título de sección */
+  --text-heading-lg: 2.25rem; /* 36px · título de sección destacado */
+  --text-display-sm: 2.625rem; /* 42px · titular del hero, móvil */
+  --text-display: 3rem; /* 48px · titular del hero */
+
+  /* Interlineado por rol */
+  --leading-display: 1.1;
+  --leading-heading: 1.2;
+  --leading-title: 1.375;
+  --leading-body: 1.7;
+  --leading-body-loose: 1.92;
+
+  /* Tracking por rol */
+  --tracking-display: 0;
+  --tracking-heading: -0.02em;
+  --tracking-title: -0.015em;
+  --tracking-label: 0.12em;
+  --tracking-eyebrow: 0.14em;
+
+  /* Anchos de lectura y de página */
+  --container-prose-narrow: 34rem;
+  --container-prose: 38rem;
+  --container-prose-wide: 42rem;
+  --container-page: 75rem; /* 1200px, el Container actual */
+
+  /* Espaciado vertical de sección: compacto (home) · normal · amplio (interiores) */
+  --spacing-section-sm: 5rem;
+  --spacing-section-md: 6rem;
+  --spacing-section-lg: 7rem;
+
+  /* Radios por rol */
+  --radius-control: 0.5rem; /* botones, campos */
+  --radius-card-sm: 0.75rem; /* tarjetas pequeñas */
+  --radius-card: 1rem; /* tarjetas y bloques con imagen */
+  --radius-pill: 9999px; /* etiquetas, chips, navbar */
+
+  /* Elevación: consolida las 23 sombras sueltas.
+     Los colores con transparencia van como rgba literal, no como color-mix() ni rgb(from …):
+     Chrome los redondea distinto y la paridad visual se pierde (ADR 0002). Cada rgba
+     corresponde a un primitivo de arriba, indicado en el comentario del bloque. */
+  --shadow-card: 0 1px 3px rgba(89, 90, 93, 0.06);
+  --shadow-card-hover:
+    0 14px 44px -22px rgba(75, 104, 140, 0.2),
+    0 0 0 1px rgba(86, 123, 165, 0.08);
+  --shadow-card-accent: 0 1px 3px rgba(245, 130, 32, 0.07);
+  --shadow-card-accent-hover: 0 14px 44px -22px rgba(245, 130, 32, 0.12);
+  --shadow-control-inset: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  --shadow-control-hover: 0 12px 36px -14px rgba(245, 130, 32, 0.42);
+  --shadow-popover:
+    0 20px 50px -16px rgba(75, 104, 140, 0.22),
+    0 8px 24px -8px rgba(0, 0, 0, 0.08);
+  --shadow-glass:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.92),
+    0 1px 2px rgba(255, 255, 255, 0.22),
+    0 4px 32px -6px rgba(0, 0, 0, 0.13),
+    0 1px 4px rgba(0, 0, 0, 0.05);
+
+  /* Movimiento */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html {

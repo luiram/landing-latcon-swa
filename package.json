@@ -9,7 +9,8 @@
     "build:all": "npm run build && npm run build:api",
     "start": "next start",
     "lint": "next lint",
-    "preview:out": "npx --yes serve@14 out -p 3000"
+    "preview:out": "npx --yes serve@14 out -p 3000",
+    "check:tokens": "node scripts/check-tokens.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

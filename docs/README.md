@@ -32,6 +32,18 @@
 
 ---
 
+## Sitio web (en construcción, rama `sitio-web`)
+
+| Documento | Contenido |
+|-----------|-----------|
+| [**recomendaciones-sitio.md**](./recomendaciones-sitio.md) | Arquitectura: mapa de 21 páginas, 3 familias, sistema de diseño en 3 capas |
+| [**contenido-sitio.md**](./contenido-sitio.md) | Copy de cada página y reglas de redacción de la escalera |
+| [**brief-drones.md**](./brief-drones.md) | Línea de drones |
+| [**buenas-practicas-desarrollo.md**](./buenas-practicas-desarrollo.md) | Procedimiento de desarrollo LATCON |
+| [**decisiones/**](./decisiones/) | ADR: por qué se decidió cada cosa |
+
+---
+
 ## Guías por tema
 
 ### Despliegue e infraestructura
