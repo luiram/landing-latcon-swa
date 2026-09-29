@@ -135,3 +135,6 @@ export const PAGINAS: Readonly<Record<string, PaginaMapa>> = {
   [RUTAS.privacidad]: { etiqueta: "Privacidad", padre: RUTAS.inicio },
   [RUTAS.tratamientoDatos]: { etiqueta: "Tratamiento de datos", padre: RUTAS.inicio },
 };
+
+/** Registradas en el mapa pero sin página todavía: quedan fuera de sitemap.xml (paso 6: /recursos). */
+export const PAGINAS_SIN_PUBLICAR: readonly string[] = [RUTAS.recursos];

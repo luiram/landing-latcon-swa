@@ -5,8 +5,9 @@ import { metadatosPagina } from "@/lib/metadatos";
 import { RUTAS } from "@/config/sitio/mapa";
 
 export const metadata = metadatosPagina({
-  titulo: "Agendar conversación",
-  descripcion: "Reserva una reunión con Latcon.",
+  titulo: "Agenda tu diagnóstico gratuito",
+  descripcion:
+    "Elige fecha y hora para un diagnóstico de 30 minutos, sin compromiso: revisamos cómo fluye tu operación y te damos una recomendación concreta.",
   ruta: RUTAS.agenda,
 });
 

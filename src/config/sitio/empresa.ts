@@ -8,6 +8,8 @@ export const EMPRESA = {
   nit: "NIT 901.229.904-6",
   regimen: "Responsable de IVA",
   direccion: "Cra 7 Este 7-100, Cajicá, Cundinamarca, Colombia",
+  /** La misma dirección por partes, para los datos estructurados (schema.org PostalAddress). */
+  direccionPostal: { calle: "Cra 7 Este 7-100", ciudad: "Cajicá", region: "Cundinamarca", pais: "CO" },
   telefono: "+57 318 397 1073",
   telefonoHref: "tel:+573183971073",
   correo: "contacto@latconservices.com",

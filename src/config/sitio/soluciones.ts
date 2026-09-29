@@ -19,7 +19,8 @@ export type PaginaEscalon = {
   numero: number;
   /** Regla 1: "de X a Y", nunca una categoría. */
   titulo: string;
-  metadatos: { descripcion: string };
+  /** El título empieza por el nombre del escalón (Regla 3) y sigue con lo que se busca. */
+  metadatos: { titulo: string; descripcion: string };
   dondeEstas: string;
   queConstruimos: { intro?: string; items: readonly string[]; imagen?: DatosImagen; enlace?: EnlaceNav };
   loQueCambia: string;
@@ -37,7 +38,10 @@ const ESTRATEGIA: PaginaEscalon = {
   slug: slugDe(RUTAS.estrategia),
   numero: 1,
   titulo: "De la estrategia en el papel al indicador que alguien mira el lunes",
-  metadatos: { descripcion: "Despliegue de objetivos, diseño de indicadores y rutina de gestión que produce acciones." },
+  metadatos: {
+    titulo: "Definir qué medir: diseño de indicadores de gestión",
+    descripcion: "Despliegue de objetivos, diseño de indicadores y rutina de gestión que produce acciones.",
+  },
   dondeEstas:
     "Hay objetivos definidos, hay reuniones de seguimiento, y aun así nadie sabe con certeza si el mes va bien. Cada área lleva sus propios números y ninguno se puede comparar con el otro.",
   queConstruimos: {
@@ -66,7 +70,10 @@ const CAPTURA: PaginaEscalon = {
   slug: slugDe(RUTAS.captura),
   numero: 2,
   titulo: "Del dato que nace y se pierde al dato que llega",
-  metadatos: { descripcion: "Sensores y actuadores, captura móvil que funciona sin señal y drones." },
+  metadatos: {
+    titulo: "Capturar el dato: sensores y captura sin señal",
+    descripcion: "Sensores y actuadores, captura móvil que funciona sin señal y drones.",
+  },
   dondeEstas:
     "Ya sabe qué quiere medir. El problema es que el dato nace en un cuaderno, en un WhatsApp o en la cabeza de alguien, y todo lo que viene después hereda ese vacío.",
   queConstruimos: {
@@ -92,7 +99,10 @@ const VISIBILIDAD: PaginaEscalon = {
   slug: slugDe(RUTAS.visibilidad),
   numero: 3,
   titulo: "Del reporte que llega tarde a la señal que llega a tiempo",
-  metadatos: { descripcion: "Fuentes conectadas, tableros en tiempo real y alertas antes de que el problema sea visible." },
+  metadatos: {
+    titulo: "Ver lo que pasa: tableros y alertas en tiempo real",
+    descripcion: "Fuentes conectadas, tableros en tiempo real y alertas antes de que el problema sea visible.",
+  },
   dondeEstas:
     "El dato existe y está capturado, pero vive en varios sistemas y consolidarlo es trabajo de alguien todas las semanas.",
   queConstruimos: {
@@ -123,7 +133,10 @@ const AUTOMATIZACION: PaginaEscalon = {
   slug: slugDe(RUTAS.automatizacion),
   numero: 4,
   titulo: "Del proceso que depende de alguien al proceso que corre solo",
-  metadatos: { descripcion: "Flujos automáticos y trazables, sistemas integrados y agentes de IA para tareas repetitivas." },
+  metadatos: {
+    titulo: "Automatizar: flujos e integración de sistemas",
+    descripcion: "Flujos automáticos y trazables, sistemas integrados y agentes de IA para tareas repetitivas.",
+  },
   dondeEstas: "Ya ve lo que pasa. El problema es que entre verlo y que algo cambie hay tres personas, dos correos y un archivo.",
   queConstruimos: {
     intro:
@@ -153,7 +166,10 @@ const PREDICCION: PaginaEscalon = {
   slug: slugDe(RUTAS.prediccion),
   numero: 5,
   titulo: "De explicar lo que pasó a saber lo que viene",
-  metadatos: { descripcion: "Modelos predictivos, sistemas que aprenden de la operación y análisis visual automatizado." },
+  metadatos: {
+    titulo: "Anticipar: modelos predictivos y visión artificial",
+    descripcion: "Modelos predictivos, sistemas que aprenden de la operación y análisis visual automatizado.",
+  },
   dondeEstas: "Los tableros ya explican bien el mes anterior. Lo que falta es enterarse antes, no después.",
   queConstruimos: {
     intro:
@@ -187,7 +203,10 @@ const AGENTES_IA: PaginaEscalon = {
   slug: slugDe(RUTAS.agentesIa),
   numero: 6,
   titulo: "De la alerta que alguien tiene que atender al caso que se cierra solo",
-  metadatos: { descripcion: "Agentes de IA que detectan, deciden, ejecutan y cierran el caso, con control y trazabilidad." },
+  metadatos: {
+    titulo: "Resolver solo: agentes de IA para la operación",
+    descripcion: "Agentes de IA que detectan, deciden, ejecutan y cierran el caso, con control y trazabilidad.",
+  },
   dondeEstas:
     "El sistema ya avisa a tiempo y con buen criterio. Pero cada aviso sigue consumiendo el tiempo de una persona, y son muchos avisos.",
   queConstruimos: {
@@ -254,7 +273,7 @@ export function tarjetaPaso(antetitulo: string, paso: Paso) {
 export const DRONES = {
   ruta: RUTAS.drones,
   metadatos: {
-    titulo: "Drones",
+    titulo: "Drones agrícolas: pulverización y monitoreo",
     descripcion: "Pulverización agrícola, monitoreo RGB y multiespectral, posicionamiento de alta precisión y datos que se vuelven decisiones.",
   },
   hero: {

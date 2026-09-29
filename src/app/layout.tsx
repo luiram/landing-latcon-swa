@@ -6,6 +6,8 @@ import { LocaleProvider } from "@/context/LocaleProvider";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { CookieConsentBanner } from "@/components/analytics/CookieConsentBanner";
 import { Instrumentacion } from "@/components/analytics/Instrumentacion";
+import { EMPRESA } from "@/config/sitio/empresa";
+import { SITIO } from "@/lib/metadatos";
 
 const defaultSite = getSiteContent("es");
 
@@ -27,11 +29,21 @@ export const metadata: Metadata = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Latcon",
-  url: "https://latconservices.com",
-  logo: "https://latconservices.com/logo/logo_latcon.svg",
+  name: EMPRESA.marca,
+  legalName: EMPRESA.razonSocial,
+  taxID: EMPRESA.nit.replace(/^NIT\s*/, ""),
+  url: SITIO,
+  logo: `${SITIO}${EMPRESA.logo}`,
   description: defaultSite.metadataDescription,
-  email: "contacto@latconservices.com",
+  email: EMPRESA.correo,
+  telephone: EMPRESA.telefono,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: EMPRESA.direccionPostal.calle,
+    addressLocality: EMPRESA.direccionPostal.ciudad,
+    addressRegion: EMPRESA.direccionPostal.region,
+    addressCountry: EMPRESA.direccionPostal.pais,
+  },
   areaServed: "CO",
 };
 

@@ -1,14 +1,15 @@
 import type { MetadataRoute } from "next";
+import { PAGINAS, PAGINAS_SIN_PUBLICAR } from "@/config/sitio/mapa";
+import { urlAbsoluta } from "@/lib/metadatos";
 
 export const dynamic = "force-static";
 
-const baseUrl = "https://latconservices.com";
-
+/**
+ * Sale del mapa del sitio: toda página registrada en PAGINAS entra, salvo las que aún no existen.
+ * /catalogo no está en el mapa (noindex, ADR 0003). Sin prioridad ni frecuencia: Google las ignora.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
-  return [
-    { url: baseUrl, lastModified, changeFrequency: "weekly", priority: 1 },
-    { url: `${baseUrl}/agenda`, lastModified, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/privacidad`, lastModified, changeFrequency: "yearly", priority: 0.3 },
-  ];
+  return Object.keys(PAGINAS)
+    .filter((ruta) => !PAGINAS_SIN_PUBLICAR.includes(ruta))
+    .map((ruta) => ({ url: urlAbsoluta(ruta) }));
 }

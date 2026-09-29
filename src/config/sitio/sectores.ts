@@ -63,7 +63,7 @@ const ENERGIA: PaginaSector = {
   linea: "Eventos de operación, producción diferida e indicadores comparables entre campos",
   empieza: 2,
   metadatos: {
-    titulo: "Energía, petróleo y gas",
+    titulo: "Energía, petróleo y gas: indicadores de operación",
     descripcion: "Eventos de operación, producción diferida e indicadores comparables entre campos.",
   },
   hero: {
@@ -116,7 +116,7 @@ const AGROINDUSTRIA: PaginaSector = {
   linea: "Cacao, aguacate y flores: captura en campo, trazabilidad y automatización de riego",
   empieza: 2,
   metadatos: {
-    titulo: "Agroindustria",
+    titulo: "Agroindustria: trazabilidad y captura en campo",
     descripcion: "Captura en campo sin señal, trazabilidad para certificación, drones y riego automatizado.",
   },
   hero: {
@@ -182,7 +182,7 @@ const AVICULTURA: PaginaSector = {
   linea: "Indicadores de lote capturados donde ocurren",
   empieza: 3,
   metadatos: {
-    titulo: "Avicultura",
+    titulo: "Avicultura: conversión y mortalidad por lote",
     descripcion: "Conversión, mortalidad y consumo comparables entre lotes, con alertas durante el lote.",
   },
   hero: {
@@ -225,7 +225,7 @@ const FLORICULTURA: PaginaSector = {
   linea: "Condiciones de invernadero y productividad por unidad de cultivo",
   empieza: 2,
   metadatos: {
-    titulo: "Floricultura",
+    titulo: "Floricultura: monitoreo de invernadero y labores",
     descripcion: "Condiciones de invernadero, labores por bloque y productividad por unidad de cultivo.",
   },
   hero: {

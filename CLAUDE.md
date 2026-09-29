@@ -49,7 +49,7 @@ Ocho pasos con compuerta. No avanzar al siguiente sin aprobación del anterior. 
 
 ## Estado actual
 
-Actualizado: 2026-09-29 · Rama `sitio-web` · Siguiente: **paso 7c**
+Actualizado: 2026-09-29 · Rama `sitio-web` · Siguiente: **paso 8**
 
 | Paso | Estado | Commit |
 |---|---|---|
@@ -63,9 +63,9 @@ Actualizado: 2026-09-29 · Rama `sitio-web` · Siguiente: **paso 7c**
 | 6b · `/soluciones` y sus 7 páginas | Aprobado. Seis escalones con una sola ruta (`/soluciones/[escalon]`), drones y overview; contenido en `src/config/sitio/soluciones.ts` | `4490d6f` |
 | 6c · `/metodo`, `/nosotros`, `/desarrollo-a-la-medida` | Aprobado. Contenido en `src/config/sitio/empresa-paginas.ts`; `/desarrollo-a-la-medida` solo texto hasta tener capturas propias | `ab1df69` |
 | 7a · Legal | Aprobado. `/tratamiento-de-datos` y `/privacidad` con contenido en `src/config/sitio/legal.ts`; casilla de autorización en `/agenda`; migración `db/migrations/002_autorizacion_y_origen.sql` y la API guarda la autorización | `4112b59` |
-| 7b · Instrumentación | Aprobado. Origen de la visita (UTM, página de entrada, referente) en `sessionStorage` y en la reserva; eventos de GA4 (`cta_click`, `scroll_depth`, embudo de `/agenda`); convención en `docs/utm.md` | este commit |
-| 7c · SEO por página | Pendiente. Sitemap desde `mapa.ts`, imagen OG en interiores, JSON-LD | — |
-| 8 | Pendiente | — |
+| 7b · Instrumentación | Aprobado. Origen de la visita (UTM, página de entrada, referente) en `sessionStorage` y en la reserva; eventos de GA4 (`cta_click`, `scroll_depth`, embudo de `/agenda`); convención en `docs/utm.md` | `b8a68dc` |
+| 7c · SEO por página | Aprobado. `sitemap.xml` sale de `PAGINAS` (menos `PAGINAS_SIN_PUBLICAR`); imagen OG y tarjeta de X en todas las páginas; JSON-LD `Organization` con datos legales y `BreadcrumbList` en interiores; títulos con el nombre de la página y el término de búsqueda | este commit |
+| 8 · Revisión final y lanzamiento | **Siguiente.** Cerrar las decisiones abiertas de abajo | — |
 
 **Decisiones abiertas**
 
@@ -104,7 +104,7 @@ No hay suite de pruebas. La verificación visual contra `landing-v1` (capturas, 
 - Next.js 15 (App Router) con `output: "export"`, React 19, TypeScript, Tailwind CSS 4 y Framer Motion. Alias `@/*` → `src/*`.
 - Hosting: Azure Static Web Apps. `/agenda` llama a Azure Functions (`api/`) con SQL y correo ACS. Ver [docs/azure-swa.md](docs/azure-swa.md).
 - Tokens: `src/app/globals.css`. Primitivos en `:root` (`--c-*`), semánticos y escalas en `@theme`. Tailwind 4 no tiene `tailwind.config`. Toda escala nueva en `@theme` se registra también en `src/lib/cn.ts` (tailwind-merge).
-- Chasis: toda página se envuelve en `LayoutPagina` (`src/components/layout/`) y exporta sus metadatos con `metadatosPagina()` (`src/lib/metadatos.ts`). Rutas, menú, footer y breadcrumb salen de `src/config/sitio/mapa.ts`; datos legales de `src/config/sitio/empresa.ts`.
+- Chasis: toda página se envuelve en `LayoutPagina` (`src/components/layout/`) y exporta sus metadatos con `metadatosPagina()` (`src/lib/metadatos.ts`). Una página nueva se registra en `PAGINAS` de `mapa.ts` y así entra sola al breadcrumb, a su JSON-LD y a `sitemap.xml`. El título de metadatos empieza por el nombre de la página y sigue con lo que se busca ("Anticipar: modelos predictivos y visión artificial"). Rutas, menú, footer y breadcrumb salen de `src/config/sitio/mapa.ts`; datos legales de `src/config/sitio/empresa.ts`.
 - Contenido: `src/config/sitio/` (el home en `inicio.ts`, solo español). `src/config/landing/{es,en,pt,fr}.ts` guarda la landing anterior y sus traducciones; hoy solo la lee `/catalogo`, y queda como referencia para la traducción. Cada página importa su contenido y se lo pasa a las secciones como props. El idioma está fijo en español durante la construcción (`IDIOMA_FIJO` en `LocaleProvider`, ADR 0004); no hay rutas por idioma.
 - Componentes (ADR 0003): primitivas en `src/components/ui/`, piezas en `src/components/piezas/`, secciones en `src/components/sections/`, además de `layout`, `motion` y `analytics`. Ninguna sección conoce su contenido. Antes de crear un componente, revisar `/catalogo` (`npm run dev` → http://localhost:3000/catalogo).
 - Secciones: `variante="compact"` en el home y `"full"` en interiores. Con la lista vacía no se renderizan. Son componentes de servidor; solo `NavAnclas` y `Reveal` corren en el cliente.

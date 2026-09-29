@@ -23,8 +23,7 @@ export async function generateMetadata({ params }: Parametros) {
   const { escalon } = await params;
   const pagina = ESCALONES_PAGINAS.find((p) => p.slug === escalon);
   if (!pagina) return {};
-  const { nombre, ruta } = ESCALONES[pagina.numero - 1];
-  return metadatosPagina({ titulo: nombre, descripcion: pagina.metadatos.descripcion, ruta });
+  return metadatosPagina({ ...pagina.metadatos, ruta: ESCALONES[pagina.numero - 1].ruta });
 }
 
 /**

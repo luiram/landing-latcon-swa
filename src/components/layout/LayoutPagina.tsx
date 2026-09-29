@@ -4,6 +4,7 @@ import { Breadcrumb } from "@/components/layout/Breadcrumb";
 import { Contenedor } from "@/components/ui/Contenedor";
 import { cn } from "@/lib/cn";
 import { migasDe, normalizarRuta } from "@/lib/navegacion";
+import { jsonLdMigas } from "@/lib/metadatos";
 import { COLUMNAS_FOOTER, CTA_PRINCIPAL, ENLACES_LEGALES, MENU, PAGINAS } from "@/config/sitio/mapa";
 import { EMPRESA, TEXTOS_CHASIS } from "@/config/sitio/empresa";
 
@@ -41,6 +42,12 @@ export function LayoutPagina({ ruta, children, fondo = "page", aRasDelFooter = f
         textos={TEXTOS_CHASIS}
       />
       <main className={cn("min-h-screen", FONDOS[fondo], !esInicio && "pt-24 sm:pt-28", !esInicio && !aRasDelFooter && "pb-24")}>
+        {!esInicio ? (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdMigas(migas)) }}
+          />
+        ) : null}
         {!esInicio ? (
           <Contenedor className="mb-8 sm:mb-10">
             <Breadcrumb migas={migas} etiqueta={TEXTOS_CHASIS.migas} />

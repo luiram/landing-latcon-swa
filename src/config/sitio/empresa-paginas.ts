@@ -108,7 +108,7 @@ export const NOSOTROS = {
 export const DESARROLLO = {
   ruta: RUTAS.desarrollo,
   metadatos: {
-    titulo: "Lo que construimos",
+    titulo: "Lo que construimos: software a la medida",
     descripcion: "Aplicaciones sin conexión, plataformas multi-tenant, tableros, visión por computador, modelos predictivos y agentes.",
   },
   hero: {
