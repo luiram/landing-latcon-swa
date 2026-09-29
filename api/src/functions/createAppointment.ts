@@ -27,7 +27,37 @@ type Body = {
   slotStartUtc: string;
   /** Opcional mientras siga publicado el formulario sin casilla (ADR 0006). */
   consent?: { dataProcessing?: unknown; policyVersion?: unknown };
+  /** Canal o campaña de la visita (paso 7b). Opcional: el formulario publicado hoy no lo envía. */
+  origin?: Record<string, unknown> | null;
 };
+
+type Origin = {
+  utmSource: string | null;
+  utmMedium: string | null;
+  utmCampaign: string | null;
+  utmContent: string | null;
+  utmTerm: string | null;
+  landingPath: string | null;
+  referrer: string | null;
+};
+
+/** Texto recortado al largo de su columna, o null. Lo que no sea texto se descarta. */
+function optionalText(v: unknown, max: number): string | null {
+  return isNonEmpty(v) ? v.trim().slice(0, max) : null;
+}
+
+function parseOrigin(o: Body["origin"]): Origin {
+  const src = o && typeof o === "object" ? o : {};
+  return {
+    utmSource: optionalText(src.utmSource, 100),
+    utmMedium: optionalText(src.utmMedium, 100),
+    utmCampaign: optionalText(src.utmCampaign, 150),
+    utmContent: optionalText(src.utmContent, 150),
+    utmTerm: optionalText(src.utmTerm, 150),
+    landingPath: optionalText(src.landingPath, 500),
+    referrer: optionalText(src.referrer, 500),
+  };
+}
 
 /** Versión de la política aceptada, o null si la reserva no trae una autorización válida. */
 function consentVersion(consent: Body["consent"]): string | null {
@@ -223,7 +253,14 @@ app.http("createAppointment", {
 
       const companyId = await insertCompany(transaction, body.company);
       const contactId = await insertContact(transaction, companyId, body.contact);
-      const meetingId = await insertMeetingRequest(transaction, contactId, body.need, locale, consentVersion(body.consent));
+      const meetingId = await insertMeetingRequest(
+        transaction,
+        contactId,
+        body.need,
+        locale,
+        consentVersion(body.consent),
+        parseOrigin(body.origin),
+      );
       appointmentId = await insertAppointment(
         transaction,
         meetingId,
@@ -337,6 +374,7 @@ async function insertMeetingRequest(
   need: Body["need"],
   locale: LocaleCode,
   policyVersion: string | null,
+  origin: Origin,
 ): Promise<string> {
   const r = await new sql.Request(tr)
     .input("contactId", sql.UniqueIdentifier, contactId)
@@ -344,11 +382,20 @@ async function insertMeetingRequest(
     .input("free", sql.NVarChar(2000), need.comment?.trim() ?? null)
     .input("loc", sql.Char(2), locale)
     .input("policy", sql.NVarChar(20), policyVersion)
+    .input("utmSource", sql.NVarChar(100), origin.utmSource)
+    .input("utmMedium", sql.NVarChar(100), origin.utmMedium)
+    .input("utmCampaign", sql.NVarChar(150), origin.utmCampaign)
+    .input("utmContent", sql.NVarChar(150), origin.utmContent)
+    .input("utmTerm", sql.NVarChar(150), origin.utmTerm)
+    .input("landingPath", sql.NVarChar(500), origin.landingPath)
+    .input("referrer", sql.NVarChar(500), origin.referrer)
     .query(
-      `INSERT INTO dbo.meeting_requests (contact_id, primary_need, free_text, locale, status, data_consent_at_utc, data_policy_version)
+      `INSERT INTO dbo.meeting_requests (contact_id, primary_need, free_text, locale, status, data_consent_at_utc, data_policy_version,
+                                         utm_source, utm_medium, utm_campaign, utm_content, utm_term, landing_path, referrer)
        OUTPUT CAST(INSERTED.id AS NVARCHAR(36)) AS id
        VALUES (@contactId, @primary, @free, @loc, N'scheduled',
-               CASE WHEN @policy IS NULL THEN NULL ELSE SYSUTCDATETIME() END, @policy)`,
+               CASE WHEN @policy IS NULL THEN NULL ELSE SYSUTCDATETIME() END, @policy,
+               @utmSource, @utmMedium, @utmCampaign, @utmContent, @utmTerm, @landingPath, @referrer)`,
     );
   return (r.recordset as { id: string }[])[0]!.id;
 }

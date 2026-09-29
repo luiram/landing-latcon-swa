@@ -12,6 +12,7 @@ import { bogotaTodayIso, nextBookingDayIsos } from "@/features/booking/bookingCa
 import { getVisibleSlotsForSelectedDay } from "@/features/booking/bookingSlotDisplay";
 import { isPersonalEmailDomain } from "@/features/booking/emailDomains";
 import { AUTORIZACION_AGENDA } from "@/config/sitio/legal";
+import { evento, leerOrigen } from "@/lib/analitica";
 
 type FormState = {
   fullName: string;
@@ -124,6 +125,15 @@ export function BookingWizard() {
   const [consent, setConsent] = useState(false);
   const [consentError, setConsentError] = useState(false);
 
+  // Embudo de /agenda (paso 7b): cada paso alcanzado es un evento; el abandono es la caída entre pasos.
+  useEffect(() => {
+    if (step === 5) {
+      evento("generate_lead", { formulario: "agenda" });
+    } else {
+      evento("agenda_paso", { paso: step });
+    }
+  }, [step]);
+
   const allowedBookingDates = useMemo(
     () => new Set(nextBookingDayIsos(bogotaTodayIso(), 5)),
     [step],
@@ -193,6 +203,7 @@ export function BookingWizard() {
     setFieldErrors(errors);
     if (Object.keys(errors).length > 0) {
       setFormError(t.errorValidation);
+      evento("form_error", { paso: 2, tipo: "validacion", campos: Object.keys(errors).join(",") });
       return false;
     }
     setFormError(null);
@@ -206,6 +217,7 @@ export function BookingWizard() {
     setFieldErrors(errors);
     if (Object.keys(errors).length > 0) {
       setFormError(t.errorValidation);
+      evento("form_error", { paso: 3, tipo: "validacion", campos: Object.keys(errors).join(",") });
       return false;
     }
     setFormError(null);
@@ -235,6 +247,7 @@ export function BookingWizard() {
     if (!selectedSlotStart || !idempotencyRef.current) return;
     if (!consent) {
       setConsentError(true);
+      evento("form_error", { paso: 4, tipo: "autorizacion" });
       return;
     }
     setSubmitting(true);
@@ -259,6 +272,7 @@ export function BookingWizard() {
       },
       slotStartUtc: selectedSlotStart,
       consent: { dataProcessing: true as const, policyVersion: AUTORIZACION_AGENDA.version },
+      origin: leerOrigen(),
     };
     const res = await createAppointment(body);
     setSubmitting(false);
@@ -267,6 +281,7 @@ export function BookingWizard() {
         typeof res.body === "object" && res.body !== null && "code" in res.body
           ? String((res.body as { code?: string }).code)
           : "";
+      evento("form_error", { paso: 4, tipo: code || `http_${res.status}` });
       if (res.status === 409 || code === "SLOT_TAKEN") {
         setSubmitError(t.errorSlotTaken);
         setStep(1);
@@ -357,7 +372,10 @@ export function BookingWizard() {
                           <button
                             key={s.startUtc}
                             type="button"
-                            onClick={() => setSelectedSlotStart(s.startUtc)}
+                            onClick={() => {
+                              setSelectedSlotStart(s.startUtc);
+                              evento("slot_selected", { dia: selectedDate ?? undefined });
+                            }}
                             className={`rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
                               sel
                                 ? "border-accent bg-accent text-on-accent shadow-sm"

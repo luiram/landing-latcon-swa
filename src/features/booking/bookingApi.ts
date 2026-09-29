@@ -1,4 +1,5 @@
 import type { LocaleCode } from "@/lib/locales";
+import type { Origen } from "@/lib/analitica";
 
 export type SlotsDay = { date: string; slots: { startUtc: string; endUtc: string }[] };
 export type SlotsResponse = { locale: string; timezone: string; days: SlotsDay[] };
@@ -44,6 +45,8 @@ export type CreateAppointmentBody = {
   slotStartUtc: string;
   /** Autorización de tratamiento de datos (Ley 1581 de 2012) y versión de la política aceptada. */
   consent: { dataProcessing: true; policyVersion: string };
+  /** Canal o campaña de la visita (paso 7b). Null si no se pudo registrar. */
+  origin: Origen | null;
 };
 
 export async function createAppointment(

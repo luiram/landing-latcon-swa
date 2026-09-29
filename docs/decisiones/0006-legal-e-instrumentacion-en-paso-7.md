@@ -33,3 +33,8 @@ Los datos legales del footer (razón social, NIT, régimen, dirección, teléfon
 - La API acepta `consent` como **opcional**: el formulario publicado hoy no la envía y no debe romperse. Sin autorización válida, la reserva se guarda con las columnas en NULL. Cuando salga ese formulario, la API debe exigirla.
 - Orden de publicación: primero la migración `002`, después la API y al final el front. La API nueva falla si las columnas no existen.
 - Cambiar el texto de la política obliga a cambiar `VERSION_POLITICA`.
+
+## Modificación · 2026-09-29 (paso 7b)
+- Analítica solo con GA4, sin Microsoft Clarity: no agrega proveedores ni cambia la política, y usa el Consent Mode que ya existe.
+- El origen (UTM, primera página, referente externo) se guarda en `sessionStorage` y viaja con la reserva, no por GA4. Así el origen llega a la base aunque la persona rechace las cookies. Está cubierto por la política ("el canal o la campaña por la que llegaste").
+- Eventos y convención de UTM en `docs/utm.md`. El clic al CTA se detecta por delegación (cualquier enlace a `/agenda`), sin marcar componentes: ninguna sección conoce la analítica.

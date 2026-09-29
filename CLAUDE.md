@@ -11,6 +11,7 @@ No son sugerencias: son decisiones tomadas. Si algo parece equivocado, se discut
 - [docs/brief-drones.md](docs/brief-drones.md) — línea de drones
 - [docs/buenas-practicas-desarrollo.md](docs/buenas-practicas-desarrollo.md) — procedimiento de desarrollo LATCON
 - [docs/decisiones/](docs/decisiones/) — ADR: por qué se decidió cada cosa
+- [docs/utm.md](docs/utm.md) — convención de UTM y eventos de GA4: todo enlace o QR externo la sigue
 - [MEMORY.md](MEMORY.md) — bitácora de la landing (agenda, correo, Azure, SEO)
 
 ## Reglas que no se renegocian
@@ -48,7 +49,7 @@ Ocho pasos con compuerta. No avanzar al siguiente sin aprobación del anterior. 
 
 ## Estado actual
 
-Actualizado: 2026-09-29 · Rama `sitio-web` · Siguiente: **paso 7b**
+Actualizado: 2026-09-29 · Rama `sitio-web` · Siguiente: **paso 7c**
 
 | Paso | Estado | Commit |
 |---|---|---|
@@ -61,8 +62,8 @@ Actualizado: 2026-09-29 · Rama `sitio-web` · Siguiente: **paso 7b**
 | 6a · Hallazgos del paso 5 y sectores | Aprobado. Los 4 sectores con una sola ruta (`/sectores/[sector]`) y `/sectores` | `d6104fe` |
 | 6b · `/soluciones` y sus 7 páginas | Aprobado. Seis escalones con una sola ruta (`/soluciones/[escalon]`), drones y overview; contenido en `src/config/sitio/soluciones.ts` | `4490d6f` |
 | 6c · `/metodo`, `/nosotros`, `/desarrollo-a-la-medida` | Aprobado. Contenido en `src/config/sitio/empresa-paginas.ts`; `/desarrollo-a-la-medida` solo texto hasta tener capturas propias | `ab1df69` |
-| 7a · Legal | Aprobado. `/tratamiento-de-datos` y `/privacidad` con contenido en `src/config/sitio/legal.ts`; casilla de autorización en `/agenda`; migración `db/migrations/002_autorizacion_y_origen.sql` y la API guarda la autorización | este commit |
-| 7b · Instrumentación | Pendiente. UTM y origen en la reserva, eventos de GA4, `docs/utm.md` | — |
+| 7a · Legal | Aprobado. `/tratamiento-de-datos` y `/privacidad` con contenido en `src/config/sitio/legal.ts`; casilla de autorización en `/agenda`; migración `db/migrations/002_autorizacion_y_origen.sql` y la API guarda la autorización | `4112b59` |
+| 7b · Instrumentación | Aprobado. Origen de la visita (UTM, página de entrada, referente) en `sessionStorage` y en la reserva; eventos de GA4 (`cta_click`, `scroll_depth`, embudo de `/agenda`); convención en `docs/utm.md` | este commit |
 | 7c · SEO por página | Pendiente. Sitemap desde `mapa.ts`, imagen OG en interiores, JSON-LD | — |
 | 8 | Pendiente | — |
 
@@ -79,6 +80,7 @@ Actualizado: 2026-09-29 · Rama `sitio-web` · Siguiente: **paso 7b**
 | Revisión legal de `/tratamiento-de-datos` y `/privacidad` (borrador del paso 7a) | `src/config/sitio/legal.ts` | Antes de publicar |
 | Publicar la migración `002` y la API en Azure (en ese orden, antes del front) | ADR 0006 | Paso 8 |
 | Volver obligatoria la autorización en la API cuando salga el formulario sin casilla | ADR 0006 | Después del lanzamiento |
+| En GA4: subir la retención a 14 meses, registrar las dimensiones personalizadas y marcar `generate_lead` como evento clave | docs/utm.md | Paso 8 |
 
 **Decidido en el paso 6:** escalón 6 en `/soluciones/agentes-ia`; `/recursos` queda fuera del sitio hasta definir su cadencia; `/lp/drones` se aplaza hasta tener video.
 

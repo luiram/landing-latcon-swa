@@ -5,6 +5,7 @@ import { LocaleDocument } from "@/components/layout/LocaleDocument";
 import { LocaleProvider } from "@/context/LocaleProvider";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { CookieConsentBanner } from "@/components/analytics/CookieConsentBanner";
+import { Instrumentacion } from "@/components/analytics/Instrumentacion";
 
 const defaultSite = getSiteContent("es");
 
@@ -48,6 +49,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         <GoogleAnalytics />
+        <Instrumentacion />
         <LocaleProvider>
           <LocaleDocument />
           {children}
