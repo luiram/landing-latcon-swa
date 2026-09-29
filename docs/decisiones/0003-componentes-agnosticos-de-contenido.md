@@ -109,3 +109,8 @@ Los cuatro sectores comparten una sola página con ruta dinámica (`src/app/sect
 
 ## Paso 6b · 2026-09-28
 Sin cambios en componentes. Las seis páginas de escalón comparten una ruta (`src/app/soluciones/[escalon]/page.tsx`) con el esqueleto fijo de docs/contenido-sitio.md §4: Hero · EscaleraContextual · TextoConImagen (dónde estás, qué construimos, lo que cambia) · GridDeTarjetas (antes / después) · FranjaPrueba (vacía) · BandaCTA. Drones (`/soluciones/drones`) es una página aparte porque su estructura es otra (brief). El escalón 6 vive en `/soluciones/agentes-ia`.
+
+## Paso 6c · 2026-09-29
+Sin cambios en componentes. `/metodo` (Hero · Timeline full · TextoConImagen · BandaCTA), `/nosotros` (Hero · GridDeTarjetas de socios · BandaCTA) y `/desarrollo-a-la-medida` (Hero · TextoConImagen · BandaCTA). Las etiquetas de `/nosotros` quedaron fuera: ninguna sección tiene un lugar para una fila de `Etiqueta`, y se decide aparte si vale una variante.
+
+**Balance del paso 6:** 18 páginas nuevas con 4 ajustes de componentes (todos en 6a) y ningún componente nuevo.
