@@ -56,9 +56,10 @@ Actualizado: 2026-09-28 · Rama `sitio-web` · Siguiente: **paso 4**
 | 1 · Tokens, `CLAUDE.md`, ADR | Aprobado | `6d8975e` |
 | 2 · Chasis | Aprobado | `7ae5649` |
 | 3 · Las 8 secciones | Aprobado. Home rearmado con las secciones, mismo contenido; catálogo en `/catalogo` | `169bf4f` |
-| 4 · Home ensamblado | Aprobado. Secuencia de §1.5, contenido en `src/config/sitio/inicio.ts`; sale `About` | — |
-| 5 · `/sectores/energia-petroleo-gas` | **Siguiente.** Sin crear ningún componente nuevo (prueba del sistema) | — |
-| 6 a 8 | Pendientes | — |
+| 4 · Home ensamblado | Aprobado. Secuencia de §1.5, contenido en `src/config/sitio/inicio.ts`; sale `About` | `f720cf5` |
+| 5 · `/sectores/energia-petroleo-gas` | Aprobado. Armada sin crear ni modificar componentes; contenido en `src/config/sitio/sectores.ts`. Tres hallazgos en el ADR 0003 | — |
+| 6 · Resto de sectores y soluciones | **Siguiente.** Empezar resolviendo los hallazgos del paso 5 | — |
+| 7 y 8 | Pendientes | — |
 
 **Decisiones abiertas**
 

@@ -77,3 +77,23 @@ El home se armó sin componentes nuevos. Dos ajustes de piezas existentes:
 - `Tarjeta`: el enlace va al pie de la tarjeta, así que en una fila los enlaces quedan alineados aunque los textos tengan distinto largo.
 
 `About.tsx` se eliminó. Como el home ya no usa `GridDeTarjetas` con densidad normal, `TextoConImagen` compact ni `Timeline` full, esas variantes pasaron a tener muestra en `/catalogo`.
+
+## Paso 5 · prueba del sistema · 2026-09-28
+`/sectores/energia-petroleo-gas` se armó **sin crear ni modificar ningún componente** (`git diff src/components` vacío). Solo hubo contenido (`src/config/sitio/sectores.ts`) y una página.
+
+| Bloque del documento | Cómo se resolvió |
+|---|---|
+| Titular, bajada, CTA | `Hero` full |
+| El dolor y "dónde suele empezar" | `TextoConImagen` full: la frase del cliente como título y el escalón como resultado |
+| Escalón de entrada | `EscaleraContextual` con el escalón 2 resaltado (también sirve en páginas de sector) |
+| Lo que hacemos, por etapa | `TextoConImagen` full sin imágenes, un bloque por familia con su lista |
+| Espacio de caso reservado | `FranjaPrueba` con la lista vacía: no se muestra hasta que haya un caso |
+| Método | `Timeline` compact, mismo contenido que el home |
+| Por qué nos entienden + CTA | `BandaCTA` full |
+
+**Hallazgos, para resolver al empezar el paso 6** (se ven en las siete páginas que faltan):
+1. `LayoutPagina` deja 96 px de fondo claro al final de las páginas interiores. Cuando la última sección es la banda oscura de `BandaCTA` full, queda una franja blanca entre la banda y el footer.
+2. `TextoConImagen` sin imagen ocupa todo el ancho de la página: las listas quedan en líneas de más de 150 caracteres. Debería limitarse al ancho de lectura.
+3. `TextoConImagen` no tiene enlace por bloque: "Capturar y ver" no lleva a su familia. Las páginas de solución lo van a necesitar para "Qué necesitas antes / Qué viene después" si no se usa `GridDeTarjetas`.
+
+Los tres son variantes o ajustes de componentes existentes, no componentes nuevos.
