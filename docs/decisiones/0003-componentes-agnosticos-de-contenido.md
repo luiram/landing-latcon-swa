@@ -97,3 +97,12 @@ El home se armó sin componentes nuevos. Dos ajustes de piezas existentes:
 3. `TextoConImagen` no tiene enlace por bloque: "Capturar y ver" no lleva a su familia. Las páginas de solución lo van a necesitar para "Qué necesitas antes / Qué viene después" si no se usa `GridDeTarjetas`.
 
 Los tres son variantes o ajustes de componentes existentes, no componentes nuevos.
+
+## Paso 6a · 2026-09-28
+Hallazgos del paso 5, resueltos sin componentes nuevos:
+1. `LayoutPagina` acepta `aRasDelFooter`: la página termina en su última sección, sin el espacio inferior. Lo usan las páginas que cierran con `BandaCTA`.
+2. `TextoConImagen`: un bloque sin imagen se limita al ancho de lectura (`prose-wide`).
+3. `TextoConImagen`: cada bloque acepta un `enlace` opcional (en los sectores, cada familia lleva a su primera página; en agroindustria, "Capturar y ver" lleva a drones).
+4. `TextoConImagen`: el `texto` del bloque es opcional (lo necesitan páginas de solución que solo tienen lista).
+
+Los cuatro sectores comparten una sola página con ruta dinámica (`src/app/sectores/[sector]/page.tsx`, `generateStaticParams`, `dynamicParams = false`): el sector es dato, no página.

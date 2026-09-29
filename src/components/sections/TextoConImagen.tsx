@@ -3,6 +3,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Encabezado, type DatosEncabezado } from "@/components/piezas/Encabezado";
 import { ItemLista } from "@/components/piezas/ItemLista";
 import { Boton } from "@/components/ui/Boton";
+import { Enlace } from "@/components/ui/Enlace";
 import { Imagen, type DatosImagen } from "@/components/ui/Imagen";
 import { Texto } from "@/components/ui/Texto";
 import { Titulo } from "@/components/ui/Titulo";
@@ -11,10 +12,12 @@ import { Seccion, type Variante } from "./Seccion";
 
 export type DatosBloque = {
   titulo: string;
-  texto: string;
+  texto?: string;
   imagen?: DatosImagen;
   lista?: readonly string[];
   resultado?: string;
+  /** Salida del bloque, p. ej. a la página de su familia. */
+  enlace?: EnlaceNav;
 };
 
 type TextoConImagenProps = {
@@ -70,14 +73,14 @@ export function TextoConImagen({
                   />
                 ) : null}
 
-                <div className={cn(imagenDerecha && "lg:order-1")}>
+                <div className={cn(bloque.imagen ? imagenDerecha && "lg:order-1" : "max-w-prose-wide")}>
                   <Titulo nivel={encabezado ? 3 : 2} rol="title">
                     {numerado ? (
                       <span className="mr-2 text-accent/80">{String(i + 1).padStart(2, "0")}.</span>
                     ) : null}
                     {bloque.titulo}
                   </Titulo>
-                  <Texto className="mt-3 sm:mt-4">{bloque.texto}</Texto>
+                  {bloque.texto ? <Texto className="mt-3 sm:mt-4">{bloque.texto}</Texto> : null}
 
                   {bloque.lista && bloque.lista.length > 0 ? (
                     <div className="mt-5 border-t border-blue-mid-1/25 pt-5">
@@ -99,6 +102,12 @@ export function TextoConImagen({
                       ) : null}
                       {bloque.resultado}
                     </p>
+                  ) : null}
+
+                  {bloque.enlace ? (
+                    <Enlace href={bloque.enlace.ruta} className="mt-5">
+                      {bloque.enlace.etiqueta}
+                    </Enlace>
                   ) : null}
                 </div>
               </article>

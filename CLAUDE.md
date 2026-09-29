@@ -57,8 +57,10 @@ Actualizado: 2026-09-28 · Rama `sitio-web` · Siguiente: **paso 4**
 | 2 · Chasis | Aprobado | `7ae5649` |
 | 3 · Las 8 secciones | Aprobado. Home rearmado con las secciones, mismo contenido; catálogo en `/catalogo` | `169bf4f` |
 | 4 · Home ensamblado | Aprobado. Secuencia de §1.5, contenido en `src/config/sitio/inicio.ts`; sale `About` | `f720cf5` |
-| 5 · `/sectores/energia-petroleo-gas` | Aprobado. Armada sin crear ni modificar componentes; contenido en `src/config/sitio/sectores.ts`. Tres hallazgos en el ADR 0003 | — |
-| 6 · Resto de sectores y soluciones | **Siguiente.** Empezar resolviendo los hallazgos del paso 5 | — |
+| 5 · `/sectores/energia-petroleo-gas` | Aprobado. Armada sin crear ni modificar componentes; contenido en `src/config/sitio/sectores.ts`. Tres hallazgos en el ADR 0003 | `c650421` |
+| 6a · Hallazgos del paso 5 y sectores | Aprobado. Los 4 sectores con una sola ruta (`/sectores/[sector]`) y `/sectores` | — |
+| 6b · `/soluciones` y sus 7 páginas | Pendiente. Escalón 6 en `/soluciones/agentes-ia`; drones sin modelos DJI hasta verificar | — |
+| 6c · `/metodo`, `/nosotros`, `/desarrollo-a-la-medida` | Pendiente. `/desarrollo-a-la-medida` solo texto hasta tener capturas propias | — |
 | 7 y 8 | Pendientes | — |
 
 **Decisiones abiertas**
@@ -66,12 +68,13 @@ Actualizado: 2026-09-28 · Rama `sitio-web` · Siguiente: **paso 4**
 | Decisión | Dónde | Se cierra en |
 |---|---|---|
 | Publicar o no `/catalogo` (hoy `noindex` y sin enlaces) | ADR 0003 | Paso 8 |
-| Ruta `/soluciones/zero-touch` o `/soluciones/agentes-ia` | docs/recomendaciones-sitio.md §1.6b | Paso 6 |
-| Avicultura en el primer lanzamiento | docs/contenido-sitio.md §9 | Paso 6 |
-| Recursos: cadencia editorial o fuera del sitio (hoy fuera del menú) | docs/recomendaciones-sitio.md Parte 5 | Paso 6 |
+| Publicar avicultura (construida en 6a; sin captura propia del sector) | docs/contenido-sitio.md §9 | Paso 8 |
+| Nombrar los modelos DJI en `/soluciones/drones` (verificar posición frente al fabricante) | docs/recomendaciones-sitio.md §1.6b | Antes de publicar |
 | Idiomas al lanzar: solo español con selector oculto, o esperar la traducción | ADR 0004 | Paso 8 |
 | Alinear la paleta de la web con la de las propuestas (`#152033`, `#16A34A`) | ADR 0002 | Decisión de marca, sin paso |
 | Subir `sitio-web` y `landing-v1` a GitHub (hoy solo locales) | ADR 0005 | Cuando se pida |
+
+**Decidido en el paso 6:** escalón 6 en `/soluciones/agentes-ia`; `/recursos` queda fuera del sitio hasta definir su cadencia; `/lp/drones` se aplaza hasta tener video.
 
 **Conocido y aceptado:** los enlaces del menú y del footer a páginas que aún no existen dan 404 hasta los pasos 6 y 7. El error de lint en `src/app/global-error.tsx` ya estaba en `landing-v1`. `check:tokens -- --strict` pasa (0) y la paleta de Tailwind está desactivada: mantenerlo así. El home mide 3.585 px a 1440 (landing: 5.879; límite: 6.130) y tiene 451 palabras en `<main>` (landing y límite: 992). El enlace secundario del hero va a `/soluciones` hasta que exista el autodiagnóstico (§8 de contenido).
 

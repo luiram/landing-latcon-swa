@@ -13,6 +13,8 @@ type LayoutPaginaProps = {
   children: React.ReactNode;
   /** Fondo de la página. `tinted` es el de las páginas legales. */
   fondo?: "page" | "warm" | "tinted";
+  /** La última sección trae su propio fondo (BandaCTA full): sin espacio entre ella y el footer. */
+  aRasDelFooter?: boolean;
 };
 
 const FONDOS = {
@@ -26,7 +28,7 @@ const FONDOS = {
  * El home no lleva breadcrumb ni espacio superior: su hero va bajo el header.
  * Los metadatos van en cada página con metadatosPagina() (src/lib/metadatos.ts).
  */
-export function LayoutPagina({ ruta, children, fondo = "page" }: LayoutPaginaProps) {
+export function LayoutPagina({ ruta, children, fondo = "page", aRasDelFooter = false }: LayoutPaginaProps) {
   const esInicio = normalizarRuta(ruta) === "/";
   const migas = migasDe(ruta, PAGINAS);
 
@@ -38,7 +40,7 @@ export function LayoutPagina({ ruta, children, fondo = "page" }: LayoutPaginaPro
         logo={{ src: EMPRESA.logo, alt: EMPRESA.logoAlt }}
         textos={TEXTOS_CHASIS}
       />
-      <main className={cn("min-h-screen", FONDOS[fondo], !esInicio && "pb-24 pt-24 sm:pt-28")}>
+      <main className={cn("min-h-screen", FONDOS[fondo], !esInicio && "pt-24 sm:pt-28", !esInicio && !aRasDelFooter && "pb-24")}>
         {!esInicio ? (
           <Contenedor className="mb-8 sm:mb-10">
             <Breadcrumb migas={migas} etiqueta={TEXTOS_CHASIS.migas} />
