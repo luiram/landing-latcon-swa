@@ -20,7 +20,8 @@ export const RUTAS = {
   visibilidad: "/soluciones/visibilidad-operativa",
   automatizacion: "/soluciones/automatizacion",
   prediccion: "/soluciones/inteligencia-predictiva",
-  zeroTouch: "/soluciones/zero-touch",
+  /** Escalón 6. Se eligió "agentes-ia" sobre "zero-touch" por búsqueda en español (paso 6, §1.6b). */
+  agentesIa: "/soluciones/agentes-ia",
   desarrollo: "/desarrollo-a-la-medida",
   metodo: "/metodo",
   nosotros: "/nosotros",
@@ -37,7 +38,7 @@ export const ESCALONES = [
   { numero: 3, nombre: "Ver lo que pasa", familia: "capturar", ruta: RUTAS.visibilidad },
   { numero: 4, nombre: "Automatizar", familia: "automatizar", ruta: RUTAS.automatizacion },
   { numero: 5, nombre: "Anticipar", familia: "automatizar", ruta: RUTAS.prediccion },
-  { numero: 6, nombre: "Resolver solo", familia: "automatizar", ruta: RUTAS.zeroTouch },
+  { numero: 6, nombre: "Resolver solo", familia: "automatizar", ruta: RUTAS.agentesIa },
 ] as const;
 
 const escalon = (n: number): EnlaceNav => {

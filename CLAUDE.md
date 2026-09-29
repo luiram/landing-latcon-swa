@@ -58,8 +58,8 @@ Actualizado: 2026-09-28 · Rama `sitio-web` · Siguiente: **paso 4**
 | 3 · Las 8 secciones | Aprobado. Home rearmado con las secciones, mismo contenido; catálogo en `/catalogo` | `169bf4f` |
 | 4 · Home ensamblado | Aprobado. Secuencia de §1.5, contenido en `src/config/sitio/inicio.ts`; sale `About` | `f720cf5` |
 | 5 · `/sectores/energia-petroleo-gas` | Aprobado. Armada sin crear ni modificar componentes; contenido en `src/config/sitio/sectores.ts`. Tres hallazgos en el ADR 0003 | `c650421` |
-| 6a · Hallazgos del paso 5 y sectores | Aprobado. Los 4 sectores con una sola ruta (`/sectores/[sector]`) y `/sectores` | — |
-| 6b · `/soluciones` y sus 7 páginas | Pendiente. Escalón 6 en `/soluciones/agentes-ia`; drones sin modelos DJI hasta verificar | — |
+| 6a · Hallazgos del paso 5 y sectores | Aprobado. Los 4 sectores con una sola ruta (`/sectores/[sector]`) y `/sectores` | `d6104fe` |
+| 6b · `/soluciones` y sus 7 páginas | Aprobado. Seis escalones con una sola ruta (`/soluciones/[escalon]`), drones y overview; contenido en `src/config/sitio/soluciones.ts` | — |
 | 6c · `/metodo`, `/nosotros`, `/desarrollo-a-la-medida` | Pendiente. `/desarrollo-a-la-medida` solo texto hasta tener capturas propias | — |
 | 7 y 8 | Pendientes | — |
 

@@ -106,3 +106,6 @@ Hallazgos del paso 5, resueltos sin componentes nuevos:
 4. `TextoConImagen`: el `texto` del bloque es opcional (lo necesitan páginas de solución que solo tienen lista).
 
 Los cuatro sectores comparten una sola página con ruta dinámica (`src/app/sectores/[sector]/page.tsx`, `generateStaticParams`, `dynamicParams = false`): el sector es dato, no página.
+
+## Paso 6b · 2026-09-28
+Sin cambios en componentes. Las seis páginas de escalón comparten una ruta (`src/app/soluciones/[escalon]/page.tsx`) con el esqueleto fijo de docs/contenido-sitio.md §4: Hero · EscaleraContextual · TextoConImagen (dónde estás, qué construimos, lo que cambia) · GridDeTarjetas (antes / después) · FranjaPrueba (vacía) · BandaCTA. Drones (`/soluciones/drones`) es una página aparte porque su estructura es otra (brief). El escalón 6 vive en `/soluciones/agentes-ia`.
