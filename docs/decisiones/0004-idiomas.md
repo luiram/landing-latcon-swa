@@ -24,3 +24,6 @@ Estado: aceptada
 - `LocaleProvider` tiene `IDIOMA_FIJO = "es"`: ignora el idioma guardado en `localStorage`. Para la fase de traducción se cambia a `null`.
 - El selector de idioma no aparece en el header nuevo. `LanguageSelector`, `LanguageOption` y `LocaleFlag` se conservan para la traducción.
 - `LocaleDocument` ya no reemplaza el título ni la descripción de la página; solo sincroniza `lang`. Antes pisaba el `<title>` de `/agenda` y `/privacidad` con el del home.
+
+## Decisión de lanzamiento · 2026-09-29 (paso 8)
+El sitio sale solo en español, con el selector oculto (`IDIOMA_FIJO = "es"`). Antes de lanzar faltan más ajustes de contenido, y traducir un copy que todavía cambia repetiría el problema que motivó este ADR. La traducción a EN, PT y FR queda para después del lanzamiento.

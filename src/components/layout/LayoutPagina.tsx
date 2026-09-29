@@ -42,7 +42,7 @@ export function LayoutPagina({ ruta, children, fondo = "page", aRasDelFooter = f
         textos={TEXTOS_CHASIS}
       />
       <main className={cn("min-h-screen", FONDOS[fondo], !esInicio && "pt-24 sm:pt-28", !esInicio && !aRasDelFooter && "pb-24")}>
-        {!esInicio ? (
+        {migas.length > 1 ? (
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdMigas(migas)) }}

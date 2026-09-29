@@ -49,7 +49,7 @@ Ocho pasos con compuerta. No avanzar al siguiente sin aprobación del anterior. 
 
 ## Estado actual
 
-Actualizado: 2026-09-29 · Rama `sitio-web` · Siguiente: **paso 8**
+Actualizado: 2026-09-29 · Rama `sitio-web` · En curso: **paso 8a**
 
 | Paso | Estado | Commit |
 |---|---|---|
@@ -64,8 +64,9 @@ Actualizado: 2026-09-29 · Rama `sitio-web` · Siguiente: **paso 8**
 | 6c · `/metodo`, `/nosotros`, `/desarrollo-a-la-medida` | Aprobado. Contenido en `src/config/sitio/empresa-paginas.ts`; `/desarrollo-a-la-medida` solo texto hasta tener capturas propias | `ab1df69` |
 | 7a · Legal | Aprobado. `/tratamiento-de-datos` y `/privacidad` con contenido en `src/config/sitio/legal.ts`; casilla de autorización en `/agenda`; migración `db/migrations/002_autorizacion_y_origen.sql` y la API guarda la autorización | `4112b59` |
 | 7b · Instrumentación | Aprobado. Origen de la visita (UTM, página de entrada, referente) en `sessionStorage` y en la reserva; eventos de GA4 (`cta_click`, `scroll_depth`, embudo de `/agenda`); convención en `docs/utm.md` | `b8a68dc` |
-| 7c · SEO por página | Aprobado. `sitemap.xml` sale de `PAGINAS` (menos `PAGINAS_SIN_PUBLICAR`); imagen OG y tarjeta de X en todas las páginas; JSON-LD `Organization` con datos legales y `BreadcrumbList` en interiores; títulos con el nombre de la página y el término de búsqueda | este commit |
-| 8 · Revisión final y lanzamiento | **Siguiente.** Cerrar las decisiones abiertas de abajo | — |
+| 7c · SEO por página | Aprobado. `sitemap.xml` sale de `PAGINAS` (menos `PAGINAS_SIN_PUBLICAR`); imagen OG y tarjeta de X en todas las páginas; JSON-LD `Organization` con datos legales y `BreadcrumbList` en interiores; títulos con el nombre de la página y el término de búsqueda | `a2eb0c2` |
+| 8a · Revisión final (local) | **En curso.** Hecho: página 404, `staticwebapp.config.json` movido a `public/` (nunca llegaba a Azure), idioma decidido. Falta: ajustes de contenido, decisiones abiertas, auditoría de las 20 páginas y `docs/lanzamiento.md` | — |
+| 8b · Lanzamiento | Pendiente. Cada acción que publica se autoriza por separado | — |
 
 **Decisiones abiertas**
 
@@ -74,7 +75,6 @@ Actualizado: 2026-09-29 · Rama `sitio-web` · Siguiente: **paso 8**
 | Publicar o no `/catalogo` (hoy `noindex` y sin enlaces) | ADR 0003 | Paso 8 |
 | Publicar avicultura (construida en 6a; sin captura propia del sector) | docs/contenido-sitio.md §9 | Paso 8 |
 | Nombrar los modelos DJI en `/soluciones/drones` (verificar posición frente al fabricante) | docs/recomendaciones-sitio.md §1.6b | Antes de publicar |
-| Idiomas al lanzar: solo español con selector oculto, o esperar la traducción | ADR 0004 | Paso 8 |
 | Alinear la paleta de la web con la de las propuestas (`#152033`, `#16A34A`) | ADR 0002 | Decisión de marca, sin paso |
 | Subir `sitio-web` y `landing-v1` a GitHub (hoy solo locales) | ADR 0005 | Cuando se pida |
 | Revisión legal de `/tratamiento-de-datos` y `/privacidad` (borrador del paso 7a) | `src/config/sitio/legal.ts` | Antes de publicar |
@@ -116,6 +116,7 @@ No hay suite de pruebas. La verificación visual contra `landing-v1` (capturas, 
 - Revisar `sitio-web` con un pull request hacia `main`: crea un entorno de vista previa sin tocar producción. No fusionarlo hasta el paso 8.
 - No ejecutar `swa deploy` ni `publish-swa` con un `out/` de otra rama.
 - Publicar la API con `scripts/deploy/publish-functions.ps1` después de cambios en `api/`.
+- La configuración de Azure (404, cabeceras) está en `public/staticwebapp.config.json`: el despliegue sube solo `out/`, así que un archivo en la raíz del repo no llega. Sin `navigationFallback`: el sitio es multipágina y un fallback convertiría cada 404 en el home con estado 200.
 
 ## Marca
 

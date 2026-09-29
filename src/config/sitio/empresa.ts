@@ -30,3 +30,14 @@ export const TEXTOS_CHASIS = {
   legal: "Información legal",
   derechos: "Todos los derechos reservados.",
 } as const;
+
+/** Página 404 (src/app/not-found.tsx): la que sirve Azure para cualquier URL que no existe. */
+export const NO_ENCONTRADA = {
+  metadatos: { titulo: "Página no encontrada", descripcion: "La página que buscas no existe o cambió de lugar." },
+  hero: {
+    antetitulo: "Error 404",
+    titulo: "Esta página no existe",
+    bajada: "Puede que el enlace esté mal escrito o que la página haya cambiado de lugar. Desde el inicio llegas a los sectores, las soluciones y el método.",
+    enlaceSecundario: { etiqueta: "Ir al inicio →", ruta: "/" },
+  },
+} as const;
