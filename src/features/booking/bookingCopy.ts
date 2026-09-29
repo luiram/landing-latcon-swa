@@ -44,6 +44,11 @@ export type BookingCopy = {
   personalEmailWarning: string;
   errorSlotTaken: string;
   errorRateLimited: string;
+  /** Casilla de autorización de tratamiento de datos: texto antes del enlace, enlace y texto después. */
+  consentBefore: string;
+  consentLink: string;
+  consentAfter: string;
+  errorConsent: string;
   errorGeneric: string;
   errorApiNotConfigured: string;
   /** Navegador bloqueó la petición (CORS, red, API caída). */
@@ -114,6 +119,10 @@ const copy: Record<LocaleCode, BookingCopy> = {
       "Detectamos un correo personal. Si tienes uno corporativo, te recomendamos usarlo para un mejor seguimiento.",
     errorSlotTaken: "Ese horario acaba de ser tomado. Elige otro.",
     errorRateLimited: "Demasiados intentos en poco tiempo. Espera unos minutos e inténtalo de nuevo.",
+    consentBefore: "Autorizo a LATIN CONSULTING SERVICES SAS a tratar mis datos personales para coordinar esta reunión y hacer su seguimiento, según la ",
+    consentLink: "Política de tratamiento de datos",
+    consentAfter: ".",
+    errorConsent: "Para agendar necesitamos tu autorización de tratamiento de datos.",
     errorGeneric:
       "Algo no salió como esperábamos, pero no te preocupes: tu solicitud es importante para nosotros. Intenta de nuevo en unos segundos; si el problema continúa, escríbenos por WhatsApp al +57 318 397 1073 y te ayudamos a agendar.",
     errorApiNotConfigured:
@@ -183,6 +192,10 @@ const copy: Record<LocaleCode, BookingCopy> = {
       "We noticed a personal email address. If you have a company email, we recommend using it for better follow-up.",
     errorSlotTaken: "That time was just taken. Please pick another.",
     errorRateLimited: "Too many attempts in a short time. Please wait a few minutes and try again.",
+    consentBefore: "I authorize LATIN CONSULTING SERVICES SAS to process my personal data to schedule and follow up on this meeting, under the ",
+    consentLink: "Personal Data Processing Policy",
+    consentAfter: " (in Spanish).",
+    errorConsent: "We need your authorization to process your data before booking.",
     errorGeneric:
       "Something didn’t go as expected, but don’t worry — your request matters to us. Please try again in a few seconds; if it continues, WhatsApp us at +57 318 397 1073 and we’ll help you book.",
     errorApiNotConfigured:
@@ -252,6 +265,10 @@ const copy: Record<LocaleCode, BookingCopy> = {
       "Detectamos um e-mail pessoal. Se você tiver um e-mail corporativo, recomendamos usá-lo para um melhor acompanhamento.",
     errorSlotTaken: "Esse horário acabou de ser reservado. Escolha outro.",
     errorRateLimited: "Muitas tentativas em pouco tempo. Aguarde alguns minutos e tente novamente.",
+    consentBefore: "Autorizo a LATIN CONSULTING SERVICES SAS a tratar meus dados pessoais para agendar esta reunião e fazer seu acompanhamento, conforme a ",
+    consentLink: "Política de tratamento de dados",
+    consentAfter: " (em espanhol).",
+    errorConsent: "Para agendar, precisamos da sua autorização para o tratamento de dados.",
     errorGeneric:
       "Algo não saiu como esperávamos, mas não se preocupe: sua solicitação é importante para nós. Tente de novo em alguns segundos; se continuar, fale conosco no WhatsApp +57 318 397 1073 e ajudamos a agendar.",
     errorApiNotConfigured:
@@ -321,6 +338,10 @@ const copy: Record<LocaleCode, BookingCopy> = {
       "Nous avons détecté une adresse e-mail personnelle. Si vous avez une adresse professionnelle, nous vous recommandons de l'utiliser pour un meilleur suivi.",
     errorSlotTaken: "Ce créneau vient d’être pris. Choisissez-en un autre.",
     errorRateLimited: "Trop de tentatives en peu de temps. Patientez quelques minutes puis réessayez.",
+    consentBefore: "J'autorise LATIN CONSULTING SERVICES SAS à traiter mes données personnelles pour organiser cette réunion et en assurer le suivi, conformément à la ",
+    consentLink: "Politique de traitement des données",
+    consentAfter: " (en espagnol).",
+    errorConsent: "Nous avons besoin de votre autorisation de traitement des données pour réserver.",
     errorGeneric:
       "Quelque chose n’a pas fonctionné comme prévu, mais ne vous inquiétez pas : votre demande compte pour nous. Réessayez dans quelques secondes ; si le problème continue, écrivez-nous sur WhatsApp au +57 318 397 1073 et nous vous aiderons à réserver.",
     errorApiNotConfigured:

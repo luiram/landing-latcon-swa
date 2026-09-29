@@ -25,7 +25,16 @@ type Body = {
   contact: { fullName: string; roleTitle?: string | null; email: string; phoneWhatsapp: string };
   need: { primary: string; comment?: string | null };
   slotStartUtc: string;
+  /** Opcional mientras siga publicado el formulario sin casilla (ADR 0006). */
+  consent?: { dataProcessing?: unknown; policyVersion?: unknown };
 };
+
+/** Versión de la política aceptada, o null si la reserva no trae una autorización válida. */
+function consentVersion(consent: Body["consent"]): string | null {
+  if (consent?.dataProcessing !== true || !isNonEmpty(consent.policyVersion)) return null;
+  const v = consent.policyVersion.trim();
+  return v.length <= 20 ? v : null;
+}
 
 function isNonEmpty(s: unknown): s is string {
   return typeof s === "string" && s.trim().length > 0;
@@ -214,7 +223,7 @@ app.http("createAppointment", {
 
       const companyId = await insertCompany(transaction, body.company);
       const contactId = await insertContact(transaction, companyId, body.contact);
-      const meetingId = await insertMeetingRequest(transaction, contactId, body.need, locale);
+      const meetingId = await insertMeetingRequest(transaction, contactId, body.need, locale, consentVersion(body.consent));
       appointmentId = await insertAppointment(
         transaction,
         meetingId,
@@ -327,16 +336,19 @@ async function insertMeetingRequest(
   contactId: string,
   need: Body["need"],
   locale: LocaleCode,
+  policyVersion: string | null,
 ): Promise<string> {
   const r = await new sql.Request(tr)
     .input("contactId", sql.UniqueIdentifier, contactId)
     .input("primary", sql.NVarChar(500), need.primary.trim())
     .input("free", sql.NVarChar(2000), need.comment?.trim() ?? null)
     .input("loc", sql.Char(2), locale)
+    .input("policy", sql.NVarChar(20), policyVersion)
     .query(
-      `INSERT INTO dbo.meeting_requests (contact_id, primary_need, free_text, locale, status)
+      `INSERT INTO dbo.meeting_requests (contact_id, primary_need, free_text, locale, status, data_consent_at_utc, data_policy_version)
        OUTPUT CAST(INSERTED.id AS NVARCHAR(36)) AS id
-       VALUES (@contactId, @primary, @free, @loc, N'scheduled')`,
+       VALUES (@contactId, @primary, @free, @loc, N'scheduled',
+               CASE WHEN @policy IS NULL THEN NULL ELSE SYSUTCDATETIME() END, @policy)`,
     );
   return (r.recordset as { id: string }[])[0]!.id;
 }

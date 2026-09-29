@@ -11,6 +11,7 @@ import { formatDayCard, formatSlotFull, formatSlotLabel, formatSlotsLoadError, g
 import { bogotaTodayIso, nextBookingDayIsos } from "@/features/booking/bookingCalendarUtils";
 import { getVisibleSlotsForSelectedDay } from "@/features/booking/bookingSlotDisplay";
 import { isPersonalEmailDomain } from "@/features/booking/emailDomains";
+import { AUTORIZACION_AGENDA } from "@/config/sitio/legal";
 
 type FormState = {
   fullName: string;
@@ -120,6 +121,8 @@ export function BookingWizard() {
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [successMeta, setSuccessMeta] = useState<{ emailUser: string; emailInternal: string } | null>(null);
   const idempotencyRef = useRef<string | null>(null);
+  const [consent, setConsent] = useState(false);
+  const [consentError, setConsentError] = useState(false);
 
   const allowedBookingDates = useMemo(
     () => new Set(nextBookingDayIsos(bogotaTodayIso(), 5)),
@@ -230,6 +233,10 @@ export function BookingWizard() {
 
   const confirmBooking = async () => {
     if (!selectedSlotStart || !idempotencyRef.current) return;
+    if (!consent) {
+      setConsentError(true);
+      return;
+    }
     setSubmitting(true);
     setSubmitError(null);
     const body = {
@@ -251,6 +258,7 @@ export function BookingWizard() {
         comment: form.comment.trim() || null,
       },
       slotStartUtc: selectedSlotStart,
+      consent: { dataProcessing: true as const, policyVersion: AUTORIZACION_AGENDA.version },
     };
     const res = await createAppointment(body);
     setSubmitting(false);
@@ -527,6 +535,37 @@ export function BookingWizard() {
               </li>
               {form.comment.trim() ? <li>{form.comment.trim()}</li> : null}
             </ul>
+          </div>
+          <div>
+            <label className="flex items-start gap-3 text-sm leading-relaxed text-text-muted">
+              <input
+                type="checkbox"
+                className="mt-1 h-4 w-4 shrink-0 accent-accent"
+                checked={consent}
+                onChange={(e) => {
+                  setConsent(e.target.checked);
+                  if (e.target.checked) setConsentError(false);
+                }}
+                aria-invalid={consentError}
+                aria-describedby={consentError ? "error-autorizacion" : undefined}
+              />
+              <span>
+                {t.consentBefore}
+                <Link
+                  href={AUTORIZACION_AGENDA.rutaPolitica}
+                  target="_blank"
+                  className="font-semibold text-blue-mid-2 underline-offset-4 hover:underline"
+                >
+                  {t.consentLink}
+                </Link>
+                {t.consentAfter} *
+              </span>
+            </label>
+            {consentError ? (
+              <p id="error-autorizacion" className="mt-2 text-sm text-accent">
+                {t.errorConsent}
+              </p>
+            ) : null}
           </div>
           {submitError ? <p className="text-sm text-accent">{submitError}</p> : null}
           <StepFooter

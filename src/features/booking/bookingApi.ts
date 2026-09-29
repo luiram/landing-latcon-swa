@@ -42,6 +42,8 @@ export type CreateAppointmentBody = {
   contact: { fullName: string; roleTitle: string | null; email: string; phoneWhatsapp: string };
   need: { primary: string; comment: string | null };
   slotStartUtc: string;
+  /** Autorización de tratamiento de datos (Ley 1581 de 2012) y versión de la política aceptada. */
+  consent: { dataProcessing: true; policyVersion: string };
 };
 
 export async function createAppointment(

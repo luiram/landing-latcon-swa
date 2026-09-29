@@ -25,3 +25,11 @@ Ambos ajustes se hacen en el paso 7 del plan, dentro de `sitio-web`, y no como a
 
 ## Modificación · 2026-09-27 (paso 2)
 Los datos legales del footer (razón social, NIT, régimen, dirección, teléfono y correo) se adelantaron al paso 2, porque son información fija del documento y el footer se construyó en ese paso. Siguen en el paso 7: la casilla de autorización del formulario, la página `/tratamiento-de-datos` (el footer ya enlaza a ella) y la instrumentación.
+
+## Modificación · 2026-09-29 (paso 7a)
+- La política de tratamiento (`/tratamiento-de-datos`) y el aviso de privacidad (`/privacidad`) salen de `src/config/sitio/legal.ts`. Son un borrador con el contenido mínimo del Decreto 1377 de 2013 (arts. 13 y 15); se revisan legalmente antes del lanzamiento.
+- El formulario de `/agenda` tiene una casilla obligatoria, no premarcada, con enlace a la política. La reserva envía `consent: { dataProcessing: true, policyVersion }`.
+- Prueba de la autorización (Decreto 1377, art. 7): `dbo.meeting_requests.data_consent_at_utc` (hora del servidor) y `data_policy_version`. La migración `002` también crea las columnas de origen (UTM, página de entrada, referente) que llena el paso 7b, para tocar la base una sola vez.
+- La API acepta `consent` como **opcional**: el formulario publicado hoy no la envía y no debe romperse. Sin autorización válida, la reserva se guarda con las columnas en NULL. Cuando salga ese formulario, la API debe exigirla.
+- Orden de publicación: primero la migración `002`, después la API y al final el front. La API nueva falla si las columnas no existen.
+- Cambiar el texto de la política obliga a cambiar `VERSION_POLITICA`.

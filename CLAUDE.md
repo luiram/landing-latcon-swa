@@ -48,7 +48,7 @@ Ocho pasos con compuerta. No avanzar al siguiente sin aprobación del anterior. 
 
 ## Estado actual
 
-Actualizado: 2026-09-28 · Rama `sitio-web` · Siguiente: **paso 7**
+Actualizado: 2026-09-29 · Rama `sitio-web` · Siguiente: **paso 7b**
 
 | Paso | Estado | Commit |
 |---|---|---|
@@ -60,8 +60,10 @@ Actualizado: 2026-09-28 · Rama `sitio-web` · Siguiente: **paso 7**
 | 5 · `/sectores/energia-petroleo-gas` | Aprobado. Armada sin crear ni modificar componentes; contenido en `src/config/sitio/sectores.ts`. Tres hallazgos en el ADR 0003 | `c650421` |
 | 6a · Hallazgos del paso 5 y sectores | Aprobado. Los 4 sectores con una sola ruta (`/sectores/[sector]`) y `/sectores` | `d6104fe` |
 | 6b · `/soluciones` y sus 7 páginas | Aprobado. Seis escalones con una sola ruta (`/soluciones/[escalon]`), drones y overview; contenido en `src/config/sitio/soluciones.ts` | `4490d6f` |
-| 6c · `/metodo`, `/nosotros`, `/desarrollo-a-la-medida` | Aprobado. Contenido en `src/config/sitio/empresa-paginas.ts`; `/desarrollo-a-la-medida` solo texto hasta tener capturas propias | este commit |
-| 7 · Instrumentación, SEO por página, páginas legales | **Siguiente.** Falta `/tratamiento-de-datos`: es el único enlace interno roto del sitio | — |
+| 6c · `/metodo`, `/nosotros`, `/desarrollo-a-la-medida` | Aprobado. Contenido en `src/config/sitio/empresa-paginas.ts`; `/desarrollo-a-la-medida` solo texto hasta tener capturas propias | `ab1df69` |
+| 7a · Legal | Aprobado. `/tratamiento-de-datos` y `/privacidad` con contenido en `src/config/sitio/legal.ts`; casilla de autorización en `/agenda`; migración `db/migrations/002_autorizacion_y_origen.sql` y la API guarda la autorización | este commit |
+| 7b · Instrumentación | Pendiente. UTM y origen en la reserva, eventos de GA4, `docs/utm.md` | — |
+| 7c · SEO por página | Pendiente. Sitemap desde `mapa.ts`, imagen OG en interiores, JSON-LD | — |
 | 8 | Pendiente | — |
 
 **Decisiones abiertas**
@@ -74,10 +76,13 @@ Actualizado: 2026-09-28 · Rama `sitio-web` · Siguiente: **paso 7**
 | Idiomas al lanzar: solo español con selector oculto, o esperar la traducción | ADR 0004 | Paso 8 |
 | Alinear la paleta de la web con la de las propuestas (`#152033`, `#16A34A`) | ADR 0002 | Decisión de marca, sin paso |
 | Subir `sitio-web` y `landing-v1` a GitHub (hoy solo locales) | ADR 0005 | Cuando se pida |
+| Revisión legal de `/tratamiento-de-datos` y `/privacidad` (borrador del paso 7a) | `src/config/sitio/legal.ts` | Antes de publicar |
+| Publicar la migración `002` y la API en Azure (en ese orden, antes del front) | ADR 0006 | Paso 8 |
+| Volver obligatoria la autorización en la API cuando salga el formulario sin casilla | ADR 0006 | Después del lanzamiento |
 
 **Decidido en el paso 6:** escalón 6 en `/soluciones/agentes-ia`; `/recursos` queda fuera del sitio hasta definir su cadencia; `/lp/drones` se aplaza hasta tener video.
 
-**Conocido y aceptado:** `/tratamiento-de-datos` da 404 hasta el paso 7; el resto de las 19 páginas enlaza sin roturas. Pendiente de material, no de código: capturas propias (sectores y `/desarrollo-a-la-medida`), fotos de drones y las etiquetas de `/nosotros` (hoy fuera). El error de lint en `src/app/global-error.tsx` ya estaba en `landing-v1`. `check:tokens -- --strict` pasa (0) y la paleta de Tailwind está desactivada: mantenerlo así. El home mide 3.585 px a 1440 (landing: 5.879; límite: 6.130) y tiene 451 palabras en `<main>` (landing y límite: 992). El enlace secundario del hero va a `/soluciones` hasta que exista el autodiagnóstico (§8 de contenido).
+**Conocido y aceptado:** no quedan enlaces internos rotos. Pendiente de material, no de código: capturas propias (sectores y `/desarrollo-a-la-medida`), fotos de drones y las etiquetas de `/nosotros` (hoy fuera). El error de lint en `src/app/global-error.tsx` ya estaba en `landing-v1`. `check:tokens -- --strict` pasa (0) y la paleta de Tailwind está desactivada: mantenerlo así. El home mide 3.585 px a 1440 (landing: 5.879; límite: 6.130) y tiene 451 palabras en `<main>` (landing y límite: 992). El enlace secundario del hero va a `/soluciones` hasta que exista el autodiagnóstico (§8 de contenido).
 
 ## Comandos
 
