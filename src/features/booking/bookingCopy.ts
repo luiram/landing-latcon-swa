@@ -24,6 +24,8 @@ export type BookingCopy = {
     cityCountry: string;
     cityCountryOptional: string;
     need: string;
+    /** Aviso bajo los campos libres: no incluir datos sensibles (docs/consulta-legal.md). */
+    needHint: string;
     comment: string;
   };
   next: string;
@@ -96,6 +98,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
       cityCountry: "Ciudad / país",
       cityCountryOptional: "Ciudad / país (opcional)",
       need: "Necesidad principal",
+      needHint: "No incluyas datos sensibles (salud, creencias, datos de menores) ni datos de otras personas.",
       comment: "Comentario (opcional)",
     },
     next: "Continuar",
@@ -119,16 +122,16 @@ const copy: Record<LocaleCode, BookingCopy> = {
       "Detectamos un correo personal. Si tienes uno corporativo, te recomendamos usarlo para un mejor seguimiento.",
     errorSlotTaken: "Ese horario acaba de ser tomado. Elige otro.",
     errorRateLimited: "Demasiados intentos en poco tiempo. Espera unos minutos e inténtalo de nuevo.",
-    consentBefore: "Autorizo a LATIN CONSULTING SERVICES SAS a tratar mis datos personales para coordinar esta reunión y hacer su seguimiento, según la ",
+    consentBefore: "Autorizo a LATIN CONSULTING SERVICES SAS a tratar mis datos personales para coordinar esta reunión, hacer su seguimiento, preparar una propuesta y saber por qué canal llegué, incluida su transmisión a proveedores en Brasil y Estados Unidos, según la ",
     consentLink: "Política de tratamiento de datos",
     consentAfter: ".",
     errorConsent: "Para agendar necesitamos tu autorización de tratamiento de datos.",
     errorGeneric:
-      "Algo no salió como esperábamos, pero no te preocupes: tu solicitud es importante para nosotros. Intenta de nuevo en unos segundos; si el problema continúa, escríbenos por WhatsApp al +57 318 397 1073 y te ayudamos a agendar.",
+      "Algo no salió como esperábamos, pero no te preocupes: tu solicitud es importante para nosotros. Intenta de nuevo en unos segundos; si el problema continúa, escríbenos a contacto@latconservices.com o llámanos al +57 318 397 1073 y te ayudamos a agendar.",
     errorApiNotConfigured:
-      "Estamos preparando el calendario. En unos momentos debería estar disponible; si prefieres, escríbenos por WhatsApp al +57 318 397 1073 y te agendamos con gusto.",
+      "Estamos preparando el calendario. En unos momentos debería estar disponible; si prefieres, escríbenos a contacto@latconservices.com y te agendamos con gusto.",
     errorFetchFailed:
-      "En este momento no pudimos cargar los horarios disponibles. No te preocupes: no perdiste nada. Intenta de nuevo en un momento o escríbenos por WhatsApp al +57 318 397 1073 y te acompañamos para agendar tu diagnóstico.",
+      "En este momento no pudimos cargar los horarios disponibles. No te preocupes: no perdiste nada. Intenta de nuevo en un momento o escríbenos a contacto@latconservices.com y te acompañamos para agendar tu diagnóstico.",
     retrySlots: "Reintentar carga de horarios",
     homeLink: "Volver al inicio",
   },
@@ -170,6 +173,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
       cityCountry: "City / country",
       cityCountryOptional: "City / country (optional)",
       need: "Main need",
+      needHint: "Please don’t include sensitive data (health, beliefs, data about minors) or other people’s data.",
       comment: "Comments (optional)",
     },
     next: "Continue",
@@ -243,6 +247,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
       cityCountry: "Cidade / país",
       cityCountryOptional: "Cidade / país (opcional)",
       need: "Necessidade principal",
+      needHint: "Não inclua dados sensíveis (saúde, crenças, dados de menores) nem dados de outras pessoas.",
       comment: "Comentário (opcional)",
     },
     next: "Continuar",
@@ -316,6 +321,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
       cityCountry: "Ville / pays",
       cityCountryOptional: "Ville / pays (facultatif)",
       need: "Besoin principal",
+      needHint: "N’incluez pas de données sensibles (santé, croyances, données de mineurs) ni de données d’autres personnes.",
       comment: "Commentaire (facultatif)",
     },
     next: "Continuer",

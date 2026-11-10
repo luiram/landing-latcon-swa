@@ -11,8 +11,8 @@ export default function Error({}: {
       <p className="text-2xl font-semibold tracking-tight text-accent">Latcon</p>
       <h1 className="mt-4 text-xl font-semibold text-text-primary">Estamos teniendo un momento difícil</h1>
       <p className="mt-2 max-w-md text-sm leading-relaxed text-text-muted">
-        No te preocupes: suele ser temporal. Puedes intentarlo de nuevo o volver al inicio y escribirnos por
-        WhatsApp al +57 318 397 1073 si necesitas agendar con ayuda.
+        No te preocupes: suele ser temporal. Puedes intentarlo de nuevo o volver al inicio. Si necesitas agendar con
+        ayuda, escríbenos a contacto@latconservices.com.
       </p>
       <div className="mt-6 flex flex-wrap justify-center gap-3">
         <button

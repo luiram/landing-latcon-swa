@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BotonPreferenciasCookies } from "@/components/analytics/BotonPreferenciasCookies";
 import { Contenedor } from "@/components/ui/Contenedor";
 import { cn } from "@/lib/cn";
 import type { EnlaceNav, GrupoNav } from "@/lib/navegacion";
@@ -19,12 +20,12 @@ type FooterProps = {
     logo: string;
     logoAlt: string;
   };
-  textos: { pie: string; legal: string; derechos: string };
+  textos: { pie: string; legal: string; derechos: string; cookies: string };
   anio: number;
 };
 
 const enlace =
-  "rounded-control text-body-sm text-text-muted transition-colors duration-200 hover:text-blue-mid-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-page";
+  "inline-flex min-h-6 items-center rounded-control text-body-sm text-text-muted transition-colors duration-200 hover:text-blue-mid-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-page";
 
 export function Footer({ columnas, legales, empresa, textos, anio }: FooterProps) {
   return (
@@ -81,6 +82,7 @@ export function Footer({ columnas, legales, empresa, textos, anio }: FooterProps
                   {e.etiqueta}
                 </Link>
               ))}
+              <BotonPreferenciasCookies etiqueta={textos.cookies} className={cn(enlace, "text-caption font-medium")} />
             </nav>
             <p className="text-caption text-text-muted">
               © {anio} {empresa.marca}. {textos.derechos}

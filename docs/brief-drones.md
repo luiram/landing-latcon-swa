@@ -13,7 +13,7 @@ Incorporar al sitio web de LATCON una sección específica que presente nuestra 
 **Propuesta:** incorporar en el hero/home una animación o video corto y sobrio de un dron agrícola volando sobre un cultivo. Debe integrarse con la identidad actual de LATCON, sin parecer publicidad de una marca de drones.
 
 - **Mensaje:** "Tecnología aérea para una agricultura más inteligente"
-- **Subtítulo:** "Drones para pulverización, monitoreo y captura de información agrícola."
+- **Subtítulo:** "Drones para monitoreo, mapeo y captura de información agrícola." (Sin pulverización desde el paso 8a: ADR 0007.)
 - **CTA:** "Conoce nuestras soluciones con drones →"
 
 **Uso de imágenes:** para esta primera versión utilizar material propio o recursos con licencia comercial clara. No reutilizar fotografías, videos o logos oficiales de DJI sin autorización. DJI señala que su contenido y marcas están protegidos y que el uso comercial no autorizado puede estar restringido.
@@ -30,7 +30,7 @@ Incorporar al sitio web de LATCON una sección específica que presente nuestra 
 
 | Frente | Descripción | Equipos |
 |---|---|---|
-| **Pulverización agrícola** | Soluciones para aplicación de productos agrícolas mediante drones, con configuraciones adaptables a diferentes escalas y tipos de cultivo | T25P · T55 |
+| ~~**Pulverización agrícola**~~ (retirada, ADR 0007) | Soluciones para aplicación de productos agrícolas mediante drones, con configuraciones adaptables a diferentes escalas y tipos de cultivo | T25P · T55 |
 | **Monitoreo y análisis** | Captura de información RGB y multiespectral para seguimiento, análisis y toma de decisiones agrícolas | Mavic 3 Multispectral |
 | **Posicionamiento de alta precisión** | Tecnología RTK para operaciones que requieren precisión, repetibilidad y control de información geoespacial | D-RTK 3 |
 | **Datos que se convierten en decisiones** | Integración de captura en campo con procesamiento, almacenamiento, analítica e inteligencia artificial | — |

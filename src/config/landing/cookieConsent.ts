@@ -3,8 +3,10 @@ import type { CookieConsentContent } from "./types";
 
 const byLocale: Record<LocaleCode, CookieConsentContent> = {
   es: {
-    message: "Usamos cookies para analizar el uso del sitio.",
-    privacyLink: "Más info",
+    regionLabel: "Aviso de cookies",
+    message: "Usamos cookies de analítica solo si las aceptas.",
+    reject: "Rechazar",
+    privacyLink: "Ver el aviso de privacidad",
     customize: "Personalizar",
     acceptAll: "Aceptar",
     expandedTitle: "Elige qué cookies permites",
@@ -17,7 +19,9 @@ const byLocale: Record<LocaleCode, CookieConsentContent> = {
     savePreferences: "Guardar preferencias",
   },
   en: {
-    message: "We use cookies to analyze site usage.",
+    regionLabel: "Cookie notice",
+    message: "We use analytics cookies only if you accept them.",
+    reject: "Reject",
     privacyLink: "More info",
     customize: "Customize",
     acceptAll: "Accept",
@@ -31,7 +35,9 @@ const byLocale: Record<LocaleCode, CookieConsentContent> = {
     savePreferences: "Save preferences",
   },
   pt: {
-    message: "Usamos cookies para analisar o uso do site.",
+    regionLabel: "Aviso de cookies",
+    message: "Usamos cookies de análise apenas se você aceitar.",
+    reject: "Recusar",
     privacyLink: "Mais informações",
     customize: "Personalizar",
     acceptAll: "Aceitar",
@@ -45,7 +51,9 @@ const byLocale: Record<LocaleCode, CookieConsentContent> = {
     savePreferences: "Salvar preferências",
   },
   fr: {
-    message: "Nous utilisons des cookies pour analyser l'utilisation du site.",
+    regionLabel: "Avis sur les cookies",
+    message: "Nous utilisons des cookies d'analyse uniquement si vous les acceptez.",
+    reject: "Refuser",
     privacyLink: "Plus d'infos",
     customize: "Personnaliser",
     acceptAll: "Accepter",

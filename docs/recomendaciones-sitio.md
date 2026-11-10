@@ -101,7 +101,7 @@ latconservices.com
 │    │         └─ #drones → [5]
 │    │
 │    ├── [5]  /soluciones/drones                     Módulo de tecnología agrícola aérea
-│    │         ├─ #pulverizacion                     T25P · T55
+│    │         ├─ (#pulverizacion retirada, ADR 0007)
 │    │         ├─ #monitoreo-multiespectral          Mavic 3 Multispectral
 │    │         ├─ #posicionamiento-rtk               D-RTK 3
 │    │         ├─ #del-dato-a-la-decision            → enlaza a la familia C
@@ -403,7 +403,7 @@ El titular de la página debería decir eso, no "planeación estratégica y desp
 
 ### Familia B · el módulo de drones
 
-**Drones tiene página propia**, no ancla, porque el brief define cuatro frentes con contenido suficiente: pulverización, monitoreo multiespectral, posicionamiento RTK e integración de datos.
+**Drones tiene página propia**, no ancla, porque el brief define cuatro frentes con contenido suficiente: monitoreo multiespectral, levantamiento y mapeo, posicionamiento RTK e integración de datos (pulverización retirada en el paso 8a, ADR 0007).
 
 El brief propone un video de dron agrícola en el hero del home. **No lo recomiendo, y es la única cosa del brief que discutiría.**
 

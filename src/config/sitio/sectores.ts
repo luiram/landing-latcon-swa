@@ -148,7 +148,7 @@ const AGROINDUSTRIA: PaginaSector = {
         "Captura en campo que funciona sin señal y sincroniza al recuperar conexión",
         "Parcelas y productores georreferenciados, con evidencia asociada",
         "Sensores y actuadores en cultivo: riego, condiciones, alertas",
-        "Drones para pulverización, monitoreo multiespectral y levantamiento",
+        "Drones para monitoreo multiespectral, mapeo y levantamiento",
         "Trazabilidad para certificación y cumplimiento",
       ],
       {

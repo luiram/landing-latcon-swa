@@ -269,12 +269,17 @@ export function tarjetaPaso(antetitulo: string, paso: Paso) {
   };
 }
 
-/** /soluciones/drones. Sin modelos de equipo hasta verificar la posición frente al fabricante (§1.6b). */
+/**
+ * /soluciones/drones. Sin modelos de equipo hasta verificar la posición frente al fabricante (§1.6b).
+ * Sin pulverización ni aspersión: exige explotador UAS certificado (RAC 100) y requisitos del ICA
+ * que LATCON no tiene hoy (docs/consulta-legal.md tema 9, ADR 0007).
+ */
 export const DRONES = {
   ruta: RUTAS.drones,
   metadatos: {
-    titulo: "Drones agrícolas: pulverización y monitoreo",
-    descripcion: "Pulverización agrícola, monitoreo RGB y multiespectral, posicionamiento de alta precisión y datos que se vuelven decisiones.",
+    titulo: "Drones agrícolas: monitoreo multiespectral y mapeo",
+    descripcion:
+      "Monitoreo RGB y multiespectral, levantamiento y mapeo del lote, posicionamiento RTK y la captura del dron integrada con analítica para decidir en campo.",
   },
   hero: {
     antetitulo: `Drones · Escalón 2 · ${escalon(2).nombre}`,
@@ -299,14 +304,9 @@ export const DRONES = {
     encabezado: { titulo: "Qué construimos" },
     /**
      * Modelos pendientes de verificación, para agregar al final de cada tarjeta como dato técnico (pie):
-     * pulverización T25P · T55; monitoreo Mavic 3 Multispectral; posicionamiento D-RTK 3.
+     * monitoreo Mavic 3 Multispectral; posicionamiento D-RTK 3.
      */
     tarjetas: [
-      {
-        titulo: "Pulverización agrícola",
-        texto:
-          "Aplicación de productos agrícolas mediante drones, con configuraciones adaptables a diferentes escalas y tipos de cultivo.",
-      },
       {
         titulo: "Monitoreo y análisis",
         texto: "Captura de información RGB y multiespectral para seguimiento, análisis y toma de decisiones agrícolas.",
@@ -314,6 +314,10 @@ export const DRONES = {
       {
         titulo: "Posicionamiento de alta precisión",
         texto: "Tecnología RTK para operaciones que requieren precisión, repetibilidad y control de información geoespacial.",
+      },
+      {
+        titulo: "Levantamiento y mapeo",
+        texto: "Mapas y modelos del lote para medir áreas, planear labores y comparar el cultivo de una visita a la siguiente.",
       },
       {
         titulo: "Datos que se convierten en decisiones",
@@ -330,12 +334,21 @@ export const DRONES = {
       { titulo: "Implementamos", texto: "Acompañamos la puesta en operación y la evolución de la solución." },
     ],
   },
-  despues: {
+  /** Regla 8 de CLAUDE.md: "Qué necesitas antes" y "Qué viene después", cada uno con enlace. */
+  antesYDespues: {
     encabezado: {
-      antetitulo: "Qué viene después",
-      titulo: "El dron captura; lo que decide qué hacer con eso está en los escalones siguientes.",
+      antetitulo: "Antes y después",
+      titulo: "El dron es una forma de capturar el dato. Antes hay que saber qué medir; después, qué hacer con él.",
     },
-    destinos: [3, 5],
+    antes: {
+      titulo: escalon(1).nombre,
+      texto: "Saber qué vale la pena registrar en el lote antes de elegir el equipo.",
+      destino: 1,
+    },
+    despues: [
+      { titulo: escalon(3).nombre, texto: "Lo que captura el dron llega a un tablero que se actualiza solo.", destino: 3 },
+      { titulo: escalon(5).nombre, texto: "Con el histórico de vuelos, anticipar rendimiento y riesgo por zona.", destino: 5 },
+    ],
   },
   cierre: {
     titulo: "¿Quieres conocer qué solución con drones puede aplicarse a tu operación?",

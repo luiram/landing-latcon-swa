@@ -501,6 +501,7 @@ export function BookingWizard() {
             </label>
             <label className="block">
               <span className="text-sm font-medium text-text-primary">{t.fields.need} *</span>
+              <span className="mt-0.5 block text-xs text-text-muted">{t.fields.needHint}</span>
               <textarea
                 className={`${inputClass} min-h-[5rem] resize-y${fieldErrors.primaryNeed ? " border-accent focus:border-accent focus:ring-accent/20" : ""}`}
                 value={form.primaryNeed}

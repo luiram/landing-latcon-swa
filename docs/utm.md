@@ -78,4 +78,4 @@ ORDER BY mr.created_at DESC;
 
 El abandono del formulario es la caída entre pasos de `agenda_paso` (*Explorar → Exploración de embudo*). Para ver los parámetros en los informes estándar hay que registrarlos como dimensiones personalizadas en GA4 (*Administrar → Definiciones personalizadas*): `pagina`, `ubicacion`, `paso`, `tipo`, `porcentaje`. Conviene marcar `generate_lead` como evento clave y subir la retención de datos de 2 a 14 meses (*Administrar → Recopilación y retención de datos*): con 2 meses, el embudo de *Explorar* pierde la historia. Las tres cosas son gratuitas en GA4 estándar.
 
-Todos los eventos respetan el banner de cookies: sin consentimiento, GA4 no guarda cookies (Consent Mode).
+Todos los eventos respetan el aviso de cookies: sin aceptación no se carga ningún script de Google y no se envía ningún evento (Consent Mode básico, ADR 0007).

@@ -29,6 +29,8 @@ export const TEXTOS_CHASIS = {
   pie: "Enlaces del sitio",
   legal: "Información legal",
   derechos: "Todos los derechos reservados.",
+  /** Reabre el aviso de cookies (paso 8a). */
+  cookies: "Configurar cookies",
 } as const;
 
 /** Página 404 (src/app/not-found.tsx): la que sirve Azure para cualquier URL que no existe. */

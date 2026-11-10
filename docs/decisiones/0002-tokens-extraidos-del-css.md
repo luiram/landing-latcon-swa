@@ -75,3 +75,6 @@ Los documentos comerciales (propuestas) usan `#152033` y `#16A34A`; la web usa o
   - Selector de idioma (oculto, ADR 0004): los grises `stone` y `neutral` → `bg-elevated`, `text-strong` y `border-subtle`.
   - Días de la semana del calendario de `/agenda`: 10.4 px → `label` (11 px). Micro-copy del banner de cookies: 10 px → 11 px.
 - Una utilidad de tamaño de texto sin interlineado propio hereda 1.5. Donde el elemento tenía la altura de `text-sm` o `text-xs` (botones, chips), se fija `leading-5` o `leading-4` para conservar la altura.
+
+## Modificación · 2026-11-10 (paso 8a)
+El acento de interfaz pasa de `#f58220` a `#c2410c` (`--c-orange-700`) para cumplir WCAG 2.1 AA (5,2:1 con blanco; el anterior daba 2,59:1). `--c-orange-500` queda como primitivo sin uso en texto. Ver ADR 0007.

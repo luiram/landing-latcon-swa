@@ -89,7 +89,10 @@ export type LandingContent = {
 };
 
 export type CookieConsentContent = {
+  /** Nombre accesible de la región del aviso. */
+  regionLabel: string;
   message: string;
+  reject: string;
   privacyLink: string;
   customize: string;
   acceptAll: string;

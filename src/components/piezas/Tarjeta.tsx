@@ -70,7 +70,7 @@ export function Tarjeta({
       ) : null}
       {cita ? <Cita className="mt-4">{cita}</Cita> : null}
       {pie ? (
-        <p className="mt-4 border-t border-border-subtle pt-4 text-caption leading-4 font-medium uppercase tracking-wide text-accent/85">
+        <p className="mt-4 border-t border-border-subtle pt-4 text-caption leading-4 font-medium uppercase tracking-wide text-accent">
           {pie}
         </p>
       ) : null}

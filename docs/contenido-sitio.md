@@ -263,7 +263,7 @@ Rejilla con los cuatro sectores, cada uno con lo que se hace ahí y en qué esca
 - Captura en campo que funciona sin señal y sincroniza al recuperar conexión
 - Parcelas y productores georreferenciados, con evidencia asociada
 - Sensores y actuadores en cultivo: riego, condiciones, alertas
-- Drones para pulverización, monitoreo multiespectral y levantamiento
+- Drones para monitoreo multiespectral, mapeo y levantamiento
 - Trazabilidad para certificación y cumplimiento
 
 *Automatizar y decidir*
@@ -393,7 +393,7 @@ Las tres familias con su titular de transición, y dentro de cada una las págin
 
 **Posicionamiento:** No vendemos solamente drones. Diseñamos soluciones para el campo. Nuestro enfoque combina equipo, configuración, capacitación, datos, tecnología y acompañamiento. La solución se define según las características del cultivo, la operación y los objetivos del cliente.
 
-**Qué construimos:** Pulverización agrícola · Monitoreo y análisis RGB y multiespectral · Posicionamiento de alta precisión · Integración de la captura con procesamiento y analítica
+**Qué construimos:** Monitoreo y análisis RGB y multiespectral · Posicionamiento de alta precisión · Levantamiento y mapeo · Integración de la captura con procesamiento y analítica (sin pulverización: ADR 0007)
 
 **Cómo trabajamos:** 01 Entendemos · 02 Diseñamos · 03 Validamos · 04 Implementamos
 

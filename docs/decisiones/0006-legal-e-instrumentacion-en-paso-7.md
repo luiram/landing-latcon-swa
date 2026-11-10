@@ -38,3 +38,6 @@ Los datos legales del footer (razón social, NIT, régimen, dirección, teléfon
 - Analítica solo con GA4, sin Microsoft Clarity: no agrega proveedores ni cambia la política, y usa el Consent Mode que ya existe.
 - El origen (UTM, primera página, referente externo) se guarda en `sessionStorage` y viaja con la reserva, no por GA4. Así el origen llega a la base aunque la persona rechace las cookies. Está cubierto por la política ("el canal o la campaña por la que llegaste").
 - Eventos y convención de UTM en `docs/utm.md`. El clic al CTA se detecta por delegación (cualquier enlace a `/agenda`), sin marcar componentes: ninguna sección conoce la analítica.
+
+## Modificación · 2026-11-10 (paso 8a)
+La revisión legal la hace LATCON con investigación propia; Consent Mode pasa a básico; la casilla y la política declaran la transmisión a Brasil y Estados Unidos. La prueba de la autorización se ampara en el art. 8 del Decreto 1377 (no el 7). Ver ADR 0007.
