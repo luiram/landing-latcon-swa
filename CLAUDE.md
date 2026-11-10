@@ -65,7 +65,7 @@ Actualizado: 2026-11-10 · Rama `sitio-web` (también en GitHub, sin PR) · En c
 | 7a · Legal | Aprobado. `/tratamiento-de-datos` y `/privacidad` con contenido en `src/config/sitio/legal.ts`; casilla de autorización en `/agenda`; migración `db/migrations/002_autorizacion_y_origen.sql` y la API guarda la autorización | `4112b59` |
 | 7b · Instrumentación | Aprobado. Origen de la visita (UTM, página de entrada, referente) en `sessionStorage` y en la reserva; eventos de GA4 (`cta_click`, `scroll_depth`, embudo de `/agenda`); convención en `docs/utm.md` | `b8a68dc` |
 | 7c · SEO por página | Aprobado. `sitemap.xml` sale de `PAGINAS` (menos `PAGINAS_SIN_PUBLICAR`); imagen OG y tarjeta de X en todas las páginas; JSON-LD `Organization` con datos legales y `BreadcrumbList` en interiores; títulos con el nombre de la página y el término de búsqueda | `a2eb0c2` |
-| 8a · Revisión final (local) | **En curso.** Hecho: página 404, `staticwebapp.config.json` en `public/`, idioma; auditoría de las 20 páginas; textos legales propios, Consent Mode básico, acento `#c2410c` (WCAG AA), drones sin pulverización (ADR 0007). Falta: hallazgos importantes de la auditoría (títulos SEO, testimonios aparentes, escalón 1 sin enlace, `/soluciones` desbalanceada, método de drones, `/agenda`), decisiones abiertas y `docs/lanzamiento.md` | `21d229b` y siguientes |
+| 8a · Revisión final (local) | **En curso.** Hecho: página 404, `staticwebapp.config.json` en `public/`, idioma; auditoría de las 20 páginas; textos legales propios, Consent Mode básico, acento `#c2410c` (WCAG AA), drones sin pulverización, casilla opcional de comunicaciones comerciales; sin obligación de RNBD (ADR 0007). Falta: hallazgos importantes de la auditoría (títulos SEO, testimonios aparentes, escalón 1 sin enlace, `/soluciones` desbalanceada, método de drones, `/agenda`), decisiones abiertas y `docs/lanzamiento.md` | `21d229b` y siguientes |
 | 8b · Lanzamiento | Pendiente. Cada acción que publica se autoriza por separado | — |
 
 **Decisiones abiertas**
@@ -77,8 +77,6 @@ Actualizado: 2026-11-10 · Rama `sitio-web` (también en GitHub, sin PR) · En c
 | Nombrar los modelos DJI en `/soluciones/drones` (verificar posición frente al fabricante) | docs/recomendaciones-sitio.md §1.6b | Antes de publicar |
 | Alinear la paleta de la web con la de las propuestas (`#152033`, `#16A34A`) | ADR 0002 | Decisión de marca, sin paso |
 | Subir la etiqueta `landing-v1` a GitHub (`sitio-web` ya está, 2026-11-10) | ADR 0005 | Cuando se pida |
-| Casilla opcional de comunicaciones comerciales en `/agenda` (exige migración y cambio en la API) | ADR 0007 | Antes de publicar |
-| Confirmar con el contador que los activos están bajo 100.000 UVT (no inscripción en el RNBD) | ADR 0007 | Antes de publicar |
 | Publicar la migración `002` y la API en Azure (en ese orden, antes del front) | ADR 0006 | Paso 8 |
 | Volver obligatoria la autorización en la API cuando salga el formulario sin casilla | ADR 0006 | Después del lanzamiento |
 | En GA4: subir la retención a 14 meses, registrar las dimensiones personalizadas y marcar `generate_lead` como evento clave | docs/utm.md | Paso 8 |

@@ -124,6 +124,7 @@ export function BookingWizard() {
   const idempotencyRef = useRef<string | null>(null);
   const [consent, setConsent] = useState(false);
   const [consentError, setConsentError] = useState(false);
+  const [marketing, setMarketing] = useState(false);
 
   // Embudo de /agenda (paso 7b): cada paso alcanzado es un evento; el abandono es la caída entre pasos.
   useEffect(() => {
@@ -271,7 +272,7 @@ export function BookingWizard() {
         comment: form.comment.trim() || null,
       },
       slotStartUtc: selectedSlotStart,
-      consent: { dataProcessing: true as const, policyVersion: AUTORIZACION_AGENDA.version },
+      consent: { dataProcessing: true as const, policyVersion: AUTORIZACION_AGENDA.version, marketing },
       origin: leerOrigen(),
     };
     const res = await createAppointment(body);
@@ -585,6 +586,15 @@ export function BookingWizard() {
                 {t.errorConsent}
               </p>
             ) : null}
+            <label className="mt-3 flex items-start gap-3 text-sm leading-relaxed text-text-muted">
+              <input
+                type="checkbox"
+                className="mt-1 h-4 w-4 shrink-0 accent-accent"
+                checked={marketing}
+                onChange={(e) => setMarketing(e.target.checked)}
+              />
+              <span>{t.marketingConsent}</span>
+            </label>
           </div>
           {submitError ? <p className="text-sm text-accent">{submitError}</p> : null}
           <StepFooter

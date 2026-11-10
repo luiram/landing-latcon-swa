@@ -51,6 +51,8 @@ export type BookingCopy = {
   consentLink: string;
   consentAfter: string;
   errorConsent: string;
+  /** Casilla opcional de comunicaciones comerciales (sin marcar). */
+  marketingConsent: string;
   errorGeneric: string;
   errorApiNotConfigured: string;
   /** Navegador bloqueó la petición (CORS, red, API caída). */
@@ -126,6 +128,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     consentLink: "Política de tratamiento de datos",
     consentAfter: ".",
     errorConsent: "Para agendar necesitamos tu autorización de tratamiento de datos.",
+    marketingConsent: "Opcional: también quiero recibir novedades, invitaciones a eventos y ofertas de LATCON por correo o WhatsApp. Puedo retirar esta autorización cuando quiera.",
     errorGeneric:
       "Algo no salió como esperábamos, pero no te preocupes: tu solicitud es importante para nosotros. Intenta de nuevo en unos segundos; si el problema continúa, escríbenos a contacto@latconservices.com o llámanos al +57 318 397 1073 y te ayudamos a agendar.",
     errorApiNotConfigured:
@@ -200,6 +203,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     consentLink: "Personal Data Processing Policy",
     consentAfter: " (in Spanish).",
     errorConsent: "We need your authorization to process your data before booking.",
+    marketingConsent: "Optional: I also want to receive news, event invitations and offers from LATCON by email or WhatsApp. I can withdraw this authorization at any time.",
     errorGeneric:
       "Something didn’t go as expected, but don’t worry — your request matters to us. Please try again in a few seconds; if it continues, WhatsApp us at +57 318 397 1073 and we’ll help you book.",
     errorApiNotConfigured:
@@ -274,6 +278,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     consentLink: "Política de tratamento de dados",
     consentAfter: " (em espanhol).",
     errorConsent: "Para agendar, precisamos da sua autorização para o tratamento de dados.",
+    marketingConsent: "Opcional: também quero receber novidades, convites para eventos e ofertas da LATCON por e-mail ou WhatsApp. Posso retirar esta autorização quando quiser.",
     errorGeneric:
       "Algo não saiu como esperávamos, mas não se preocupe: sua solicitação é importante para nós. Tente de novo em alguns segundos; se continuar, fale conosco no WhatsApp +57 318 397 1073 e ajudamos a agendar.",
     errorApiNotConfigured:
@@ -348,6 +353,7 @@ const copy: Record<LocaleCode, BookingCopy> = {
     consentLink: "Politique de traitement des données",
     consentAfter: " (en espagnol).",
     errorConsent: "Nous avons besoin de votre autorisation de traitement des données pour réserver.",
+    marketingConsent: "Facultatif : je souhaite aussi recevoir des nouveautés, des invitations à des événements et des offres de LATCON par e-mail ou WhatsApp. Je peux retirer cette autorisation à tout moment.",
     errorGeneric:
       "Quelque chose n’a pas fonctionné comme prévu, mais ne vous inquiétez pas : votre demande compte pour nous. Réessayez dans quelques secondes ; si le problème continue, écrivez-nous sur WhatsApp au +57 318 397 1073 et nous vous aiderons à réserver.",
     errorApiNotConfigured:

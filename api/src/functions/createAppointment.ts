@@ -26,7 +26,7 @@ type Body = {
   need: { primary: string; comment?: string | null };
   slotStartUtc: string;
   /** Opcional mientras siga publicado el formulario sin casilla (ADR 0006). */
-  consent?: { dataProcessing?: unknown; policyVersion?: unknown };
+  consent?: { dataProcessing?: unknown; policyVersion?: unknown; marketing?: unknown };
   /** Canal o campaña de la visita (paso 7b). Opcional: el formulario publicado hoy no lo envía. */
   origin?: Record<string, unknown> | null;
 };
@@ -64,6 +64,11 @@ function consentVersion(consent: Body["consent"]): string | null {
   if (consent?.dataProcessing !== true || !isNonEmpty(consent.policyVersion)) return null;
   const v = consent.policyVersion.trim();
   return v.length <= 20 ? v : null;
+}
+
+/** Autorización comercial: solo cuenta si viene marcada y junto a una autorización de tratamiento válida. */
+function marketingConsent(consent: Body["consent"]): boolean {
+  return consentVersion(consent) !== null && consent?.marketing === true;
 }
 
 function isNonEmpty(s: unknown): s is string {
@@ -259,6 +264,7 @@ app.http("createAppointment", {
         body.need,
         locale,
         consentVersion(body.consent),
+        marketingConsent(body.consent),
         parseOrigin(body.origin),
       );
       appointmentId = await insertAppointment(
@@ -297,6 +303,7 @@ app.http("createAppointment", {
       slotEndUtc: slotEnd.toJSDate(),
       userEmail: body.contact.email.trim(),
       userPhone: body.contact.phoneWhatsapp.trim(),
+      marketingConsent: marketingConsent(body.consent),
     };
 
     const userSend = await sendUserConfirmation(emailPayload);
@@ -374,6 +381,7 @@ async function insertMeetingRequest(
   need: Body["need"],
   locale: LocaleCode,
   policyVersion: string | null,
+  marketing: boolean,
   origin: Origin,
 ): Promise<string> {
   const r = await new sql.Request(tr)
@@ -382,6 +390,7 @@ async function insertMeetingRequest(
     .input("free", sql.NVarChar(2000), need.comment?.trim() ?? null)
     .input("loc", sql.Char(2), locale)
     .input("policy", sql.NVarChar(20), policyVersion)
+    .input("marketing", sql.Bit, marketing)
     .input("utmSource", sql.NVarChar(100), origin.utmSource)
     .input("utmMedium", sql.NVarChar(100), origin.utmMedium)
     .input("utmCampaign", sql.NVarChar(150), origin.utmCampaign)
@@ -390,11 +399,12 @@ async function insertMeetingRequest(
     .input("landingPath", sql.NVarChar(500), origin.landingPath)
     .input("referrer", sql.NVarChar(500), origin.referrer)
     .query(
-      `INSERT INTO dbo.meeting_requests (contact_id, primary_need, free_text, locale, status, data_consent_at_utc, data_policy_version,
+      `INSERT INTO dbo.meeting_requests (contact_id, primary_need, free_text, locale, status, data_consent_at_utc, data_policy_version, marketing_consent_at_utc,
                                          utm_source, utm_medium, utm_campaign, utm_content, utm_term, landing_path, referrer)
        OUTPUT CAST(INSERTED.id AS NVARCHAR(36)) AS id
        VALUES (@contactId, @primary, @free, @loc, N'scheduled',
                CASE WHEN @policy IS NULL THEN NULL ELSE SYSUTCDATETIME() END, @policy,
+               CASE WHEN @marketing = 1 THEN SYSUTCDATETIME() ELSE NULL END,
                @utmSource, @utmMedium, @utmCampaign, @utmContent, @utmTerm, @landingPath, @referrer)`,
     );
   return (r.recordset as { id: string }[])[0]!.id;

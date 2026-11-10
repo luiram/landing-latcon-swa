@@ -14,6 +14,8 @@ export type BookingEmailPayload = {
   slotEndUtc: Date;
   userEmail: string;
   userPhone: string;
+  /** Autorizó comunicaciones comerciales (casilla opcional de /agenda). */
+  marketingConsent: boolean;
 };
 
 const SITE_URL = "https://latconservices.com";
@@ -252,6 +254,7 @@ function internalHtml(p: BookingEmailPayload): string {
       ${detailRow("Comentario", escapeHtml(p.freeText ?? "—"))}
       ${detailRow("Correo contacto", escapeHtml(p.userEmail))}
       ${detailRow("Tel / WhatsApp", escapeHtml(p.userPhone))}
+      ${detailRow("Comunicaciones comerciales", p.marketingConsent ? "Autorizó" : "No autorizó: solo seguimiento de esta reunión y su propuesta")}
       ${detailRow("Slot (UTC)", escapeHtml(slotUtc))}
       ${detailRow("Slot (CO)", escapeHtml(whenCo))}
     </table>

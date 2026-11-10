@@ -43,8 +43,11 @@ export type CreateAppointmentBody = {
   contact: { fullName: string; roleTitle: string | null; email: string; phoneWhatsapp: string };
   need: { primary: string; comment: string | null };
   slotStartUtc: string;
-  /** Autorización de tratamiento de datos (Ley 1581 de 2012) y versión de la política aceptada. */
-  consent: { dataProcessing: true; policyVersion: string };
+  /**
+   * Autorización de tratamiento de datos (Ley 1581 de 2012) y versión de la política aceptada.
+   * `marketing`: casilla opcional, sin marcar por defecto, de comunicaciones comerciales.
+   */
+  consent: { dataProcessing: true; policyVersion: string; marketing: boolean };
   /** Canal o campaña de la visita (paso 7b). Null si no se pudo registrar. */
   origin: Origen | null;
 };

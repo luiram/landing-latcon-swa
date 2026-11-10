@@ -83,11 +83,12 @@ export const TRATAMIENTO_DATOS = {
         "Prospectos: coordinar, confirmar y realizar la reunión de diagnóstico; hacer su seguimiento; preparar y enviar una propuesta; y saber qué canales y campañas nos traen contactos.",
         "Clientes: ejecutar el contrato, coordinar el proyecto, facturar y dar soporte.",
         "Proveedores: contratar, recibir el servicio y pagar.",
+        "Prospectos y clientes que lo autorizan en una casilla aparte: enviarles novedades, invitaciones a eventos y ofertas de LATCON por correo o WhatsApp. Esta autorización es opcional, no condiciona la reunión ni la propuesta y se puede retirar en cualquier momento respondiendo el mensaje o escribiendo al correo de esta política.",
         "Empleados y candidatos: evaluar candidaturas y cumplir las obligaciones laborales y de seguridad social.",
         "Todos: atender consultas y reclamos, proteger la seguridad del sitio y de nuestros sistemas, y cumplir obligaciones legales, contables y tributarias.",
       ],
       resultado:
-        "No vendemos tus datos. No te enviamos boletines ni publicidad sin pedirte antes una autorización aparte. Si nos contactamos contigo por teléfono o WhatsApp, lo hacemos de lunes a viernes de 7:00 a. m. a 7:00 p. m. y los sábados de 8:00 a. m. a 3:00 p. m.",
+        "No vendemos tus datos. Solo te enviamos novedades, eventos u ofertas si marcaste la casilla opcional que lo autoriza; si no la marcaste, te escribimos únicamente sobre tu reunión y tu propuesta. Si nos contactamos contigo por teléfono o WhatsApp, lo hacemos de lunes a viernes de 7:00 a. m. a 7:00 p. m. y los sábados de 8:00 a. m. a 3:00 p. m.",
     },
     {
       titulo: "Quién más los ve y dónde se guardan",
@@ -143,6 +144,7 @@ export const TRATAMIENTO_DATOS = {
       titulo: "Cuánto tiempo los conservamos",
       lista: [
         "Prospectos que no llegan a una relación comercial: 24 meses desde el último contacto. Después los suprimimos.",
+        "Si autorizaste comunicaciones comerciales: las enviamos mientras no retires la autorización. Al retirarla dejamos de enviarlas y conservamos solo la constancia de la autorización y de su retiro.",
         "Clientes y proveedores: mientras dure la relación y, después, el tiempo que exija la ley para los documentos contables y comerciales.",
         "Empleados: el tiempo que exijan las normas laborales y de seguridad social. Candidatos no seleccionados: 12 meses, salvo que pidas antes que eliminemos tu hoja de vida.",
       ],

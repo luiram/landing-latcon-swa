@@ -16,9 +16,10 @@ Estado: aceptada (paso 8a)
 4. **Consent Mode básico.** Ningún script de Google se carga hasta que el visitante acepta. El aviso no bloquea el sitio, ofrece "Rechazar" en la primera capa y se reabre con "Configurar cookies" en el footer. Revocar borra las cookies `_ga*` y recarga la página.
 5. **Drones sin pulverización ni aspersión** en ninguna página. La línea queda en monitoreo RGB y multiespectral, levantamiento y mapeo, posicionamiento RTK e integración de datos. Se agrega "Qué necesitas antes" (escalón 1).
 6. **WhatsApp** figura en la política como canal de seguimiento, pero no como CTA: los mensajes de error remiten al correo.
+7. **Casilla opcional de comunicaciones comerciales** en `/agenda`, debajo de la obligatoria y sin marcar (decisión de la dirección, 2026-11-10). Cubre novedades, eventos y ofertas por correo o WhatsApp. No condiciona la reunión. Se guarda en `marketing_consent_at_utc` (migración 002, aún sin publicar) y el correo interno de cada reserva dice si se autorizó. Sin la casilla marcada, solo se escribe sobre la reunión y su propuesta.
 
 ## Verificado en fuente oficial
-- UVT 2026: $52.374 (Resolución DIAN 000238 de 2025). Umbral del RNBD (100.000 UVT): $5.237.400.000. Falta que el contador confirme que los activos de LATCON están por debajo.
+- UVT 2026: $52.374 (Resolución DIAN 000238 de 2025). Umbral del RNBD (100.000 UVT): $5.237.400.000. La dirección confirmó (2026-11-10) que los activos de LATCON están por debajo: no hay obligación de inscribir las bases de datos en el RNBD (Decreto 090 de 2018). Revisar cada año con los estados financieros.
 - Lista de países con nivel adecuado (SIC): incluye Estados Unidos; no incluye Brasil.
 - Azure SQL `sqldb-latcon-booking`: cifrado en reposo (TDE) activo.
 
