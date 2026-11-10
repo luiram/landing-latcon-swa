@@ -13,7 +13,7 @@ const irA = (n: number) => ({ etiqueta: `${escalon(n).nombre} →`, ruta: escalo
 export const METODO = {
   ruta: RUTAS.metodo,
   metadatos: {
-    titulo: "Método",
+    titulo: "Método: consultoría de datos en cuatro etapas",
     descripcion: "Cuatro etapas, cada una con un entregable concreto. No avanzamos a la siguiente hasta que la anterior genera claridad.",
   },
   hero: {
@@ -23,6 +23,8 @@ export const METODO = {
     cta: CTA_PRINCIPAL,
   },
   etapas: {
+    /** Sin encabezado, las etapas saltaban de H1 a H3 (auditoría del paso 8a). */
+    encabezado: { antetitulo: "Las cuatro etapas", titulo: "De la primera conversación a la solución funcionando" },
     etiquetaResultado: "Resultado",
     pasos: [
       {
@@ -68,12 +70,41 @@ export const METODO = {
   cierre: INICIO.cierre,
 };
 
+/** /agenda: qué esperar de la sesión, debajo del formulario (auditoría del paso 8a). Solo hechos confirmados. */
+export const AGENDA = {
+  queEsperar: {
+    encabezado: {
+      antetitulo: "Qué esperar",
+      titulo: "Treinta minutos para saber por dónde empezar",
+      bajada: INICIO.cierre.nota,
+    },
+    tarjetas: [
+      {
+        antetitulo: "Antes",
+        titulo: "Confirmación por correo",
+        texto: "Al terminar la reserva recibes la confirmación por correo. La sesión es por videollamada en Google Meet.",
+      },
+      {
+        antetitulo: "Durante",
+        titulo: "Revisamos tu operación",
+        texto: "Revisamos juntos cómo fluye tu operación e identificamos dónde se pierden datos, tiempo o decisiones.",
+      },
+      {
+        antetitulo: "Al final",
+        titulo: "Una recomendación concreta",
+        texto:
+          "Te decimos en qué escalón estás y cuál sigue, aunque la respuesta sea que todavía no necesitas lo que viniste a pedir, y aunque no trabajes con nosotros.",
+      },
+    ],
+  },
+};
+
 /** /nosotros: bajada nueva y los tres socios sin años (§6). */
 export const NOSOTROS = {
   ruta: RUTAS.nosotros,
   metadatos: {
-    titulo: "Nosotros",
-    descripcion: "Ingeniería de operaciones, desarrollo propio y gestión por resultados, como un solo equipo.",
+    titulo: "Nosotros: consultoría en operaciones y tecnología",
+    descripcion: "Ingeniería de operaciones, desarrollo propio y gestión por resultados, como un solo equipo que acompaña desde el indicador hasta el sistema.",
   },
   hero: {
     antetitulo: "Nosotros",

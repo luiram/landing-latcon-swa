@@ -14,7 +14,7 @@ export default function SolucionesPage() {
     <LayoutPagina ruta={SOLUCIONES_OVERVIEW.ruta} aRasDelFooter>
       <Hero variante="full" {...hero} />
       {familias.map((familia) => (
-        <GridDeTarjetas key={familia.id} variante="full" columnas={3} {...familia} />
+        <GridDeTarjetas key={familia.id} variante="full" columnas={familia.tarjetas.length === 1 ? 1 : 3} {...familia} />
       ))}
       <BandaCTA variante="full" {...cierre} />
     </LayoutPagina>

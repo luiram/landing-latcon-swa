@@ -22,7 +22,7 @@ export function Breadcrumb({ migas, etiqueta }: BreadcrumbProps) {
             ) : (
               <Link
                 href={miga.ruta}
-                className="rounded-control transition-colors hover:text-blue-mid-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
+                className="inline-flex min-h-6 items-center rounded-control transition-colors hover:text-blue-mid-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
               >
                 {miga.etiqueta}
               </Link>

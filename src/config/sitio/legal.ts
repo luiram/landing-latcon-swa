@@ -38,7 +38,7 @@ export const TRATAMIENTO_DATOS = {
   metadatos: {
     titulo: "Política de tratamiento de datos personales",
     descripcion:
-      "Cómo LATIN CONSULTING SERVICES SAS trata los datos personales de prospectos, clientes, proveedores y empleados, y cómo ejercer tus derechos según la Ley 1581 de 2012.",
+      "Cómo LATCON trata los datos de prospectos, clientes, proveedores y empleados, y cómo ejercer tus derechos según la Ley 1581 de 2012.",
   },
   hero: {
     antetitulo: `Vigente desde el ${FECHA_POLITICA}`,
@@ -146,7 +146,7 @@ export const TRATAMIENTO_DATOS = {
         "Prospectos que no llegan a una relación comercial: 24 meses desde el último contacto. Después los suprimimos.",
         "Si autorizaste comunicaciones comerciales: las enviamos mientras no retires la autorización. Al retirarla dejamos de enviarlas y conservamos solo la constancia de la autorización y de su retiro.",
         "Clientes y proveedores: mientras dure la relación y, después, el tiempo que exija la ley para los documentos contables y comerciales.",
-        "Empleados: el tiempo que exijan las normas laborales y de seguridad social. Candidatos no seleccionados: 12 meses, salvo que pidas antes que eliminemos tu hoja de vida.",
+        "Empleados: el tiempo que exijan las normas laborales y de seguridad social. Candidatos no seleccionados: el tiempo que la ley permita, es decir, mientras la hoja de vida sirva para el proceso de selección o para vacantes que te ofrezcamos. La ley no fija un plazo, pero exige no conservar los datos más de lo necesario (principio de temporalidad). Puedes pedir en cualquier momento que la eliminemos.",
       ],
     },
     {

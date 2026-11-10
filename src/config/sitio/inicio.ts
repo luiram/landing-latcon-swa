@@ -55,26 +55,27 @@ export const INICIO = {
     encabezado: {
       antetitulo: "Para quién",
       titulo: "Trabajamos con empresas donde los datos, los sistemas y los equipos no están conectados",
+      bajada: "Cuatro situaciones que solemos oír en la primera conversación.",
     },
     tarjetas: [
       {
         titulo: "Datos sin análisis",
-        cita: "«Tenemos los datos pero no podemos usarlos.»",
+        texto: "Tenemos los datos pero no podemos usarlos.",
         enlace: { etiqueta: `${energia.etiqueta} →`, ruta: energia.ruta },
       },
       {
         titulo: "Áreas que operan en silos",
-        cita: "«Cada área trabaja con números distintos y nadie sabe cuál es el real.»",
+        texto: "Cada área trabaja con números distintos y nadie sabe cuál es el real.",
         enlace: { etiqueta: `${agroindustria.etiqueta} →`, ruta: agroindustria.ruta },
       },
       {
         titulo: "Operación distribuida o en campo",
-        cita: "«Coordinamos todo por WhatsApp y nadie sabe quién hizo qué.»",
+        texto: "Coordinamos todo por WhatsApp y nadie sabe quién hizo qué.",
         enlace: { etiqueta: `${agroindustria.etiqueta} →`, ruta: agroindustria.ruta },
       },
       {
         titulo: "Tecnología sin integración",
-        cita: "«Tenemos varios sistemas pero ninguno le habla al otro.»",
+        texto: "Tenemos varios sistemas pero ninguno le habla al otro.",
         enlace: { etiqueta: "Ver todos los sectores →", ruta: RUTAS.sectores },
       },
     ],

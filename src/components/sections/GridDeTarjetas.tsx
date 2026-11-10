@@ -9,7 +9,8 @@ import { Seccion, type Variante } from "./Seccion";
 type GridDeTarjetasProps = {
   tarjetas: readonly DatosTarjeta[];
   encabezado?: DatosEncabezado;
-  columnas?: 2 | 3 | 4;
+  /** 1: una sola tarjeta a todo el ancho, para no dejar la fila vacía. */
+  columnas?: 1 | 2 | 3 | 4;
   /** Por defecto: `compacta` en `compact`, `normal` en `full`. */
   densidad?: DensidadTarjeta;
   cta?: EnlaceNav;
@@ -19,6 +20,7 @@ type GridDeTarjetasProps = {
 };
 
 const COLUMNAS = {
+  1: "",
   2: "sm:grid-cols-2",
   3: "sm:grid-cols-2 lg:grid-cols-3",
   4: "sm:grid-cols-2 lg:grid-cols-4",

@@ -64,7 +64,7 @@ const ENERGIA: PaginaSector = {
   empieza: 2,
   metadatos: {
     titulo: "Energía, petróleo y gas: indicadores de operación",
-    descripcion: "Eventos de operación, producción diferida e indicadores comparables entre campos.",
+    descripcion: "Eventos de operación, producción diferida e indicadores comparables entre campos, para saber a tiempo qué causa concentra las pérdidas.",
   },
   hero: {
     antetitulo: "Energía, petróleo y gas",
@@ -77,7 +77,7 @@ const ENERGIA: PaginaSector = {
     etiquetaResultado: "Dónde suele empezar",
     bloques: [
       {
-        titulo: "«Tenemos los datos pero no podemos usarlos.»",
+        titulo: "Lo que solemos oír: tenemos los datos pero no podemos usarlos",
         texto:
           "Los datos están ahí, pero analizarlos en tiempo real requiere tiempo y personal que la operación no tiene disponible. Las oportunidades pasan y los problemas se detectan tarde — cuando ya tienen un costo visible.",
         /** Ilustrativa. Se reemplaza por capturas propias del formulario y del tablero cuando existan (§3). */
@@ -117,7 +117,7 @@ const AGROINDUSTRIA: PaginaSector = {
   empieza: 2,
   metadatos: {
     titulo: "Agroindustria: trazabilidad y captura en campo",
-    descripcion: "Captura en campo sin señal, trazabilidad para certificación, drones y riego automatizado.",
+    descripcion: "Captura en campo sin señal, trazabilidad para certificación, drones y riego automatizado, para decidir con información de todo el lote.",
   },
   hero: {
     antetitulo: "Agroindustria",
@@ -130,7 +130,7 @@ const AGROINDUSTRIA: PaginaSector = {
     etiquetaResultado: "Dónde suele empezar",
     bloques: [
       {
-        titulo: "«Coordinamos todo por WhatsApp y nadie sabe quién hizo qué.»",
+        titulo: "Lo que solemos oír: coordinamos todo por WhatsApp y nadie sabe quién hizo qué",
         texto:
           "Equipos en campo, múltiples sedes o procesos entre áreas que se coordinan por WhatsApp y correo. Sin trazabilidad centralizada, es difícil saber qué pasó, quién lo hizo y cuándo — hasta que el error ya tiene consecuencias.",
         resultado: `Escalón 2 · ${escalon(2).nombre}, y a veces el 1, cuando ni siquiera está definido qué vale la pena registrar.`,
@@ -183,7 +183,7 @@ const AVICULTURA: PaginaSector = {
   empieza: 3,
   metadatos: {
     titulo: "Avicultura: conversión y mortalidad por lote",
-    descripcion: "Conversión, mortalidad y consumo comparables entre lotes, con alertas durante el lote.",
+    descripcion: "Conversión, mortalidad y consumo comparables entre lotes, con alertas durante el lote para actuar antes del cierre y no después.",
   },
   hero: {
     antetitulo: "Avicultura",
@@ -226,7 +226,7 @@ const FLORICULTURA: PaginaSector = {
   empieza: 2,
   metadatos: {
     titulo: "Floricultura: monitoreo de invernadero y labores",
-    descripcion: "Condiciones de invernadero, labores por bloque y productividad por unidad de cultivo.",
+    descripcion: "Condiciones de invernadero, labores por bloque y productividad por unidad de cultivo, capturadas en campo y reunidas en un solo tablero.",
   },
   hero: {
     antetitulo: "Floricultura",
@@ -266,7 +266,7 @@ export const COMUN_SECTOR = {
 export const SECTORES_OVERVIEW = {
   ruta: RUTAS.sectores,
   metadatos: {
-    titulo: "Sectores",
+    titulo: "Sectores: tecnología para energía y agroindustria",
     descripcion:
       "Energía, agroindustria, avicultura y floricultura: dónde ya trabajamos y en qué escalón suele empezar cada sector.",
   },

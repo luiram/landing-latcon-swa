@@ -3,6 +3,8 @@ import { BookingWizard } from "@/features/booking/BookingWizard";
 import { Contenedor } from "@/components/ui/Contenedor";
 import { metadatosPagina } from "@/lib/metadatos";
 import { RUTAS } from "@/config/sitio/mapa";
+import { AGENDA } from "@/config/sitio/empresa-paginas";
+import { GridDeTarjetas } from "@/components/sections/GridDeTarjetas";
 
 export const metadata = metadatosPagina({
   titulo: "Agenda tu diagnóstico gratuito",
@@ -17,6 +19,7 @@ export default function AgendaPage() {
       <Contenedor>
         <BookingWizard />
       </Contenedor>
+      <GridDeTarjetas id="que-esperar" variante="full" columnas={3} {...AGENDA.queEsperar} />
     </LayoutPagina>
   );
 }

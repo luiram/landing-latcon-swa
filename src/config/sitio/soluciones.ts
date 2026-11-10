@@ -11,8 +11,11 @@ import { INICIO } from "./inicio";
 
 const escalon = (n: number) => ESCALONES[n - 1];
 
-/** "Qué necesitas antes" / "Qué viene después". Sin destino, la tarjeta no lleva enlace (primer y último escalón). */
-type Paso = { titulo: string; texto: string; destino?: number };
+/**
+ * "Qué necesitas antes" / "Qué viene después". `destino` enlaza a otro escalón; `enlace`, a otra página
+ * (el primer escalón no tiene uno anterior: enlaza al diagnóstico). Regla 8: siempre hay uno de los dos.
+ */
+type Paso = { titulo: string; texto: string; destino?: number; enlace?: EnlaceNav };
 
 export type PaginaEscalon = {
   slug: string;
@@ -40,7 +43,7 @@ const ESTRATEGIA: PaginaEscalon = {
   titulo: "De la estrategia en el papel al indicador que alguien mira el lunes",
   metadatos: {
     titulo: "Definir qué medir: diseño de indicadores de gestión",
-    descripcion: "Despliegue de objetivos, diseño de indicadores y rutina de gestión que produce acciones.",
+    descripcion: "Despliegue de objetivos, diseño de indicadores y una rutina de gestión que produce acciones. El primer escalón: decidir qué vale la pena medir.",
   },
   dondeEstas:
     "Hay objetivos definidos, hay reuniones de seguimiento, y aun así nadie sabe con certeza si el mes va bien. Cada área lleva sus propios números y ninguno se puede comparar con el otro.",
@@ -54,8 +57,10 @@ const ESTRATEGIA: PaginaEscalon = {
   },
   loQueCambia: "El indicador deja de ser un número que se reporta y pasa a ser un número que cambia decisiones.",
   antes: {
-    titulo: "Nada",
-    texto: "Este es el primer escalón, y es donde debería empezar cualquiera que no esté seguro de qué medir.",
+    titulo: "Una conversación de 30 minutos",
+    texto:
+      "Este es el primer escalón, y es donde debería empezar cualquiera que no esté seguro de qué medir. Para arrancar basta el diagnóstico: revisamos cómo fluye tu operación y te decimos por dónde empezar.",
+    enlace: { etiqueta: `${CTA_PRINCIPAL.etiqueta} →`, ruta: CTA_PRINCIPAL.ruta },
   },
   despues: { titulo: escalon(2).nombre, texto: "Definido el indicador, hay que conseguir el dato que lo alimenta.", destino: 2 },
   extra: {
@@ -72,7 +77,7 @@ const CAPTURA: PaginaEscalon = {
   titulo: "Del dato que nace y se pierde al dato que llega",
   metadatos: {
     titulo: "Capturar el dato: sensores y captura sin señal",
-    descripcion: "Sensores y actuadores, captura móvil que funciona sin señal y drones.",
+    descripcion: "Sensores y actuadores, captura móvil que funciona sin señal y drones, para que el dato nazca en un formato que se pueda consolidar y usar.",
   },
   dondeEstas:
     "Ya sabe qué quiere medir. El problema es que el dato nace en un cuaderno, en un WhatsApp o en la cabeza de alguien, y todo lo que viene después hereda ese vacío.",
@@ -101,7 +106,7 @@ const VISIBILIDAD: PaginaEscalon = {
   titulo: "Del reporte que llega tarde a la señal que llega a tiempo",
   metadatos: {
     titulo: "Ver lo que pasa: tableros y alertas en tiempo real",
-    descripcion: "Fuentes conectadas, tableros en tiempo real y alertas antes de que el problema sea visible.",
+    descripcion: "Fuentes conectadas, tableros en tiempo real y alertas antes de que el problema sea visible, sin consolidar hojas de cálculo cada semana.",
   },
   dondeEstas:
     "El dato existe y está capturado, pero vive en varios sistemas y consolidarlo es trabajo de alguien todas las semanas.",
@@ -135,7 +140,7 @@ const AUTOMATIZACION: PaginaEscalon = {
   titulo: "Del proceso que depende de alguien al proceso que corre solo",
   metadatos: {
     titulo: "Automatizar: flujos e integración de sistemas",
-    descripcion: "Flujos automáticos y trazables, sistemas integrados y agentes de IA para tareas repetitivas.",
+    descripcion: "Flujos automáticos y trazables, sistemas integrados y agentes de IA para tareas repetitivas, sobre procesos que ya se entienden y se miden.",
   },
   dondeEstas: "Ya ve lo que pasa. El problema es que entre verlo y que algo cambie hay tres personas, dos correos y un archivo.",
   queConstruimos: {
@@ -168,7 +173,7 @@ const PREDICCION: PaginaEscalon = {
   titulo: "De explicar lo que pasó a saber lo que viene",
   metadatos: {
     titulo: "Anticipar: modelos predictivos y visión artificial",
-    descripcion: "Modelos predictivos, sistemas que aprenden de la operación y análisis visual automatizado.",
+    descripcion: "Modelos predictivos, sistemas que aprenden de la operación y análisis visual automatizado, para decidir con lo que viene y no con lo que pasó.",
   },
   dondeEstas: "Los tableros ya explican bien el mes anterior. Lo que falta es enterarse antes, no después.",
   queConstruimos: {
@@ -205,7 +210,7 @@ const AGENTES_IA: PaginaEscalon = {
   titulo: "De la alerta que alguien tiene que atender al caso que se cierra solo",
   metadatos: {
     titulo: "Resolver solo: agentes de IA para la operación",
-    descripcion: "Agentes de IA que detectan, deciden, ejecutan y cierran el caso, con control y trazabilidad.",
+    descripcion: "Agentes de IA que detectan, deciden, ejecutan y cierran el caso, con límites definidos, aprobación humana donde hace falta y trazabilidad.",
   },
   dondeEstas:
     "El sistema ya avisa a tiempo y con buen criterio. Pero cada aviso sigue consumiendo el tiempo de una persona, y son muchos avisos.",
@@ -230,9 +235,10 @@ const AGENTES_IA: PaginaEscalon = {
     destino: 5,
   },
   despues: {
-    titulo: "Nada",
+    titulo: "Medir lo que hace el agente",
     texto:
-      "Este es el último escalón, y llegar aquí sin haber recorrido los anteriores no funciona: un agente sobre datos que no existen automatiza el error.",
+      "Este es el último escalón, y llegar aquí sin haber recorrido los anteriores no funciona: un agente sobre datos que no existen automatiza el error. Lo que sigue es medir su resultado con los indicadores del primer escalón y decidir qué proceso viene.",
+    destino: 1,
   },
   casos: [],
 };
@@ -265,7 +271,7 @@ export function tarjetaPaso(antetitulo: string, paso: Paso) {
     antetitulo,
     titulo: paso.titulo,
     texto: paso.texto,
-    enlace: destino ? { etiqueta: `${destino.nombre} →`, ruta: destino.ruta } : undefined,
+    enlace: destino ? { etiqueta: `${destino.nombre} →`, ruta: destino.ruta } : paso.enlace,
   };
 }
 
@@ -328,11 +334,13 @@ export const DRONES = {
   comoTrabajamos: {
     encabezado: { titulo: "Cómo trabajamos" },
     pasos: [
-      { titulo: "Entendemos", texto: "Conocemos el cultivo, la operación y la necesidad." },
-      { titulo: "Diseñamos", texto: "Definimos la tecnología y la configuración adecuadas." },
-      { titulo: "Validamos", texto: "Probamos y ajustamos la solución en condiciones reales." },
-      { titulo: "Implementamos", texto: "Acompañamos la puesta en operación y la evolución de la solución." },
+      { titulo: "Entendemos el contexto", texto: "Conocemos el cultivo, la operación y la necesidad." },
+      { titulo: "Diseñamos la solución", texto: "Definimos la tecnología y la configuración adecuadas." },
+      { titulo: "Construimos por etapas", texto: "Probamos y ajustamos la solución en condiciones reales." },
+      { titulo: "Implementamos y ajustamos", texto: "Acompañamos la puesta en operación y la evolución de la solución." },
     ],
+    /** Mismas etapas que /metodo (auditoría del paso 8a). */
+    enlace: { etiqueta: "Ver el método completo →", ruta: RUTAS.metodo },
   },
   /** Regla 8 de CLAUDE.md: "Qué necesitas antes" y "Qué viene después", cada uno con enlace. */
   antesYDespues: {
@@ -369,7 +377,7 @@ export function tarjetaEscalon(numero: number, etiqueta = "Ver la etapa →") {
 export const SOLUCIONES_OVERVIEW = {
   ruta: RUTAS.soluciones,
   metadatos: {
-    titulo: "Soluciones",
+    titulo: "Soluciones: transformación digital por etapas",
     descripcion: "Seis etapas en orden, de definir qué medir a que el caso se resuelva solo. La mayoría entra por la que le duele hoy.",
   },
   hero: {

@@ -6,7 +6,7 @@ const siteEs: SiteContent = {
   descriptor: "Conectamos tu operación, tus datos y tu tecnología.",
   metadataTitle: "Latcon — Operación, datos y tecnología para empresas en crecimiento",
   metadataDescription:
-    "¿Qué tanto le cuesta a tu empresa operar con información dispersa? Integramos datos, procesos y tecnología para que tu organización gane visibilidad y capacidad de decisión.",
+    "Integramos datos, procesos y tecnología para que empresas con información dispersa ganen visibilidad y decidan mejor. Diagnóstico de 30 minutos.",
   bookingPath: "/agenda",
   privacyUrl: "/privacidad",
   nav: [
