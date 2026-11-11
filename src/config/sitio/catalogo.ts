@@ -58,7 +58,7 @@ export const CATALOGO = {
     {
       antetitulo: "Qué necesitas antes",
       titulo: ESCALONES[1].nombre,
-      texto: "Que el dato exista y esté llegando. Si todavía nace en papel, empiece por capturarlo.",
+      texto: "Que el dato exista y esté llegando. Si todavía nace en papel, empieza por capturarlo.",
       enlace: { etiqueta: `${ESCALONES[1].nombre} →`, ruta: ESCALONES[1].ruta },
     },
     {

@@ -17,7 +17,7 @@ const TONOS = {
 /** Enlace de texto. Una URL con protocolo se abre en otra pestaña. */
 export function Enlace({ href, children, tono = "accent", className }: EnlaceProps) {
   const estilos = cn(
-    "inline-flex items-center gap-1 text-body-sm leading-5 font-semibold underline-offset-4 transition-colors hover:underline",
+    "inline-flex min-h-6 items-center gap-1 text-body-sm leading-5 font-semibold underline-offset-4 transition-colors hover:underline",
     TONOS[tono],
     className,
   );

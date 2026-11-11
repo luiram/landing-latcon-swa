@@ -57,7 +57,6 @@ export default function RootLayout({
       <body className="min-h-screen bg-bg-warm text-text-primary">
         <script
           type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
         <GoogleAnalytics />

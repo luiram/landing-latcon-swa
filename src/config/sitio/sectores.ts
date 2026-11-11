@@ -70,7 +70,7 @@ const ENERGIA: PaginaSector = {
     antetitulo: "Energía, petróleo y gas",
     titulo: "De la falla que se registra en tres formatos al indicador que compara los tres campos",
     bajada:
-      "El evento se registra en un lado, el impacto en otro, y la relación entre los dos la sostiene una persona con una hoja de cálculo. Cuando quiere saber qué causa concentra sus pérdidas, la respuesta llega tarde y no es comparable entre campos.",
+      "El evento se registra en un lado, el impacto en otro, y la relación entre los dos la sostiene una persona con una hoja de cálculo. Cuando quieres saber qué causa concentra tus pérdidas, la respuesta llega tarde y no es comparable entre campos.",
     cta: CTA_PRINCIPAL,
   },
   dolor: {
@@ -272,9 +272,9 @@ export const SECTORES_OVERVIEW = {
   },
   hero: {
     antetitulo: "Sectores",
-    titulo: "Conocemos cómo se opera en su industria",
+    titulo: "Conocemos cómo se opera en tu industria",
     bajada:
-      "No llegamos a aprender su operación con su presupuesto. Estos son los sectores donde ya trabajamos y en qué escalón suele empezar cada uno.",
+      "No llegamos a aprender tu operación con tu presupuesto. Estos son los sectores donde ya trabajamos y en qué escalón suele empezar cada uno.",
     cta: CTA_PRINCIPAL,
   },
   tarjetas: SECTORES_PAGINAS.map((s) => ({

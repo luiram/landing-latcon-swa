@@ -63,7 +63,7 @@ export const METODO = {
     {
       titulo: "El método es nuestro. La escalera es suya.",
       texto:
-        "Las cuatro etapas de arriba son cómo ejecutamos un proyecto. La escalera de seis escalones es hasta dónde llega su operación. Un proyecto puede subir un escalón o dos; nadie sube seis de una vez. En el diagnóstico le decimos en cuál está y cuál sigue, aunque la respuesta sea que todavía no necesita lo que vino a pedir.",
+        "Las cuatro etapas de arriba son cómo ejecutamos un proyecto. La escalera de seis escalones es hasta dónde llega tu operación. Un proyecto puede subir un escalón o dos; nadie sube seis de una vez. En el diagnóstico te decimos en cuál estás y cuál sigue, aunque la respuesta sea que todavía no necesitas lo que viniste a pedir.",
       enlace: { etiqueta: "Ver las seis etapas →", ruta: RUTAS.soluciones },
     },
   ],
@@ -146,7 +146,7 @@ export const DESARROLLO = {
     antetitulo: "Lo que construimos",
     titulo: "Lo que construimos en cada escalón",
     bajada:
-      "No somos una agencia que recibe especificaciones ni una consultora que entrega recomendaciones. El mismo equipo que entiende su operación es el que escribe el código — y por eso la escalera se puede recorrer completa con un solo interlocutor.",
+      "No somos una agencia que recibe especificaciones ni una consultora que entrega recomendaciones. El mismo equipo que entiende tu operación es el que escribe el código — y por eso la escalera se puede recorrer completa con un solo interlocutor.",
     cta: CTA_PRINCIPAL,
   },
   capacidades: [
@@ -179,7 +179,7 @@ export const DESARROLLO = {
     },
   ],
   cierre: {
-    titulo: "Lo que construimos se le transfiere a usted.",
+    titulo: "Lo que construimos se te transfiere.",
     texto: "Sin dependencia del proveedor.",
     cta: CTA_PRINCIPAL,
     nota: INICIO.hero.nota,

@@ -4,7 +4,7 @@ import type { SiteContent } from "./types";
 const siteEs: SiteContent = {
   brand: "Latcon",
   descriptor: "Conectamos tu operación, tus datos y tu tecnología.",
-  metadataTitle: "Latcon — Operación, datos y tecnología para empresas en crecimiento",
+  metadataTitle: "Latcon — Operación, datos y tecnología para tu empresa",
   metadataDescription:
     "Integramos datos, procesos y tecnología para que empresas con información dispersa ganen visibilidad y decidan mejor. Diagnóstico de 30 minutos.",
   bookingPath: "/agenda",

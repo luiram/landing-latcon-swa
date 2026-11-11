@@ -33,6 +33,10 @@ Dos bloques fijos al final: **qué necesitas antes** y **qué viene después**, 
 
 Mismo nombre en el menú, en el home, en las páginas de sector, en el autodiagnóstico y en los casos. La repetición es lo que instala el modelo mental.
 
+### Trato · Al lector se le habla de tú
+
+Todo el sitio tutea: titulares, cuerpo, CTA, formularios y textos legales. No se mezcla con usted en ninguna página (decidido en el paso 8a, 2026-11-11).
+
 ### Componente nuevo: `EscaleraContextual`
 
 Una franja horizontal con los seis escalones, el actual resaltado y los demás enlazables. Aparece en las siete páginas de solución, siempre en el mismo lugar. Es la versión explícita de lo que las reglas 1 y 2 hacen de forma implícita.
@@ -86,7 +90,7 @@ Seis bloques cortos, cinco con salida a una sección.
 ## #donde-trabajamos — [NUEVO] · inmediatamente después del hero
 
 **Titular:** Dónde ya trabajamos
-**Bajada:** Operaciones industriales y agroindustriales, en campo y con conectividad intermitente. No llegamos a aprender su sector con su presupuesto.
+**Bajada:** Operaciones industriales y agroindustriales, en campo y con conectividad intermitente. No llegamos a aprender tu sector con tu presupuesto.
 
 Cuatro tarjetas, una por sector, cada una con una línea de contexto y enlace a su página:
 
@@ -209,8 +213,8 @@ Declarar los dos escalones hace que la escalera se vea recorrida y no declarada:
 
 ## `/sectores` — overview [NUEVO]
 
-**Titular:** Conocemos cómo se opera en su industria
-**Bajada:** No llegamos a aprender su operación con su presupuesto. Estos son los sectores donde ya trabajamos y en qué escalón suele empezar cada uno.
+**Titular:** Conocemos cómo se opera en tu industria
+**Bajada:** No llegamos a aprender tu operación con tu presupuesto. Estos son los sectores donde ya trabajamos y en qué escalón suele empezar cada uno.
 
 Rejilla con los cuatro sectores, cada uno con lo que se hace ahí y en qué escalón suele empezar. Los casos entran cuando existan (§2).
 
@@ -218,7 +222,7 @@ Rejilla con los cuatro sectores, cada uno con lo que se hace ahí y en qué esca
 
 **Titular:** De la falla que se registra en tres formatos al indicador que compara los tres campos
 
-**Bajada:** El evento se registra en un lado, el impacto en otro, y la relación entre los dos la sostiene una persona con una hoja de cálculo. Cuando quiere saber qué causa concentra sus pérdidas, la respuesta llega tarde y no es comparable entre campos.
+**Bajada:** El evento se registra en un lado, el impacto en otro, y la relación entre los dos la sostiene una persona con una hoja de cálculo. Cuando quieres saber qué causa concentra tus pérdidas, la respuesta llega tarde y no es comparable entre campos.
 
 **El dolor, desarrollado [ACTUAL]:** Los datos están ahí, pero analizarlos en tiempo real requiere tiempo y personal que la operación no tiene disponible. Las oportunidades pasan y los problemas se detectan tarde — cuando ya tienen un costo visible.
 
@@ -346,7 +350,7 @@ Rejilla con los cuatro sectores, cada uno con lo que se hace ahí y en qué esca
 
 Las tres familias con su titular de transición, y dentro de cada una las páginas hijas.
 
-**Cierre:** ¿No sabe en qué escalón está? Averígüelo en cinco minutos →
+**Cierre:** ¿No sabes en qué escalón estás? Averígüelo en cinco minutos →
 
 ## `/soluciones/estrategia-e-indicadores` — [NUEVO] · escalón 1
 
@@ -372,7 +376,7 @@ Las tres familias con su titular de transición, y dentro de cada una las págin
 
 **Titular:** Del dato que nace y se pierde al dato que llega
 
-**Dónde estás si esto te suena:** Ya sabe qué quiere medir. El problema es que el dato nace en un cuaderno, en un WhatsApp o en la cabeza de alguien, y todo lo que viene después hereda ese vacío.
+**Dónde estás si esto te suena:** Ya sabes qué quieres medir. El problema es que el dato nace en un cuaderno, en un WhatsApp o en la cabeza de alguien, y todo lo que viene después hereda ese vacío.
 
 **Qué construimos:**
 - **Sensores y actuadores.** Condiciones medidas en continuo, sin que nadie tenga que ir a mirar.
@@ -381,7 +385,7 @@ Las tres familias con su titular de transición, y dentro de cada una las págin
 
 **Lo que cambia:** El dato deja de depender de que alguien se acuerde de anotarlo.
 
-**Qué necesitas antes:** Saber qué vale la pena registrar. Si no está claro, empiece en *definir qué medir* →
+**Qué necesitas antes:** Saber qué vale la pena registrar. Si no está claro, empieza en *definir qué medir* →
 
 **Qué viene después:** Con el dato llegando, se puede ver lo que pasa →
 
@@ -416,7 +420,7 @@ Las tres familias con su titular de transición, y dentro de cada una las págin
 
 **Lo que cambia [ACTUAL]:** Menos tiempo esperando datos. Decisiones que llegan cuando todavía sirven para actuar.
 
-**Qué necesitas antes:** Que el dato exista y esté llegando. Si todavía nace en papel, empiece en *capturar el dato* →
+**Qué necesitas antes:** Que el dato exista y esté llegando. Si todavía nace en papel, empieza en *capturar el dato* →
 
 **Qué viene después:** Ver lo que pasa es necesario, pero sigue exigiendo que alguien mire y actúe. El siguiente paso es *automatizar* →
 
@@ -464,9 +468,9 @@ Las tres familias con su titular de transición, y dentro de cada una las págin
 - **Comprensión sin fricción.** Preguntar en lenguaje natural sobre la operación y recibir la respuesta, sin buscar en un tablero ni pedirle un reporte a nadie.
 - **Resolución de extremo a extremo.** El sistema detecta la situación, decide qué hacer, lo ejecuta y cierra el caso.
 - **Arquitectura agéntica.** Varios agentes especializados que se coordinan, con herramientas propias y memoria del proceso.
-- **Control y trazabilidad.** Qué decide solo, qué requiere aprobación humana y qué queda registrado. Los límites se definen con usted antes de encender nada.
+- **Control y trazabilidad.** Qué decide solo, qué requiere aprobación humana y qué queda registrado. Los límites se definen contigo antes de encender nada.
 
-**Lo que cambia:** Es la única etapa que reemplaza horas de operación en vez de mejorarlas. Los cinco escalones anteriores hacen que su equipo trabaje mejor; este hace que no tenga que trabajar en eso.
+**Lo que cambia:** Es la única etapa que reemplaza horas de operación en vez de mejorarlas. Los cinco escalones anteriores hacen que tu equipo trabaje mejor; este hace que no tenga que trabajar en eso.
 
 **Qué necesitas antes:** Anticipar. Un sistema no puede resolver solo lo que todavía no sabe predecir →
 
@@ -480,7 +484,7 @@ Las tres familias con su titular de transición, y dentro de cada una las págin
 
 **Titular:** Lo que construimos en cada escalón
 
-**Bajada:** No somos una agencia que recibe especificaciones ni una consultora que entrega recomendaciones. El mismo equipo que entiende su operación es el que escribe el código — y por eso la escalera se puede recorrer completa con un solo interlocutor.
+**Bajada:** No somos una agencia que recibe especificaciones ni una consultora que entrega recomendaciones. El mismo equipo que entiende tu operación es el que escribe el código — y por eso la escalera se puede recorrer completa con un solo interlocutor.
 
 **Capacidades, agrupadas por escalón, con captura propia y sin cliente identificable:**
 
@@ -499,7 +503,7 @@ Las tres familias con su titular de transición, y dentro de cada una las págin
 - Modelos predictivos sobre operación real
 - Agentes y sistemas multiagente
 
-**Cierre:** Lo que construimos se le transfiere a usted. Sin dependencia del proveedor.
+**Cierre:** Lo que construimos se te transfiere. Sin dependencia del proveedor.
 
 ---
 
@@ -541,7 +545,7 @@ Las cuatro etapas se conservan textuales, cada una con su resultado. Se agregan 
 
 **Titular:** El método es nuestro. La escalera es suya.
 
-**Texto:** Las cuatro etapas de arriba son cómo ejecutamos un proyecto. La escalera de seis escalones es hasta dónde llega su operación. Un proyecto puede subir un escalón o dos; nadie sube seis de una vez. En el diagnóstico le decimos en cuál está y cuál sigue, aunque la respuesta sea que todavía no necesita lo que vino a pedir.
+**Texto:** Las cuatro etapas de arriba son cómo ejecutamos un proyecto. La escalera de seis escalones es hasta dónde llega tu operación. Un proyecto puede subir un escalón o dos; nadie sube seis de una vez. En el diagnóstico te decimos en cuál estás y cuál sigue, aunque la respuesta sea que todavía no necesitas lo que viniste a pedir.
 
 ---
 
@@ -554,22 +558,22 @@ La segunda vía de conversión, y la pieza que vuelve accionable la escalera.
 **Formato:** 6 a 8 preguntas cerradas, tres minutos.
 
 **Qué devuelve:**
-- El escalón en el que está hoy
-- Qué le falta para el siguiente
+- El escalón en el que estás hoy
+- Qué te falta para el siguiente
 - Un enlace a la página de solución correspondiente
 - La opción de agendar, con el resultado ya en contexto
 
 **Qué le da al CRM:** el escalón entra como campo calificado, no como un correo suelto. Se puede segmentar el pipeline por escalón y saber qué escalón convierte mejor.
 
 **Preguntas propuestas:**
-1. ¿Sus indicadores están definidos y son los mismos para todas las áreas?
+1. ¿Tus indicadores están definidos y son los mismos para todas las áreas?
 2. ¿El dato de la operación se registra donde ocurre o se digita después?
-3. ¿Cuánto tarda en saber cómo va el mes?
+3. ¿Cuánto tardas en saber cómo va el mes?
 4. ¿Cuántas personas tocan un dato antes de que llegue a una decisión?
-5. ¿Sus sistemas se hablan entre sí?
-6. ¿Se entera de los problemas antes o después de que tengan costo?
+5. ¿Tus sistemas se hablan entre sí?
+6. ¿Te enteras de los problemas antes o después de que tengan costo?
 7. ¿Cuántas horas al mes se van en tareas que siempre son iguales?
-8. ¿Tiene histórico acumulado de su operación?
+8. ¿Tienes histórico acumulado de tu operación?
 
 ---
 

@@ -28,7 +28,7 @@ export const INICIO = {
     encabezado: {
       titulo: "Dónde ya trabajamos",
       bajada:
-        "Operaciones industriales y agroindustriales, en campo y con conectividad intermitente. No llegamos a aprender su sector con su presupuesto.",
+        "Operaciones industriales y agroindustriales, en campo y con conectividad intermitente. No llegamos a aprender tu sector con tu presupuesto.",
     },
     items: [
       {

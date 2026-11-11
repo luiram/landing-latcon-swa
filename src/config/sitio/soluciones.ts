@@ -80,7 +80,7 @@ const CAPTURA: PaginaEscalon = {
     descripcion: "Sensores y actuadores, captura móvil que funciona sin señal y drones, para que el dato nazca en un formato que se pueda consolidar y usar.",
   },
   dondeEstas:
-    "Ya sabe qué quiere medir. El problema es que el dato nace en un cuaderno, en un WhatsApp o en la cabeza de alguien, y todo lo que viene después hereda ese vacío.",
+    "Ya sabes qué quieres medir. El problema es que el dato nace en un cuaderno, en un WhatsApp o en la cabeza de alguien, y todo lo que viene después hereda ese vacío.",
   queConstruimos: {
     items: [
       "Sensores y actuadores: condiciones medidas en continuo, sin que nadie tenga que ir a mirar",
@@ -95,7 +95,7 @@ const CAPTURA: PaginaEscalon = {
     enlace: { etiqueta: "Ver la línea completa de drones →", ruta: RUTAS.drones },
   },
   loQueCambia: "El dato deja de depender de que alguien se acuerde de anotarlo.",
-  antes: { titulo: escalon(1).nombre, texto: "Saber qué vale la pena registrar. Si no está claro, empiece por aquí.", destino: 1 },
+  antes: { titulo: escalon(1).nombre, texto: "Saber qué vale la pena registrar. Si no está claro, empieza por aquí.", destino: 1 },
   despues: { titulo: escalon(3).nombre, texto: "Con el dato llegando, se puede ver lo que pasa.", destino: 3 },
   casos: [],
 };
@@ -123,7 +123,7 @@ const VISIBILIDAD: PaginaEscalon = {
   loQueCambia: "Menos tiempo esperando datos. Decisiones que llegan cuando todavía sirven para actuar.",
   antes: {
     titulo: escalon(2).nombre,
-    texto: "Que el dato exista y esté llegando. Si todavía nace en papel, empiece por capturarlo.",
+    texto: "Que el dato exista y esté llegando. Si todavía nace en papel, empieza por capturarlo.",
     destino: 2,
   },
   despues: {
@@ -219,7 +219,7 @@ const AGENTES_IA: PaginaEscalon = {
       "Comprensión sin fricción: preguntar en lenguaje natural sobre la operación y recibir la respuesta, sin buscar en un tablero ni pedirle un reporte a nadie",
       "Resolución de extremo a extremo: el sistema detecta la situación, decide qué hacer, lo ejecuta y cierra el caso",
       "Arquitectura agéntica: varios agentes especializados que se coordinan, con herramientas propias y memoria del proceso",
-      "Control y trazabilidad: qué decide solo, qué requiere aprobación humana y qué queda registrado. Los límites se definen con usted antes de encender nada",
+      "Control y trazabilidad: qué decide solo, qué requiere aprobación humana y qué queda registrado. Los límites se definen contigo antes de encender nada",
     ],
     /** Ilustrativa: las cifras del tablero dibujado son de ejemplo. */
     imagen: {
@@ -228,7 +228,7 @@ const AGENTES_IA: PaginaEscalon = {
     },
   },
   loQueCambia:
-    "Es la única etapa que reemplaza horas de operación en vez de mejorarlas. Los cinco escalones anteriores hacen que su equipo trabaje mejor; este hace que no tenga que trabajar en eso.",
+    "Es la única etapa que reemplaza horas de operación en vez de mejorarlas. Los cinco escalones anteriores hacen que tu equipo trabaje mejor; este hace que no tenga que trabajar en eso.",
   antes: {
     titulo: escalon(5).nombre,
     texto: "Un sistema no puede resolver solo lo que todavía no sabe predecir.",
@@ -407,9 +407,9 @@ export const SOLUCIONES_OVERVIEW = {
   })),
   /** El documento cierra con el autodiagnóstico (§8), que todavía no existe: mientras tanto, el diagnóstico. */
   cierre: {
-    titulo: "¿No sabe en qué escalón está?",
+    titulo: "¿No sabes en qué escalón estás?",
     texto:
-      "En el diagnóstico le decimos en cuál está y cuál sigue, aunque la respuesta sea que todavía no necesita lo que vino a pedir.",
+      "En el diagnóstico te decimos en cuál estás y cuál sigue, aunque la respuesta sea que todavía no necesitas lo que viniste a pedir.",
     cta: CTA_PRINCIPAL,
     nota: INICIO.cierre.nota,
   },
