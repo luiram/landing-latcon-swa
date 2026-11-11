@@ -308,10 +308,7 @@ export const DRONES = {
   ],
   frentes: {
     encabezado: { titulo: "Qué construimos" },
-    /**
-     * Modelos pendientes de verificación, para agregar al final de cada tarjeta como dato técnico (pie):
-     * monitoreo Mavic 3 Multispectral; posicionamiento D-RTK 3.
-     */
+    /** Sin nombres de fabricante ni de modelos (decidido en el paso 8a, 2026-11-11). */
     tarjetas: [
       {
         titulo: "Monitoreo y análisis",

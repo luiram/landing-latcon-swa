@@ -73,13 +73,13 @@ Actualizado: 2026-11-11 · Rama `sitio-web` (también en GitHub, sin PR) · En c
 | Decisión | Dónde | Se cierra en |
 |---|---|---|
 | Publicar o no `/catalogo` (hoy `noindex` y sin enlaces) | ADR 0003 | Paso 8 |
-| Publicar avicultura (construida en 6a; sin captura propia del sector) | docs/contenido-sitio.md §9 | Paso 8 |
-| Nombrar los modelos DJI en `/soluciones/drones` (verificar posición frente al fabricante) | docs/recomendaciones-sitio.md §1.6b | Antes de publicar |
 | Alinear la paleta de la web con la de las propuestas (`#152033`, `#16A34A`) | ADR 0002 | Decisión de marca, sin paso |
 | Subir la etiqueta `landing-v1` a GitHub (`sitio-web` ya está, 2026-11-10) | ADR 0005 | Cuando se pida |
 | Publicar la migración `002` y la API en Azure (en ese orden, antes del front) | ADR 0006 | Paso 8 |
 | Volver obligatoria la autorización en la API cuando salga el formulario sin casilla | ADR 0006 | Después del lanzamiento |
 | En GA4: subir la retención a 14 meses, registrar las dimensiones personalizadas y marcar `generate_lead` como evento clave | docs/utm.md | Paso 8 |
+
+**Decidido en el paso 8a (2026-11-11):** avicultura se publica como sector, con su entrada por la captura de datos (sensores IoT); `/soluciones/drones` no nombra a DJI ni a sus modelos.
 
 **Decidido en el paso 6:** escalón 6 en `/soluciones/agentes-ia`; `/recursos` queda fuera del sitio hasta definir su cadencia; `/lp/drones` se aplaza hasta tener video.
 

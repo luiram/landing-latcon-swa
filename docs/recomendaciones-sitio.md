@@ -626,7 +626,7 @@ Los hitos 2 y 3 se retroalimentan: el sitio genera los leads que el CRM ordena, 
 - [ ] Priorizar los 4 sectores: ¿cuáles primero según calendario de ferias?
 - [ ] Escribir el copy del home que reemplaza "no somos una agencia de desarrollo ni una consultora de estrategia"
 - [ ] Decidir la ruta y el titular de la solución de agentes: `/soluciones/zero-touch` o `/soluciones/agentes-ia`
-- [ ] Verificar la posición de LATCON frente a DJI o su distribuidor antes de publicar el módulo de drones
+- [x] Verificar la posición de LATCON frente a DJI o su distribuidor antes de publicar el módulo de drones → decidido 2026-11-11: el sitio no nombra al fabricante ni a los modelos
 - [ ] Conseguir material audiovisual propio de drones en operación (o licencia comercial verificable)
 - [ ] Definir stack del núcleo compartido y estrategia de migración de los 4 productos existentes
 - [ ] Seleccionar proveedor habilitado DIAN para la integración fiscal
