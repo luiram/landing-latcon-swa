@@ -78,3 +78,6 @@ Los documentos comerciales (propuestas) usan `#152033` y `#16A34A`; la web usa o
 
 ## Modificación · 2026-11-10 (paso 8a)
 El acento de interfaz pasa de `#f58220` a `#c2410c` (`--c-orange-700`) para cumplir WCAG 2.1 AA (5,2:1 con blanco; el anterior daba 2,59:1). `--c-orange-500` queda como primitivo sin uso en texto. Ver ADR 0007.
+
+## Modificación · 2026-11-11 (paso 8a)
+Se revierte la modificación anterior por decisión de marca de la dirección: `#c2410c` se leía rojo y no está en la paleta corporativa. El acento vuelve a `#f58220` (`--c-orange-500`), igual que en `landing-v1`, con las mismas opacidades en los textos naranjas. Se elimina `--c-orange-700`. Se acepta que el acento no cumple WCAG 2.1 AA para texto: 2,6:1 con blanco y 2,4:1 sobre el fondo arena (el mínimo es 4,5:1). Ver ADR 0007, decisión 3.

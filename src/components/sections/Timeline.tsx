@@ -57,7 +57,7 @@ export function Timeline({
         <ol className={cn("grid gap-x-6 gap-y-4 sm:grid-cols-2", COLUMNAS[pasos.length] ?? "md:grid-cols-4", encabezado && "mt-10")}>
           {pasos.map((paso, i) => (
             <Reveal key={paso.titulo} as="li" delay={i * 0.06} y={10} className="flex gap-2 border-t border-accent/30 pt-3">
-              <span className="text-body-sm leading-title font-bold tabular-nums text-accent">
+              <span className="text-body-sm leading-title font-bold tabular-nums text-accent/80">
                 {String(i + 1).padStart(2, "0")}.
               </span>
               <span className="text-body-sm leading-title font-semibold text-text-primary">{paso.titulo}</span>

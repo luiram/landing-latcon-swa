@@ -25,7 +25,7 @@ export default function GlobalError({}: {
         }}
       >
         <div style={{ maxWidth: "26rem", textAlign: "center" }}>
-          <p style={{ fontSize: "1.5rem", fontWeight: 700, color: "#c2410c", margin: 0 }}>Latcon</p>
+          <p style={{ fontSize: "1.5rem", fontWeight: 700, color: "#f58220", margin: 0 }}>Latcon</p>
           <h1 style={{ marginTop: "1rem", fontSize: "1.15rem", fontWeight: 600, color: "#4a4b50" }}>
             Algo no cargó correctamente
           </h1>
@@ -37,7 +37,7 @@ export default function GlobalError({}: {
               type="button"
               onClick={() => window.location.reload()}
               style={{
-                background: "#c2410c",
+                background: "#f58220",
                 color: "#ffffff",
                 padding: "0.6rem 1.5rem",
                 borderRadius: "0.5rem",

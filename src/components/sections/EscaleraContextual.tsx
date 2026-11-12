@@ -36,7 +36,7 @@ export function EscaleraContextual({ escalones, actual, etiqueta }: EscaleraCont
                 <span
                   className={cn(
                     "block text-label font-bold tabular-nums tracking-label",
-                    esActual ? "text-on-accent" : "text-accent",
+                    esActual ? "text-on-accent/85" : "text-accent/80",
                   )}
                 >
                   {String(escalon.numero).padStart(2, "0")}

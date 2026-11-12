@@ -32,8 +32,7 @@
   --c-blue-600: #4b688c;
 
   /* Naranjas: UI y marca son valores distintos a propósito (ADR 0002) */
-  --c-orange-500: #f58220; /* acento original (landing-v1); 2,6:1 con blanco: no apto para texto (ADR 0002, paso 8a) */
-  --c-orange-700: #c2410c; /* acento de interfaz: CTA, etiquetas, foco · 5,2:1 con blanco (WCAG AA) */
+  --c-orange-500: #f58220; /* acento de interfaz: CTA, etiquetas, foco (naranja corporativo, ADR 0002) */
   --c-orange-logo: #ff6a00; /* solo el logo; no usar en interfaz */
   --c-charcoal-logo: #2b2f33; /* solo el logo; no usar en interfaz */
 
@@ -62,7 +61,7 @@
   --color-blue-mid-2: var(--c-blue-600);
 
   /* Acento */
-  --color-accent: var(--c-orange-700);
+  --color-accent: var(--c-orange-500);
   --color-on-accent: var(--c-white);
 
   /* Texto */

@@ -30,7 +30,7 @@ const ROLES: Record<RolTexto, string> = {
 const TONOS = {
   muted: "text-text-muted",
   normal: "text-text-primary",
-  accent: "text-accent",
+  accent: "text-accent/90",
   "on-dark": "text-text-on-dark",
   "on-dark-muted": "text-text-on-dark-muted",
 } as const;

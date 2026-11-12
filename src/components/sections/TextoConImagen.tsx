@@ -76,7 +76,7 @@ export function TextoConImagen({
                 <div className={cn(bloque.imagen ? imagenDerecha && "lg:order-1" : "max-w-prose-wide")}>
                   <Titulo nivel={encabezado ? 3 : 2} rol="title">
                     {numerado ? (
-                      <span className="mr-2 text-accent">{String(i + 1).padStart(2, "0")}.</span>
+                      <span className="mr-2 text-accent/80">{String(i + 1).padStart(2, "0")}.</span>
                     ) : null}
                     {bloque.titulo}
                   </Titulo>

@@ -31,7 +31,7 @@ export function Paso({ numero, titulo, texto, resultado, etiquetaResultado, clas
       )}
     >
       <Titulo nivel={3} rol="item" className="px-5 pt-5 pb-1">
-        <span className="font-bold tabular-nums text-accent">{String(numero).padStart(2, "0")}.</span>{" "}
+        <span className="font-bold tabular-nums text-accent/80">{String(numero).padStart(2, "0")}.</span>{" "}
         <span>{titulo}</span>
       </Titulo>
       {texto ? (

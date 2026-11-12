@@ -177,13 +177,13 @@ function emailShell(opts: { locale: LocaleCode; bodyHtml: string; showCta: boole
               <td style="padding:24px 32px 28px 32px;">
                 <p style="margin:0 0 4px 0; font-size:13px; color:#1f2937; font-weight:700;">Latcon Services</p>
                 <p style="margin:0 0 ${showCta ? "14" : "0"}px 0; font-size:13px; color:#6b7280; line-height:1.6;">
-                  ${phoneLabel}: <a href="${PHONE_WA_URL}" style="color:#c2410c; text-decoration:none;">${PHONE_DISPLAY}</a><br />
-                  <a href="${SITE_URL}" style="color:#c2410c; text-decoration:none;">latconservices.com</a>
+                  ${phoneLabel}: <a href="${PHONE_WA_URL}" style="color:#f58220; text-decoration:none;">${PHONE_DISPLAY}</a><br />
+                  <a href="${SITE_URL}" style="color:#f58220; text-decoration:none;">latconservices.com</a>
                 </p>
                 ${
                   showCta
                     ? `<p style="margin:0;">
-                  <a href="${AGENDA_URL}" style="color:#ffffff; background-color:#c2410c; text-decoration:none; font-weight:700; font-size:13px; padding:10px 18px; border-radius:6px; display:inline-block;">${ctaLabel}</a>
+                  <a href="${AGENDA_URL}" style="color:#ffffff; background-color:#f58220; text-decoration:none; font-weight:700; font-size:13px; padding:10px 18px; border-radius:6px; display:inline-block;">${ctaLabel}</a>
                 </p>`
                     : ""
                 }
