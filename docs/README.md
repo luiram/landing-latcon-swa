@@ -50,6 +50,7 @@
 
 | Documento | Contenido |
 |-----------|-----------|
+| [**lanzamiento.md**](./lanzamiento.md) | Lanzamiento del sitio (paso 8b): orden migración → API → front, comprobaciones y vuelta atrás |
 | [**produccion.md**](./produccion.md) | Runbook: qué está en prod, checklist, logs, reinicios, pruebas E2E |
 | [**azure-swa.md**](./azure-swa.md) | Arquitectura Azure, variables de entorno, CORS, SQL, reglas de negocio |
 | [**cloudflare-latconservices.md**](./cloudflare-latconservices.md) | DNS, dominio propio, SSL, pendientes Cloudflare |

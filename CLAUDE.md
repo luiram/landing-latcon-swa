@@ -11,6 +11,7 @@ No son sugerencias: son decisiones tomadas. Si algo parece equivocado, se discut
 - [docs/brief-drones.md](docs/brief-drones.md) — línea de drones
 - [docs/buenas-practicas-desarrollo.md](docs/buenas-practicas-desarrollo.md) — procedimiento de desarrollo LATCON
 - [docs/decisiones/](docs/decisiones/) — ADR: por qué se decidió cada cosa
+- [docs/lanzamiento.md](docs/lanzamiento.md) — orden y comprobaciones del lanzamiento (paso 8b)
 - [docs/utm.md](docs/utm.md) — convención de UTM y eventos de GA4: todo enlace o QR externo la sigue
 - [MEMORY.md](MEMORY.md) — bitácora de la landing (agenda, correo, Azure, SEO)
 
@@ -65,13 +66,14 @@ Actualizado: 2026-11-11 · Rama `sitio-web` (también en GitHub, sin PR) · En c
 | 7a · Legal | Aprobado. `/tratamiento-de-datos` y `/privacidad` con contenido en `src/config/sitio/legal.ts`; casilla de autorización en `/agenda`; migración `db/migrations/002_autorizacion_y_origen.sql` y la API guarda la autorización | `4112b59` |
 | 7b · Instrumentación | Aprobado. Origen de la visita (UTM, página de entrada, referente) en `sessionStorage` y en la reserva; eventos de GA4 (`cta_click`, `scroll_depth`, embudo de `/agenda`); convención en `docs/utm.md` | `b8a68dc` |
 | 7c · SEO por página | Aprobado. `sitemap.xml` sale de `PAGINAS` (menos `PAGINAS_SIN_PUBLICAR`); imagen OG y tarjeta de X en todas las páginas; JSON-LD `Organization` con datos legales y `BreadcrumbList` en interiores; títulos con el nombre de la página y el término de búsqueda | `a2eb0c2` |
-| 8a · Revisión final (local) | **En curso.** Hecho: página 404, `staticwebapp.config.json` en `public/`, idioma; auditoría de las 20 páginas; textos legales propios, Consent Mode básico, drones sin pulverización, casilla opcional de comunicaciones comerciales; sin obligación de RNBD (ADR 0007). Hallazgos importantes de la auditoría corregidos (títulos y descripciones SEO, frases sin comillas, escalones 1 y 6 con enlace, `/soluciones`, método de drones, H2 en `/metodo`, migas de 24 px, "Qué esperar" en `/agenda`). Hallazgos menores corregidos (todo el sitio en tú, enlaces con flecha de 24 px, título del home de 54 caracteres). Falta: decisiones abiertas y `docs/lanzamiento.md` | `21d229b` y siguientes |
+| 8a · Revisión final (local) | **En curso.** Hecho: página 404, `staticwebapp.config.json` en `public/`, idioma; auditoría de las 20 páginas; textos legales propios, Consent Mode básico, drones sin pulverización, casilla opcional de comunicaciones comerciales; sin obligación de RNBD (ADR 0007). Hallazgos importantes de la auditoría corregidos (títulos y descripciones SEO, frases sin comillas, escalones 1 y 6 con enlace, `/soluciones`, método de drones, H2 en `/metodo`, migas de 24 px, "Qué esperar" en `/agenda`). Hallazgos menores corregidos (todo el sitio en tú, enlaces con flecha de 24 px, título del home de 54 caracteres). Decisiones de 8a cerradas (avicultura, DJI, `/catalogo`, acento `#f58220`) y guía de lanzamiento en `docs/lanzamiento.md`. Falta: aprobación del paso | `21d229b` y siguientes |
 | 8b · Lanzamiento | Pendiente. Cada acción que publica se autoriza por separado | — |
 
 **Decisiones abiertas**
 
 | Decisión | Dónde | Se cierra en |
 |---|---|---|
+| Acento AA: opción B (botones `#f58220` con letra carbón `#2b2f33`, textos naranjas en `#b05508`). Preferida por la dirección; hoy sigue `#f58220` sin AA | ADR 0002 | Antes de publicar |
 | Alinear la paleta de la web con la de las propuestas (`#152033`, `#16A34A`) | ADR 0002 | Decisión de marca, sin paso |
 | Subir la etiqueta `landing-v1` a GitHub (`sitio-web` ya está, 2026-11-10) | ADR 0005 | Cuando se pida |
 | Publicar la migración `002` y la API en Azure (en ese orden, antes del front) | ADR 0006 | Paso 8 |
