@@ -1,6 +1,6 @@
 // Uso: node capturar-pagina.js <carpeta out> <ruta> <nombre>
 // Captura una página completa a 1440 y 390 px en capturas/<nombre>/. Para páginas nuevas sin
-// línea base, como /catalogo (paso 3), que se revisan a ojo y no contra landing-v1.
+// línea base, que se revisan a ojo y no contra landing-v1.
 const fs = require("fs");
 const path = require("path");
 const { servir, abrirNavegador, contextoAislado, SIN_ANIMACIONES, recorrer } = require("./comun");

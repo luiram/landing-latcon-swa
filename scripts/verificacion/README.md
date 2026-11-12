@@ -37,12 +37,12 @@ Desde `scripts/verificacion/`:
 | `node comparar.js landing-v1 actual` | Diferencia píxel a píxel (umbral 0) y estilo por estilo. Deja `*.diff.png` si hay diferencias | Cuando un paso no debe cambiar nada visible (paso 1) |
 | `node comparar-main.js out-landing-v1 ../../out [ruta]` | Compara solo el `<main>` de una página (por defecto `/`), sin header ni footer | Cuando cambia el chasis pero no el contenido (paso 2) |
 | `node comparar-secciones.js <out A> <out B> [ruta]` | Alto de cada sección, palabras en `<main>` y capturas del `<main>` de los dos exports | Cuando cambia el sistema pero no el contenido (paso 3) |
-| `node capturar-pagina.js ../../out /catalogo catalogo` | Captura una página completa a 1440 y 390 px; falla si hay error de consola o desborde horizontal | Páginas nuevas sin línea base |
+| `node capturar-pagina.js ../../out /metodo metodo` | Captura una página completa a 1440 y 390 px; falla si hay error de consola o desborde horizontal | Páginas nuevas sin línea base |
 | `node chasis.js ../../out` | 12 comprobaciones del header, desplegables, teclado, breadcrumb, títulos y móvil | Tras cualquier cambio en `src/components/layout/` |
 
 Todos terminan con código 1 si encuentran diferencias o fallas, salvo `comparar-secciones.js`, que solo informa. Las capturas quedan en `capturas/` (ignorado por git). Para guardar el export de un paso como referencia, se copia `out/` a `out-pasoN/` (ignorado por git).
 
-En Git Bash, una ruta como `/catalogo` se convierte en ruta de Windows: anteponer `MSYS_NO_PATHCONV=1`.
+En Git Bash, una ruta como `/metodo` se convierte en ruta de Windows: anteponer `MSYS_NO_PATHCONV=1`.
 
 Las comparaciones ocultan solo la barra fija (`.fixed`), no todo `header`: las secciones usan `<header>` para su encabezado.
 

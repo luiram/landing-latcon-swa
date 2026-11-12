@@ -56,7 +56,7 @@ Actualizado: 2026-11-11 · Rama `sitio-web` (también en GitHub, sin PR) · En c
 | 0 · Inventario | Aprobado | — (informe, sin cambios) |
 | 1 · Tokens, `CLAUDE.md`, ADR | Aprobado | `6d8975e` |
 | 2 · Chasis | Aprobado | `7ae5649` |
-| 3 · Las 8 secciones | Aprobado. Home rearmado con las secciones, mismo contenido; catálogo en `/catalogo` | `169bf4f` |
+| 3 · Las 8 secciones | Aprobado. Home rearmado con las secciones, mismo contenido; catálogo en `/catalogo` (eliminado en 8a) | `169bf4f` |
 | 4 · Home ensamblado | Aprobado. Secuencia de §1.5, contenido en `src/config/sitio/inicio.ts`; sale `About` | `f720cf5` |
 | 5 · `/sectores/energia-petroleo-gas` | Aprobado. Armada sin crear ni modificar componentes; contenido en `src/config/sitio/sectores.ts`. Tres hallazgos en el ADR 0003 | `c650421` |
 | 6a · Hallazgos del paso 5 y sectores | Aprobado. Los 4 sectores con una sola ruta (`/sectores/[sector]`) y `/sectores` | `d6104fe` |
@@ -72,14 +72,13 @@ Actualizado: 2026-11-11 · Rama `sitio-web` (también en GitHub, sin PR) · En c
 
 | Decisión | Dónde | Se cierra en |
 |---|---|---|
-| Publicar o no `/catalogo` (hoy `noindex` y sin enlaces) | ADR 0003 | Paso 8 |
 | Alinear la paleta de la web con la de las propuestas (`#152033`, `#16A34A`) | ADR 0002 | Decisión de marca, sin paso |
 | Subir la etiqueta `landing-v1` a GitHub (`sitio-web` ya está, 2026-11-10) | ADR 0005 | Cuando se pida |
 | Publicar la migración `002` y la API en Azure (en ese orden, antes del front) | ADR 0006 | Paso 8 |
 | Volver obligatoria la autorización en la API cuando salga el formulario sin casilla | ADR 0006 | Después del lanzamiento |
 | En GA4: subir la retención a 14 meses, registrar las dimensiones personalizadas y marcar `generate_lead` como evento clave | docs/utm.md | Paso 8 |
 
-**Decidido en el paso 8a (2026-11-11):** avicultura se publica como sector, con su entrada por la captura de datos (sensores IoT); `/soluciones/drones` no nombra a DJI ni a sus modelos.
+**Decidido en el paso 8a (2026-11-11):** avicultura se publica como sector, con su entrada por la captura de datos (sensores IoT); `/soluciones/drones` no nombra a DJI ni a sus modelos; `/catalogo` se elimina (ADR 0003).
 
 **Decidido en el paso 6:** escalón 6 en `/soluciones/agentes-ia`; `/recursos` queda fuera del sitio hasta definir su cadencia; `/lp/drones` se aplaza hasta tener video.
 
@@ -104,8 +103,8 @@ No hay suite de pruebas. La verificación visual contra `landing-v1` (capturas, 
 - Hosting: Azure Static Web Apps. `/agenda` llama a Azure Functions (`api/`) con SQL y correo ACS. Ver [docs/azure-swa.md](docs/azure-swa.md).
 - Tokens: `src/app/globals.css`. Primitivos en `:root` (`--c-*`), semánticos y escalas en `@theme`. Tailwind 4 no tiene `tailwind.config`. Toda escala nueva en `@theme` se registra también en `src/lib/cn.ts` (tailwind-merge).
 - Chasis: toda página se envuelve en `LayoutPagina` (`src/components/layout/`) y exporta sus metadatos con `metadatosPagina()` (`src/lib/metadatos.ts`). Una página nueva se registra en `PAGINAS` de `mapa.ts` y así entra sola al breadcrumb, a su JSON-LD y a `sitemap.xml`. El título de metadatos empieza por el nombre de la página y sigue con lo que se busca ("Anticipar: modelos predictivos y visión artificial"). Rutas, menú, footer y breadcrumb salen de `src/config/sitio/mapa.ts`; datos legales de `src/config/sitio/empresa.ts`.
-- Contenido: `src/config/sitio/` (el home en `inicio.ts`, solo español). `src/config/landing/{es,en,pt,fr}.ts` guarda la landing anterior y sus traducciones; hoy solo la lee `/catalogo`, y queda como referencia para la traducción. Cada página importa su contenido y se lo pasa a las secciones como props. El idioma está fijo en español durante la construcción (`IDIOMA_FIJO` en `LocaleProvider`, ADR 0004); no hay rutas por idioma.
-- Componentes (ADR 0003): primitivas en `src/components/ui/`, piezas en `src/components/piezas/`, secciones en `src/components/sections/`, además de `layout`, `motion` y `analytics`. Ninguna sección conoce su contenido. Antes de crear un componente, revisar `/catalogo` (`npm run dev` → http://localhost:3000/catalogo).
+- Contenido: `src/config/sitio/` (el home en `inicio.ts`, solo español). `src/config/landing/{es,en,pt,fr}.ts` guarda la landing anterior y sus traducciones; hoy la leen el layout (título y descripción por defecto) y el aviso de cookies, y queda como referencia para la traducción. Cada página importa su contenido y se lo pasa a las secciones como props. El idioma está fijo en español durante la construcción (`IDIOMA_FIJO` en `LocaleProvider`, ADR 0004); no hay rutas por idioma.
+- Componentes (ADR 0003): primitivas en `src/components/ui/`, piezas en `src/components/piezas/`, secciones en `src/components/sections/`, además de `layout`, `motion` y `analytics`. Ninguna sección conoce su contenido. Antes de crear un componente, revisar `src/components/sections/` y cómo lo usan las páginas (`grep -rn "<Seccion" src/app`).
 - Secciones: `variante="compact"` en el home y `"full"` en interiores. Con la lista vacía no se renderizan. Son componentes de servidor; solo `NavAnclas` y `Reveal` corren en el cliente.
 - Movimiento: `src/components/motion/Reveal.tsx` (aparición al hacer scroll).
 

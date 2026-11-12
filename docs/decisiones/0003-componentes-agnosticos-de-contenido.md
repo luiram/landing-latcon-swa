@@ -68,7 +68,7 @@ El ritmo vertical sale de los tokens `section-*`: `compact` usa 80/96/112 px y `
 - Los seis escalones ya vivían en `src/config/sitio/mapa.ts` (`ESCALONES`); `EscaleraContextual` los recibe de ahí.
 - `About` pasó a recibir props, pero es temporal: sale del home en el paso 4 y sus socios vuelven en `/nosotros` como `GridDeTarjetas`.
 - `LatconLogo.tsx`, `Card.tsx` y el hook `useLandingContent` se eliminaron: ya no los usaba nadie.
-- Catálogo interno en `/catalogo` (`noindex`, fuera del menú, del footer y del sitemap), con contenido real de `docs/contenido-sitio.md`. Su publicación se decide en el paso 8.
+- Catálogo interno en `/catalogo` (`noindex`, fuera del menú, del footer y del sitemap), con contenido real de `docs/contenido-sitio.md`. Su publicación se decide en el paso 8. *(Eliminado en el paso 8a, 2026-11-11: ver al final.)*
 - Las secciones son componentes de servidor; solo `NavAnclas` y `Reveal` corren en el cliente. El JS inicial del home bajó de 189 kB a 160 kB.
 
 ## Paso 4 · 2026-09-28
@@ -114,3 +114,10 @@ Sin cambios en componentes. Las seis páginas de escalón comparten una ruta (`s
 Sin cambios en componentes. `/metodo` (Hero · Timeline full · TextoConImagen · BandaCTA), `/nosotros` (Hero · GridDeTarjetas de socios · BandaCTA) y `/desarrollo-a-la-medida` (Hero · TextoConImagen · BandaCTA). Las etiquetas de `/nosotros` quedaron fuera: ninguna sección tiene un lugar para una fila de `Etiqueta`, y se decide aparte si vale una variante.
 
 **Balance del paso 6:** 18 páginas nuevas con 4 ajustes de componentes (todos en 6a) y ningún componente nuevo.
+
+## Paso 8a · `/catalogo` eliminado · 2026-11-11
+Se eliminó `/catalogo` (`src/app/catalogo/` y `src/config/sitio/catalogo.ts`) en vez de publicarlo. Era una página para el equipo, no para clientes, y varias muestras usaban texto de la landing anterior que ya no coincidía con el sitio.
+
+- La referencia de qué existe pasa a ser el código: `src/components/sections/` y las 20 páginas que las usan. Antes de crear un componente se busca su uso (`grep -rn "<NombreSeccion" src/app`).
+- Las variantes que solo tenían muestra en el catálogo (`GridDeTarjetas` con densidad normal, `TextoConImagen` compact, `Timeline` full) se conservan: la regla 5 pide las dos variantes en cada sección.
+- `src/config/landing/` se conserva: el layout y el aviso de cookies lo leen, y sirve de referencia para la traducción.

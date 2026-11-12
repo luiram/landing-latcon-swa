@@ -616,7 +616,7 @@ Los hitos 2 y 3 se retroalimentan: el sitio genera los leads que el CRM ordena, 
 # PARTE 5 · DECISIONES PENDIENTES
 
 - [ ] Confirmar hex del naranja del logo y definir tipografía web
-- [ ] Elegir herramienta de catálogo visual de componentes (Storybook u otra)
+- [x] Elegir herramienta de catálogo visual de componentes (Storybook u otra) → se usó `/catalogo` (paso 3) y se eliminó en el paso 8a (ADR 0003)
 - [ ] Confirmar el orden del menú: ¿Sectores antes que Soluciones?
 - [ ] Aprobar las etiquetas de menú y las frases descriptivas por familia
 - [ ] Confirmar las 4 páginas por problema de la etapa 4, o ajustarlas según lo que se busque de verdad
